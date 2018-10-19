@@ -1,0 +1,57 @@
+Input ASCII |M08002000010000c0000230000004511111111222222222222222022This is a Test Message|
+
+Data: M0800  2000010000c0000230000004511111....
+
+    Message type indicator (MTI)
+    Data elements, the fields of the message
+
+
+0800 MTI - 4 bytes
+
+Position 	Meaning
+0xxx 	ISO 8583-1:1987 version
+1xxx 	ISO 8583-2:1993 version
+2xxx 	ISO 8583-1:2003 version
+9xxx 	Private usage
+
+Message class
+Position two of the MTI specifies the overall purpose of the message.
+
+x8xx 	Network Management Message 	
+        Used for secure key exchange, logon, echo test 
+        and other network functions
+
+Message function
+
+Position three of the MTI specifies the message function which defines how the message should flow within the system. Requests are end-to-end messages (e.g., from acquirer to issuer and back with timeouts and automatic reversals in place), while advices are point-to-point messages (e.g., from terminal to acquirer, from acquirer to network, from network to issuer, with transmission guaranteed over each link, but not necessarily immediately).
+
+xx0x 	Request
+xx1x 	Request Response
+
+Message origin
+Position four of the MTI defines the location of the message source within the payment chain.
+Position 	Meaning
+xxx0 	Acquirer
+
+One or more bitmaps, indicating which data elements are present
+
+20000100 00c00002 30000004511111....
+
+Bit 3 of type N with value = 300000 (type:n6 Processing code)
+Bit 24 of type N with value = 045 
+      (type:n3 Function code (ISO 8583:1993)/Network International identifier 
+      (NII)
+Bit 41 of type N with value = 11111111
+      (type ans 16)
+      Card acceptor terminal identification
+Bit 42 of type A with value = 222222222222222
+Bit 63 of type LLL with value = 022This is a Test Message
+        That's great !!! The client send a correct message !!!
+
+Sending answer M0810
+2000010000c00002
+300000
+045
+11111111
+222222222222222
+022This is a Test Message

@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts">
+<xs:complexType name="SaleData">
+<xs:sequence>
+<xs:element minOccurs="0" name="Client" nillable="true" type="tns:ClientData"/>
+<xs:element minOccurs="0" name="Items" nillable="true" type="tns:SaleItems"/>
+<xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="SaleData" nillable="true" type="tns:SaleData"/>
+<xs:complexType name="ClientData">
+<xs:sequence>
+<xs:element name="Id" nillable="true" type="xs:string"/>
+<xs:element name="Name" nillable="true" type="xs:string"/>
+<xs:element name="CommercialOffice" nillable="true" type="tns:CommercialOffice"/>
+<xs:element name="IdentificationType" nillable="true" type="tns:IdentificationType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="ClientData" nillable="true" type="tns:ClientData"/>
+<xs:complexType name="CommercialOffice">
+<xs:sequence>
+<xs:element name="Id" type="xs:unsignedShort"/>
+<xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Province" nillable="true" type="tns:Province"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="CommercialOffice" nillable="true" type="tns:CommercialOffice"/>
+<xs:complexType name="Province">
+<xs:sequence>
+<xs:element name="Id" type="xs:unsignedByte"/>
+<xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="Province" nillable="true" type="tns:Province"/>
+<xs:complexType name="IdentificationType">
+<xs:sequence>
+<xs:element name="Id" type="xs:unsignedShort"/>
+<xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="IdentificationType" nillable="true" type="tns:IdentificationType"/>
+<xs:complexType name="SaleItems">
+<xs:sequence>
+<xs:element minOccurs="0" maxOccurs="unbounded" name="SaleItems" nillable="true" type="tns:SaleItem"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="SaleItems" nillable="true" type="tns:SaleItems"/>
+<xs:complexType name="SaleItem">
+<xs:sequence>
+<xs:element name="Type" type="tns:SaleItemType"/>
+<xs:element name="Product" nillable="true" type="tns:Product"/>
+<xs:element minOccurs="0" name="Count" nillable="true" type="xs:unsignedByte"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="SaleItem" nillable="true" type="tns:SaleItem"/>
+<xs:simpleType name="SaleItemType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="A"/>
+<xs:enumeration value="R"/>
+<xs:enumeration value="T"/>
+<xs:enumeration value="C"/>
+<xs:enumeration value="B"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:element name="SaleItemType" nillable="true" type="tns:SaleItemType"/>
+<xs:complexType name="Product">
+<xs:sequence>
+<xs:element minOccurs="0" name="Id" nillable="true" type="xs:unsignedInt"/>
+<xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Price" nillable="true" type="xs:float"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="Product" nillable="true" type="tns:Product"/>
+<xs:complexType name="SessionTicket">
+<xs:sequence>
+<xs:element name="Ticket" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="SessionTicket" nillable="true" type="tns:SessionTicket"/>
+<xs:complexType name="OperationResult">
+<xs:sequence>
+<xs:element name="ValueOk" type="xs:boolean"/>
+<xs:element name="Message" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="RequestTime" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="ResponseTime" type="xs:dateTime"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="OperationResult" nillable="true" type="tns:OperationResult"/>
+<xs:complexType name="UnknowErrorFault">
+<xs:sequence>
+<xs:element minOccurs="0" name="Message" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="UnknowErrorFault" nillable="true" type="tns:UnknowErrorFault"/>
+<xs:complexType name="NotValidSessionTicketFault">
+<xs:sequence>
+<xs:element minOccurs="0" name="Message" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="NotValidSessionTicketFault" nillable="true" type="tns:NotValidSessionTicketFault"/>
+<xs:complexType name="RechargeData">
+<xs:sequence>
+<xs:element name="PhoneNumber" nillable="true" type="xs:string"/>
+<xs:element name="Price" type="xs:float"/>
+<xs:element minOccurs="0" name="ProductCode" nillable="true" type="xs:unsignedInt"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="RechargeData" nillable="true" type="tns:RechargeData"/>
+<xs:complexType name="ActivationData">
+<xs:sequence>
+<xs:element name="Client" nillable="true" type="tns:ClientData"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="ActivationData" nillable="true" type="tns:ActivationData"/>
+<xs:complexType name="ArticleData">
+<xs:sequence>
+<xs:element name="Client" nillable="true" type="tns:ClientData"/>
+<xs:element name="Data" nillable="true" type="tns:SaleItem"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="ArticleData" nillable="true" type="tns:ArticleData"/>
+<xs:simpleType name="State">
+<xs:restriction base="xs:string">
+<xs:enumeration value="New"/>
+<xs:enumeration value="Accepted"/>
+<xs:enumeration value="Rejected"/>
+<xs:enumeration value="Canceled"/>
+<xs:enumeration value="Executed"/>
+<xs:enumeration value="Expired"/>
+<xs:enumeration value="Pending"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:element name="State" nillable="true" type="tns:State"/>
+<xs:complexType name="SaleOrder">
+<xs:sequence>
+<xs:element name="OrderId" type="xs:unsignedLong"/>
+<xs:element name="TransactionId" nillable="true" type="xs:string"/>
+<xs:element name="State" type="tns:State"/>
+<xs:element name="ItemStates" nillable="true" type="tns:SaleItemStates"/>
+<xs:element minOccurs="0" name="Client" nillable="true" type="tns:ClientData"/>
+<xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string"/>
+<xs:element name="CreatedDateTime" nillable="true" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="ExpiredDateTime" nillable="true" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="ProcessedDateTime" nillable="true" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="ExecutedDateTime" nillable="true" type="xs:dateTime"/>
+<xs:element name="Code" type="xs:unsignedLong"/>
+<xs:element minOccurs="0" name="Package" nillable="true" type="tns:Package"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="SaleOrder" nillable="true" type="tns:SaleOrder"/>
+<xs:complexType name="SaleItemStates">
+<xs:sequence>
+<xs:element minOccurs="0" maxOccurs="unbounded" name="SaleItemStates" nillable="true" type="tns:SaleItemState"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="SaleItemStates" nillable="true" type="tns:SaleItemStates"/>
+<xs:complexType name="SaleItemState">
+<xs:sequence>
+<xs:element name="Item" nillable="true" type="tns:SaleItem"/>
+<xs:element name="State" type="tns:State"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="SaleItemState" nillable="true" type="tns:SaleItemState"/>
+<xs:complexType name="Package">
+<xs:sequence>
+<xs:element name="Id" type="xs:unsignedInt"/>
+<xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Price" nillable="true" type="xs:float"/>
+<xs:element minOccurs="0" name="Enabled" nillable="true" type="xs:boolean"/>
+<xs:element minOccurs="0" name="InitialDate" nillable="true" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="FinalDate" nillable="true" type="xs:dateTime"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="Package" nillable="true" type="tns:Package"/>
+<xs:complexType name="SaleOrders">
+<xs:sequence>
+<xs:element minOccurs="0" maxOccurs="unbounded" name="SaleOrders" nillable="true" type="tns:SaleOrder"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="SaleOrders" nillable="true" type="tns:SaleOrders"/>
+<xs:complexType name="Products">
+<xs:sequence>
+<xs:element minOccurs="0" maxOccurs="unbounded" name="Products" nillable="true" type="tns:Product"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="Products" nillable="true" type="tns:Products"/>
+<xs:complexType name="CommercialOffices">
+<xs:sequence>
+<xs:element minOccurs="0" maxOccurs="unbounded" name="CommercialOffices" nillable="true" type="tns:CommercialOffice"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="CommercialOffices" nillable="true" type="tns:CommercialOffices"/>
+<xs:complexType name="Provinces">
+<xs:sequence>
+<xs:element minOccurs="0" maxOccurs="unbounded" name="Provinces" nillable="true" type="tns:Province"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="Provinces" nillable="true" type="tns:Provinces"/>
+<xs:complexType name="SaleFilter">
+<xs:sequence>
+<xs:element minOccurs="0" name="IsTypeFiltered" type="xs:boolean"/>
+<xs:element minOccurs="0" name="IsStateFiltered" type="xs:boolean"/>
+<xs:element name="Type" type="tns:SaleItemType"/>
+<xs:element name="State" type="tns:State"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="SaleFilter" nillable="true" type="tns:SaleFilter"/>
+<xs:complexType name="SaleOrdersSummary">
+<xs:sequence>
+<xs:element name="TransactionCount" type="xs:unsignedLong"/>
+<xs:element name="ItemCount" type="xs:unsignedLong"/>
+<xs:element minOccurs="0" name="Amount" type="xs:float"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="SaleOrdersSummary" nillable="true" type="tns:SaleOrdersSummary"/>
+<xs:complexType name="TransactionIdGeneratorNotFoundFault">
+<xs:sequence>
+<xs:element minOccurs="0" name="Message" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="TransactionIdGeneratorNotFoundFault" nillable="true" type="tns:TransactionIdGeneratorNotFoundFault"/>
+<xs:complexType name="Packages">
+<xs:sequence>
+<xs:element minOccurs="0" maxOccurs="unbounded" name="Packages" nillable="true" type="tns:Package"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="Packages" nillable="true" type="tns:Packages"/>
+<xs:complexType name="PackageData">
+<xs:sequence>
+<xs:element name="Package" nillable="true" type="tns:Package"/>
+<xs:element minOccurs="0" name="Client" nillable="true" type="tns:ClientData"/>
+<xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="PackageData" nillable="true" type="tns:PackageData"/>
+<xs:complexType name="PackageItems">
+<xs:sequence>
+<xs:element minOccurs="0" maxOccurs="unbounded" name="PackageItems" nillable="true" type="tns:PackageItem"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="PackageItems" nillable="true" type="tns:PackageItems"/>
+<xs:complexType name="PackageItem">
+<xs:sequence>
+<xs:element minOccurs="0" name="Package" nillable="true" type="tns:Package"/>
+<xs:element name="Item" nillable="true" type="tns:SaleItem"/>
+<xs:element minOccurs="0" name="Discount" nillable="true" type="xs:float"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="PackageItem" nillable="true" type="tns:PackageItem"/>
+<xs:complexType name="SaleUpdateData">
+<xs:sequence>
+<xs:element minOccurs="0" name="ClientName" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="CommercialOffice" nillable="true" type="tns:CommercialOffice"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="SaleUpdateData" nillable="true" type="tns:SaleUpdateData"/>
+<xs:complexType name="PackageStocks">
+<xs:sequence>
+<xs:element minOccurs="0" maxOccurs="unbounded" name="PackageStocks" nillable="true" type="tns:PackageStock"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="PackageStocks" nillable="true" type="tns:PackageStocks"/>
+<xs:complexType name="PackageStock">
+<xs:sequence>
+<xs:element name="PackageId" type="xs:unsignedInt"/>
+<xs:element name="CommercialOfficeId" type="xs:unsignedShort"/>
+<xs:element name="Stock" type="xs:unsignedInt"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="PackageStock" nillable="true" type="tns:PackageStock"/>
+<xs:complexType name="SaleRechargeOrder">
+<xs:sequence>
+<xs:element name="TransactionID" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Price" type="xs:float"/>
+<xs:element minOccurs="0" name="Date" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="RechargeStateCode" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="RechargeState" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="ProductId" type="xs:unsignedInt"/>
+<xs:element minOccurs="0" name="ProductName" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="ProductCurrency" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="SaleState" nillable="true" type="xs:string"/>
+<xs:element name="Message" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="SaleRechargeOrder" nillable="true" type="tns:SaleRechargeOrder"/>
+<xs:complexType name="IdentificationTypes">
+<xs:sequence>
+<xs:element minOccurs="0" maxOccurs="unbounded" name="IdentificationTypes" nillable="true" type="tns:IdentificationType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="IdentificationTypes" nillable="true" type="tns:IdentificationTypes"/>
+</xs:schema>
+

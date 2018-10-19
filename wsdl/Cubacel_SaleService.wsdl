@@ -1,0 +1,813 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="Sales" targetNamespace="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex">
+<wsp:Policy wsu:Id="SalesEndpoint_Secure_policy">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+<wsp:Policy>
+<sp:TransportToken>
+<wsp:Policy>
+<sp:HttpsToken RequireClientCertificate="false"/>
+</wsp:Policy>
+</sp:TransportToken>
+<sp:AlgorithmSuite>
+<wsp:Policy>
+<sp:Basic256/>
+</wsp:Policy>
+</sp:AlgorithmSuite>
+<sp:Layout>
+<wsp:Policy>
+<sp:Strict/>
+</wsp:Policy>
+</sp:Layout>
+</wsp:Policy>
+</sp:TransportBinding>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsdl:types>
+<xsd:schema targetNamespace="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/Imports">
+<xsd:import schemaLocation="Cubacel_SalesService.xsd0" namespace="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts"/>
+<xsd:import schemaLocation="Cubacel_SalesService.xsd2" namespace="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+<xsd:import schemaLocation="Cubacel_SalesService.xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+</xsd:schema>
+</wsdl:types>
+<wsdl:message name="SaleRequest">
+<wsdl:part name="parameters" element="tns:SaleRequest"/>
+</wsdl:message>
+<wsdl:message name="SaleResponse">
+<wsdl:part name="parameters" element="tns:SaleResponse"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_Sale_UnknowErrorFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q1:UnknowErrorFault" xmlns:q1="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_Sale_NotValidSessionTicketFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q2:NotValidSessionTicketFault" xmlns:q2="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="SaleRechargeRequest">
+<wsdl:part name="parameters" element="tns:SaleRechargeRequest"/>
+</wsdl:message>
+<wsdl:message name="SaleRechargeResponse">
+<wsdl:part name="parameters" element="tns:SaleRechargeResponse"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_SaleRecharge_NotValidSessionTicketFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q3:NotValidSessionTicketFault" xmlns:q3="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_SaleRecharge_UnknowErrorFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q4:UnknowErrorFault" xmlns:q4="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="SaleActivationRequest">
+<wsdl:part name="parameters" element="tns:SaleActivationRequest"/>
+</wsdl:message>
+<wsdl:message name="SaleActivationResponse">
+<wsdl:part name="parameters" element="tns:SaleActivationResponse"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_SaleActivation_NotValidSessionTicketFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q5:NotValidSessionTicketFault" xmlns:q5="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_SaleActivation_UnknowErrorFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q6:UnknowErrorFault" xmlns:q6="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="SaleArticleRequest">
+<wsdl:part name="parameters" element="tns:SaleArticleRequest"/>
+</wsdl:message>
+<wsdl:message name="SaleArticleResponse">
+<wsdl:part name="parameters" element="tns:SaleArticleResponse"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_SaleArticle_UnknowErrorFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q7:UnknowErrorFault" xmlns:q7="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_SaleArticle_NotValidSessionTicketFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q8:NotValidSessionTicketFault" xmlns:q8="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="GetSaleStateRequest">
+<wsdl:part name="parameters" element="tns:GetSaleStateRequest"/>
+</wsdl:message>
+<wsdl:message name="GetSaleStateResponse">
+<wsdl:part name="parameters" element="tns:GetSaleStateResponse"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_GetSaleState_NotValidSessionTicketFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q9:NotValidSessionTicketFault" xmlns:q9="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_GetSaleState_UnknowErrorFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q10:UnknowErrorFault" xmlns:q10="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="GetSaleRequest">
+<wsdl:part name="parameters" element="tns:GetSaleRequest"/>
+</wsdl:message>
+<wsdl:message name="GetSaleResponse">
+<wsdl:part name="parameters" element="tns:GetSaleResponse"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_GetSale_UnknowErrorFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q11:UnknowErrorFault" xmlns:q11="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_GetSale_NotValidSessionTicketFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q12:NotValidSessionTicketFault" xmlns:q12="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="GetSalesRequest">
+<wsdl:part name="parameters" element="tns:GetSalesRequest"/>
+</wsdl:message>
+<wsdl:message name="GetSalesResponse">
+<wsdl:part name="parameters" element="tns:GetSalesResponse"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_GetSales_NotValidSessionTicketFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q13:NotValidSessionTicketFault" xmlns:q13="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_GetSales_UnknowErrorFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q14:UnknowErrorFault" xmlns:q14="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="GetProductsRequest">
+<wsdl:part name="parameters" element="tns:GetProductsRequest"/>
+</wsdl:message>
+<wsdl:message name="GetProductsResponse">
+<wsdl:part name="parameters" element="tns:GetProductsResponse"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_GetProducts_NotValidSessionTicketFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q15:NotValidSessionTicketFault" xmlns:q15="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_GetProducts_UnknowErrorFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q16:UnknowErrorFault" xmlns:q16="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="GetCommercialOfficesRequest">
+<wsdl:part name="parameters" element="tns:GetCommercialOfficesRequest"/>
+</wsdl:message>
+<wsdl:message name="GetCommercialOfficesResponse">
+<wsdl:part name="parameters" element="tns:GetCommercialOfficesResponse"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_GetCommercialOffices_UnknowErrorFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q17:UnknowErrorFault" xmlns:q17="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_GetCommercialOffices_NotValidSessionTicketFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q18:NotValidSessionTicketFault" xmlns:q18="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="GetProvincesRequest">
+<wsdl:part name="parameters" element="tns:GetProvincesRequest"/>
+</wsdl:message>
+<wsdl:message name="GetProvincesResponse">
+<wsdl:part name="parameters" element="tns:GetProvincesResponse"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_GetProvinces_UnknowErrorFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q19:UnknowErrorFault" xmlns:q19="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_GetProvinces_NotValidSessionTicketFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q20:NotValidSessionTicketFault" xmlns:q20="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="CheckPhoneRequest">
+<wsdl:part name="parameters" element="tns:CheckPhoneRequest"/>
+</wsdl:message>
+<wsdl:message name="CheckPhoneResponse">
+<wsdl:part name="parameters" element="tns:CheckPhoneResponse"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_CheckPhone_NotValidSessionTicketFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q21:NotValidSessionTicketFault" xmlns:q21="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_CheckPhone_UnknowErrorFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q22:UnknowErrorFault" xmlns:q22="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="GetBalanceRequest">
+<wsdl:part name="parameters" element="tns:GetBalanceRequest"/>
+</wsdl:message>
+<wsdl:message name="GetBalanceResponse">
+<wsdl:part name="parameters" element="tns:GetBalanceResponse"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_GetBalance_NotValidSessionTicketFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q23:NotValidSessionTicketFault" xmlns:q23="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_GetBalance_UnknowErrorFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q24:UnknowErrorFault" xmlns:q24="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="GetSalesSummaryRequest">
+<wsdl:part name="parameters" element="tns:GetSalesSummaryRequest"/>
+</wsdl:message>
+<wsdl:message name="GetSalesSummaryResponse">
+<wsdl:part name="parameters" element="tns:GetSalesSummaryResponse"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_GetSalesSummary_NotValidSessionTicketFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q25:NotValidSessionTicketFault" xmlns:q25="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_GetSalesSummary_UnknowErrorFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q26:UnknowErrorFault" xmlns:q26="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="GetNextTransactionIdRequest">
+<wsdl:part name="parameters" element="tns:GetNextTransactionIdRequest"/>
+</wsdl:message>
+<wsdl:message name="GetNextTransactionIdResponse">
+<wsdl:part name="parameters" element="tns:GetNextTransactionIdResponse"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_GetNextTransactionId_UnknowErrorFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q27:UnknowErrorFault" xmlns:q27="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_GetNextTransactionId_NotValidSessionTicketFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q28:NotValidSessionTicketFault" xmlns:q28="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_GetNextTransactionId_TransactionIdGeneratorNotFoundFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q29:TransactionIdGeneratorNotFoundFault" xmlns:q29="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="GetPackagesRequest">
+<wsdl:part name="parameters" element="tns:GetPackagesRequest"/>
+</wsdl:message>
+<wsdl:message name="GetPackagesResponse">
+<wsdl:part name="parameters" element="tns:GetPackagesResponse"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_GetPackages_NotValidSessionTicketFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q30:NotValidSessionTicketFault" xmlns:q30="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_GetPackages_UnknowErrorFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q31:UnknowErrorFault" xmlns:q31="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="SalePackageRequest">
+<wsdl:part name="parameters" element="tns:SalePackageRequest"/>
+</wsdl:message>
+<wsdl:message name="SalePackageResponse">
+<wsdl:part name="parameters" element="tns:SalePackageResponse"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_SalePackage_UnknowErrorFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q32:UnknowErrorFault" xmlns:q32="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_SalePackage_NotValidSessionTicketFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q33:NotValidSessionTicketFault" xmlns:q33="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="GetPackageItemsRequest">
+<wsdl:part name="parameters" element="tns:GetPackageItemsRequest"/>
+</wsdl:message>
+<wsdl:message name="GetPackageItemsResponse">
+<wsdl:part name="parameters" element="tns:GetPackageItemsResponse"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_GetPackageItems_UnknowErrorFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q34:UnknowErrorFault" xmlns:q34="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_GetPackageItems_NotValidSessionTicketFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q35:NotValidSessionTicketFault" xmlns:q35="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="UpdateSaleRequest">
+<wsdl:part name="parameters" element="tns:UpdateSaleRequest"/>
+</wsdl:message>
+<wsdl:message name="UpdateSaleResponse">
+<wsdl:part name="parameters" element="tns:UpdateSaleResponse"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_UpdateSale_UnknowErrorFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q36:UnknowErrorFault" xmlns:q36="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_UpdateSale_NotValidSessionTicketFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q37:NotValidSessionTicketFault" xmlns:q37="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="CancelSaleRequest">
+<wsdl:part name="parameters" element="tns:CancelSaleRequest"/>
+</wsdl:message>
+<wsdl:message name="CancelSaleResponse">
+<wsdl:part name="parameters" element="tns:CancelSaleResponse"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_CancelSale_NotValidSessionTicketFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q38:NotValidSessionTicketFault" xmlns:q38="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_CancelSale_UnknowErrorFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q39:UnknowErrorFault" xmlns:q39="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="CheckActivationSaleRequest">
+<wsdl:part name="parameters" element="tns:CheckActivationSaleRequest"/>
+</wsdl:message>
+<wsdl:message name="CheckActivationSaleResponse">
+<wsdl:part name="parameters" element="tns:CheckActivationSaleResponse"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_CheckActivationSale_NotValidSessionTicketFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q40:NotValidSessionTicketFault" xmlns:q40="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_CheckActivationSale_UnknowErrorFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q41:UnknowErrorFault" xmlns:q41="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="GetPackageStocksRequest">
+<wsdl:part name="parameters" element="tns:GetPackageStocksRequest"/>
+</wsdl:message>
+<wsdl:message name="GetPackageStocksResponse">
+<wsdl:part name="parameters" element="tns:GetPackageStocksResponse"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_GetPackageStocks_UnknowErrorFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q42:UnknowErrorFault" xmlns:q42="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_GetPackageStocks_NotValidSessionTicketFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q43:NotValidSessionTicketFault" xmlns:q43="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="GetSaleRechargeRequest">
+<wsdl:part name="parameters" element="tns:GetSaleRechargeRequest"/>
+</wsdl:message>
+<wsdl:message name="GetSaleRechargeResponse">
+<wsdl:part name="parameters" element="tns:GetSaleRechargeResponse"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_GetSaleRecharge_NotValidSessionTicketFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q44:NotValidSessionTicketFault" xmlns:q44="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_GetSaleRecharge_UnknowErrorFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q45:UnknowErrorFault" xmlns:q45="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="GetIdentificationTypesRequest">
+<wsdl:part name="parameters" element="tns:GetIdentificationTypesRequest"/>
+</wsdl:message>
+<wsdl:message name="GetIdentificationTypesResponse">
+<wsdl:part name="parameters" element="tns:GetIdentificationTypesResponse"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_GetIdentificationTypes_UnknowErrorFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q46:UnknowErrorFault" xmlns:q46="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="SalesContract_GetIdentificationTypes_NotValidSessionTicketFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q47:NotValidSessionTicketFault" xmlns:q47="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:portType name="SalesContract">
+<wsdl:operation name="Sale">
+<wsdl:input wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.SalesContract.Sale" name="SaleRequest" message="tns:SaleRequest"/>
+<wsdl:output wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/SaleResponse" name="SaleResponse" message="tns:SaleResponse"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/SaleUnknowErrorFaultFault" name="UnknowErrorFaultFault" message="tns:SalesContract_Sale_UnknowErrorFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/SaleNotValidSessionTicketFaultFault" name="NotValidSessionTicketFaultFault" message="tns:SalesContract_Sale_NotValidSessionTicketFaultFault_FaultMessage"/>
+</wsdl:operation>
+<wsdl:operation name="SaleRecharge">
+<wsdl:input wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.SalesContract.SaleRecharge" name="SaleRechargeRequest" message="tns:SaleRechargeRequest"/>
+<wsdl:output wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/SaleRechargeResponse" name="SaleRechargeResponse" message="tns:SaleRechargeResponse"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/SaleRechargeNotValidSessionTicketFaultFault" name="NotValidSessionTicketFaultFault" message="tns:SalesContract_SaleRecharge_NotValidSessionTicketFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/SaleRechargeUnknowErrorFaultFault" name="UnknowErrorFaultFault" message="tns:SalesContract_SaleRecharge_UnknowErrorFaultFault_FaultMessage"/>
+</wsdl:operation>
+<wsdl:operation name="SaleActivation">
+<wsdl:input wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.SalesContract.SaleActivation" name="SaleActivationRequest" message="tns:SaleActivationRequest"/>
+<wsdl:output wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/SaleActivationResponse" name="SaleActivationResponse" message="tns:SaleActivationResponse"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/SaleActivationNotValidSessionTicketFaultFault" name="NotValidSessionTicketFaultFault" message="tns:SalesContract_SaleActivation_NotValidSessionTicketFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/SaleActivationUnknowErrorFaultFault" name="UnknowErrorFaultFault" message="tns:SalesContract_SaleActivation_UnknowErrorFaultFault_FaultMessage"/>
+</wsdl:operation>
+<wsdl:operation name="SaleArticle">
+<wsdl:input wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.SalesContract.SaleArticle" name="SaleArticleRequest" message="tns:SaleArticleRequest"/>
+<wsdl:output wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/SaleArticleResponse" name="SaleArticleResponse" message="tns:SaleArticleResponse"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/SaleArticleUnknowErrorFaultFault" name="UnknowErrorFaultFault" message="tns:SalesContract_SaleArticle_UnknowErrorFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/SaleArticleNotValidSessionTicketFaultFault" name="NotValidSessionTicketFaultFault" message="tns:SalesContract_SaleArticle_NotValidSessionTicketFaultFault_FaultMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetSaleState">
+<wsdl:input wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.SalesContract.GetSaleState" name="GetSaleStateRequest" message="tns:GetSaleStateRequest"/>
+<wsdl:output wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetSaleStateResponse" name="GetSaleStateResponse" message="tns:GetSaleStateResponse"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetSaleStateNotValidSessionTicketFaultFault" name="NotValidSessionTicketFaultFault" message="tns:SalesContract_GetSaleState_NotValidSessionTicketFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetSaleStateUnknowErrorFaultFault" name="UnknowErrorFaultFault" message="tns:SalesContract_GetSaleState_UnknowErrorFaultFault_FaultMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetSale">
+<wsdl:input wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.SalesContract.GetSale" name="GetSaleRequest" message="tns:GetSaleRequest"/>
+<wsdl:output wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetSaleResponse" name="GetSaleResponse" message="tns:GetSaleResponse"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetSaleUnknowErrorFaultFault" name="UnknowErrorFaultFault" message="tns:SalesContract_GetSale_UnknowErrorFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetSaleNotValidSessionTicketFaultFault" name="NotValidSessionTicketFaultFault" message="tns:SalesContract_GetSale_NotValidSessionTicketFaultFault_FaultMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetSales">
+<wsdl:input wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.SalesContract.GetSales" name="GetSalesRequest" message="tns:GetSalesRequest"/>
+<wsdl:output wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetSalesResponse" name="GetSalesResponse" message="tns:GetSalesResponse"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetSalesNotValidSessionTicketFaultFault" name="NotValidSessionTicketFaultFault" message="tns:SalesContract_GetSales_NotValidSessionTicketFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetSalesUnknowErrorFaultFault" name="UnknowErrorFaultFault" message="tns:SalesContract_GetSales_UnknowErrorFaultFault_FaultMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetProducts">
+<wsdl:input wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.SalesContract.GetProducts" name="GetProductsRequest" message="tns:GetProductsRequest"/>
+<wsdl:output wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetProductsResponse" name="GetProductsResponse" message="tns:GetProductsResponse"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetProductsNotValidSessionTicketFaultFault" name="NotValidSessionTicketFaultFault" message="tns:SalesContract_GetProducts_NotValidSessionTicketFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetProductsUnknowErrorFaultFault" name="UnknowErrorFaultFault" message="tns:SalesContract_GetProducts_UnknowErrorFaultFault_FaultMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetCommercialOffices">
+<wsdl:input wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.SalesContract.GetCommercialOffices" name="GetCommercialOfficesRequest" message="tns:GetCommercialOfficesRequest"/>
+<wsdl:output wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetCommercialOfficesResponse" name="GetCommercialOfficesResponse" message="tns:GetCommercialOfficesResponse"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetCommercialOfficesUnknowErrorFaultFault" name="UnknowErrorFaultFault" message="tns:SalesContract_GetCommercialOffices_UnknowErrorFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetCommercialOfficesNotValidSessionTicketFaultFault" name="NotValidSessionTicketFaultFault" message="tns:SalesContract_GetCommercialOffices_NotValidSessionTicketFaultFault_FaultMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetProvinces">
+<wsdl:input wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.SalesContract.GetProvinces" name="GetProvincesRequest" message="tns:GetProvincesRequest"/>
+<wsdl:output wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetProvincesResponse" name="GetProvincesResponse" message="tns:GetProvincesResponse"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetProvincesUnknowErrorFaultFault" name="UnknowErrorFaultFault" message="tns:SalesContract_GetProvinces_UnknowErrorFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetProvincesNotValidSessionTicketFaultFault" name="NotValidSessionTicketFaultFault" message="tns:SalesContract_GetProvinces_NotValidSessionTicketFaultFault_FaultMessage"/>
+</wsdl:operation>
+<wsdl:operation name="CheckPhone">
+<wsdl:input wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.SalesContract.CheckPhone" name="CheckPhoneRequest" message="tns:CheckPhoneRequest"/>
+<wsdl:output wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/CheckPhoneResponse" name="CheckPhoneResponse" message="tns:CheckPhoneResponse"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/CheckPhoneNotValidSessionTicketFaultFault" name="NotValidSessionTicketFaultFault" message="tns:SalesContract_CheckPhone_NotValidSessionTicketFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/CheckPhoneUnknowErrorFaultFault" name="UnknowErrorFaultFault" message="tns:SalesContract_CheckPhone_UnknowErrorFaultFault_FaultMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetBalance">
+<wsdl:input wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.SalesContract.GetBalance" name="GetBalanceRequest" message="tns:GetBalanceRequest"/>
+<wsdl:output wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetBalanceResponse" name="GetBalanceResponse" message="tns:GetBalanceResponse"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetBalanceNotValidSessionTicketFaultFault" name="NotValidSessionTicketFaultFault" message="tns:SalesContract_GetBalance_NotValidSessionTicketFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetBalanceUnknowErrorFaultFault" name="UnknowErrorFaultFault" message="tns:SalesContract_GetBalance_UnknowErrorFaultFault_FaultMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetSalesSummary">
+<wsdl:input wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.SalesContract.GetSalesSummary" name="GetSalesSummaryRequest" message="tns:GetSalesSummaryRequest"/>
+<wsdl:output wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetSalesSummaryResponse" name="GetSalesSummaryResponse" message="tns:GetSalesSummaryResponse"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetSalesSummaryNotValidSessionTicketFaultFault" name="NotValidSessionTicketFaultFault" message="tns:SalesContract_GetSalesSummary_NotValidSessionTicketFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetSalesSummaryUnknowErrorFaultFault" name="UnknowErrorFaultFault" message="tns:SalesContract_GetSalesSummary_UnknowErrorFaultFault_FaultMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetNextTransactionId">
+<wsdl:input wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.SalesContract.GetNextTransactionId" name="GetNextTransactionIdRequest" message="tns:GetNextTransactionIdRequest"/>
+<wsdl:output wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetNextTransactionIdResponse" name="GetNextTransactionIdResponse" message="tns:GetNextTransactionIdResponse"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetNextTransactionIdUnknowErrorFaultFault" name="UnknowErrorFaultFault" message="tns:SalesContract_GetNextTransactionId_UnknowErrorFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetNextTransactionIdNotValidSessionTicketFaultFault" name="NotValidSessionTicketFaultFault" message="tns:SalesContract_GetNextTransactionId_NotValidSessionTicketFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetNextTransactionIdTransactionIdGeneratorNotFoundFaultFault" name="TransactionIdGeneratorNotFoundFaultFault" message="tns:SalesContract_GetNextTransactionId_TransactionIdGeneratorNotFoundFaultFault_FaultMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetPackages">
+<wsdl:input wsaw:Action="GetPackages" name="GetPackagesRequest" message="tns:GetPackagesRequest"/>
+<wsdl:output wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetPackagesResponse" name="GetPackagesResponse" message="tns:GetPackagesResponse"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetPackagesNotValidSessionTicketFaultFault" name="NotValidSessionTicketFaultFault" message="tns:SalesContract_GetPackages_NotValidSessionTicketFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetPackagesUnknowErrorFaultFault" name="UnknowErrorFaultFault" message="tns:SalesContract_GetPackages_UnknowErrorFaultFault_FaultMessage"/>
+</wsdl:operation>
+<wsdl:operation name="SalePackage">
+<wsdl:input wsaw:Action="SalePackage" name="SalePackageRequest" message="tns:SalePackageRequest"/>
+<wsdl:output wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/SalePackageResponse" name="SalePackageResponse" message="tns:SalePackageResponse"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/SalePackageUnknowErrorFaultFault" name="UnknowErrorFaultFault" message="tns:SalesContract_SalePackage_UnknowErrorFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/SalePackageNotValidSessionTicketFaultFault" name="NotValidSessionTicketFaultFault" message="tns:SalesContract_SalePackage_NotValidSessionTicketFaultFault_FaultMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetPackageItems">
+<wsdl:input wsaw:Action="GetPackageItems" name="GetPackageItemsRequest" message="tns:GetPackageItemsRequest"/>
+<wsdl:output wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetPackageItemsResponse" name="GetPackageItemsResponse" message="tns:GetPackageItemsResponse"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetPackageItemsUnknowErrorFaultFault" name="UnknowErrorFaultFault" message="tns:SalesContract_GetPackageItems_UnknowErrorFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetPackageItemsNotValidSessionTicketFaultFault" name="NotValidSessionTicketFaultFault" message="tns:SalesContract_GetPackageItems_NotValidSessionTicketFaultFault_FaultMessage"/>
+</wsdl:operation>
+<wsdl:operation name="UpdateSale">
+<wsdl:input wsaw:Action="UpdateSale" name="UpdateSaleRequest" message="tns:UpdateSaleRequest"/>
+<wsdl:output wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/UpdateSaleResponse" name="UpdateSaleResponse" message="tns:UpdateSaleResponse"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/UpdateSaleUnknowErrorFaultFault" name="UnknowErrorFaultFault" message="tns:SalesContract_UpdateSale_UnknowErrorFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/UpdateSaleNotValidSessionTicketFaultFault" name="NotValidSessionTicketFaultFault" message="tns:SalesContract_UpdateSale_NotValidSessionTicketFaultFault_FaultMessage"/>
+</wsdl:operation>
+<wsdl:operation name="CancelSale">
+<wsdl:input wsaw:Action="CancelSale" name="CancelSaleRequest" message="tns:CancelSaleRequest"/>
+<wsdl:output wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/CancelSaleResponse" name="CancelSaleResponse" message="tns:CancelSaleResponse"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/CancelSaleNotValidSessionTicketFaultFault" name="NotValidSessionTicketFaultFault" message="tns:SalesContract_CancelSale_NotValidSessionTicketFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/CancelSaleUnknowErrorFaultFault" name="UnknowErrorFaultFault" message="tns:SalesContract_CancelSale_UnknowErrorFaultFault_FaultMessage"/>
+</wsdl:operation>
+<wsdl:operation name="CheckActivationSale">
+<wsdl:input wsaw:Action="CheckActivationSale" name="CheckActivationSaleRequest" message="tns:CheckActivationSaleRequest"/>
+<wsdl:output wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/CheckActivationSaleResponse" name="CheckActivationSaleResponse" message="tns:CheckActivationSaleResponse"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/CheckActivationSaleNotValidSessionTicketFaultFault" name="NotValidSessionTicketFaultFault" message="tns:SalesContract_CheckActivationSale_NotValidSessionTicketFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/CheckActivationSaleUnknowErrorFaultFault" name="UnknowErrorFaultFault" message="tns:SalesContract_CheckActivationSale_UnknowErrorFaultFault_FaultMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetPackageStocks">
+<wsdl:input wsaw:Action="GetPackageStocks" name="GetPackageStocksRequest" message="tns:GetPackageStocksRequest"/>
+<wsdl:output wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetPackageStocksResponse" name="GetPackageStocksResponse" message="tns:GetPackageStocksResponse"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetPackageStocksUnknowErrorFaultFault" name="UnknowErrorFaultFault" message="tns:SalesContract_GetPackageStocks_UnknowErrorFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetPackageStocksNotValidSessionTicketFaultFault" name="NotValidSessionTicketFaultFault" message="tns:SalesContract_GetPackageStocks_NotValidSessionTicketFaultFault_FaultMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetSaleRecharge">
+<wsdl:input wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.SalesContract.GetSaleRecharge" name="GetSaleRechargeRequest" message="tns:GetSaleRechargeRequest"/>
+<wsdl:output wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetSaleRechargeResponse" name="GetSaleRechargeResponse" message="tns:GetSaleRechargeResponse"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetSaleRechargeNotValidSessionTicketFaultFault" name="NotValidSessionTicketFaultFault" message="tns:SalesContract_GetSaleRecharge_NotValidSessionTicketFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetSaleRechargeUnknowErrorFaultFault" name="UnknowErrorFaultFault" message="tns:SalesContract_GetSaleRecharge_UnknowErrorFaultFault_FaultMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetIdentificationTypes">
+<wsdl:input wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.SalesContract.GetIdentificationTypes" name="GetIdentificationTypesRequest" message="tns:GetIdentificationTypesRequest"/>
+<wsdl:output wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetIdentificationTypesResponse" name="GetIdentificationTypesResponse" message="tns:GetIdentificationTypesResponse"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetIdentificationTypesUnknowErrorFaultFault" name="UnknowErrorFaultFault" message="tns:SalesContract_GetIdentificationTypes_UnknowErrorFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/SalesContract/GetIdentificationTypesNotValidSessionTicketFaultFault" name="NotValidSessionTicketFaultFault" message="tns:SalesContract_GetIdentificationTypes_NotValidSessionTicketFaultFault_FaultMessage"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="SalesEndpoint_Secure" type="tns:SalesContract">
+<wsp:PolicyReference URI="#SalesEndpoint_Secure_policy"/>
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="Sale">
+<soap:operation soapAction="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.SalesContract.Sale" style="document"/>
+<wsdl:input name="SaleRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="SaleResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="UnknowErrorFaultFault">
+<soap:fault name="UnknowErrorFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="NotValidSessionTicketFaultFault">
+<soap:fault name="NotValidSessionTicketFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="SaleRecharge">
+<soap:operation soapAction="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.SalesContract.SaleRecharge" style="document"/>
+<wsdl:input name="SaleRechargeRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="SaleRechargeResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="NotValidSessionTicketFaultFault">
+<soap:fault name="NotValidSessionTicketFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="UnknowErrorFaultFault">
+<soap:fault name="UnknowErrorFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="SaleActivation">
+<soap:operation soapAction="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.SalesContract.SaleActivation" style="document"/>
+<wsdl:input name="SaleActivationRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="SaleActivationResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="NotValidSessionTicketFaultFault">
+<soap:fault name="NotValidSessionTicketFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="UnknowErrorFaultFault">
+<soap:fault name="UnknowErrorFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="SaleArticle">
+<soap:operation soapAction="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.SalesContract.SaleArticle" style="document"/>
+<wsdl:input name="SaleArticleRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="SaleArticleResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="UnknowErrorFaultFault">
+<soap:fault name="UnknowErrorFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="NotValidSessionTicketFaultFault">
+<soap:fault name="NotValidSessionTicketFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="GetSaleState">
+<soap:operation soapAction="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.SalesContract.GetSaleState" style="document"/>
+<wsdl:input name="GetSaleStateRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="GetSaleStateResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="NotValidSessionTicketFaultFault">
+<soap:fault name="NotValidSessionTicketFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="UnknowErrorFaultFault">
+<soap:fault name="UnknowErrorFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="GetSale">
+<soap:operation soapAction="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.SalesContract.GetSale" style="document"/>
+<wsdl:input name="GetSaleRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="GetSaleResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="UnknowErrorFaultFault">
+<soap:fault name="UnknowErrorFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="NotValidSessionTicketFaultFault">
+<soap:fault name="NotValidSessionTicketFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="GetSales">
+<soap:operation soapAction="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.SalesContract.GetSales" style="document"/>
+<wsdl:input name="GetSalesRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="GetSalesResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="NotValidSessionTicketFaultFault">
+<soap:fault name="NotValidSessionTicketFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="UnknowErrorFaultFault">
+<soap:fault name="UnknowErrorFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="GetProducts">
+<soap:operation soapAction="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.SalesContract.GetProducts" style="document"/>
+<wsdl:input name="GetProductsRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="GetProductsResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="NotValidSessionTicketFaultFault">
+<soap:fault name="NotValidSessionTicketFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="UnknowErrorFaultFault">
+<soap:fault name="UnknowErrorFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="GetCommercialOffices">
+<soap:operation soapAction="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.SalesContract.GetCommercialOffices" style="document"/>
+<wsdl:input name="GetCommercialOfficesRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="GetCommercialOfficesResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="UnknowErrorFaultFault">
+<soap:fault name="UnknowErrorFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="NotValidSessionTicketFaultFault">
+<soap:fault name="NotValidSessionTicketFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="GetProvinces">
+<soap:operation soapAction="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.SalesContract.GetProvinces" style="document"/>
+<wsdl:input name="GetProvincesRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="GetProvincesResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="UnknowErrorFaultFault">
+<soap:fault name="UnknowErrorFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="NotValidSessionTicketFaultFault">
+<soap:fault name="NotValidSessionTicketFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="CheckPhone">
+<soap:operation soapAction="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.SalesContract.CheckPhone" style="document"/>
+<wsdl:input name="CheckPhoneRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="CheckPhoneResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="NotValidSessionTicketFaultFault">
+<soap:fault name="NotValidSessionTicketFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="UnknowErrorFaultFault">
+<soap:fault name="UnknowErrorFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="GetBalance">
+<soap:operation soapAction="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.SalesContract.GetBalance" style="document"/>
+<wsdl:input name="GetBalanceRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="GetBalanceResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="NotValidSessionTicketFaultFault">
+<soap:fault name="NotValidSessionTicketFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="UnknowErrorFaultFault">
+<soap:fault name="UnknowErrorFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="GetSalesSummary">
+<soap:operation soapAction="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.SalesContract.GetSalesSummary" style="document"/>
+<wsdl:input name="GetSalesSummaryRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="GetSalesSummaryResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="NotValidSessionTicketFaultFault">
+<soap:fault name="NotValidSessionTicketFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="UnknowErrorFaultFault">
+<soap:fault name="UnknowErrorFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="GetNextTransactionId">
+<soap:operation soapAction="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.SalesContract.GetNextTransactionId" style="document"/>
+<wsdl:input name="GetNextTransactionIdRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="GetNextTransactionIdResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="UnknowErrorFaultFault">
+<soap:fault name="UnknowErrorFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="NotValidSessionTicketFaultFault">
+<soap:fault name="NotValidSessionTicketFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="TransactionIdGeneratorNotFoundFaultFault">
+<soap:fault name="TransactionIdGeneratorNotFoundFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="GetPackages">
+<soap:operation soapAction="GetPackages" style="document"/>
+<wsdl:input name="GetPackagesRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="GetPackagesResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="NotValidSessionTicketFaultFault">
+<soap:fault name="NotValidSessionTicketFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="UnknowErrorFaultFault">
+<soap:fault name="UnknowErrorFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="SalePackage">
+<soap:operation soapAction="SalePackage" style="document"/>
+<wsdl:input name="SalePackageRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="SalePackageResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="UnknowErrorFaultFault">
+<soap:fault name="UnknowErrorFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="NotValidSessionTicketFaultFault">
+<soap:fault name="NotValidSessionTicketFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="GetPackageItems">
+<soap:operation soapAction="GetPackageItems" style="document"/>
+<wsdl:input name="GetPackageItemsRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="GetPackageItemsResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="UnknowErrorFaultFault">
+<soap:fault name="UnknowErrorFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="NotValidSessionTicketFaultFault">
+<soap:fault name="NotValidSessionTicketFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="UpdateSale">
+<soap:operation soapAction="UpdateSale" style="document"/>
+<wsdl:input name="UpdateSaleRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="UpdateSaleResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="UnknowErrorFaultFault">
+<soap:fault name="UnknowErrorFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="NotValidSessionTicketFaultFault">
+<soap:fault name="NotValidSessionTicketFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="CancelSale">
+<soap:operation soapAction="CancelSale" style="document"/>
+<wsdl:input name="CancelSaleRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="CancelSaleResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="NotValidSessionTicketFaultFault">
+<soap:fault name="NotValidSessionTicketFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="UnknowErrorFaultFault">
+<soap:fault name="UnknowErrorFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="CheckActivationSale">
+<soap:operation soapAction="CheckActivationSale" style="document"/>
+<wsdl:input name="CheckActivationSaleRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="CheckActivationSaleResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="NotValidSessionTicketFaultFault">
+<soap:fault name="NotValidSessionTicketFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="UnknowErrorFaultFault">
+<soap:fault name="UnknowErrorFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="GetPackageStocks">
+<soap:operation soapAction="GetPackageStocks" style="document"/>
+<wsdl:input name="GetPackageStocksRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="GetPackageStocksResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="UnknowErrorFaultFault">
+<soap:fault name="UnknowErrorFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="NotValidSessionTicketFaultFault">
+<soap:fault name="NotValidSessionTicketFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="GetSaleRecharge">
+<soap:operation soapAction="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.SalesContract.GetSaleRecharge" style="document"/>
+<wsdl:input name="GetSaleRechargeRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="GetSaleRechargeResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="NotValidSessionTicketFaultFault">
+<soap:fault name="NotValidSessionTicketFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="UnknowErrorFaultFault">
+<soap:fault name="UnknowErrorFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="GetIdentificationTypes">
+<soap:operation soapAction="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.SalesContract.GetIdentificationTypes" style="document"/>
+<wsdl:input name="GetIdentificationTypesRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="GetIdentificationTypesResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="UnknowErrorFaultFault">
+<soap:fault name="UnknowErrorFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="NotValidSessionTicketFaultFault">
+<soap:fault name="NotValidSessionTicketFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="Sales">
+<wsdl:port name="SalesEndpoint_Secure" binding="tns:SalesEndpoint_Secure">
+<soap:address location="https://extrawebtest:5976/VirtualPayment/SalesService.svc"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>
+

@@ -1,0 +1,17 @@
+  <Msg>
+  <GiftCardIssuer>Elektra</GiftCardIssuer>
+  <OriginationCountry>US</OriginationCountry>
+  <OriginationCurrencyCode>USD</OriginationCurrencyCode>
+  <OriginationAmount>2000</OriginationAmount>
+  <DestinationCountry>MX</DestinationCountry >
+  <DestinationCurrencyCode>MXP</DestinationCurrencyCode>
+  <DestinationAmount>20000</DestinationAmount>
+  <ExchangeRate>10.000</ExchangeRate>
+  <CardNumber>5045075894599999999</CardNumber>
+  <Pin>1234</Pin>
+  <RedemptionInstructions>Good Luck!</RedemptionInstructions>
+  <TermsAndConditions>QA Test</TermsAndConditions>
+  <CSNumberOriginationCountry>1-888-6Tienda (1-888-684-3632)</CSNumberOriginationCountry>
+  <CSNumberDestinationCountry>01-800-333-1004</CSNumberDestinationCountry>
+  <SMSText>Congratulations!</SMSText>
+  </Msg>

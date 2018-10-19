@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.PhoneVoucherRedemption" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.PhoneVoucherRedemption">
+<xs:complexType name="PhoneVoucherRedemptionRequest">
+<xs:sequence>
+<xs:element minOccurs="0" name="Amount_used_for_credit" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Amount_used_for_handset" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="PIN" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Phone_number" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Redeem_date" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="RedemptionTimPassword" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="RedemptionTimUser" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Role" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Status" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="User" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="PhoneVoucherRedemptionRequest" nillable="true" type="tns:PhoneVoucherRedemptionRequest"/>
+<xs:complexType name="PhoneVoucherRedemptionResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="errorCode" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="errorMsg" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="PhoneVoucherRedemptionResponse" nillable="true" type="tns:PhoneVoucherRedemptionResponse"/>
+</xs:schema>

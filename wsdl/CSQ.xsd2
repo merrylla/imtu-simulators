@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CSQ.SPB.WebServices.Entities.TranslateWSBase" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/CSQ.SPB.WebServices.Entities.TranslateWSBase">
+<xs:import schemaLocation="https://spb.csqworld.com:7571/ws28t/Services/TranslateWS/TranslateWS.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CSQ.SPB.WebServices.Entities.ToCustomerAPIBase"/>
+<xs:complexType name="TranslateWSBalanceResponse">
+<xs:complexContent mixed="false">
+<xs:extension base="q1:ToCustomerAPIBaseResponse" xmlns:q1="http://schemas.datacontract.org/2004/07/CSQ.SPB.WebServices.Entities.ToCustomerAPIBase">
+<xs:sequence>
+<xs:element minOccurs="0" name="Credit" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:element name="TranslateWSBalanceResponse" nillable="true" type="tns:TranslateWSBalanceResponse"/>
+<xs:complexType name="TranslateWSTopupResponse">
+<xs:complexContent mixed="false">
+<xs:extension base="q2:ToCustomerAPIBaseResponse" xmlns:q2="http://schemas.datacontract.org/2004/07/CSQ.SPB.WebServices.Entities.ToCustomerAPIBase">
+<xs:sequence>
+<xs:element minOccurs="0" name="Authorization" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="DestinationAmount" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="DestinationCurrency" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Ticket" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:element name="TranslateWSTopupResponse" nillable="true" type="tns:TranslateWSTopupResponse"/>
+<xs:complexType name="TranslateWSGetPINResponse">
+<xs:complexContent mixed="false">
+<xs:extension base="q3:ToCustomerAPIBaseResponse" xmlns:q3="http://schemas.datacontract.org/2004/07/CSQ.SPB.WebServices.Entities.ToCustomerAPIBase">
+<xs:sequence>
+<xs:element minOccurs="0" name="Authorization" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Denominations" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="PIN" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Ticket" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:element name="TranslateWSGetPINResponse" nillable="true" type="tns:TranslateWSGetPINResponse"/>
+<xs:complexType name="TranslateWSRevertResponse">
+<xs:complexContent mixed="false">
+<xs:extension base="q4:ToCustomerAPIBaseResponse" xmlns:q4="http://schemas.datacontract.org/2004/07/CSQ.SPB.WebServices.Entities.ToCustomerAPIBase">
+<xs:sequence>
+<xs:element minOccurs="0" name="Authorization" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Ticket" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:element name="TranslateWSRevertResponse" nillable="true" type="tns:TranslateWSRevertResponse"/>
+<xs:complexType name="TranslateWSQueryResponse">
+<xs:complexContent mixed="false">
+<xs:extension base="q5:ToCustomerAPIBaseResponse" xmlns:q5="http://schemas.datacontract.org/2004/07/CSQ.SPB.WebServices.Entities.ToCustomerAPIBase">
+<xs:sequence>
+<xs:element minOccurs="0" name="Authorization" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Ticket" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:element name="TranslateWSQueryResponse" nillable="true" type="tns:TranslateWSQueryResponse"/>
+<xs:complexType name="TranslateWSOperatorPortfolioResponse">
+<xs:complexContent mixed="false">
+<xs:extension base="q6:ToCustomerAPIBaseResponse" xmlns:q6="http://schemas.datacontract.org/2004/07/CSQ.SPB.WebServices.Entities.ToCustomerAPIBase">
+<xs:sequence>
+<xs:element minOccurs="0" name="ItemCount" type="xs:int"/>
+<xs:element minOccurs="0" name="Items" nillable="true">
+<xs:complexType>
+<xs:annotation>
+<xs:appinfo>
+<ActualType Name="TransmitNetDataset.spServices_GetOperatorCustomerConfigurationDataTable" Namespace="http://schemas.datacontract.org/2004/07/CSQ.SPB.WebServices.DataSets" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+</xs:appinfo>
+</xs:annotation>
+<xs:sequence>
+<xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax"/>
+<xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax"/>
+</xs:sequence>
+<xs:attribute fixed="http://tempuri.org/TransmitNetDataset.xsd" name="namespace"/>
+<xs:attribute fixed="spServices_GetOperatorCustomerConfigurationDataTable" name="tableTypeName"/>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:element name="TranslateWSOperatorPortfolioResponse" nillable="true" type="tns:TranslateWSOperatorPortfolioResponse"/>
+<xs:complexType name="TranslateWSGetMSISDNOperator">
+<xs:complexContent mixed="false">
+<xs:extension base="q7:ToCustomerAPIBaseResponse" xmlns:q7="http://schemas.datacontract.org/2004/07/CSQ.SPB.WebServices.Entities.ToCustomerAPIBase">
+<xs:sequence>
+<xs:element minOccurs="0" name="operatorId" type="xs:int"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:element name="TranslateWSGetMSISDNOperator" nillable="true" type="tns:TranslateWSGetMSISDNOperator"/>
+<xs:complexType name="TranslateWSTransactionListResponse">
+<xs:complexContent mixed="false">
+<xs:extension base="q8:ToCustomerAPIBaseResponse" xmlns:q8="http://schemas.datacontract.org/2004/07/CSQ.SPB.WebServices.Entities.ToCustomerAPIBase">
+<xs:sequence>
+<xs:element minOccurs="0" name="ItemCount" type="xs:int"/>
+<xs:element minOccurs="0" name="Items" nillable="true">
+<xs:complexType>
+<xs:annotation>
+<xs:appinfo>
+<ActualType Name="TransmitNetDataset.spServices_GetProfitTransactionsDataTable" Namespace="http://schemas.datacontract.org/2004/07/CSQ.SPB.WebServices.DataSets" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+</xs:appinfo>
+</xs:annotation>
+<xs:sequence>
+<xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax"/>
+<xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax"/>
+</xs:sequence>
+<xs:attribute fixed="http://tempuri.org/TransmitNetDataset.xsd" name="namespace"/>
+<xs:attribute fixed="spServices_GetProfitTransactionsDataTable" name="tableTypeName"/>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="TotalCount" type="xs:int"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:element name="TranslateWSTransactionListResponse" nillable="true" type="tns:TranslateWSTransactionListResponse"/>
+</xs:schema>

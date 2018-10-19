@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CSQ.SPB.WebServices.Entities.ToCustomerAPIBase" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/CSQ.SPB.WebServices.Entities.ToCustomerAPIBase">
+<xs:import schemaLocation="https://spb.csqworld.com:7571/ws28t/Services/TranslateWS/TranslateWS.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/CSQ.SPB.WebServices.Entities.Base"/>
+<xs:complexType name="ToCustomerAPIBaseResponse">
+<xs:complexContent mixed="false">
+<xs:extension base="q1:BaseResponse" xmlns:q1="http://schemas.datacontract.org/2004/07/CSQ.SPB.WebServices.Entities.Base">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:element name="ToCustomerAPIBaseResponse" nillable="true" type="tns:ToCustomerAPIBaseResponse"/>
+</xs:schema>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://tempuri.org/TransmitNetDataset.xsd" id="TransmitNetDataset" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" xmlns:mstns="http://tempuri.org/TransmitNetDataset.xsd" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns="http://tempuri.org/TransmitNetDataset.xsd">
+<xs:element msdata:IsDataSet="true" msdata:UseCurrentLocale="true" name="TransmitNetDataset">
+<xs:complexType>
+<xs:choice minOccurs="0" maxOccurs="unbounded">
+<xs:element name="spServices_GetOperatorCustomerConfiguration">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="_id" type="xs:int"/>
+<xs:element name="skuid" type="xs:int"/>
+<xs:element msprop:Generator_ColumnPropNameInTable="operatorColumn" msprop:Generator_ColumnVarNameInTable="columnoperator" msprop:Generator_UserColumnName="operator" minOccurs="0" name="operator">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:maxLength value="50"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="country">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:maxLength value="50"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" name="topupType">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:maxLength value="50"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" name="msisdnmask">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:maxLength value="50"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element msdata:ReadOnly="true" minOccurs="0" name="availabledenominationscents">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:maxLength value="255"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element msdata:ReadOnly="true" minOccurs="0" name="totalEXRate" type="xs:double"/>
+<xs:element msdata:ReadOnly="true" minOccurs="0" name="EXUnits">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:maxLength value="11"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" name="discount" type="xs:decimal"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="spServices_GetMSISDNOperator">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="productCodeId" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="spServices_GetProfitTransactions">
+<xs:complexType>
+<xs:sequence>
+<xs:element msdata:ReadOnly="true" minOccurs="0" name="row" type="xs:long"/>
+<xs:element name="Id" type="xs:int"/>
+<xs:element minOccurs="0" name="terminalTimestamp" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="machineId" type="xs:int"/>
+<xs:element name="accountCCY" type="xs:short"/>
+<xs:element name="CustomerTerminalId">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:maxLength value="20"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" name="operationType" type="xs:int"/>
+<xs:element minOccurs="0" name="skuid" type="xs:int"/>
+<xs:element minOccurs="0" name="destinationmsisdn">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:maxLength value="50"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" name="localRef">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:maxLength value="50"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" name="amount" type="xs:decimal"/>
+<xs:element minOccurs="0" name="serverTimestamp" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="status">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:maxLength value="10"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" name="resultCode" type="xs:int"/>
+<xs:element minOccurs="0" name="pinCode">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:maxLength value="50"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" name="operatorReference">
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:maxLength value="50"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" name="percentdiscount" type="xs:decimal"/>
+<xs:element minOccurs="0" name="absolutdiscount" type="xs:decimal"/>
+<xs:element minOccurs="0" name="destinationAmount" type="xs:decimal"/>
+<xs:element name="destinationCCY" type="xs:short"/>
+<xs:element name="CrossReference" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:choice>
+</xs:complexType>
+<xs:unique msdata:PrimaryKey="true" name="Constraint1">
+<xs:selector xpath=".//mstns:spServices_GetProfitTransactions"/>
+<xs:field xpath="mstns:Id"/>
+</xs:unique>
+</xs:element>
+</xs:schema>

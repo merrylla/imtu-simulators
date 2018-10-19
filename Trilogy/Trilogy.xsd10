@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.TopUpConfirmation" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.TopUpConfirmation">
+<xs:import schemaLocation="http://www.voilacomcel.com/VoilaWS/VoilaComcelWS.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Voila.VoilaWS"/>
+<xs:import schemaLocation="http://www.voilacomcel.com/VoilaWS/VoilaComcelWS.svc?xsd=xsd11" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+<xs:complexType name="TopUpConfirmationRequest">
+<xs:complexContent mixed="false">
+<xs:extension base="q1:RequestBase" xmlns:q1="http://schemas.datacontract.org/2004/07/Voila.VoilaWS">
+<xs:sequence>
+<xs:element minOccurs="0" name="AccountTopUp" nillable="true" type="tns:TopUpConfirmationRequest.AccountTopupConfirmClass"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:element name="TopUpConfirmationRequest" nillable="true" type="tns:TopUpConfirmationRequest"/>
+<xs:complexType name="TopUpConfirmationRequest.AccountTopupConfirmClass">
+<xs:sequence>
+<xs:element minOccurs="0" name="Transaction" nillable="true" type="tns:TopUpConfirmationRequest.AccountTopUpConfirmTransactionClass"/>
+<xs:element minOccurs="0" name="User" nillable="true" type="tns:TopUpConfirmationRequest.AccountTopUpConfirmUserClass"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="TopUpConfirmationRequest.AccountTopupConfirmClass" nillable="true" type="tns:TopUpConfirmationRequest.AccountTopupConfirmClass"/>
+<xs:complexType name="TopUpConfirmationRequest.AccountTopUpConfirmTransactionClass">
+<xs:sequence>
+<xs:element minOccurs="0" name="ConfirmationId" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="ReferenceId" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="TopUpConfirmationRequest.AccountTopUpConfirmTransactionClass" nillable="true" type="tns:TopUpConfirmationRequest.AccountTopUpConfirmTransactionClass"/>
+<xs:complexType name="TopUpConfirmationRequest.AccountTopUpConfirmUserClass">
+<xs:sequence>
+<xs:element minOccurs="0" name="Id" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Password" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="TopUpConfirmationRequest.AccountTopUpConfirmUserClass" nillable="true" type="tns:TopUpConfirmationRequest.AccountTopUpConfirmUserClass"/>
+<xs:complexType name="TopUpConfirmationResponse">
+<xs:complexContent mixed="false">
+<xs:extension base="q2:ResponseBase" xmlns:q2="http://schemas.datacontract.org/2004/07/Voila.VoilaWS">
+<xs:sequence>
+<xs:element minOccurs="0" name="AccountTopUp" nillable="true" type="tns:TopUpConfirmationResponse.AccountTopUpClass"/>
+<xs:element minOccurs="0" name="Timings" nillable="true" type="q3:ArrayOfstring" xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+<xs:element minOccurs="0" name="Urls" nillable="true" type="q4:ArrayOfstring" xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:element name="TopUpConfirmationResponse" nillable="true" type="tns:TopUpConfirmationResponse"/>
+<xs:complexType name="TopUpConfirmationResponse.AccountTopUpClass">
+<xs:sequence>
+<xs:element minOccurs="0" name="Account" nillable="true" type="tns:TopUpConfirmationResponse.AccountTopUpClass.AccountClass"/>
+<xs:element minOccurs="0" name="Transaction" nillable="true" type="tns:TopUpConfirmationResponse.AccountTopUpClass.TransactionClass"/>
+<xs:element minOccurs="0" name="User" nillable="true" type="tns:TopUpConfirmationResponse.AccountTopUpClass.UserClass"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="TopUpConfirmationResponse.AccountTopUpClass" nillable="true" type="tns:TopUpConfirmationResponse.AccountTopUpClass"/>
+<xs:complexType name="TopUpConfirmationResponse.AccountTopUpClass.AccountClass">
+<xs:sequence>
+<xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="NewBalance" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Number" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Type" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="TopUpConfirmationResponse.AccountTopUpClass.AccountClass" nillable="true" type="tns:TopUpConfirmationResponse.AccountTopUpClass.AccountClass"/>
+<xs:complexType name="TopUpConfirmationResponse.AccountTopUpClass.TransactionClass">
+<xs:sequence>
+<xs:element minOccurs="0" name="BonusAmount" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="BonusPercent" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="ConfirmationId" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="ReferenceId" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="TopUpConfirmationResponse.AccountTopUpClass.TransactionClass" nillable="true" type="tns:TopUpConfirmationResponse.AccountTopUpClass.TransactionClass"/>
+<xs:complexType name="TopUpConfirmationResponse.AccountTopUpClass.UserClass">
+<xs:sequence>
+<xs:element minOccurs="0" name="Id" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Password" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="TopUpConfirmationResponse.AccountTopUpClass.UserClass" nillable="true" type="tns:TopUpConfirmationResponse.AccountTopUpClass.UserClass"/>
+</xs:schema>

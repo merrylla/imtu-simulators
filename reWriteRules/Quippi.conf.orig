@@ -1,0 +1,10 @@
+RewriteLogLevel 10
+RewriteLog "/u/debit/logs/rewrite.log"
+
+<Directory /u/debit/apps/htdocs/Quippi>
+RewriteEngine On
+Options FollowSymLinks
+#RewriteRule ^(\w+)$ QuippiSvr.php/giftcardOrder/v1/ [L]
+#RewriteRule ^(\w+)giftCardOrder/v1/$ QuippiSvr.php?cmd=$1 [QSA,L]
+RewriteRule ^/giftCardOrder/v1/(.+) QuippiSvr.php?cmd=$1 [L]
+</Directory>

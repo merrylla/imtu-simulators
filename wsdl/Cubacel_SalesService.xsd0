@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts">
+<xs:import schemaLocation="Cubacel_SalesService.xsd2" namespace="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+<xs:element name="SaleRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="SaleData" nillable="true" type="q1:SaleData" xmlns:q1="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+<xs:element minOccurs="0" name="SessionTicket" nillable="true" type="q2:SessionTicket" xmlns:q2="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+<xs:element minOccurs="0" name="TransactionId" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="SaleResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="OrderId" nillable="true" type="xs:unsignedLong"/>
+<xs:element minOccurs="0" name="Result" nillable="true" type="q3:OperationResult" xmlns:q3="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="SaleRechargeRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="RechargeData" nillable="true" type="q4:RechargeData" xmlns:q4="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+<xs:element minOccurs="0" name="SessionTicket" nillable="true" type="q5:SessionTicket" xmlns:q5="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+<xs:element minOccurs="0" name="TransactionId" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="SaleRechargeResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="OrderId" nillable="true" type="xs:unsignedLong"/>
+<xs:element minOccurs="0" name="Result" nillable="true" type="q6:OperationResult" xmlns:q6="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="SaleActivationRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="ActivationData" nillable="true" type="q7:ActivationData" xmlns:q7="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+<xs:element minOccurs="0" name="SessionTicket" nillable="true" type="q8:SessionTicket" xmlns:q8="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+<xs:element minOccurs="0" name="TransactionId" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="SaleActivationResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="OrderId" nillable="true" type="xs:unsignedLong"/>
+<xs:element minOccurs="0" name="Result" nillable="true" type="q9:OperationResult" xmlns:q9="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="SaleArticleRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="ArticleData" nillable="true" type="q10:ArticleData" xmlns:q10="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+<xs:element minOccurs="0" name="SessionTicket" nillable="true" type="q11:SessionTicket" xmlns:q11="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+<xs:element minOccurs="0" name="TransactionId" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="SaleArticleResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="OrderId" nillable="true" type="xs:unsignedLong"/>
+<xs:element minOccurs="0" name="Result" nillable="true" type="q12:OperationResult" xmlns:q12="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetSaleStateRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="OrderId" nillable="true" type="xs:unsignedLong"/>
+<xs:element minOccurs="0" name="SessionTicket" nillable="true" type="q13:SessionTicket" xmlns:q13="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+<xs:element minOccurs="0" name="TransactionId" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetSaleStateResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="Result" nillable="true" type="q14:OperationResult" xmlns:q14="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+<xs:element minOccurs="0" name="State" type="q15:State" xmlns:q15="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetSaleRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="OrderId" nillable="true" type="xs:unsignedLong"/>
+<xs:element minOccurs="0" name="SessionTicket" nillable="true" type="q16:SessionTicket" xmlns:q16="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+<xs:element minOccurs="0" name="TransactionId" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetSaleResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="Result" nillable="true" type="q17:OperationResult" xmlns:q17="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+<xs:element minOccurs="0" name="Sale" nillable="true" type="q18:SaleOrder" xmlns:q18="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetSalesRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="FinalDate" nillable="true" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="InitialDate" nillable="true" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="SessionTicket" nillable="true" type="q19:SessionTicket" xmlns:q19="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetSalesResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="Result" nillable="true" type="q20:OperationResult" xmlns:q20="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+<xs:element minOccurs="0" name="Sales" nillable="true" type="q21:SaleOrders" xmlns:q21="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetProductsRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="SessionTicket" nillable="true" type="q22:SessionTicket" xmlns:q22="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetProductsResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="Products" nillable="true" type="q23:Products" xmlns:q23="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+<xs:element minOccurs="0" name="Result" nillable="true" type="q24:OperationResult" xmlns:q24="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetCommercialOfficesRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="ProvinceId" nillable="true" type="xs:unsignedByte"/>
+<xs:element minOccurs="0" name="SessionTicket" nillable="true" type="q25:SessionTicket" xmlns:q25="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetCommercialOfficesResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="ComercialOffices" nillable="true" type="q26:CommercialOffices" xmlns:q26="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+<xs:element minOccurs="0" name="Result" nillable="true" type="q27:OperationResult" xmlns:q27="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetProvincesRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="SessionTicket" nillable="true" type="q28:SessionTicket" xmlns:q28="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetProvincesResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="Provinces" nillable="true" type="q29:Provinces" xmlns:q29="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+<xs:element minOccurs="0" name="Result" nillable="true" type="q30:OperationResult" xmlns:q30="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="CheckPhoneRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="SessionTicket" nillable="true" type="q31:SessionTicket" xmlns:q31="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="CheckPhoneResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="IsRechargeable" type="xs:boolean"/>
+<xs:element minOccurs="0" name="Result" nillable="true" type="q32:OperationResult" xmlns:q32="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetBalanceRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="SessionTicket" nillable="true" type="q33:SessionTicket" xmlns:q33="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetBalanceResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="Balance" type="xs:double"/>
+<xs:element minOccurs="0" name="Result" nillable="true" type="q34:OperationResult" xmlns:q34="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetSalesSummaryRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="FinalDate" nillable="true" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="InitialDate" nillable="true" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="SalesSummaryFilter" nillable="true" type="q35:SaleFilter" xmlns:q35="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+<xs:element minOccurs="0" name="SessionTicket" nillable="true" type="q36:SessionTicket" xmlns:q36="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetSalesSummaryResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="Result" nillable="true" type="q37:OperationResult" xmlns:q37="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+<xs:element minOccurs="0" name="SalesSummary" nillable="true" type="q38:SaleOrdersSummary" xmlns:q38="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetNextTransactionIdRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="SessionTicket" nillable="true" type="q39:SessionTicket" xmlns:q39="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetNextTransactionIdResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="Result" nillable="true" type="q40:OperationResult" xmlns:q40="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+<xs:element minOccurs="0" name="TransactionId" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetPackagesRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="SessionTicket" nillable="true" type="q41:SessionTicket" xmlns:q41="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetPackagesResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="Packages" nillable="true" type="q42:Packages" xmlns:q42="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+<xs:element minOccurs="0" name="Result" nillable="true" type="q43:OperationResult" xmlns:q43="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="SalePackageRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="PackageData" nillable="true" type="q44:PackageData" xmlns:q44="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+<xs:element minOccurs="0" name="SessionTicket" nillable="true" type="q45:SessionTicket" xmlns:q45="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+<xs:element minOccurs="0" name="TransactionId" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="SalePackageResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="OrderId" nillable="true" type="xs:unsignedLong"/>
+<xs:element minOccurs="0" name="Result" nillable="true" type="q46:OperationResult" xmlns:q46="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetPackageItemsRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="PackageId" nillable="true" type="xs:unsignedInt"/>
+<xs:element minOccurs="0" name="SessionTicket" nillable="true" type="q47:SessionTicket" xmlns:q47="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetPackageItemsResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="Items" nillable="true" type="q48:PackageItems" xmlns:q48="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+<xs:element minOccurs="0" name="Result" nillable="true" type="q49:OperationResult" xmlns:q49="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="UpdateSaleRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="OrderId" nillable="true" type="xs:unsignedLong"/>
+<xs:element minOccurs="0" name="SessionTicket" nillable="true" type="q50:SessionTicket" xmlns:q50="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+<xs:element minOccurs="0" name="TransactionId" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="UpdateData" nillable="true" type="q51:SaleUpdateData" xmlns:q51="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="UpdateSaleResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="Result" nillable="true" type="q52:OperationResult" xmlns:q52="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="CancelSaleRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="OrderId" nillable="true" type="xs:unsignedLong"/>
+<xs:element minOccurs="0" name="SessionTicket" nillable="true" type="q53:SessionTicket" xmlns:q53="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+<xs:element minOccurs="0" name="TransactionId" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="CancelSaleResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="Result" nillable="true" type="q54:OperationResult" xmlns:q54="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="CheckActivationSaleRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="ActivationData" nillable="true" type="q55:ActivationData" xmlns:q55="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+<xs:element minOccurs="0" name="SessionTicket" nillable="true" type="q56:SessionTicket" xmlns:q56="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+<xs:element minOccurs="0" name="TransactionId" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="CheckActivationSaleResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="IsValid" type="xs:boolean"/>
+<xs:element minOccurs="0" name="Result" nillable="true" type="q57:OperationResult" xmlns:q57="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetPackageStocksRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="CommercialOfficeId" nillable="true" type="xs:unsignedShort"/>
+<xs:element minOccurs="0" name="PackageId" nillable="true" type="xs:unsignedInt"/>
+<xs:element minOccurs="0" name="SessionTicket" nillable="true" type="q58:SessionTicket" xmlns:q58="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetPackageStocksResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="PackageStocks" nillable="true" type="q59:PackageStocks" xmlns:q59="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+<xs:element minOccurs="0" name="Result" nillable="true" type="q60:OperationResult" xmlns:q60="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetSaleRechargeRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="SessionTicket" nillable="true" type="q61:SessionTicket" xmlns:q61="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+<xs:element minOccurs="0" name="TransactionId" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetSaleRechargeResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="Result" nillable="true" type="q62:OperationResult" xmlns:q62="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+<xs:element minOccurs="0" name="SaleRecharge" nillable="true" type="q63:SaleRechargeOrder" xmlns:q63="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetIdentificationTypesRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="SessionTicket" nillable="true" type="q64:SessionTicket" xmlns:q64="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetIdentificationTypesResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="IdentificationTypes" nillable="true" type="q65:IdentificationTypes" xmlns:q65="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+<xs:element minOccurs="0" name="Result" nillable="true" type="q66:OperationResult" xmlns:q66="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:schema>
+

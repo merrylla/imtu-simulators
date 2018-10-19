@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="globe"
+ targetNamespace="urn:GCASHWS"
+ xmlns:tns="urn:GCASHWS"
+ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+ xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+ xmlns:namesp1="urn:GCASHWS"
+ xmlns:SOAP="http://schemas.xmlsoap.org/wsdl/soap/"
+ xmlns:MIME="http://schemas.xmlsoap.org/wsdl/mime/"
+ xmlns:DIME="http://schemas.xmlsoap.org/ws/2002/04/dime/wsdl/"
+ xmlns:WSDL="http://schemas.xmlsoap.org/wsdl/"
+ xmlns="http://schemas.xmlsoap.org/wsdl/">
+
+<types>
+
+ <schema targetNamespace="urn:GCASHWS"
+  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:namesp1="urn:GCASHWS"
+  xmlns="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="qualified"
+  attributeFormDefault="unqualified">
+  <import namespace="http://schemas.xmlsoap.org/soap/encoding/" schemaLocation="http://schemas.xmlsoap.org/soap/encoding/"/>
+  <!-- operation request element -->
+  <element name="createsessioncmd">
+   <complexType>
+    <sequence>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="createsessioncmdResponse">
+   <complexType>
+    <sequence>
+     <element name="sessionResultCode" type="xsd:int" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="session" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="logincmd">
+   <complexType>
+    <sequence>
+     <element name="session" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="true"/>
+     <element name="user" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="password" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="logincmdResponse">
+   <complexType>
+    <sequence>
+     <element name="sessionResultCode" type="xsd:int" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="loginResultCode" type="xsd:int" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="transactionCode" type="xsd:int" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="balancecmd">
+   <complexType>
+    <sequence>
+     <element name="session" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="balancecmdResponse">
+   <complexType>
+    <sequence>
+     <element name="sessionResultCode" type="xsd:int" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="resultCode" type="xsd:int" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="transactionCode" type="xsd:int" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="balance" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="cashincmd">
+   <complexType>
+    <sequence>
+     <element name="session" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="amount" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="to" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="remitterfirstname" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="remitterlastname" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="remitteraddress" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="remitterphone" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="cashincmdResponse">
+   <complexType>
+    <sequence>
+     <element name="sessionResultCode" type="xsd:int" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="resultCode" type="xsd:int" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="transactionCode" type="xsd:int" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="gcash" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="commitcashcmd">
+   <complexType>
+    <sequence>
+     <element name="session" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="transaction" type="xsd:int" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="commitcashcmdResponse">
+   <complexType>
+    <sequence>
+     <element name="sessionResultCode" type="xsd:int" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="resultCode" type="xsd:int" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="transactionCode" type="xsd:int" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation request element -->
+  <element name="rollbackcashcmd">
+   <complexType>
+    <sequence>
+     <element name="session" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="transaction" type="xsd:int" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+   </complexType>
+  </element>
+  <!-- operation response element -->
+  <element name="rollbackcashcmdResponse">
+   <complexType>
+    <sequence>
+     <element name="sessionResultCode" type="xsd:int" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="resultCode" type="xsd:int" minOccurs="0" maxOccurs="1" nillable="true"/>
+     <element name="transactionCode" type="xsd:int" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+   </complexType>
+  </element>
+ </schema>
+
+</types>
+
+<message name="createsessioncmd">
+ <part name="parameters" element="namesp1:createsessioncmd"/>
+</message>
+
+<message name="createsessioncmdResponse">
+ <part name="parameters" element="namesp1:createsessioncmdResponse"/>
+</message>
+
+<message name="logincmd">
+ <part name="parameters" element="namesp1:logincmd"/>
+</message>
+
+<message name="logincmdResponse">
+ <part name="parameters" element="namesp1:logincmdResponse"/>
+</message>
+
+<message name="balancecmd">
+ <part name="parameters" element="namesp1:balancecmd"/>
+</message>
+
+<message name="balancecmdResponse">
+ <part name="parameters" element="namesp1:balancecmdResponse"/>
+</message>
+
+<message name="cashincmd">
+ <part name="parameters" element="namesp1:cashincmd"/>
+</message>
+
+<message name="cashincmdResponse">
+ <part name="parameters" element="namesp1:cashincmdResponse"/>
+</message>
+
+<message name="commitcashcmd">
+ <part name="parameters" element="namesp1:commitcashcmd"/>
+</message>
+
+<message name="commitcashcmdResponse">
+ <part name="parameters" element="namesp1:commitcashcmdResponse"/>
+</message>
+
+<message name="rollbackcashcmd">
+ <part name="parameters" element="namesp1:rollbackcashcmd"/>
+</message>
+
+<message name="rollbackcashcmdResponse">
+ <part name="parameters" element="namesp1:rollbackcashcmdResponse"/>
+</message>
+
+<portType name="globePortType">
+ <operation name="createsessioncmd">
+  <documentation>Service definition of function namesp1__createsessioncmd</documentation>
+  <input message="tns:createsessioncmd"/>
+  <output message="tns:createsessioncmdResponse"/>
+ </operation>
+ <operation name="logincmd">
+  <documentation>Service definition of function namesp1__logincmd</documentation>
+  <input message="tns:logincmd"/>
+  <output message="tns:logincmdResponse"/>
+ </operation>
+ <operation name="balancecmd">
+  <documentation>Service definition of function namesp1__balancecmd</documentation>
+  <input message="tns:balancecmd"/>
+  <output message="tns:balancecmdResponse"/>
+ </operation>
+ <operation name="cashincmd">
+  <documentation>Service definition of function namesp1__cashincmd</documentation>
+  <input message="tns:cashincmd"/>
+  <output message="tns:cashincmdResponse"/>
+ </operation>
+ <operation name="commitcashcmd">
+  <documentation>Service definition of function namesp1__commitcashcmd</documentation>
+  <input message="tns:commitcashcmd"/>
+  <output message="tns:commitcashcmdResponse"/>
+ </operation>
+ <operation name="rollbackcashcmd">
+  <documentation>Service definition of function namesp1__rollbackcashcmd</documentation>
+  <input message="tns:rollbackcashcmd"/>
+  <output message="tns:rollbackcashcmdResponse"/>
+ </operation>
+</portType>
+
+<binding name="globe" type="tns:globePortType">
+ <SOAP:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+ <operation name="createsessioncmd">
+  <SOAP:operation soapAction=""/>
+  <input>
+     <SOAP:body parts="parameters" use="literal"/>
+  </input>
+  <output>
+     <SOAP:body parts="parameters" use="literal"/>
+  </output>
+ </operation>
+ <operation name="logincmd">
+  <SOAP:operation soapAction=""/>
+  <input>
+     <SOAP:body parts="parameters" use="literal"/>
+  </input>
+  <output>
+     <SOAP:body parts="parameters" use="literal"/>
+  </output>
+ </operation>
+ <operation name="balancecmd">
+  <SOAP:operation soapAction=""/>
+  <input>
+     <SOAP:body parts="parameters" use="literal"/>
+  </input>
+  <output>
+     <SOAP:body parts="parameters" use="literal"/>
+  </output>
+ </operation>
+ <operation name="cashincmd">
+  <SOAP:operation soapAction=""/>
+  <input>
+     <SOAP:body parts="parameters" use="literal"/>
+  </input>
+  <output>
+     <SOAP:body parts="parameters" use="literal"/>
+  </output>
+ </operation>
+ <operation name="commitcashcmd">
+  <SOAP:operation soapAction=""/>
+  <input>
+     <SOAP:body parts="parameters" use="literal"/>
+  </input>
+  <output>
+     <SOAP:body parts="parameters" use="literal"/>
+  </output>
+ </operation>
+ <operation name="rollbackcashcmd">
+  <SOAP:operation soapAction=""/>
+  <input>
+     <SOAP:body parts="parameters" use="literal"/>
+  </input>
+  <output>
+     <SOAP:body parts="parameters" use="literal"/>
+  </output>
+ </operation>
+</binding>
+
+<service name="globe">
+ <documentation>gSOAP 2.7.16 generated service definition</documentation>
+ <port name="globe" binding="tns:globe">
+  <SOAP:address location="http://devcall02.ixtelecom.com/Globe/GlobeServer.php"/>
+ </port>
+</service>
+
+</definitions>

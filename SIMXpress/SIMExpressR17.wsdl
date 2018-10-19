@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.gtlpins.com/WebServices/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://www.gtlpins.com/WebServices/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Pinxpress service for business partners to purchase pins</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.gtlpins.com/WebServices/">
+      <s:element name="getBalance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="HostAddress" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getBalanceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getBalanceResult" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="productListing">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="HostAddress" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="productListingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="productListingResult" type="tns:ArrayOfTblProduct_GetLiveShop_APIResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTblProduct_GetLiveShop_APIResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="tblProduct_GetLiveShop_APIResult" nillable="true" type="tns:tblProduct_GetLiveShop_APIResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="tblProduct_GetLiveShop_APIResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="productID" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="productName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="productSalesPrice" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="isProductAvailable" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="productDiscount" nillable="true" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getPins">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="HostAddress" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ProductID" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Quantity" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPinsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getPinsResult" type="tns:ArrayOfTblShopping_Get_APIResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTblShopping_Get_APIResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="tblShopping_Get_APIResult" nillable="true" type="tns:tblShopping_Get_APIResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="tblShopping_Get_APIResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="productSerial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="productPin" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getBalanceSoapIn">
+    <wsdl:part name="parameters" element="tns:getBalance" />
+  </wsdl:message>
+  <wsdl:message name="getBalanceSoapOut">
+    <wsdl:part name="parameters" element="tns:getBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="productListingSoapIn">
+    <wsdl:part name="parameters" element="tns:productListing" />
+  </wsdl:message>
+  <wsdl:message name="productListingSoapOut">
+    <wsdl:part name="parameters" element="tns:productListingResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPinsSoapIn">
+    <wsdl:part name="parameters" element="tns:getPins" />
+  </wsdl:message>
+  <wsdl:message name="getPinsSoapOut">
+    <wsdl:part name="parameters" element="tns:getPinsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="PinxpresssSoap">
+    <wsdl:operation name="getBalance">
+      <wsdl:input message="tns:getBalanceSoapIn" />
+      <wsdl:output message="tns:getBalanceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="productListing">
+      <wsdl:input message="tns:productListingSoapIn" />
+      <wsdl:output message="tns:productListingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPins">
+      <wsdl:input message="tns:getPinsSoapIn" />
+      <wsdl:output message="tns:getPinsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PinxpresssSoap" type="tns:PinxpresssSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getBalance">
+      <soap:operation soapAction="http://www.gtlpins.com/WebServices/getBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="productListing">
+      <soap:operation soapAction="http://www.gtlpins.com/WebServices/productListing" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPins">
+      <soap:operation soapAction="http://www.gtlpins.com/WebServices/getPins" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PinxpresssSoap12" type="tns:PinxpresssSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getBalance">
+      <soap12:operation soapAction="http://www.gtlpins.com/WebServices/getBalance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="productListing">
+      <soap12:operation soapAction="http://www.gtlpins.com/WebServices/productListing" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPins">
+      <soap12:operation soapAction="http://www.gtlpins.com/WebServices/getPins" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Pinxpresss">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Pinxpress service for business partners to purchase pins</wsdl:documentation>
+    <wsdl:port name="PinxpresssSoap" binding="tns:PinxpresssSoap">
+      <soap:address location="http://devcall02.ixtelecom.com/SIMXpress/SIMXpressR17MKASvr.php" />
+    </wsdl:port>
+    <wsdl:port name="PinxpresssSoap12" binding="tns:PinxpresssSoap12">
+      <soap12:address location="http://devcall02.ixtelecom.com/SIMXpress/SIMXpressR17MKASvr.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.PhoneConfirmation" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.PhoneConfirmation">
+<xs:import schemaLocation="http://www.voilacomcel.com/VoilaWS/VoilaComcelWS.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Voila.VoilaWS"/>
+<xs:complexType name="PhoneConfirmationRequest">
+<xs:complexContent mixed="false">
+<xs:extension base="q1:RequestBase" xmlns:q1="http://schemas.datacontract.org/2004/07/Voila.VoilaWS">
+<xs:sequence>
+<xs:element minOccurs="0" name="AccountPhone" nillable="true" type="tns:PhoneConfirmationRequest.AccountPhoneConfirmClass"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:element name="PhoneConfirmationRequest" nillable="true" type="tns:PhoneConfirmationRequest"/>
+<xs:complexType name="PhoneConfirmationRequest.AccountPhoneConfirmClass">
+<xs:sequence>
+<xs:element minOccurs="0" name="Transaction" nillable="true" type="tns:PhoneConfirmationRequest.AccountPhoneConfirmTransactionClass"/>
+<xs:element minOccurs="0" name="User" nillable="true" type="tns:PhoneConfirmationRequest.AccountPhoneConfirmUserClass"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="PhoneConfirmationRequest.AccountPhoneConfirmClass" nillable="true" type="tns:PhoneConfirmationRequest.AccountPhoneConfirmClass"/>
+<xs:complexType name="PhoneConfirmationRequest.AccountPhoneConfirmTransactionClass">
+<xs:sequence>
+<xs:element minOccurs="0" name="ConfirmationId" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="ReferenceId" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="PhoneConfirmationRequest.AccountPhoneConfirmTransactionClass" nillable="true" type="tns:PhoneConfirmationRequest.AccountPhoneConfirmTransactionClass"/>
+<xs:complexType name="PhoneConfirmationRequest.AccountPhoneConfirmUserClass">
+<xs:sequence>
+<xs:element minOccurs="0" name="Id" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Password" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="PhoneConfirmationRequest.AccountPhoneConfirmUserClass" nillable="true" type="tns:PhoneConfirmationRequest.AccountPhoneConfirmUserClass"/>
+<xs:complexType name="PhoneConfirmationResponse">
+<xs:complexContent mixed="false">
+<xs:extension base="q2:ResponseBase" xmlns:q2="http://schemas.datacontract.org/2004/07/Voila.VoilaWS">
+<xs:sequence>
+<xs:element minOccurs="0" name="AccountPhone" nillable="true" type="tns:PhoneConfirmationResponse.AccountPhoneClass"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:element name="PhoneConfirmationResponse" nillable="true" type="tns:PhoneConfirmationResponse"/>
+<xs:complexType name="PhoneConfirmationResponse.AccountPhoneClass">
+<xs:sequence>
+<xs:element minOccurs="0" name="Transaction" nillable="true" type="tns:PhoneConfirmationResponse.AccountPhoneClass.TransactionClass"/>
+<xs:element minOccurs="0" name="User" nillable="true" type="tns:PhoneConfirmationResponse.AccountPhoneClass.UserClass"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="PhoneConfirmationResponse.AccountPhoneClass" nillable="true" type="tns:PhoneConfirmationResponse.AccountPhoneClass"/>
+<xs:complexType name="PhoneConfirmationResponse.AccountPhoneClass.TransactionClass">
+<xs:sequence>
+<xs:element minOccurs="0" name="ConfirmationId" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="ReferenceId" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="PhoneConfirmationResponse.AccountPhoneClass.TransactionClass" nillable="true" type="tns:PhoneConfirmationResponse.AccountPhoneClass.TransactionClass"/>
+<xs:complexType name="PhoneConfirmationResponse.AccountPhoneClass.UserClass">
+<xs:sequence>
+<xs:element minOccurs="0" name="Id" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Password" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="PhoneConfirmationResponse.AccountPhoneClass.UserClass" nillable="true" type="tns:PhoneConfirmationResponse.AccountPhoneClass.UserClass"/>
+</xs:schema>

@@ -1,0 +1,2384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions name="VoilaComcelWS" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
+<wsp:Policy wsu:Id="VoilaWSEndpoint_policy">
+<wsp:ExactlyOne>
+<wsp:All>
+<wsrmp:RMAssertion xmlns:wsrmp="http://docs.oasis-open.org/ws-rx/wsrmp/200702">
+<wsp:Policy>
+<wsrmp:SequenceSTR/>
+<wsrmp:DeliveryAssurance>
+<wsp:Policy>
+<wsrmp:ExactlyOnce/>
+</wsp:Policy>
+</wsrmp:DeliveryAssurance>
+</wsp:Policy>
+<netrmp:InactivityTimeout Milliseconds="600000" xmlns:netrmp="http://schemas.microsoft.com/ws-rx/wsrmp/200702"/>
+<netrmp:AcknowledgementInterval Milliseconds="200" xmlns:netrmp="http://schemas.microsoft.com/ws-rx/wsrmp/200702"/>
+</wsrmp:RMAssertion>
+<sp:SymmetricBinding xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<wsp:Policy>
+<sp:ProtectionToken>
+<wsp:Policy>
+<sp:SecureConversationToken sp:IncludeToken="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702/IncludeToken/AlwaysToRecipient">
+<wsp:Policy>
+<sp:RequireDerivedKeys/>
+<sp:BootstrapPolicy>
+<wsp:Policy>
+<sp:SignedParts>
+<sp:Body/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts>
+<sp:Body/>
+</sp:EncryptedParts>
+<sp:SymmetricBinding>
+<wsp:Policy>
+<sp:ProtectionToken>
+<wsp:Policy>
+<sp:X509Token sp:IncludeToken="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702/IncludeToken/Never">
+<wsp:Policy>
+<sp:RequireDerivedKeys/>
+<sp:RequireThumbprintReference/>
+<sp:WssX509V3Token10/>
+</wsp:Policy>
+</sp:X509Token>
+</wsp:Policy>
+</sp:ProtectionToken>
+<sp:AlgorithmSuite>
+<wsp:Policy>
+<sp:Basic128/>
+</wsp:Policy>
+</sp:AlgorithmSuite>
+<sp:Layout>
+<wsp:Policy>
+<sp:Strict/>
+</wsp:Policy>
+</sp:Layout>
+<sp:IncludeTimestamp/>
+<sp:EncryptSignature/>
+<sp:OnlySignEntireHeadersAndBody/>
+</wsp:Policy>
+</sp:SymmetricBinding>
+<sp:EndorsingSupportingTokens>
+<wsp:Policy>
+<sp:X509Token sp:IncludeToken="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702/IncludeToken/AlwaysToRecipient">
+<wsp:Policy>
+<sp:RequireThumbprintReference/>
+<sp:WssX509V3Token10/>
+</wsp:Policy>
+</sp:X509Token>
+</wsp:Policy>
+</sp:EndorsingSupportingTokens>
+<sp:Wss11>
+<wsp:Policy>
+<sp:MustSupportRefThumbprint/>
+<sp:MustSupportRefEncryptedKey/>
+<sp:RequireSignatureConfirmation/>
+</wsp:Policy>
+</sp:Wss11>
+<sp:Trust13>
+<wsp:Policy>
+<sp:MustSupportIssuedTokens/>
+<sp:RequireClientEntropy/>
+<sp:RequireServerEntropy/>
+</wsp:Policy>
+</sp:Trust13>
+</wsp:Policy>
+</sp:BootstrapPolicy>
+<sp:MustNotSendAmend/>
+</wsp:Policy>
+</sp:SecureConversationToken>
+</wsp:Policy>
+</sp:ProtectionToken>
+<sp:AlgorithmSuite>
+<wsp:Policy>
+<sp:Basic128/>
+</wsp:Policy>
+</sp:AlgorithmSuite>
+<sp:Layout>
+<wsp:Policy>
+<sp:Strict/>
+</wsp:Policy>
+</sp:Layout>
+<sp:IncludeTimestamp/>
+<sp:EncryptSignature/>
+<sp:OnlySignEntireHeadersAndBody/>
+</wsp:Policy>
+</sp:SymmetricBinding>
+<sp:Wss11 xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<wsp:Policy/>
+</sp:Wss11>
+<sp:Trust13 xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<wsp:Policy>
+<sp:MustSupportIssuedTokens/>
+<sp:RequireClientEntropy/>
+<sp:RequireServerEntropy/>
+</wsp:Policy>
+</sp:Trust13>
+<wsaw:UsingAddressing/>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunAccountInquiry_Input_policy">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunAccountInquiry_output_policy">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunAccountInquiry_ConfigFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunAccountInquiry_DatabaseFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunAccountInquiry_ResponseFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunAccountInquiry_InputFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunPhone_Input_policy">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunPhone_output_policy">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunPhone_DatabaseFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunPhone_InputFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunPhone_ResponseFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunPhone_ConfigFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunPhoneVoucher_Input_policy">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunPhoneVoucher_output_policy">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunPhoneVoucher_InputFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunPhoneVoucher_ConfigFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunPhoneVoucher_DatabaseFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunPhoneVoucher_ResponseFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunPhoneVoucherList_Input_policy">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunPhoneVoucherList_output_policy">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunPhoneVoucherList_InputFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunPhoneVoucherList_DatabaseFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunPhoneVoucherList_ResponseFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunPhoneVoucherList_ConfigFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunPhoneVoucherRedemption_Input_policy">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunPhoneVoucherRedemption_output_policy">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunPhoneVoucherRedemption_ResponseFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunPhoneVoucherRedemption_InputFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunPhoneVoucherRedemption_DatabaseFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunPhoneVoucherRedemption_ConfigFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunPhoneConfirmation_Input_policy">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunPhoneConfirmation_output_policy">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunPhoneConfirmation_InputFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunPhoneConfirmation_DatabaseFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunPhoneConfirmation_ResponseFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunPhoneConfirmation_ConfigFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunPhoneTwoStep_Input_policy">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunPhoneTwoStep_output_policy">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunPhoneTwoStep_ConfigFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunPhoneTwoStep_ResponseFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunPhoneTwoStep_InputFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunPhoneTwoStep_DatabaseFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunTopUp_Input_policy">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunTopUp_output_policy">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunTopUp_ConfigFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunTopUp_DatabaseFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunTopUp_ResponseFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunTopUp_InputFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_ConfirmTopUp_Input_policy">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_ConfirmTopUp_output_policy">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_ConfirmTopUp_InputFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_ConfirmTopUp_DatabaseFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_ConfirmTopUp_ResponseFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_ConfirmTopUp_ConfigFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunTopUpTwoStep_Input_policy">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunTopUpTwoStep_output_policy">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunTopUpTwoStep_DatabaseFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunTopUpTwoStep_ResponseFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunTopUpTwoStep_ConfigFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_RunTopUpTwoStep_InputFaultFault_Fault">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_Test_Input_policy">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint_Test_output_policy">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+<sp:Header Name="Sequence" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="SequenceAcknowledgement" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="AckRequested" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="UsesSequenceSTR" Namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"/>
+<sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
+<sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
+</sp:SignedParts>
+<sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+<sp:Body/>
+</sp:EncryptedParts>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsp:Policy wsu:Id="VoilaWSEndpoint1_policy">
+<wsp:ExactlyOne>
+<wsp:All>
+<wsrm:RMAssertion xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy">
+<wsrm:InactivityTimeout Milliseconds="3540000"/>
+<wsrm:AcknowledgementInterval Milliseconds="200"/>
+</wsrm:RMAssertion>
+<wsoma:OptimizedMimeSerialization xmlns:wsoma="http://schemas.xmlsoap.org/ws/2004/09/policy/optimizedmimeserialization"/>
+<wsaw:UsingAddressing/>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsdl:types>
+<xsd:schema targetNamespace="http://tempuri.org/Imports">
+<xsd:import schemaLocation="http://www.voilacomcel.com/voilaws/VoilaComcelWS.svc?xsd=xsd0" namespace="http://tempuri.org/"/>
+<xsd:import schemaLocation="http://www.voilacomcel.com/voilaws/VoilaComcelWS.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+<xsd:import schemaLocation="http://www.voilacomcel.com/voilaws/VoilaComcelWS.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+<xsd:import schemaLocation="http://www.voilacomcel.com/voilaws/VoilaComcelWS.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.AccountInquiry"/>
+<xsd:import schemaLocation="http://www.voilacomcel.com/voilaws/VoilaComcelWS.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Voila.VoilaWS"/>
+<xsd:import schemaLocation="http://www.voilacomcel.com/voilaws/VoilaComcelWS.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.Phone"/>
+<xsd:import schemaLocation="http://www.voilacomcel.com/voilaws/VoilaComcelWS.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.PhoneVoucher"/>
+<xsd:import schemaLocation="http://www.voilacomcel.com/voilaws/VoilaComcelWS.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.PhoneVoucherRedemption"/>
+<xsd:import schemaLocation="http://www.voilacomcel.com/voilaws/VoilaComcelWS.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.PhoneConfirmation"/>
+<xsd:import schemaLocation="http://www.voilacomcel.com/voilaws/VoilaComcelWS.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.TopUp"/>
+<xsd:import schemaLocation="http://www.voilacomcel.com/voilaws/VoilaComcelWS.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.TopUpConfirmation"/>
+<xsd:import schemaLocation="http://www.voilacomcel.com/voilaws/VoilaComcelWS.svc?xsd=xsd11" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+<xsd:import schemaLocation="http://www.voilacomcel.com/voilaws/VoilaComcelWS.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.TopUpTwoStep"/>
+</xsd:schema>
+</wsdl:types>
+<wsdl:message name="IVoilaComcelWS_RunAccountInquiry_InputMessage">
+<wsdl:part name="parameters" element="tns:RunAccountInquiry"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunAccountInquiry_OutputMessage">
+<wsdl:part name="parameters" element="tns:RunAccountInquiryResponse"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunAccountInquiry_ConfigFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q1:ConfigFault" xmlns:q1="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunAccountInquiry_DatabaseFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q2:DatabaseFault" xmlns:q2="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunAccountInquiry_ResponseFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q3:ResponseFault" xmlns:q3="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunAccountInquiry_InputFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q4:InputFault" xmlns:q4="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunPhone_InputMessage">
+<wsdl:part name="parameters" element="tns:RunPhone"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunPhone_OutputMessage">
+<wsdl:part name="parameters" element="tns:RunPhoneResponse"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunPhone_DatabaseFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q5:DatabaseFault" xmlns:q5="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunPhone_InputFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q6:InputFault" xmlns:q6="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunPhone_ResponseFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q7:ResponseFault" xmlns:q7="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunPhone_ConfigFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q8:ConfigFault" xmlns:q8="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunPhoneVoucher_InputMessage">
+<wsdl:part name="parameters" element="tns:RunPhoneVoucher"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunPhoneVoucher_OutputMessage">
+<wsdl:part name="parameters" element="tns:RunPhoneVoucherResponse"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunPhoneVoucher_InputFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q9:InputFault" xmlns:q9="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunPhoneVoucher_ConfigFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q10:ConfigFault" xmlns:q10="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunPhoneVoucher_DatabaseFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q11:DatabaseFault" xmlns:q11="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunPhoneVoucher_ResponseFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q12:ResponseFault" xmlns:q12="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunPhoneVoucherList_InputMessage">
+<wsdl:part name="parameters" element="tns:RunPhoneVoucherList"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunPhoneVoucherList_OutputMessage">
+<wsdl:part name="parameters" element="tns:RunPhoneVoucherListResponse"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunPhoneVoucherList_InputFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q13:InputFault" xmlns:q13="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunPhoneVoucherList_DatabaseFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q14:DatabaseFault" xmlns:q14="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunPhoneVoucherList_ResponseFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q15:ResponseFault" xmlns:q15="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunPhoneVoucherList_ConfigFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q16:ConfigFault" xmlns:q16="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunPhoneVoucherRedemption_InputMessage">
+<wsdl:part name="parameters" element="tns:RunPhoneVoucherRedemption"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunPhoneVoucherRedemption_OutputMessage">
+<wsdl:part name="parameters" element="tns:RunPhoneVoucherRedemptionResponse"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunPhoneVoucherRedemption_ResponseFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q17:ResponseFault" xmlns:q17="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunPhoneVoucherRedemption_InputFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q18:InputFault" xmlns:q18="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunPhoneVoucherRedemption_DatabaseFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q19:DatabaseFault" xmlns:q19="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunPhoneVoucherRedemption_ConfigFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q20:ConfigFault" xmlns:q20="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunPhoneConfirmation_InputMessage">
+<wsdl:part name="parameters" element="tns:RunPhoneConfirmation"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunPhoneConfirmation_OutputMessage">
+<wsdl:part name="parameters" element="tns:RunPhoneConfirmationResponse"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunPhoneConfirmation_InputFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q21:InputFault" xmlns:q21="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunPhoneConfirmation_DatabaseFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q22:DatabaseFault" xmlns:q22="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunPhoneConfirmation_ResponseFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q23:ResponseFault" xmlns:q23="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunPhoneConfirmation_ConfigFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q24:ConfigFault" xmlns:q24="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunPhoneTwoStep_InputMessage">
+<wsdl:part name="parameters" element="tns:RunPhoneTwoStep"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunPhoneTwoStep_OutputMessage">
+<wsdl:part name="parameters" element="tns:RunPhoneTwoStepResponse"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunPhoneTwoStep_ConfigFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q25:ConfigFault" xmlns:q25="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunPhoneTwoStep_ResponseFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q26:ResponseFault" xmlns:q26="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunPhoneTwoStep_InputFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q27:InputFault" xmlns:q27="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunPhoneTwoStep_DatabaseFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q28:DatabaseFault" xmlns:q28="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunTopUp_InputMessage">
+<wsdl:part name="parameters" element="tns:RunTopUp"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunTopUp_OutputMessage">
+<wsdl:part name="parameters" element="tns:RunTopUpResponse"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunTopUp_ConfigFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q29:ConfigFault" xmlns:q29="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunTopUp_DatabaseFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q30:DatabaseFault" xmlns:q30="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunTopUp_ResponseFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q31:ResponseFault" xmlns:q31="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunTopUp_InputFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q32:InputFault" xmlns:q32="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_ConfirmTopUp_InputMessage">
+<wsdl:part name="parameters" element="tns:ConfirmTopUp"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_ConfirmTopUp_OutputMessage">
+<wsdl:part name="parameters" element="tns:ConfirmTopUpResponse"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_ConfirmTopUp_InputFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q33:InputFault" xmlns:q33="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_ConfirmTopUp_DatabaseFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q34:DatabaseFault" xmlns:q34="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_ConfirmTopUp_ResponseFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q35:ResponseFault" xmlns:q35="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_ConfirmTopUp_ConfigFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q36:ConfigFault" xmlns:q36="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunTopUpTwoStep_InputMessage">
+<wsdl:part name="parameters" element="tns:RunTopUpTwoStep"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunTopUpTwoStep_OutputMessage">
+<wsdl:part name="parameters" element="tns:RunTopUpTwoStepResponse"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunTopUpTwoStep_DatabaseFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q37:DatabaseFault" xmlns:q37="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunTopUpTwoStep_ResponseFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q38:ResponseFault" xmlns:q38="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunTopUpTwoStep_ConfigFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q39:ConfigFault" xmlns:q39="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_RunTopUpTwoStep_InputFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q40:InputFault" xmlns:q40="http://schemas.datacontract.org/2004/07/Voila.Exceptions"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_Test_InputMessage">
+<wsdl:part name="parameters" element="tns:Test"/>
+</wsdl:message>
+<wsdl:message name="IVoilaComcelWS_Test_OutputMessage">
+<wsdl:part name="parameters" element="tns:TestResponse"/>
+</wsdl:message>
+<wsdl:portType name="IVoilaComcelWS">
+<wsdl:operation name="RunAccountInquiry">
+<wsdl:input wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunAccountInquiry" message="tns:IVoilaComcelWS_RunAccountInquiry_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunAccountInquiryResponse" message="tns:IVoilaComcelWS_RunAccountInquiry_OutputMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunAccountInquiryConfigFaultFault" name="ConfigFaultFault" message="tns:IVoilaComcelWS_RunAccountInquiry_ConfigFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunAccountInquiryDatabaseFaultFault" name="DatabaseFaultFault" message="tns:IVoilaComcelWS_RunAccountInquiry_DatabaseFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunAccountInquiryResponseFaultFault" name="ResponseFaultFault" message="tns:IVoilaComcelWS_RunAccountInquiry_ResponseFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunAccountInquiryInputFaultFault" name="InputFaultFault" message="tns:IVoilaComcelWS_RunAccountInquiry_InputFaultFault_FaultMessage"/>
+</wsdl:operation>
+<wsdl:operation name="RunPhone">
+<wsdl:input wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunPhone" message="tns:IVoilaComcelWS_RunPhone_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunPhoneResponse" message="tns:IVoilaComcelWS_RunPhone_OutputMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunPhoneDatabaseFaultFault" name="DatabaseFaultFault" message="tns:IVoilaComcelWS_RunPhone_DatabaseFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunPhoneInputFaultFault" name="InputFaultFault" message="tns:IVoilaComcelWS_RunPhone_InputFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunPhoneResponseFaultFault" name="ResponseFaultFault" message="tns:IVoilaComcelWS_RunPhone_ResponseFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunPhoneConfigFaultFault" name="ConfigFaultFault" message="tns:IVoilaComcelWS_RunPhone_ConfigFaultFault_FaultMessage"/>
+</wsdl:operation>
+<wsdl:operation name="RunPhoneVoucher">
+<wsdl:input wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunPhoneVoucher" message="tns:IVoilaComcelWS_RunPhoneVoucher_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunPhoneVoucherResponse" message="tns:IVoilaComcelWS_RunPhoneVoucher_OutputMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunPhoneVoucherInputFaultFault" name="InputFaultFault" message="tns:IVoilaComcelWS_RunPhoneVoucher_InputFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunPhoneVoucherConfigFaultFault" name="ConfigFaultFault" message="tns:IVoilaComcelWS_RunPhoneVoucher_ConfigFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunPhoneVoucherDatabaseFaultFault" name="DatabaseFaultFault" message="tns:IVoilaComcelWS_RunPhoneVoucher_DatabaseFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunPhoneVoucherResponseFaultFault" name="ResponseFaultFault" message="tns:IVoilaComcelWS_RunPhoneVoucher_ResponseFaultFault_FaultMessage"/>
+</wsdl:operation>
+<wsdl:operation name="RunPhoneVoucherList">
+<wsdl:input wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunPhoneVoucherList" message="tns:IVoilaComcelWS_RunPhoneVoucherList_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunPhoneVoucherListResponse" message="tns:IVoilaComcelWS_RunPhoneVoucherList_OutputMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunPhoneVoucherListInputFaultFault" name="InputFaultFault" message="tns:IVoilaComcelWS_RunPhoneVoucherList_InputFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunPhoneVoucherListDatabaseFaultFault" name="DatabaseFaultFault" message="tns:IVoilaComcelWS_RunPhoneVoucherList_DatabaseFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunPhoneVoucherListResponseFaultFault" name="ResponseFaultFault" message="tns:IVoilaComcelWS_RunPhoneVoucherList_ResponseFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunPhoneVoucherListConfigFaultFault" name="ConfigFaultFault" message="tns:IVoilaComcelWS_RunPhoneVoucherList_ConfigFaultFault_FaultMessage"/>
+</wsdl:operation>
+<wsdl:operation name="RunPhoneVoucherRedemption">
+<wsdl:input wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunPhoneVoucherRedemption" message="tns:IVoilaComcelWS_RunPhoneVoucherRedemption_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunPhoneVoucherRedemptionResponse" message="tns:IVoilaComcelWS_RunPhoneVoucherRedemption_OutputMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunPhoneVoucherRedemptionResponseFaultFault" name="ResponseFaultFault" message="tns:IVoilaComcelWS_RunPhoneVoucherRedemption_ResponseFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunPhoneVoucherRedemptionInputFaultFault" name="InputFaultFault" message="tns:IVoilaComcelWS_RunPhoneVoucherRedemption_InputFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunPhoneVoucherRedemptionDatabaseFaultFault" name="DatabaseFaultFault" message="tns:IVoilaComcelWS_RunPhoneVoucherRedemption_DatabaseFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunPhoneVoucherRedemptionConfigFaultFault" name="ConfigFaultFault" message="tns:IVoilaComcelWS_RunPhoneVoucherRedemption_ConfigFaultFault_FaultMessage"/>
+</wsdl:operation>
+<wsdl:operation name="RunPhoneConfirmation">
+<wsdl:input wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunPhoneConfirmation" message="tns:IVoilaComcelWS_RunPhoneConfirmation_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunPhoneConfirmationResponse" message="tns:IVoilaComcelWS_RunPhoneConfirmation_OutputMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunPhoneConfirmationInputFaultFault" name="InputFaultFault" message="tns:IVoilaComcelWS_RunPhoneConfirmation_InputFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunPhoneConfirmationDatabaseFaultFault" name="DatabaseFaultFault" message="tns:IVoilaComcelWS_RunPhoneConfirmation_DatabaseFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunPhoneConfirmationResponseFaultFault" name="ResponseFaultFault" message="tns:IVoilaComcelWS_RunPhoneConfirmation_ResponseFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunPhoneConfirmationConfigFaultFault" name="ConfigFaultFault" message="tns:IVoilaComcelWS_RunPhoneConfirmation_ConfigFaultFault_FaultMessage"/>
+</wsdl:operation>
+<wsdl:operation name="RunPhoneTwoStep">
+<wsdl:input wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunPhoneTwoStep" message="tns:IVoilaComcelWS_RunPhoneTwoStep_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunPhoneTwoStepResponse" message="tns:IVoilaComcelWS_RunPhoneTwoStep_OutputMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunPhoneTwoStepConfigFaultFault" name="ConfigFaultFault" message="tns:IVoilaComcelWS_RunPhoneTwoStep_ConfigFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunPhoneTwoStepResponseFaultFault" name="ResponseFaultFault" message="tns:IVoilaComcelWS_RunPhoneTwoStep_ResponseFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunPhoneTwoStepInputFaultFault" name="InputFaultFault" message="tns:IVoilaComcelWS_RunPhoneTwoStep_InputFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunPhoneTwoStepDatabaseFaultFault" name="DatabaseFaultFault" message="tns:IVoilaComcelWS_RunPhoneTwoStep_DatabaseFaultFault_FaultMessage"/>
+</wsdl:operation>
+<wsdl:operation name="RunTopUp">
+<wsdl:input wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunTopUp" message="tns:IVoilaComcelWS_RunTopUp_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunTopUpResponse" message="tns:IVoilaComcelWS_RunTopUp_OutputMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunTopUpConfigFaultFault" name="ConfigFaultFault" message="tns:IVoilaComcelWS_RunTopUp_ConfigFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunTopUpDatabaseFaultFault" name="DatabaseFaultFault" message="tns:IVoilaComcelWS_RunTopUp_DatabaseFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunTopUpResponseFaultFault" name="ResponseFaultFault" message="tns:IVoilaComcelWS_RunTopUp_ResponseFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunTopUpInputFaultFault" name="InputFaultFault" message="tns:IVoilaComcelWS_RunTopUp_InputFaultFault_FaultMessage"/>
+</wsdl:operation>
+<wsdl:operation name="ConfirmTopUp">
+<wsdl:input wsaw:Action="http://tempuri.org/IVoilaComcelWS/ConfirmTopUp" message="tns:IVoilaComcelWS_ConfirmTopUp_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IVoilaComcelWS/ConfirmTopUpResponse" message="tns:IVoilaComcelWS_ConfirmTopUp_OutputMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/ConfirmTopUpInputFaultFault" name="InputFaultFault" message="tns:IVoilaComcelWS_ConfirmTopUp_InputFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/ConfirmTopUpDatabaseFaultFault" name="DatabaseFaultFault" message="tns:IVoilaComcelWS_ConfirmTopUp_DatabaseFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/ConfirmTopUpResponseFaultFault" name="ResponseFaultFault" message="tns:IVoilaComcelWS_ConfirmTopUp_ResponseFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/ConfirmTopUpConfigFaultFault" name="ConfigFaultFault" message="tns:IVoilaComcelWS_ConfirmTopUp_ConfigFaultFault_FaultMessage"/>
+</wsdl:operation>
+<wsdl:operation name="RunTopUpTwoStep">
+<wsdl:input wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunTopUpTwoStep" message="tns:IVoilaComcelWS_RunTopUpTwoStep_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunTopUpTwoStepResponse" message="tns:IVoilaComcelWS_RunTopUpTwoStep_OutputMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunTopUpTwoStepDatabaseFaultFault" name="DatabaseFaultFault" message="tns:IVoilaComcelWS_RunTopUpTwoStep_DatabaseFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunTopUpTwoStepResponseFaultFault" name="ResponseFaultFault" message="tns:IVoilaComcelWS_RunTopUpTwoStep_ResponseFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunTopUpTwoStepConfigFaultFault" name="ConfigFaultFault" message="tns:IVoilaComcelWS_RunTopUpTwoStep_ConfigFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="http://tempuri.org/IVoilaComcelWS/RunTopUpTwoStepInputFaultFault" name="InputFaultFault" message="tns:IVoilaComcelWS_RunTopUpTwoStep_InputFaultFault_FaultMessage"/>
+</wsdl:operation>
+<wsdl:operation name="Test">
+<wsdl:input wsaw:Action="http://tempuri.org/IVoilaComcelWS/Test" message="tns:IVoilaComcelWS_Test_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/IVoilaComcelWS/TestResponse" message="tns:IVoilaComcelWS_Test_OutputMessage"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="VoilaWSEndpoint" type="tns:IVoilaComcelWS">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_policy"/>
+<soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="RunAccountInquiry">
+<soap12:operation soapAction="http://tempuri.org/IVoilaComcelWS/RunAccountInquiry" style="document"/>
+<wsdl:input>
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunAccountInquiry_Input_policy"/>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunAccountInquiry_output_policy"/>
+<soap12:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="ConfigFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunAccountInquiry_ConfigFaultFault_Fault"/>
+<soap12:fault name="ConfigFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="DatabaseFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunAccountInquiry_DatabaseFaultFault_Fault"/>
+<soap12:fault name="DatabaseFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="ResponseFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunAccountInquiry_ResponseFaultFault_Fault"/>
+<soap12:fault name="ResponseFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="InputFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunAccountInquiry_InputFaultFault_Fault"/>
+<soap12:fault name="InputFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="RunPhone">
+<soap12:operation soapAction="http://tempuri.org/IVoilaComcelWS/RunPhone" style="document"/>
+<wsdl:input>
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunPhone_Input_policy"/>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunPhone_output_policy"/>
+<soap12:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="DatabaseFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunPhone_DatabaseFaultFault_Fault"/>
+<soap12:fault name="DatabaseFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="InputFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunPhone_InputFaultFault_Fault"/>
+<soap12:fault name="InputFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="ResponseFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunPhone_ResponseFaultFault_Fault"/>
+<soap12:fault name="ResponseFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="ConfigFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunPhone_ConfigFaultFault_Fault"/>
+<soap12:fault name="ConfigFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="RunPhoneVoucher">
+<soap12:operation soapAction="http://tempuri.org/IVoilaComcelWS/RunPhoneVoucher" style="document"/>
+<wsdl:input>
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunPhoneVoucher_Input_policy"/>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunPhoneVoucher_output_policy"/>
+<soap12:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="InputFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunPhoneVoucher_InputFaultFault_Fault"/>
+<soap12:fault name="InputFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="ConfigFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunPhoneVoucher_ConfigFaultFault_Fault"/>
+<soap12:fault name="ConfigFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="DatabaseFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunPhoneVoucher_DatabaseFaultFault_Fault"/>
+<soap12:fault name="DatabaseFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="ResponseFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunPhoneVoucher_ResponseFaultFault_Fault"/>
+<soap12:fault name="ResponseFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="RunPhoneVoucherList">
+<soap12:operation soapAction="http://tempuri.org/IVoilaComcelWS/RunPhoneVoucherList" style="document"/>
+<wsdl:input>
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunPhoneVoucherList_Input_policy"/>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunPhoneVoucherList_output_policy"/>
+<soap12:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="InputFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunPhoneVoucherList_InputFaultFault_Fault"/>
+<soap12:fault name="InputFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="DatabaseFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunPhoneVoucherList_DatabaseFaultFault_Fault"/>
+<soap12:fault name="DatabaseFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="ResponseFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunPhoneVoucherList_ResponseFaultFault_Fault"/>
+<soap12:fault name="ResponseFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="ConfigFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunPhoneVoucherList_ConfigFaultFault_Fault"/>
+<soap12:fault name="ConfigFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="RunPhoneVoucherRedemption">
+<soap12:operation soapAction="http://tempuri.org/IVoilaComcelWS/RunPhoneVoucherRedemption" style="document"/>
+<wsdl:input>
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunPhoneVoucherRedemption_Input_policy"/>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunPhoneVoucherRedemption_output_policy"/>
+<soap12:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="ResponseFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunPhoneVoucherRedemption_ResponseFaultFault_Fault"/>
+<soap12:fault name="ResponseFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="InputFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunPhoneVoucherRedemption_InputFaultFault_Fault"/>
+<soap12:fault name="InputFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="DatabaseFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunPhoneVoucherRedemption_DatabaseFaultFault_Fault"/>
+<soap12:fault name="DatabaseFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="ConfigFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunPhoneVoucherRedemption_ConfigFaultFault_Fault"/>
+<soap12:fault name="ConfigFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="RunPhoneConfirmation">
+<soap12:operation soapAction="http://tempuri.org/IVoilaComcelWS/RunPhoneConfirmation" style="document"/>
+<wsdl:input>
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunPhoneConfirmation_Input_policy"/>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunPhoneConfirmation_output_policy"/>
+<soap12:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="InputFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunPhoneConfirmation_InputFaultFault_Fault"/>
+<soap12:fault name="InputFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="DatabaseFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunPhoneConfirmation_DatabaseFaultFault_Fault"/>
+<soap12:fault name="DatabaseFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="ResponseFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunPhoneConfirmation_ResponseFaultFault_Fault"/>
+<soap12:fault name="ResponseFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="ConfigFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunPhoneConfirmation_ConfigFaultFault_Fault"/>
+<soap12:fault name="ConfigFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="RunPhoneTwoStep">
+<soap12:operation soapAction="http://tempuri.org/IVoilaComcelWS/RunPhoneTwoStep" style="document"/>
+<wsdl:input>
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunPhoneTwoStep_Input_policy"/>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunPhoneTwoStep_output_policy"/>
+<soap12:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="ConfigFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunPhoneTwoStep_ConfigFaultFault_Fault"/>
+<soap12:fault name="ConfigFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="ResponseFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunPhoneTwoStep_ResponseFaultFault_Fault"/>
+<soap12:fault name="ResponseFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="InputFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunPhoneTwoStep_InputFaultFault_Fault"/>
+<soap12:fault name="InputFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="DatabaseFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunPhoneTwoStep_DatabaseFaultFault_Fault"/>
+<soap12:fault name="DatabaseFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="RunTopUp">
+<soap12:operation soapAction="http://tempuri.org/IVoilaComcelWS/RunTopUp" style="document"/>
+<wsdl:input>
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunTopUp_Input_policy"/>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunTopUp_output_policy"/>
+<soap12:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="ConfigFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunTopUp_ConfigFaultFault_Fault"/>
+<soap12:fault name="ConfigFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="DatabaseFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunTopUp_DatabaseFaultFault_Fault"/>
+<soap12:fault name="DatabaseFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="ResponseFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunTopUp_ResponseFaultFault_Fault"/>
+<soap12:fault name="ResponseFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="InputFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunTopUp_InputFaultFault_Fault"/>
+<soap12:fault name="InputFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="ConfirmTopUp">
+<soap12:operation soapAction="http://tempuri.org/IVoilaComcelWS/ConfirmTopUp" style="document"/>
+<wsdl:input>
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_ConfirmTopUp_Input_policy"/>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_ConfirmTopUp_output_policy"/>
+<soap12:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="InputFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_ConfirmTopUp_InputFaultFault_Fault"/>
+<soap12:fault name="InputFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="DatabaseFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_ConfirmTopUp_DatabaseFaultFault_Fault"/>
+<soap12:fault name="DatabaseFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="ResponseFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_ConfirmTopUp_ResponseFaultFault_Fault"/>
+<soap12:fault name="ResponseFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="ConfigFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_ConfirmTopUp_ConfigFaultFault_Fault"/>
+<soap12:fault name="ConfigFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="RunTopUpTwoStep">
+<soap12:operation soapAction="http://tempuri.org/IVoilaComcelWS/RunTopUpTwoStep" style="document"/>
+<wsdl:input>
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunTopUpTwoStep_Input_policy"/>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunTopUpTwoStep_output_policy"/>
+<soap12:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="DatabaseFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunTopUpTwoStep_DatabaseFaultFault_Fault"/>
+<soap12:fault name="DatabaseFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="ResponseFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunTopUpTwoStep_ResponseFaultFault_Fault"/>
+<soap12:fault name="ResponseFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="ConfigFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunTopUpTwoStep_ConfigFaultFault_Fault"/>
+<soap12:fault name="ConfigFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="InputFaultFault">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_RunTopUpTwoStep_InputFaultFault_Fault"/>
+<soap12:fault name="InputFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="Test">
+<soap12:operation soapAction="http://tempuri.org/IVoilaComcelWS/Test" style="document"/>
+<wsdl:input>
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_Test_Input_policy"/>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint_Test_output_policy"/>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:binding name="VoilaWSEndpoint1" type="tns:IVoilaComcelWS">
+<wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="VoilaWSEndpoint1_policy"/>
+<soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="RunAccountInquiry">
+<soap12:operation soapAction="http://tempuri.org/IVoilaComcelWS/RunAccountInquiry" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="ConfigFaultFault">
+<soap12:fault name="ConfigFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="DatabaseFaultFault">
+<soap12:fault name="DatabaseFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="ResponseFaultFault">
+<soap12:fault name="ResponseFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="InputFaultFault">
+<soap12:fault name="InputFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="RunPhone">
+<soap12:operation soapAction="http://tempuri.org/IVoilaComcelWS/RunPhone" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="DatabaseFaultFault">
+<soap12:fault name="DatabaseFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="InputFaultFault">
+<soap12:fault name="InputFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="ResponseFaultFault">
+<soap12:fault name="ResponseFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="ConfigFaultFault">
+<soap12:fault name="ConfigFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="RunPhoneVoucher">
+<soap12:operation soapAction="http://tempuri.org/IVoilaComcelWS/RunPhoneVoucher" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="InputFaultFault">
+<soap12:fault name="InputFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="ConfigFaultFault">
+<soap12:fault name="ConfigFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="DatabaseFaultFault">
+<soap12:fault name="DatabaseFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="ResponseFaultFault">
+<soap12:fault name="ResponseFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="RunPhoneVoucherList">
+<soap12:operation soapAction="http://tempuri.org/IVoilaComcelWS/RunPhoneVoucherList" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="InputFaultFault">
+<soap12:fault name="InputFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="DatabaseFaultFault">
+<soap12:fault name="DatabaseFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="ResponseFaultFault">
+<soap12:fault name="ResponseFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="ConfigFaultFault">
+<soap12:fault name="ConfigFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="RunPhoneVoucherRedemption">
+<soap12:operation soapAction="http://tempuri.org/IVoilaComcelWS/RunPhoneVoucherRedemption" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="ResponseFaultFault">
+<soap12:fault name="ResponseFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="InputFaultFault">
+<soap12:fault name="InputFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="DatabaseFaultFault">
+<soap12:fault name="DatabaseFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="ConfigFaultFault">
+<soap12:fault name="ConfigFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="RunPhoneConfirmation">
+<soap12:operation soapAction="http://tempuri.org/IVoilaComcelWS/RunPhoneConfirmation" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="InputFaultFault">
+<soap12:fault name="InputFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="DatabaseFaultFault">
+<soap12:fault name="DatabaseFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="ResponseFaultFault">
+<soap12:fault name="ResponseFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="ConfigFaultFault">
+<soap12:fault name="ConfigFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="RunPhoneTwoStep">
+<soap12:operation soapAction="http://tempuri.org/IVoilaComcelWS/RunPhoneTwoStep" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="ConfigFaultFault">
+<soap12:fault name="ConfigFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="ResponseFaultFault">
+<soap12:fault name="ResponseFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="InputFaultFault">
+<soap12:fault name="InputFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="DatabaseFaultFault">
+<soap12:fault name="DatabaseFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="RunTopUp">
+<soap12:operation soapAction="http://tempuri.org/IVoilaComcelWS/RunTopUp" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="ConfigFaultFault">
+<soap12:fault name="ConfigFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="DatabaseFaultFault">
+<soap12:fault name="DatabaseFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="ResponseFaultFault">
+<soap12:fault name="ResponseFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="InputFaultFault">
+<soap12:fault name="InputFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="ConfirmTopUp">
+<soap12:operation soapAction="http://tempuri.org/IVoilaComcelWS/ConfirmTopUp" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="InputFaultFault">
+<soap12:fault name="InputFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="DatabaseFaultFault">
+<soap12:fault name="DatabaseFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="ResponseFaultFault">
+<soap12:fault name="ResponseFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="ConfigFaultFault">
+<soap12:fault name="ConfigFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="RunTopUpTwoStep">
+<soap12:operation soapAction="http://tempuri.org/IVoilaComcelWS/RunTopUpTwoStep" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="DatabaseFaultFault">
+<soap12:fault name="DatabaseFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="ResponseFaultFault">
+<soap12:fault name="ResponseFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="ConfigFaultFault">
+<soap12:fault name="ConfigFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="InputFaultFault">
+<soap12:fault name="InputFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="Test">
+<soap12:operation soapAction="http://tempuri.org/IVoilaComcelWS/Test" style="document"/>
+<wsdl:input>
+<soap12:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap12:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="VoilaComcelWS">
+<wsdl:port name="VoilaWSEndpoint" binding="tns:VoilaWSEndpoint">
+<soap12:address location="http://www.voilacomcel.com/voilaws/VoilaComcelWS.svc/ms"/>
+<wsa10:EndpointReference>
+<wsa10:Address>http://www.voilacomcel.com/voilaws/VoilaComcelWS.svc/ms</wsa10:Address>
+<Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+<KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+<X509Data>
+<X509Certificate>MIIBwDCCAW6gAwIBAgIQE5G4LYQr64NKRGmOOYZqMzAJBgUrDgMCHQUAMBYxFDASBgNVBAMTC1Jvb3QgQWdlbmN5MB4XDTExMTAwNTA5MTIwOFoXDTM5MTIzMTIzNTk1OVowIzEhMB8GA1UEAxMYYjJiLnRyaWxvZ3kuY2xvdWRhcHAubmV0MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQClPy0F8cHJjwbJ+7e2OEqMvQAzisH5VwhXXz/YJMkki2brtE/a921EGF/uYFi6D5e4of9jWIjxy9Tb+GiJbksANyMU5TFE0srKwsCCYLg0iN8bDvxHyBRWWPEfD4jagkjs0cxvXaWOmmb+fvAQbcDNehWzMC4TZzwAVD/kXjTN/QIDAQABo0swSTBHBgNVHQEEQDA+gBAS5AktBh0dTwCNYSHcFmRjoRgwFjEUMBIGA1UEAxMLUm9vdCBBZ2VuY3mCEAY3bACqAGSKEc+41KpcNfQwCQYFKw4DAh0FAANBAAskc3wJqFFzOPzk+y5ucoOmf4VPSd9uCI5WkWsAQPblyfIYSxrL+x7bLgCuuSjDPKPZpcIXNZWx7WNUNdemQ+c=</X509Certificate>
+</X509Data>
+</KeyInfo>
+</Identity>
+</wsa10:EndpointReference>
+</wsdl:port>
+<wsdl:port name="VoilaWSEndpoint1" binding="tns:VoilaWSEndpoint1">
+<soap12:address location="http://www.voilacomcel.com/voilaws/VoilaComcelWS.svc"/>
+<wsa10:EndpointReference>
+<wsa10:Address>http://www.voilacomcel.com/voilaws/VoilaComcelWS.svc</wsa10:Address>
+</wsa10:EndpointReference>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>

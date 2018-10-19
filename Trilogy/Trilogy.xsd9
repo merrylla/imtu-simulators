@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.TopUp" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.TopUp">
+<xs:import schemaLocation="http://www.voilacomcel.com/VoilaWS/VoilaComcelWS.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Voila.VoilaWS"/>
+<xs:complexType name="TopUpRequest">
+<xs:complexContent mixed="false">
+<xs:extension base="q1:RequestBase" xmlns:q1="http://schemas.datacontract.org/2004/07/Voila.VoilaWS">
+<xs:sequence>
+<xs:element minOccurs="0" name="AccountTopUp" nillable="true" type="tns:TopUpRequest.AccountTopUpClassRequest"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:element name="TopUpRequest" nillable="true" type="tns:TopUpRequest"/>
+<xs:complexType name="TopUpRequest.AccountTopUpClassRequest">
+<xs:sequence>
+<xs:element minOccurs="0" name="Account" nillable="true" type="tns:TopUpRequest.AccountTopUpClassRequest.AccountClassRequest"/>
+<xs:element minOccurs="0" name="Transaction" nillable="true" type="tns:TopUpRequest.AccountTopUpClassRequest.TransactionClassRequest"/>
+<xs:element minOccurs="0" name="User" nillable="true" type="tns:TopUpRequest.AccountTopUpClassRequest.UserClassRequest"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="TopUpRequest.AccountTopUpClassRequest" nillable="true" type="tns:TopUpRequest.AccountTopUpClassRequest"/>
+<xs:complexType name="TopUpRequest.AccountTopUpClassRequest.AccountClassRequest">
+<xs:sequence>
+<xs:element minOccurs="0" name="Number" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Type" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="TopUpRequest.AccountTopUpClassRequest.AccountClassRequest" nillable="true" type="tns:TopUpRequest.AccountTopUpClassRequest.AccountClassRequest"/>
+<xs:complexType name="TopUpRequest.AccountTopUpClassRequest.TransactionClassRequest">
+<xs:sequence>
+<xs:element minOccurs="0" name="Amount" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Comments" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="LocationCode" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="OtherInfo" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="ReferenceId" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="TopupType" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="TopUpRequest.AccountTopUpClassRequest.TransactionClassRequest" nillable="true" type="tns:TopUpRequest.AccountTopUpClassRequest.TransactionClassRequest"/>
+<xs:complexType name="TopUpRequest.AccountTopUpClassRequest.UserClassRequest">
+<xs:sequence>
+<xs:element minOccurs="0" name="Id" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Password" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="TopUpRequest.AccountTopUpClassRequest.UserClassRequest" nillable="true" type="tns:TopUpRequest.AccountTopUpClassRequest.UserClassRequest"/>
+<xs:complexType name="TopUpResponse">
+<xs:complexContent mixed="false">
+<xs:extension base="q2:ResponseBase" xmlns:q2="http://schemas.datacontract.org/2004/07/Voila.VoilaWS">
+<xs:sequence>
+<xs:element minOccurs="0" name="AccountTopUp" nillable="true" type="tns:TopUpResponse.AccountTopUpClass"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:element name="TopUpResponse" nillable="true" type="tns:TopUpResponse"/>
+<xs:complexType name="TopUpResponse.AccountTopUpClass">
+<xs:sequence>
+<xs:element minOccurs="0" name="Account" nillable="true" type="tns:TopUpResponse.AccountTopUpClass.AccountClass"/>
+<xs:element minOccurs="0" name="Transaction" nillable="true" type="tns:TopUpResponse.AccountTopUpClass.TransactionClass"/>
+<xs:element minOccurs="0" name="User" nillable="true" type="tns:TopUpResponse.AccountTopUpClass.UserClass"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="TopUpResponse.AccountTopUpClass" nillable="true" type="tns:TopUpResponse.AccountTopUpClass"/>
+<xs:complexType name="TopUpResponse.AccountTopUpClass.AccountClass">
+<xs:sequence>
+<xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="NewBalance" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Number" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="OldBalance" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Type" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="TopUpResponse.AccountTopUpClass.AccountClass" nillable="true" type="tns:TopUpResponse.AccountTopUpClass.AccountClass"/>
+<xs:complexType name="TopUpResponse.AccountTopUpClass.TransactionClass">
+<xs:sequence>
+<xs:element minOccurs="0" name="BonusAmount" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="BonusPercent" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="ConfirmationId" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="PhoneActivatePin" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="ReferenceId" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="TopupPin" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="TopUpResponse.AccountTopUpClass.TransactionClass" nillable="true" type="tns:TopUpResponse.AccountTopUpClass.TransactionClass"/>
+<xs:complexType name="TopUpResponse.AccountTopUpClass.UserClass">
+<xs:sequence>
+<xs:element minOccurs="0" name="Id" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Password" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="TopUpResponse.AccountTopUpClass.UserClass" nillable="true" type="tns:TopUpResponse.AccountTopUpClass.UserClass"/>
+</xs:schema>

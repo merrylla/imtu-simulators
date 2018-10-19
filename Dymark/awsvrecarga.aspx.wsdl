@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="wsvrecarga" targetNamespace="RecargasUsaV2" xmlns:tns="RecargasUsaV2" xmlns:wsdlns="RecargasUsaV2" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/">
+	<types>
+		<schema targetNamespace="RecargasUsaV2" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" elementFormDefault="qualified">
+			<element name="wsvrecarga.Execute">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Venide" type="xsd:string"/>
+						<element minOccurs="1" maxOccurs="1" name="Venpas" type="xsd:string"/>
+						<element minOccurs="1" maxOccurs="1" name="Paicod" type="xsd:string"/>
+						<element minOccurs="1" maxOccurs="1" name="Opecod" type="xsd:string"/>
+						<element minOccurs="1" maxOccurs="1" name="Telnum" type="xsd:string"/>
+						<element minOccurs="1" maxOccurs="1" name="Valor" type="xsd:double"/>
+						<element minOccurs="1" maxOccurs="1" name="Recfee" type="xsd:double"/>
+						<element minOccurs="1" maxOccurs="1" name="Recrem" type="xsd:string"/>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="wsvrecarga.ExecuteResponse">
+				<complexType>
+					<sequence>
+						<element minOccurs="1" maxOccurs="1" name="Error" type="xsd:string"/>
+					</sequence>
+				</complexType>
+			</element>
+		</schema>
+	</types>
+	<message name="wsvrecarga.ExecuteSoapIn">
+		<part name="parameters" element="tns:wsvrecarga.Execute"/>
+	</message>
+	<message name="wsvrecarga.ExecuteSoapOut">
+		<part name="parameters" element="tns:wsvrecarga.ExecuteResponse"/>
+	</message>
+	<portType name="wsvrecargaSoapPort">
+		<operation name="Execute">
+			<input message="wsdlns:wsvrecarga.ExecuteSoapIn"/>
+			<output message="wsdlns:wsvrecarga.ExecuteSoapOut"/>
+		</operation>
+	</portType>
+	<binding name="wsvrecargaSoapBinding" type="wsdlns:wsvrecargaSoapPort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="Execute">
+			<soap:operation soapAction="RecargasUsaV2action/AWSVRECARGA.Execute"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<service name="wsvrecarga">
+		<port name="wsvrecargaSoapPort" binding="wsdlns:wsvrecargaSoapBinding">
+			<soap:address location="http://www.recargasusa.com:443/RecargasV2/awsvrecarga.aspx"/>
+		</port>
+	</service>
+</definitions>

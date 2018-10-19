@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.Phone" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.Phone">
+<xs:import schemaLocation="http://www.voilacomcel.com/VoilaWS/VoilaComcelWS.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Voila.VoilaWS"/>
+<xs:complexType name="PhoneRequest">
+<xs:complexContent mixed="false">
+<xs:extension base="q1:RequestBase" xmlns:q1="http://schemas.datacontract.org/2004/07/Voila.VoilaWS">
+<xs:sequence>
+<xs:element minOccurs="0" name="AccountPhone" nillable="true" type="tns:PhoneRequest.AccountPhoneClassRequest"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:element name="PhoneRequest" nillable="true" type="tns:PhoneRequest"/>
+<xs:complexType name="PhoneRequest.AccountPhoneClassRequest">
+<xs:sequence>
+<xs:element minOccurs="0" name="Transaction" nillable="true" type="tns:PhoneRequest.AccountPhoneClassRequest.TransactionClassRequest"/>
+<xs:element minOccurs="0" name="User" nillable="true" type="tns:PhoneRequest.AccountPhoneClassRequest.UserClassRequest"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="PhoneRequest.AccountPhoneClassRequest" nillable="true" type="tns:PhoneRequest.AccountPhoneClassRequest"/>
+<xs:complexType name="PhoneRequest.AccountPhoneClassRequest.TransactionClassRequest">
+<xs:sequence>
+<xs:element minOccurs="0" name="CountryCode" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="LocationCode" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="PFirstName" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="PLastName" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="PackageId" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="RAddress" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="RFirstName" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="RLastName" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="RPhone" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="ReferenceId" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="PhoneRequest.AccountPhoneClassRequest.TransactionClassRequest" nillable="true" type="tns:PhoneRequest.AccountPhoneClassRequest.TransactionClassRequest"/>
+<xs:complexType name="PhoneRequest.AccountPhoneClassRequest.UserClassRequest">
+<xs:sequence>
+<xs:element minOccurs="0" name="HashedPassword" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Id" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Password" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="PhoneRequest.AccountPhoneClassRequest.UserClassRequest" nillable="true" type="tns:PhoneRequest.AccountPhoneClassRequest.UserClassRequest"/>
+<xs:complexType name="PhoneResponse">
+<xs:complexContent mixed="false">
+<xs:extension base="q2:ResponseBase" xmlns:q2="http://schemas.datacontract.org/2004/07/Voila.VoilaWS">
+<xs:sequence>
+<xs:element minOccurs="0" name="AccountPhone" nillable="true" type="tns:PhoneResponse.AccountPhoneClass"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:element name="PhoneResponse" nillable="true" type="tns:PhoneResponse"/>
+<xs:complexType name="PhoneResponse.AccountPhoneClass">
+<xs:sequence>
+<xs:element minOccurs="0" name="Transaction" nillable="true" type="tns:PhoneResponse.AccountPhoneClass.TransactionClass"/>
+<xs:element minOccurs="0" name="User" nillable="true" type="tns:PhoneResponse.AccountPhoneClass.UserClass"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="PhoneResponse.AccountPhoneClass" nillable="true" type="tns:PhoneResponse.AccountPhoneClass"/>
+<xs:complexType name="PhoneResponse.AccountPhoneClass.TransactionClass">
+<xs:sequence>
+<xs:element minOccurs="0" name="ConfirmationId" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="ReferenceId" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="PhoneResponse.AccountPhoneClass.TransactionClass" nillable="true" type="tns:PhoneResponse.AccountPhoneClass.TransactionClass"/>
+<xs:complexType name="PhoneResponse.AccountPhoneClass.UserClass">
+<xs:sequence>
+<xs:element minOccurs="0" name="Id" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Password" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="PhoneResponse.AccountPhoneClass.UserClass" nillable="true" type="tns:PhoneResponse.AccountPhoneClass.UserClass"/>
+</xs:schema>

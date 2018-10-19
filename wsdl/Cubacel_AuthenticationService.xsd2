@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts">
+<xs:complexType name="OperationResult">
+<xs:sequence>
+<xs:element name="ValueOk" type="xs:boolean"/>
+<xs:element name="Message" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="RequestTime" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="ResponseTime" type="xs:dateTime"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="OperationResult" nillable="true" type="tns:OperationResult"/>
+<xs:complexType name="SessionTicket">
+<xs:sequence>
+<xs:element name="Ticket" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="SessionTicket" nillable="true" type="tns:SessionTicket"/>
+<xs:complexType name="NotValidCredentialsFault">
+<xs:sequence>
+<xs:element minOccurs="0" name="Message" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="NotValidCredentialsFault" nillable="true" type="tns:NotValidCredentialsFault"/>
+<xs:complexType name="UnknowErrorFault">
+<xs:sequence>
+<xs:element minOccurs="0" name="Message" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="UnknowErrorFault" nillable="true" type="tns:UnknowErrorFault"/>
+<xs:complexType name="NotValidSessionTicketFault">
+<xs:sequence>
+<xs:element minOccurs="0" name="Message" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="NotValidSessionTicketFault" nillable="true" type="tns:NotValidSessionTicketFault"/>
+<xs:complexType name="Privileges">
+<xs:sequence>
+<xs:element minOccurs="0" maxOccurs="unbounded" name="Privileges" nillable="true" type="tns:Privilege"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="Privileges" nillable="true" type="tns:Privileges"/>
+<xs:complexType name="Privilege">
+<xs:sequence>
+<xs:element name="Name" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="Privilege" nillable="true" type="tns:Privilege"/>
+<xs:complexType name="DistributorData">
+<xs:sequence>
+<xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="RechargeEnabled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="ActivationEnabled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="ArticleEnabled" type="xs:boolean"/>
+<xs:element minOccurs="0" name="RechargeMin" type="xs:float"/>
+<xs:element minOccurs="0" name="RechargeMax" type="xs:float"/>
+<xs:element minOccurs="0" name="ArticleLimit" type="xs:unsignedShort"/>
+<xs:element minOccurs="0" name="Commission" type="xs:float"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="DistributorData" nillable="true" type="tns:DistributorData"/>
+</xs:schema>

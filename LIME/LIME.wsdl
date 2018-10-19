@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created by Nari Ramdon (LIME) nari.ramdon@comverse.com v1.0 -->
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s0="urn:MobileWebSvc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" name="LIMEwareAPI" targetNamespace="urn:MobileWebSvc">
+  <wsdl:types>
+    <s:schema xmlns="urn:MobileWebSvc" targetNamespace="urn:MobileWebSvc" elementFormDefault="qualified">
+      <s:element name="pingWebSvc">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="serverId" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pingWebSvcResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="returnCode" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="returnDescription" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="hostID" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="releaseVersion" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="localTime" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPrimaryBalance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="msisdn" type="s:long"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPrimaryBalanceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="returnCode" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="returnDescription" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="subscriberId" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="primaryOfferId" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ratingState" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="primaryBalance" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="balanceExpiry" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="rechargeAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="uid" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="authKey" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="msisdn" type="s:long"/>
+            <s:element minOccurs="1" maxOccurs="1" name="tenderedAmount" type="s:float"/>
+            <s:element minOccurs="1" maxOccurs="1" name="rechargeValue" type="s:float"/>
+            <s:element minOccurs="1" maxOccurs="1" name="currencyCode" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="currencyConversionRate" type="s:float"/>
+            <s:element minOccurs="1" maxOccurs="1" name="serverId" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="channelType" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="locationId" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="merchantId" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="terminalId" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="transactionType" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="transactionId" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="rechargeAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="returnCode" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="returnDescription" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="primaryOfferId" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="ratingState" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="conversionFaceValue" type="s:float"/>
+            <s:element minOccurs="0" maxOccurs="1" name="conversionRate" type="s:float"/>
+            <s:element minOccurs="0" maxOccurs="1" name="primaryBalance" type="s:float"/>
+            <s:element minOccurs="0" maxOccurs="1" name="balanceExpiry" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="reverseRechargeAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="uid" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="authKey" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="msisdn" type="s:long"/>
+            <s:element minOccurs="1" maxOccurs="1" name="debitValue" type="s:float"/>
+            <s:element minOccurs="1" maxOccurs="1" name="originCurrencyCode" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="serverId" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="reversalReasonCode" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="locationId" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="merchantId" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="terminalId" type="s:string"/>
+            <s:element minOccurs="1" maxOccurs="1" name="rechargeTransactionId" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="transactionId" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="reverseRechargeAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="returnCode" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="returnDescription" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="reversalFaceValue" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="reversalConversionRate" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="reversalResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SOAP__Fault">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="faultcode" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="faultstring" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="pingWebSvcSoapIn">
+    <wsdl:part name="parameters" element="s0:pingWebSvc"/>
+  </wsdl:message>
+  <wsdl:message name="pingWebSvcSoapOut">
+    <wsdl:part name="parameters" element="s0:pingWebSvcResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getPrimaryBalanceSoapIn">
+    <wsdl:part name="parameters" element="s0:getPrimaryBalance"/>
+  </wsdl:message>
+  <wsdl:message name="getPrimaryBalanceSoapOut">
+    <wsdl:part name="parameters" element="s0:getPrimaryBalanceResponse"/>
+  </wsdl:message>
+  <wsdl:message name="rechargeAccountSoapIn">
+    <wsdl:part name="parameters" element="s0:rechargeAccount"/>
+  </wsdl:message>
+  <wsdl:message name="rechargeAccountSoapOut">
+    <wsdl:part name="parameters" element="s0:rechargeAccountResponse"/>
+  </wsdl:message>
+  <wsdl:message name="reverseRechargeAccountSoapIn">
+    <wsdl:part name="parameters" element="s0:reverseRechargeAccount"/>
+  </wsdl:message>
+  <wsdl:message name="reverseRechargeAccountSoapOut">
+    <wsdl:part name="parameters" element="s0:reverseRechargeAccountResponse"/>
+  </wsdl:message>
+  <wsdl:message name="soapError">
+    <wsdl:part name="parameters" element="s0:SOAP__Fault"/>
+  </wsdl:message>
+  <wsdl:portType name="MobileWebSvcSoap">
+    <wsdl:operation name="pingWebSvc">
+      <wsdl:input message="s0:pingWebSvcSoapIn"/>
+      <wsdl:output message="s0:pingWebSvcSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="getPrimaryBalance">
+      <wsdl:input message="s0:getPrimaryBalanceSoapIn"/>
+      <wsdl:output message="s0:getPrimaryBalanceSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="rechargeAccount">
+      <wsdl:input message="s0:rechargeAccountSoapIn"/>
+      <wsdl:output message="s0:rechargeAccountSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="reverseRechargeAccount">
+      <wsdl:input message="s0:reverseRechargeAccountSoapIn"/>
+      <wsdl:output message="s0:reverseRechargeAccountSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MobileWebSvcBinding" type="s0:MobileWebSvcSoap">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="pingWebSvc">
+      <soap:operation soapAction="urn:MobileWebSvc#pingWebSvc"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPrimaryBalance">
+      <soap:operation soapAction="urn:MobileWebSvc#getPrimaryBalance"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="rechargeAccount">
+      <soap:operation soapAction="urn:MobileWebSvc#rechargeAccount"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="reverseRechargeAccount">
+      <soap:operation soapAction="urn:MobileWebSvc#reverseRechargeAccount"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MobileWebSvc">
+    <wsdl:port name="MobileWebSvcSoap" binding="s0:MobileWebSvcBinding">
+      <soap:address location="http://limeware:port/MobileWebSvc"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

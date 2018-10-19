@@ -1,0 +1,20 @@
+RewriteLogLevel 10
+RewriteLog "/u/debit/logs/rewrite.log"
+
+<Directory /u/debit/apps/htdocs/Evieg>
+RewriteEngine On
+Options FollowSymLinks
+#RewriteRule transaction(.*) EviegSvr.php?tid=$1 
+#RewriteRule ^(\w+)$ EviegSvr.php?cmd=$1&value= [L]
+RewriteCond %{REQUEST_URI} !EviegSvr.php
+RewriteRule ^([^/]+)/(.*)$ EviegSvr.php?cmd=$1 [QSA,L]
+#RewriteRule ^(\w+)$ EviegSvr.php?cmd=$1 [QSA,L]
+#RewriteRule ^(\w+)/([\w-]+)$ EviegSvr.php?cmd=$1&tid=$2 [L]
+#RewriteRule ^(\w+)/([\w-]+)/(\w*)$ EviegSvr.php?cmd=$1&tid=$2&subcmd=$3 [L]
+#RewriteRule /Evieg/(.*) EviegSvr.php?cmd=$1 [PT]
+#RewriteRule ^/?(.*)$ EviegSvr.php?cmd=$1 [L]	- LAST WITH JOE
+#RewriteRule ^(\w+)(.*)$ EviegSvr.php?cmd=$1&value=$2 [L]
+#RewriteRule ^/(\w+)(.*)$ EviegSvr.php?cmd=$1&value=$2 [L]	- invokes
+#RewriteRule ^.*/(.*)$ /EviegSvr.php?cmd=$1 [NC,QSA,L]
+#RewriteRule ^.*/(.*)$ Evieg/EviegSvr.php?cmd=$1 [NC,QSA,L]
+</Directory>

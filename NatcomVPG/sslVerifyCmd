@@ -1,0 +1,4 @@
+openssl base64 -d -in goodSignature -out goodSignature.no64
+openssl dgst -sha1 -verify public.pem -signature goodSignature.no64 signingText
+
+openssl dgst -sha1 -sign private.pem signingText

@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.1-b03-. --><xs:schema xmlns:tns="http://server.dtsws/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://server.dtsws/">
+
+<xs:element name="asyncCommitRecharge" type="tns:asyncCommitRecharge"></xs:element>
+
+<xs:element name="asyncCommitRechargeResponse" type="tns:asyncCommitRechargeResponse"></xs:element>
+
+<xs:element name="clientAccountBalance" type="tns:clientAccountBalance"></xs:element>
+
+<xs:element name="clientAccountBalanceResponse" type="tns:clientAccountBalanceResponse"></xs:element>
+
+<xs:element name="getRegisteredCardInfo" type="tns:getRegisteredCardInfo"></xs:element>
+
+<xs:element name="getRegisteredCardInfoResponse" type="tns:getRegisteredCardInfoResponse"></xs:element>
+
+<xs:element name="login" type="tns:login"></xs:element>
+
+<xs:element name="loginResponse" type="tns:loginResponse"></xs:element>
+
+<xs:element name="logout" type="tns:logout"></xs:element>
+
+<xs:element name="logoutResponse" type="tns:logoutResponse"></xs:element>
+
+<xs:element name="ping" type="tns:ping"></xs:element>
+
+<xs:element name="pingResponse" type="tns:pingResponse"></xs:element>
+
+<xs:element name="postRechargeCard" type="tns:postRechargeCard"></xs:element>
+
+<xs:element name="postRechargeCardResponse" type="tns:postRechargeCardResponse"></xs:element>
+
+<xs:element name="postRechargeMSISDN" type="tns:postRechargeMSISDN"></xs:element>
+
+<xs:element name="postRechargeMSISDNResponse" type="tns:postRechargeMSISDNResponse"></xs:element>
+
+<xs:element name="rechargeCard" type="tns:rechargeCard"></xs:element>
+
+<xs:element name="rechargeCardResponse" type="tns:rechargeCardResponse"></xs:element>
+
+<xs:element name="rechargeMSISDN" type="tns:rechargeMSISDN"></xs:element>
+
+<xs:element name="rechargeMSISDNResponse" type="tns:rechargeMSISDNResponse"></xs:element>
+
+<xs:element name="registerCard" type="tns:registerCard"></xs:element>
+
+<xs:element name="registerCardResponse" type="tns:registerCardResponse"></xs:element>
+
+<xs:element name="rollbackRecharge" type="tns:rollbackRecharge"></xs:element>
+
+<xs:element name="rollbackRechargeResponse" type="tns:rollbackRechargeResponse"></xs:element>
+
+<xs:element name="sendSMS" type="tns:sendSMS"></xs:element>
+
+<xs:element name="sendSMSResponse" type="tns:sendSMSResponse"></xs:element>
+
+<xs:element name="syncCommitRecharge" type="tns:syncCommitRecharge"></xs:element>
+
+<xs:element name="syncCommitRechargeResponse" type="tns:syncCommitRechargeResponse"></xs:element>
+
+<xs:element name="topUp" type="tns:topUp"></xs:element>
+
+<xs:element name="topUpResponse" type="tns:topUpResponse"></xs:element>
+
+<xs:element name="topUpSMS" type="tns:topUpSMS"></xs:element>
+
+<xs:element name="topUpSMSResponse" type="tns:topUpSMSResponse"></xs:element>
+
+<xs:element name="validateCard" type="tns:validateCard"></xs:element>
+
+<xs:element name="validateCardResponse" type="tns:validateCardResponse"></xs:element>
+
+<xs:element name="validateMSISDN" type="tns:validateMSISDN"></xs:element>
+
+<xs:element name="validateMSISDNResponse" type="tns:validateMSISDNResponse"></xs:element>
+
+<xs:complexType name="getRegisteredCardInfo">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg1" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getRegisteredCardInfoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:getRegisteredCardInfoObject" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getRegisteredCardInfoObject">
+<xs:complexContent>
+<xs:extension base="tns:baseBean">
+<xs:sequence>
+<xs:element name="cardNumber" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="lastTransactionDate" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="msisdn" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="registeredDate" type="xs:dateTime" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="baseBean">
+<xs:sequence>
+<xs:element name="responseCode" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="validateCard">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg1" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg2" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="arg3" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg4" type="xs:double"></xs:element>
+<xs:element name="arg5" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="validateCardResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:validateCardObject" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="validateCardObject">
+<xs:complexContent>
+<xs:extension base="tns:baseBean">
+<xs:sequence>
+<xs:element name="accountBalance" type="xs:double"></xs:element>
+<xs:element name="cardNumber" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="clientDate" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="currency" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="rechargeExpiryDate" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="timezone" type="xs:int"></xs:element>
+<xs:element name="transactionAmount" type="xs:double"></xs:element>
+<xs:element name="transactionID" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="transactionTimestamp" type="xs:long"></xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="rechargeMSISDN">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg1" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg2" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="arg3" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg4" type="xs:double"></xs:element>
+<xs:element name="arg5" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg6" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="rechargeMSISDNResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:rechargeMSISDNObject" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="rechargeMSISDNObject">
+<xs:complexContent>
+<xs:extension base="tns:baseBean">
+<xs:sequence>
+<xs:element name="clientDate" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="currency" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="customerName" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="MSISDN" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="newAccountBalance" type="xs:double"></xs:element>
+<xs:element name="rechargeExpiryDate" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="timezone" type="xs:int"></xs:element>
+<xs:element name="transactionAmount" type="xs:double"></xs:element>
+<xs:element name="transactionID" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="transactionTimestamp" type="xs:long"></xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="rollbackRecharge">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg1" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg2" type="xs:dateTime" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="rollbackRechargeResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:rollbackRechargeObject" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="rollbackRechargeObject">
+<xs:complexContent>
+<xs:extension base="tns:baseBean">
+<xs:sequence>
+<xs:element name="cardNumber" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="clientDate" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="currency" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="customerName" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="MSISDN" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="timezone" type="xs:int"></xs:element>
+<xs:element name="transactionAmount" type="xs:double"></xs:element>
+<xs:element name="transactionID" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="transactionTimestamp" type="xs:long"></xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="topUpSMS">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg1" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg2" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg3" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg4" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg5" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg6" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="topUpSMSResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:topUpSmsObject" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="topUpSmsObject">
+<xs:complexContent>
+<xs:extension base="tns:baseBean">
+<xs:sequence></xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="syncCommitRecharge">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg1" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg2" type="xs:dateTime" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="syncCommitRechargeResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:syncCommitRechargeObject" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="syncCommitRechargeObject">
+<xs:complexContent>
+<xs:extension base="tns:baseBean">
+<xs:sequence>
+<xs:element name="cardNumber" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="clientDate" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="currency" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="customerName" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="MSISDN" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="newAccountBalance" type="xs:double"></xs:element>
+<xs:element name="rechargeExpiryDate" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="timezone" type="xs:int"></xs:element>
+<xs:element name="transactionAmount" type="xs:double"></xs:element>
+<xs:element name="transactionID" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="transactionTimestamp" type="xs:long"></xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="asyncCommitRecharge">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg1" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg2" type="xs:dateTime" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="asyncCommitRechargeResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:asyncCommitRechargeObject" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="asyncCommitRechargeObject">
+<xs:complexContent>
+<xs:extension base="tns:baseBean">
+<xs:sequence>
+<xs:element name="cardNumber" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="clientDate" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="currency" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="customerName" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="MSISDN" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="timezone" type="xs:int"></xs:element>
+<xs:element name="transactionAmount" type="xs:double"></xs:element>
+<xs:element name="transactionID" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="transactionTimestamp" type="xs:long"></xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="ping">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="pingResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="logout">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="logoutResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sendSMS">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg1" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg2" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg3" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+<xs:element name="arg4" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sendSMSResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:sendMessageObject" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sendMessageObject">
+<xs:complexContent>
+<xs:extension base="tns:baseBean">
+<xs:sequence>
+<xs:element name="MSISDN" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="text" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="clientAccountBalance">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg1" type="xs:dateTime" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="clientAccountBalanceResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:clientAccountBalanceObject" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="clientAccountBalanceObject">
+<xs:complexContent>
+<xs:extension base="tns:baseBean">
+<xs:sequence>
+<xs:element name="accountBalance" type="xs:double"></xs:element>
+<xs:element name="timestamp" type="xs:long"></xs:element>
+<xs:element name="timezone" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="postRechargeCard">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg1" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg2" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="arg3" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg4" type="xs:double"></xs:element>
+<xs:element name="arg5" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg6" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="postRechargeCardResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:postRechargeCardObject" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="postRechargeCardObject">
+<xs:complexContent>
+<xs:extension base="tns:baseBean">
+<xs:sequence>
+<xs:element name="cardNumber" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="clientDate" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="currency" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="customerName" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="timezone" type="xs:int"></xs:element>
+<xs:element name="transactionAmount" type="xs:double"></xs:element>
+<xs:element name="transactionID" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="transactionTimestamp" type="xs:long"></xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="login">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg1" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="loginResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:loginObject" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="loginObject">
+<xs:complexContent>
+<xs:extension base="tns:baseBean">
+<xs:sequence>
+<xs:element name="loginKey" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="postRechargeMSISDN">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg1" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg2" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="arg3" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg4" type="xs:double"></xs:element>
+<xs:element name="arg5" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg6" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="postRechargeMSISDNResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:postRechargeMSISDNObject" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="postRechargeMSISDNObject">
+<xs:complexContent>
+<xs:extension base="tns:baseBean">
+<xs:sequence>
+<xs:element name="clientDate" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="currency" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="customerName" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="MSISDN" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="timezone" type="xs:int"></xs:element>
+<xs:element name="transactionAmount" type="xs:double"></xs:element>
+<xs:element name="transactionID" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="transactionTimestamp" type="xs:long"></xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="rechargeCard">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg1" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg2" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="arg3" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg4" type="xs:double"></xs:element>
+<xs:element name="arg5" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg6" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="rechargeCardResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:rechargeCardObject" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="rechargeCardObject">
+<xs:complexContent>
+<xs:extension base="tns:baseBean">
+<xs:sequence>
+<xs:element name="cardNumber" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="clientDate" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="currency" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="customerName" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="newAccountBalance" type="xs:double"></xs:element>
+<xs:element name="rechargeExpiryDate" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="timezone" type="xs:int"></xs:element>
+<xs:element name="transactionAmount" type="xs:double"></xs:element>
+<xs:element name="transactionID" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="transactionTimestamp" type="xs:long"></xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="validateMSISDN">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg1" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg2" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="arg3" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg4" type="xs:double"></xs:element>
+<xs:element name="arg5" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="validateMSISDNResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:validateMSISDNObject" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="validateMSISDNObject">
+<xs:complexContent>
+<xs:extension base="tns:baseBean">
+<xs:sequence>
+<xs:element name="accountBalance" type="xs:double"></xs:element>
+<xs:element name="clientDate" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="currency" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="MSISDN" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="rechargeExpiryDate" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="timezone" type="xs:int"></xs:element>
+<xs:element name="transactionAmount" type="xs:double"></xs:element>
+<xs:element name="transactionID" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="transactionTimestamp" type="xs:long"></xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="registerCard">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg1" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg2" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="registerCardResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:registerCardObject" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="registerCardObject">
+<xs:complexContent>
+<xs:extension base="tns:baseBean">
+<xs:sequence>
+<xs:element name="cardNumber" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="MSISDN" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="timezone" type="xs:int"></xs:element>
+<xs:element name="transactionTimestamp" type="xs:long"></xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="topUp">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg1" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg2" type="xs:dateTime" minOccurs="0"></xs:element>
+<xs:element name="arg3" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg4" type="xs:double"></xs:element>
+<xs:element name="arg5" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg6" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg7" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg8" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg9" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg10" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="arg11" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="topUpResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:topUpObject" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="topUpObject">
+<xs:complexContent>
+<xs:extension base="tns:rechargeMSISDNObject">
+<xs:sequence>
+<xs:element name="extraCredit" type="xs:double"></xs:element>
+<xs:element name="promoAmount" type="xs:double"></xs:element>
+<xs:element name="totalAmount" type="xs:double"></xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+</xs:schema>

@@ -1,0 +1,79 @@
+#!/usr/local/bin/python
+"""
+VPG_NETCOM end point simulator
+"""
+import logging
+import sys
+
+from ISO8583.ISO8583 import ISO8583
+from ISO8583.ISOErrors import *
+from socket import *
+
+import logging
+
+LOG_FILENAME = '/u/debit/logs/VPGsvr.log'
+
+def slog(msg, loglevel=logging.DEBUG):
+    logging.basicConfig(filename=LOG_FILENAME,level=loglevel)
+    logging.debug(msg)
+
+slog("VPGSvr starting")
+
+class NatcomIso8583(ISO8583.ISO8583):
+  def __init__(self):
+     smallStr=2
+     largeStr=2
+     #obj = ISO8583()
+     #obj.redefineBit(self, bit, smallStr, largeStr, bitType, size, valueType)
+     self.redefineBit(self, 7, smallStr, largeStr, N, 14, n)
+     self.redefineBit(self, 11, smallStr, largeStr, N, 15, an)
+     self.redefineBit(self, 63, smallStr, largeStr, LL, 99, n)
+     self.redefineBit(self, 64, smallStr, largeStr, LLL, 999, b)
+
+bigEndian = True
+#bigEndian = False
+
+isoStr = sys.stdin.readline().strip('\x0a')
+#isoStr = sys.stdin.read()
+
+slog(isoStr)
+
+if isoStr:
+   slog ("\nInput ASCII |%s|" % isoStr)
+   pack = ISO8583()
+   #parse the iso
+   try:
+      if bigEndian:
+         pack.setNetworkISO(isoStr)
+      else:
+         pack.setNetworkISO(isoStr,False)
+			
+      v1 = pack.getBitsAndValues()
+
+      for v in v1:
+         slog ('Bit %s of type %s with value = %s' % (v['bit'],v['type'],v['value']))
+         if pack.getMTI() == '0200':
+             slog ("\tThat's great !!! The client send a correct message !!!")
+         else:
+	     slog ("The client dosen't send the correct message!")	
+	     break
+					
+					
+   except InvalidIso8583, ii:
+             slog("Received exception InvalidIso8583 %s" % ii)
+   except:
+             slog ('Something happened!!!!')
+			
+#send answer
+pack.setMTI('0210')
+pack.setBit(3, '400000')
+pack.setBit(39, '00')
+			
+if bigEndian:
+   ans = pack.getNetworkISO()
+else:
+   ans = pack.getNetworkISO(False)
+				
+slog ('Sending answer %s' % ans)
+sys.stdout.write(ans)
+sys.stdout.flush()

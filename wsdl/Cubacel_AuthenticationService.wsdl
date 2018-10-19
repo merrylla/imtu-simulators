@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="Authentication" targetNamespace="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex">
+<wsp:Policy wsu:Id="AuthenticationEndpoint_Secure_policy">
+<wsp:ExactlyOne>
+<wsp:All>
+<sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+<wsp:Policy>
+<sp:TransportToken>
+<wsp:Policy>
+<sp:HttpsToken RequireClientCertificate="false"/>
+</wsp:Policy>
+</sp:TransportToken>
+<sp:AlgorithmSuite>
+<wsp:Policy>
+<sp:Basic256/>
+</wsp:Policy>
+</sp:AlgorithmSuite>
+<sp:Layout>
+<wsp:Policy>
+<sp:Strict/>
+</wsp:Policy>
+</sp:Layout>
+</wsp:Policy>
+</sp:TransportBinding>
+</wsp:All>
+</wsp:ExactlyOne>
+</wsp:Policy>
+<wsdl:types>
+<xsd:schema targetNamespace="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/Imports">
+<xsd:import schemaLocation="Cubacel_AuthenticationService.xsd0" namespace="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts"/>
+<xsd:import schemaLocation="Cubacel_AuthenticationService.xsd2" namespace="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+<xsd:import schemaLocation="Cubacel_AuthenticationService.xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+</xsd:schema>
+</wsdl:types>
+<wsdl:message name="GetSessionTicketRequest">
+<wsdl:part name="parameters" element="tns:GetSessionTicketRequest"/>
+</wsdl:message>
+<wsdl:message name="GetSessionTicketResponse">
+<wsdl:part name="parameters" element="tns:GetSessionTicketResponse"/>
+</wsdl:message>
+<wsdl:message name="AuthenticationContract_GetSessionTicket_NotValidCredentialsFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q1:NotValidCredentialsFault" xmlns:q1="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="AuthenticationContract_GetSessionTicket_UnknowErrorFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q2:UnknowErrorFault" xmlns:q2="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="ChangeAccountPasswordRequest">
+<wsdl:part name="parameters" element="tns:ChangeAccountPasswordRequest"/>
+</wsdl:message>
+<wsdl:message name="ChangeAccountPasswordResponse">
+<wsdl:part name="parameters" element="tns:ChangeAccountPasswordResponse"/>
+</wsdl:message>
+<wsdl:message name="AuthenticationContract_ChangeAccountPassword_UnknowErrorFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q3:UnknowErrorFault" xmlns:q3="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="AuthenticationContract_ChangeAccountPassword_NotValidSessionTicketFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q4:NotValidSessionTicketFault" xmlns:q4="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="GetPrivilegesInfoRequest">
+<wsdl:part name="parameters" element="tns:GetPrivilegesInfoRequest"/>
+</wsdl:message>
+<wsdl:message name="GetPrivilegesInfoResponse">
+<wsdl:part name="parameters" element="tns:GetPrivilegesInfoResponse"/>
+</wsdl:message>
+<wsdl:message name="AuthenticationContract_GetPrivilegesInfo_UnknowErrorFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q5:UnknowErrorFault" xmlns:q5="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="AuthenticationContract_GetPrivilegesInfo_NotValidSessionTicketFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q6:NotValidSessionTicketFault" xmlns:q6="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="GetDistributorInfoRequest">
+<wsdl:part name="parameters" element="tns:GetDistributorInfoRequest"/>
+</wsdl:message>
+<wsdl:message name="GetDistributorInfoResponse">
+<wsdl:part name="parameters" element="tns:GetDistributorInfoResponse"/>
+</wsdl:message>
+<wsdl:message name="AuthenticationContract_GetDistributorInfo_NotValidSessionTicketFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q7:NotValidSessionTicketFault" xmlns:q7="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:message name="AuthenticationContract_GetDistributorInfo_UnknowErrorFaultFault_FaultMessage">
+<wsdl:part name="detail" element="q8:UnknowErrorFault" xmlns:q8="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</wsdl:message>
+<wsdl:portType name="AuthenticationContract">
+<wsdl:operation name="GetSessionTicket">
+<wsdl:input wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.AuthenticationContract.GetSessionTicket" name="GetSessionTicketRequest" message="tns:GetSessionTicketRequest"/>
+<wsdl:output wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/AuthenticationContract/GetSessionTicketResponse" name="GetSessionTicketResponse" message="tns:GetSessionTicketResponse"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/AuthenticationContract/GetSessionTicketNotValidCredentialsFaultFault" name="NotValidCredentialsFaultFault" message="tns:AuthenticationContract_GetSessionTicket_NotValidCredentialsFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/AuthenticationContract/GetSessionTicketUnknowErrorFaultFault" name="UnknowErrorFaultFault" message="tns:AuthenticationContract_GetSessionTicket_UnknowErrorFaultFault_FaultMessage"/>
+</wsdl:operation>
+<wsdl:operation name="ChangeAccountPassword">
+<wsdl:input wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.AuthenticationContract.ChangeAccountPassword" name="ChangeAccountPasswordRequest" message="tns:ChangeAccountPasswordRequest"/>
+<wsdl:output wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/AuthenticationContract/ChangeAccountPasswordResponse" name="ChangeAccountPasswordResponse" message="tns:ChangeAccountPasswordResponse"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/AuthenticationContract/ChangeAccountPasswordUnknowErrorFaultFault" name="UnknowErrorFaultFault" message="tns:AuthenticationContract_ChangeAccountPassword_UnknowErrorFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/AuthenticationContract/ChangeAccountPasswordNotValidSessionTicketFaultFault" name="NotValidSessionTicketFaultFault" message="tns:AuthenticationContract_ChangeAccountPassword_NotValidSessionTicketFaultFault_FaultMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetPrivilegesInfo">
+<wsdl:input wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.AuthenticationContract.GetPrivilegesInfo" name="GetPrivilegesInfoRequest" message="tns:GetPrivilegesInfoRequest"/>
+<wsdl:output wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/AuthenticationContract/GetPrivilegesInfoResponse" name="GetPrivilegesInfoResponse" message="tns:GetPrivilegesInfoResponse"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/AuthenticationContract/GetPrivilegesInfoUnknowErrorFaultFault" name="UnknowErrorFaultFault" message="tns:AuthenticationContract_GetPrivilegesInfo_UnknowErrorFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/AuthenticationContract/GetPrivilegesInfoNotValidSessionTicketFaultFault" name="NotValidSessionTicketFaultFault" message="tns:AuthenticationContract_GetPrivilegesInfo_NotValidSessionTicketFaultFault_FaultMessage"/>
+</wsdl:operation>
+<wsdl:operation name="GetDistributorInfo">
+<wsdl:input wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.AuthenticationContract.GetDistributorInfo" name="GetDistributorInfoRequest" message="tns:GetDistributorInfoRequest"/>
+<wsdl:output wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/AuthenticationContract/GetDistributorInfoResponse" name="GetDistributorInfoResponse" message="tns:GetDistributorInfoResponse"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/AuthenticationContract/GetDistributorInfoNotValidSessionTicketFaultFault" name="NotValidSessionTicketFaultFault" message="tns:AuthenticationContract_GetDistributorInfo_NotValidSessionTicketFaultFault_FaultMessage"/>
+<wsdl:fault wsaw:Action="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts/AuthenticationContract/GetDistributorInfoUnknowErrorFaultFault" name="UnknowErrorFaultFault" message="tns:AuthenticationContract_GetDistributorInfo_UnknowErrorFaultFault_FaultMessage"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="AuthenticationEndpoint_Secure" type="tns:AuthenticationContract">
+<wsp:PolicyReference URI="#AuthenticationEndpoint_Secure_policy"/>
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="GetSessionTicket">
+<soap:operation soapAction="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.AuthenticationContract.GetSessionTicket" style="document"/>
+<wsdl:input name="GetSessionTicketRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="GetSessionTicketResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="NotValidCredentialsFaultFault">
+<soap:fault name="NotValidCredentialsFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="UnknowErrorFaultFault">
+<soap:fault name="UnknowErrorFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="ChangeAccountPassword">
+<soap:operation soapAction="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.AuthenticationContract.ChangeAccountPassword" style="document"/>
+<wsdl:input name="ChangeAccountPasswordRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="ChangeAccountPasswordResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="UnknowErrorFaultFault">
+<soap:fault name="UnknowErrorFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="NotValidSessionTicketFaultFault">
+<soap:fault name="NotValidSessionTicketFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="GetPrivilegesInfo">
+<soap:operation soapAction="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.AuthenticationContract.GetPrivilegesInfo" style="document"/>
+<wsdl:input name="GetPrivilegesInfoRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="GetPrivilegesInfoResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="UnknowErrorFaultFault">
+<soap:fault name="UnknowErrorFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="NotValidSessionTicketFaultFault">
+<soap:fault name="NotValidSessionTicketFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="GetDistributorInfo">
+<soap:operation soapAction="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts.AuthenticationContract.GetDistributorInfo" style="document"/>
+<wsdl:input name="GetDistributorInfoRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="GetDistributorInfoResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="NotValidSessionTicketFaultFault">
+<soap:fault name="NotValidSessionTicketFaultFault" use="literal"/>
+</wsdl:fault>
+<wsdl:fault name="UnknowErrorFaultFault">
+<soap:fault name="UnknowErrorFaultFault" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="Authentication">
+<wsdl:port name="AuthenticationEndpoint_Secure" binding="tns:AuthenticationEndpoint_Secure">
+<soap:address location="https://extrawebtest:5976/VirtualPayment/AuthenticationService.svc"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>
+
