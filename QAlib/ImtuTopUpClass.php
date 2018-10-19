@@ -1,0 +1,155 @@
+<?php
+
+function getDB($a, $k)
+{
+
+$db=new SQLite3('/u/debit/apps/htdocs/QAdata/db/QAImtu.db', SQLITE3_OPEN_READWRITE);
+if (!$db) {
+   errlog("WARN: getDB connection failed", $db);
+   return FALSE;
+}
+
+//app, key, xml, date, misc
+errlog("INFO: getDB app + key", $a.':'.$k);
+$stm1 = sprintf("SELECT xml, date, misc from xmlData where app='%s' and key='%s'", $a, $k);
+$dbdata = $db->querySingle ($stm1, true);
+if (!$dbdata) {
+   errlog("WARN: getDB select failed", $dbdata.':'.$stm1);
+   return FALSE;
+}
+
+return $dbdata['xml'];
+
+}//getDB
+
+// breaking the multilevel object or array into a simple array
+function complex2simpleA($p)
+{
+    $rA=array();
+
+    foreach($p as $key=>$val) {
+      $type = gettype($val);
+      if ($type == 'array' || $type=='object') {
+
+          $a=complex2simpleA($val);
+          $rA=array_merge($rA, $a);
+       }
+      else { 
+        $rA[$key] = $val;
+       }
+    }//end foreach 
+   return $rA;
+} //complex2simpleA
+
+function rcursiveForEach(&$a, $o)
+{
+
+      foreach($a as $key => &$val) {
+
+          if (gettype($val) == 'array') rcursiveForEach($val, $o);
+          else {
+             if( array_key_exists($key, $o->re)) {
+                 $val=$o->re[$key];
+               }
+          }
+      }//foreach 
+
+}//rcursiveForEach
+
+Class TopupObj1 {
+   
+   public $app;
+   public $key;
+   public $xe=array();  // query inputs that need validation
+   public $re=array();  // response parameters instructions
+   public $delay;
+   public $abort;
+
+   function TopupObj1($k) {
+          $this->app = $k['app'];
+          $this->key = $k['key'];
+   }
+
+   function TopupSetup($xa, $ra) {
+
+       $this->delay=0;
+       $this->abort='false';
+
+       $xmld=$this->retrieveContext();
+
+       $xA=array();
+
+       if ($xmld != FALSE) {
+
+          $ca=array_merge($xa,$ra, array('delay'=>'delay', 'abort'=>'abort'));
+
+          $xA=retrievXmlParm2A($xmld, $ca);
+          errlog("INFO: getDB: ", $xA);
+
+          foreach($xa as $key => $val) {
+              if (array_key_exists($val, $xA)) 
+                 if (isset($xA[$val])) $this->xe[$key]=$xA[$val]; 
+          }
+
+          foreach($ra as $key => $val) {
+              if (array_key_exists($val, $xA)) 
+                 if (isset($xA[$val])) $this->re[$key]=$xA[$val]; 
+          }
+
+          if (array_key_exists('delay', $xA)) 
+                 if (isset($xA['delay'])) $this->delay= (int) $xA['delay'];
+                
+          if (array_key_exists('abort', $xA)) 
+                 if (isset($xA['abort'])) $this->abort=$xA['abort'];
+
+          errlog("INFO: dump DB: ",  array_merge($this->xe, $this->re));
+      }//end if
+   
+     }//TopupSetup
+           
+   function validateReqInput($p) {
+
+          return processRequestX($p, $this->xe);
+   }
+
+
+   function buildRspData(&$rspA) {
+
+       $delay=$this->delay;
+       if ($delay > 0) {
+          errlog("WARN: Delaying resp for ", $delay." seconds");
+          time_sleep_until(microtime(true) + $delay);
+       }
+       if ($this->abort == 'true') {
+
+          errlog("WARN: Received abort instruction - exiting", "buildRspData");
+          exit(0);
+       }
+
+      rcursiveForEach($rspA, $this);
+
+      return $rspA;
+   }//buildRspData
+
+   function saveContext($key, $data) {
+    // errlog("INFO: TopupObj1.saveContext - $key: ", $data);
+      $db=openSqliteDB();
+      DBdeleteRecord($db, $this->app, $key);
+      DBinsertRecord($db, $this->app, $key, $data);
+   }//saveContext
+
+   function retrieveContext() {
+
+    // errlog("INFO: TopupObj1.retrieveContext - app:key ", $this->app.":".$this->key);
+      $db=openSqliteDB();
+      $r=DBretrieveRecord($db, $this->app, $this->key);
+      DBdeleteRecord($db, $this->app, $this->key);
+      errlog("INFO: TopupObj1.retrieveContext - key: ", $r);
+      return $r;
+   }
+
+
+}//TopupObj class
+
+
+?>

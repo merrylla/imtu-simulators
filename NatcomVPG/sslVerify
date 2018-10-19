@@ -1,0 +1,1 @@
+openssl rsautl -verify -inkey IDT_public_key_1024.pem -in in.txt.rsa -pubin

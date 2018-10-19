@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.PhoneVoucher" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.PhoneVoucher">
+<xs:import schemaLocation="http://www.voilacomcel.com/VoilaWS/VoilaComcelWS.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Voila.VoilaWS"/>
+<xs:complexType name="PhoneVoucherRequest">
+<xs:complexContent mixed="false">
+<xs:extension base="q1:RequestBase" xmlns:q1="http://schemas.datacontract.org/2004/07/Voila.VoilaWS">
+<xs:sequence>
+<xs:element minOccurs="0" name="AccountPhoneVoucher" nillable="true" type="tns:PhoneVoucherRequest.AccountPhoneVoucherClassRequest"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:element name="PhoneVoucherRequest" nillable="true" type="tns:PhoneVoucherRequest"/>
+<xs:complexType name="PhoneVoucherRequest.AccountPhoneVoucherClassRequest">
+<xs:sequence>
+<xs:element minOccurs="0" name="Transaction" nillable="true" type="tns:PhoneVoucherRequest.AccountPhoneVoucherClassRequest.TransactionClassRequest"/>
+<xs:element minOccurs="0" name="User" nillable="true" type="tns:PhoneVoucherRequest.AccountPhoneVoucherClassRequest.UserClassRequest"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="PhoneVoucherRequest.AccountPhoneVoucherClassRequest" nillable="true" type="tns:PhoneVoucherRequest.AccountPhoneVoucherClassRequest"/>
+<xs:complexType name="PhoneVoucherRequest.AccountPhoneVoucherClassRequest.TransactionClassRequest">
+<xs:sequence>
+<xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="LocationCode" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="PFirstName" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="PLastName" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="RPhone_No" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="ReferenceId" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="VoucherId" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="PhoneVoucherRequest.AccountPhoneVoucherClassRequest.TransactionClassRequest" nillable="true" type="tns:PhoneVoucherRequest.AccountPhoneVoucherClassRequest.TransactionClassRequest"/>
+<xs:complexType name="PhoneVoucherRequest.AccountPhoneVoucherClassRequest.UserClassRequest">
+<xs:sequence>
+<xs:element minOccurs="0" name="HashedPassword" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Id" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Password" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="PhoneVoucherRequest.AccountPhoneVoucherClassRequest.UserClassRequest" nillable="true" type="tns:PhoneVoucherRequest.AccountPhoneVoucherClassRequest.UserClassRequest"/>
+<xs:complexType name="PhoneVoucherResponse">
+<xs:complexContent mixed="false">
+<xs:extension base="q2:ResponseBase" xmlns:q2="http://schemas.datacontract.org/2004/07/Voila.VoilaWS">
+<xs:sequence>
+<xs:element minOccurs="0" name="AccountPhoneVoucher" nillable="true" type="tns:PhoneVoucherResponse.AccountPhoneVoucherClass"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:element name="PhoneVoucherResponse" nillable="true" type="tns:PhoneVoucherResponse"/>
+<xs:complexType name="PhoneVoucherResponse.AccountPhoneVoucherClass">
+<xs:sequence>
+<xs:element minOccurs="0" name="Transaction" nillable="true" type="tns:PhoneVoucherResponse.AccountPhoneVoucherClass.TransactionClass"/>
+<xs:element minOccurs="0" name="User" nillable="true" type="tns:PhoneVoucherResponse.AccountPhoneVoucherClass.UserClass"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="PhoneVoucherResponse.AccountPhoneVoucherClass" nillable="true" type="tns:PhoneVoucherResponse.AccountPhoneVoucherClass"/>
+<xs:complexType name="PhoneVoucherResponse.AccountPhoneVoucherClass.TransactionClass">
+<xs:sequence>
+<xs:element minOccurs="0" name="ConfirmationId" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="ExpirationDate" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="PIN" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="ReferenceId" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="PhoneVoucherResponse.AccountPhoneVoucherClass.TransactionClass" nillable="true" type="tns:PhoneVoucherResponse.AccountPhoneVoucherClass.TransactionClass"/>
+<xs:complexType name="PhoneVoucherResponse.AccountPhoneVoucherClass.UserClass">
+<xs:sequence>
+<xs:element minOccurs="0" name="Id" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Password" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="PhoneVoucherResponse.AccountPhoneVoucherClass.UserClass" nillable="true" type="tns:PhoneVoucherResponse.AccountPhoneVoucherClass.UserClass"/>
+<xs:complexType name="PhoneVoucherListRequest">
+<xs:complexContent mixed="false">
+<xs:extension base="q3:RequestBase" xmlns:q3="http://schemas.datacontract.org/2004/07/Voila.VoilaWS">
+<xs:sequence>
+<xs:element minOccurs="0" name="AccountPhoneVoucher" nillable="true" type="tns:PhoneVoucherListRequest.AccountPhoneVoucherListClassRequest"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:element name="PhoneVoucherListRequest" nillable="true" type="tns:PhoneVoucherListRequest"/>
+<xs:complexType name="PhoneVoucherListRequest.AccountPhoneVoucherListClassRequest">
+<xs:sequence>
+<xs:element minOccurs="0" name="User" nillable="true" type="tns:PhoneVoucherListRequest.AccountPhoneVoucherListClassRequest.UserClassRequest"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="PhoneVoucherListRequest.AccountPhoneVoucherListClassRequest" nillable="true" type="tns:PhoneVoucherListRequest.AccountPhoneVoucherListClassRequest"/>
+<xs:complexType name="PhoneVoucherListRequest.AccountPhoneVoucherListClassRequest.UserClassRequest">
+<xs:sequence>
+<xs:element minOccurs="0" name="HashedPassword" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Id" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Password" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="PhoneVoucherListRequest.AccountPhoneVoucherListClassRequest.UserClassRequest" nillable="true" type="tns:PhoneVoucherListRequest.AccountPhoneVoucherListClassRequest.UserClassRequest"/>
+<xs:complexType name="PhoneVoucherListResponse">
+<xs:complexContent mixed="false">
+<xs:extension base="q4:ResponseBase" xmlns:q4="http://schemas.datacontract.org/2004/07/Voila.VoilaWS">
+<xs:sequence>
+<xs:element minOccurs="0" name="AccountPhoneVoucherList" nillable="true" type="tns:PhoneVoucherListResponse.AccountPhoneVoucherListClass"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:element name="PhoneVoucherListResponse" nillable="true" type="tns:PhoneVoucherListResponse"/>
+<xs:complexType name="PhoneVoucherListResponse.AccountPhoneVoucherListClass">
+<xs:sequence>
+<xs:element minOccurs="0" name="Transaction" nillable="true" type="tns:PhoneVoucherListResponse.AccountPhoneVoucherListClass.TransactionClass"/>
+<xs:element minOccurs="0" name="User" nillable="true" type="tns:PhoneVoucherListResponse.AccountPhoneVoucherListClass.UserClass"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="PhoneVoucherListResponse.AccountPhoneVoucherListClass" nillable="true" type="tns:PhoneVoucherListResponse.AccountPhoneVoucherListClass"/>
+<xs:complexType name="PhoneVoucherListResponse.AccountPhoneVoucherListClass.TransactionClass">
+<xs:sequence>
+<xs:element minOccurs="0" name="Vouchers" nillable="true" type="tns:ArrayOfPhoneVoucherListResponse.AccountPhoneVoucherListClass.VoucherClass"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="PhoneVoucherListResponse.AccountPhoneVoucherListClass.TransactionClass" nillable="true" type="tns:PhoneVoucherListResponse.AccountPhoneVoucherListClass.TransactionClass"/>
+<xs:complexType name="ArrayOfPhoneVoucherListResponse.AccountPhoneVoucherListClass.VoucherClass">
+<xs:sequence>
+<xs:element minOccurs="0" maxOccurs="unbounded" name="PhoneVoucherListResponse.AccountPhoneVoucherListClass.VoucherClass" nillable="true" type="tns:PhoneVoucherListResponse.AccountPhoneVoucherListClass.VoucherClass"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="ArrayOfPhoneVoucherListResponse.AccountPhoneVoucherListClass.VoucherClass" nillable="true" type="tns:ArrayOfPhoneVoucherListResponse.AccountPhoneVoucherListClass.VoucherClass"/>
+<xs:complexType name="PhoneVoucherListResponse.AccountPhoneVoucherListClass.VoucherClass">
+<xs:sequence>
+<xs:element minOccurs="0" name="Id" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Price" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="PhoneVoucherListResponse.AccountPhoneVoucherListClass.VoucherClass" nillable="true" type="tns:PhoneVoucherListResponse.AccountPhoneVoucherListClass.VoucherClass"/>
+<xs:complexType name="PhoneVoucherListResponse.AccountPhoneVoucherListClass.UserClass">
+<xs:sequence>
+<xs:element minOccurs="0" name="Id" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Password" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="PhoneVoucherListResponse.AccountPhoneVoucherListClass.UserClass" nillable="true" type="tns:PhoneVoucherListResponse.AccountPhoneVoucherListClass.UserClass"/>
+</xs:schema>

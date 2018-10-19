@@ -1,0 +1,236 @@
+<html>
+<body>
+<style>
+body {background-color:powderblue;}
+h1 {color: purple;}
+table, th {
+background-color: rgb(255,100,240);
+border: 2px solid magenta;}
+td { 
+background-color: rgb(255,200,210);
+border: 1px solid purple;
+}
+</style>
+<h1>Here are some Servers that are working</h1>
+<table bordercolor=magenta>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Reversal</th>
+<th>RewriteRule/WSDL</th>
+</tr>
+<tr><td>Atom/AtomSvr.php</td>
+<td>SOAP (wsdl)</td>
+<td>No</td>
+<td><a href= 
+"http://devcall02.ixtelecom.com/Atom/FlashLink.wsdl">http://devcall02.ixtelecom.com/Atom/FlashLink.wsdl</a>
+</td>
+</tr>
+<tr><td>AXtopup/axtopup.php</td>  
+<td>RESTful (XML)</td>
+<td>No</td>
+</tr>
+<tr><td>B2C/b2cSvr.php</td>
+<td>SOAP</td>
+<td>No</td>
+<td><a href= 
+"B2C/Bridge2Call.wsdl">http://devcall02.ixtelecom.com/B2C/Bridge2Call.wsdl</a>
+</td>
+</tr>
+<tr><td>CashStar/CashStarSvr.php</td> 
+<td>RESTful receives XML responds with JSON</td>
+<td>Full and partial</td>
+<td>Many .. Too numerous to specify here</td></tr>
+<tr><td>CLAROPR/ClaroPRSvr.php</td>
+<td>SOAP</td>
+<td>No</td>
+<td><a href= 
+"CLAROPR/ClaroPR.wsdl">http://devcall02.ixtelecom.com/CLAROPR/ClaroPR.wsdl</a>
+</td>
+</tr>
+<tr><td>ClaroSoap/ClaroSvr.php</td>
+<td>SOAP</td>
+<td>No</td>
+<td><a href= 
+"wsdl/Claro_CALA.wsdl">http://devcall02.ixtelecom.com/wsdl/Claro_CALA.wsdl</a>
+</td>
+</tr>
+<tr><td>Codetel/CodetelSvr.php</td>  
+<td>SOAP</td>
+<td>No</td>
+<td><a href= 
+"wsdl/Codetel.wsdl">http://devcall02.ixtelecom.com/wsdl/Codetel.wsdl</a>
+</td>
+</tr>
+<tr><td>ComViva/comvivaSvr.php</td>
+<td>RESTful (XML)</td>
+<td>No</td>
+</tr>
+
+<tr><td>CSQ/CSQServer.php</td>
+<td>SOAP</td>
+<td>Yes</td>
+<td><a href= 
+"wsdl/CSQServer.wsdl">http://devcall02.ixtelecom.com/wsdl/CSQServer.wsdl</a>
+</td>
+</tr>
+<tr><td>Cubacel/CubacelSvr.php</td>  
+<td>SOAP</td>
+<td>No</td>
+<td><a href= 
+"wsdl/Cubacel_SaleService.wsdl">http://devcall02.ixtelecom.com/wsdl/Cubacel_SaleService.wsdl</a>
+</td>
+</tr>
+<tr><td>DIGICEL/DigicelSvr.php</td>  
+<td>SOAP</td>
+<td>No</td>
+<td><a href= 
+"DIGICEL/DigicelSV-DTS.wsdl">http://devcall02.ixtelecom.com/DIGICEL/DigicelSV-DTS.wsdl</a>
+</td>
+</tr>
+<tr><td>Ding/DingSvr.php</td>  
+<td>RESTful(JSON)</td>
+<td>Yes</td>
+<td> 
+^(\w+)/([\w-]+)/([\w-]+)/([\w-]+)/([\w-]+)/([\w-]+)/([\w-]+)$ DingSvr.php?pubKey=$3&reqid=$4&prod=$5&target=$6&hash=$7
+</td>
+</tr>
+<tr><td>DollarPhone/PinManager.php</td>  
+<td>SOAP</td>
+<td>No</td>
+<td><a href= 
+"DIGICEL/DigicelSV-DTS.wsdl">http://devcall02.ixtelecom.com/wsdl/DollarPhone.wsdl</a>
+</td>
+</tr>
+<tr><td>Dymark/dymarkSvr.php</td>  
+<td>SOAP</td>
+<td>No</td>
+<td><a href= 
+"wsdl/awsvrecarga.aspx.wsdl">http://devcall02.ixtelecom.com/wsdl/awsvrecarga.aspx.wsdl</a>
+</td>
+</tr>
+<tr><td>ETECSA/ETECSASvr.php</td>
+<td>RESTful (XML)</td>
+<td>No</td>
+<td>^([\w-]+)/([\w-]+)/(\w+)$ ETECSASvr.php?cmd=$3 [QSA,L]</td>
+</tr>
+<tr><td>Evieg/EviegSvr.php</td>
+<td>RESTful (XML)</td>
+<td>No</td>
+<td>^(\w+)$ EviegSvr.php?cmd=$1 [QSA,L]</td>
+</tr>
+<tr><td>EXPOMOBILE/ExpoMobileSvr.php</td>
+<td>RESTful (XML)</td>
+<td>No</td>
+</tr>
+<tr><td>ezetop/ezetopSvr.php</td> 
+<td>SOAP</td>
+<td>Yes</td>
+<td><a href= 
+"ezetop/ezetop.wsdl">http://devcall02.ixtelecom.com/ezetop/ezetop.wsdl</a>
+</td>
+</tr>
+<tr><td>F1soft/F1softSvr.php</td>
+<td>RESTful (XML)</td>
+<td>No</td>
+<td>^(\w+)$ F1softSvr.php?cmd=$1 [QSA,L]</td>
+</tr>
+<tr><td>Globe/GlobeServer.php</td> 
+<td>SOAP</td>
+<td>No</td>
+<td><a href= 
+"Globe/GlobeGCash.wsdl">http://devcall02.ixtelecom.com/Globe/GlobeGCash.wsdl</a>
+</td>
+</tr>
+<tr><td>Inov8/Inov8Svr.php</td> 
+<td>SOAP</td>
+<td>No</td>
+<td><a href= 
+"Inov8/Inov8.wsdl">http://devcall02.ixtelecom.com/Inov8/Inov8.wsdl</a>
+</td>
+</tr>
+<tr><td>iSend/iSendSvr.php</td> 
+<td>SOAP</td>
+<td>No</td>
+<td><A HREF="wsdl/iSend.wsdl">http://devcall02.ixtelecom.com/wsdl/iSend.wsdl
+</A></td>
+</tr>
+<tr><td>MediaMind/MediaMindSvr.php</td> 
+<td>RESTful (JSON)</td>
+<td>yes</td>
+<td>^(\w+)/(\w+)/([\w-]+)/(\w+[\-]*\w+)$ MediaMindSvr.php?xmd=$2&id=$3&cmd=$4 [L]</td>
+</tr>
+<tr><td>MoneyAccess/MoneyAccessSvr.php</td> 
+<td>RESTful receives XML responds with either JSON or XML</td>
+<td>yes</td>
+<td>^([\w-]+)/([\w-]+)/(\w+)$ MoneyAccessSvr.php?cmd=$3 [QSA,L]</td>
+</tr>
+<tr><td>Multired/MultiredSvr.php</td> 
+<td>RESTful (JSON)</td>
+<td>yes</td>
+<td>^(\w+)/([\w-]+)/(\w*)$ MultiredSvr.php?cmd=$1&tid=$2&subcmd=$3 [L]</td>
+</tr>
+<tr><td>Orange/OrangeODMSvr.php</td>
+<td>RESTful (XML) with MD5</td>
+<td>No</td>
+</tr>
+<tr><td>Orange/OrangeSvr.php</td>
+<td>SOAP</td>
+<td>no</td>
+<td><A HREF="http://devcall02.ixtelecom.com/wsdl/Orange.wsdl">http://devcall02.ixtelecom.com/wsdl/Orange.wsdl
+</A></td>
+</tr>
+<tr><td>Pinserve/Pinserve.php</td>
+<td>SOAP</td>
+<td>No</td>
+<td><A HREF="wsdl/Pinserve.wsdl">http://devcall02.ixtelecom.com/wsdl/Pinserve.wsdl
+</A></td>
+</tr>
+<tr><td>PPN/ppnSvr.php</td>
+<td>SOAP</td>
+<td>yes</td>
+<td><a href= 
+"wsdl/PPN.wsdl">http://devcall02.ixtelecom.com/wsdl/PPN.wsdl</a>
+</td>
+</tr>
+<tr><td>Prasan/PrasanSvr.php</td>
+<td>SOAP</td>
+<td>no</td>
+<td><a href= 
+"wsdl/Prasan.wsdl">http://devcall02.ixtelecom.com/wsdl/Prasan.wsdl</a>
+</td>
+</tr>
+<tr><td>Quippi/QuippiSvr.php</td>
+<td>RESTful (XML and JSON are both understood in the response)</td>
+<td>no</td>
+<td>^(\w+)/([\w-]+)/(\w*)$ QuippiSvr.php?cmd=$1&subcmd=$3 [L]</td>
+</tr>
+<tr><td>SmartLoad/SmartLoadSvr.php</td>
+<td>RESTful (JSON)</td>
+<td>no</td>
+<td>SmartLoadSvrNew.php/(\w+)/([\w-]+)/([\w-]+)/([\w-]+)/([\w-]+)$ SmartLoadSvrNew.php?pubKey=$1&reqid=$2&prod=$3&target=$4&hash=$5
+</td></tr>
+<tr><td>Sochitel/sockitelSvr.php</td>
+<td>RESTful (JSON)</td>
+<td>no</td>
+</tr>
+<tr><td>TCetra/TCMerchantService.php</td>
+<td>SOAP</td>
+<td>no</td>
+<td><a href= 
+"wsdl/TCMerchantService_1.wsdl">http://devcall02.ixtelecom.com/wsdl/TCMerchantService_1.wsdl</a>
+</td>
+</tr>
+<tr><td>Tigo/TigoSvr.php</td>
+<td>SOAP</td>
+<td>no</td>
+<td><a href= 
+"wsdl/Tigo.wsdl">http://devcall02.ixtelecom.com/wsdl/Tigo.wsdl</a>
+</td>
+</tr>
+<tr><td>TransferTo/transferToSvr.php</td>
+<td>RESTful (XML) with MD5</td>
+<td>no</td>
+</tr>
+</table>
+</body></html>

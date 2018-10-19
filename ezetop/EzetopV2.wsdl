@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:i0="http://tempuri.org/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://edts.api.v2/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="EDTSManager" targetNamespace="http://edts.api.v2/">
+  <wsdl:types>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://edts.api.v2/">
+      <xs:element name="TopUpPhoneAccountRequest" type="tns:TopUpPhoneAccountRequest"/>
+      <xs:complexType name="TopUpPhoneAccountRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="AuthenticationToken" type="tns:AuthenticationToken"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="MessageID" type="xs:int"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="CountryCode" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="OperatorCode" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="xs:string"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="Amount" type="xs:double"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="Comment" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="SMSRequest" type="tns:SendSMSRequest"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="TransferType" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="AmountCurrencyIso" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="AuthenticationToken">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="AuthenticationID" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="AuthenticationPassword" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SendSMSRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="AuthenticationToken" type="tns:AuthenticationToken"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="MessageID" type="xs:int"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="CountryCode" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="OperatorCode" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="MessagePhoneNumber" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="MessageText" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="MessageFrom" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="TopUpPhoneAccountResult" type="tns:TopUpPhoneAccountResponse"/>
+      <xs:complexType name="TopUpPhoneAccountResponse">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="MessageID" type="xs:int"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="TopUpPhoneAccountStatus" type="tns:TopUpPhoneAccountStatus"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="SMSStatus" type="tns:SendSMSStatus"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="TopUpPhoneAccountAmountSent" type="tns:TopUpPhoneAccountAmountSent"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="OperatorCode" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="OperatorName" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="MobileNetworkCode" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="CountryCode" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="CountryName" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="MobileCountryCode" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="CustomerCareNumber" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="LogoURL" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="TransactionFee" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="Denominations" type="tns:Denomination"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="MinMaxValueRange" type="tns:MinMaxValueRange"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="TextDisclaimer" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="TextDisclaimer2" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="TextAdditional" type="xs:string"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="EOV1" nillable="true" type="xs:int"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="DistributorFee" type="xs:string"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="EOV2" nillable="true" type="xs:int"/>
+          <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TopUpPhoneAccountStatus">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="StatusID" type="xs:int"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="StatusDescription" type="xs:string"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="ConfirmationID" type="xs:int"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="EOV1" nillable="true" type="xs:int"/>
+          <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SendSMSStatus">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="StatusID" type="xs:int"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="StatusDescription" type="xs:string"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="EOV1" nillable="true" type="xs:int"/>
+          <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TopUpPhoneAccountAmountSent">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="Amount" type="xs:double"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="AmountExcludingTax" type="xs:double"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="TaxName" type="xs:string"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="TaxAmount" type="xs:double"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="CurrencyCode" type="xs:string"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="EOV1" nillable="true" type="xs:int"/>
+          <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Denomination">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="NumberOfDenominations" type="xs:int"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="Denominations" type="tns:ArrayOfDouble"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="ReceiveValues" type="tns:ArrayOfDouble"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="EOV1" nillable="true" type="xs:int"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="DenominationInfos" type="tns:ArrayOfDenominationInfo"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="EOV2" nillable="true" type="xs:int"/>
+          <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfDouble">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="double" type="xs:double"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfDenominationInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DenominationInfo" nillable="true" type="tns:DenominationInfo"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DenominationInfo">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="SendValue" type="xs:decimal"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="ReceiveValue" type="xs:decimal"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="TransferType" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="ValidityPeriod" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="DisplayText" type="xs:string"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="EOV2" nillable="true" type="xs:int"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="ReceiveValueIncludingTax" type="xs:decimal"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="CommissionRate" type="xs:decimal"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="EOV3" nillable="true" type="xs:int"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="LocalizationKey" type="xs:string"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="EOV4" nillable="true" type="xs:int"/>
+          <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="MinMaxValueRange">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="MinValue" type="xs:double"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="MinValueReceive" type="xs:double"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="MaxValue" type="xs:double"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="MaxValueReceive" type="xs:double"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="EOV1" nillable="true" type="xs:int"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="TransferType" type="xs:string"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="EOV2" nillable="true" type="xs:int"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="MinValueReceiveIncludingTax" type="xs:decimal"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="MaxValueReceiveIncludingTax" type="xs:decimal"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="CommissionRate" type="xs:decimal"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="EOV3" nillable="true" type="xs:int"/>
+          <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GetTargetTopUpAmountRequest" type="tns:GetTargetTopUpAmountRequest"/>
+      <xs:complexType name="GetTargetTopUpAmountRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="AuthenticationToken" type="tns:AuthenticationToken"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="MessageID" type="xs:int"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="CountryCode" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="OperatorCode" type="xs:string"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="Amount" type="xs:double"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="TransferType" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="AmountCurrencyIso" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GetTargetTopUpAmountResult" type="tns:GetTargetTopUpAmountResponse"/>
+      <xs:complexType name="GetTargetTopUpAmountResponse">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="MessageID" type="xs:int"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="CountryCode" type="xs:string"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="Amount" type="xs:double"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="AmountExcludingTax" type="xs:double"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="TaxName" type="xs:string"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="TaxAmount" type="xs:double"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="CurrencyCode" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="GetTargetTopUpAmountStatus" type="tns:GetTargetTopUpAmountStatus"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="EOV1" nillable="true" type="xs:int"/>
+          <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetTargetTopUpAmountStatus">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="StatusID" type="xs:int"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="StatusDescription" type="xs:string"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="EOV1" nillable="true" type="xs:int"/>
+          <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ValidatePhoneAccountRequest" type="tns:ValidatePhoneAccountRequest"/>
+      <xs:complexType name="ValidatePhoneAccountRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="AuthenticationToken" type="tns:AuthenticationToken"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="MessageID" type="xs:int"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="CountryCode" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="OperatorCode" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="xs:string"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="Amount" type="xs:double"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="TransferType" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="AmountCurrencyIso" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ValidatePhoneAccountResult" type="tns:ValidatePhoneAccountResponse"/>
+      <xs:complexType name="ValidatePhoneAccountResponse">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="MessageID" type="xs:int"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="ValidatePhoneAccountStatus" type="tns:ValidatePhoneAccountStatus"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="Denominations" type="tns:Denomination"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="MinMaxValueRange" type="tns:MinMaxValueRange"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="CountryCode" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="CountryName" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="MobileCountryCode" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="OperatorCode" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="OperatorName" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="MobileNetworkCode" type="xs:string"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="EOV1" nillable="true" type="xs:int"/>
+          <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ValidatePhoneAccountStatus">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="StatusID" type="xs:int"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="StatusDescription" type="xs:string"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="EOV1" nillable="true" type="xs:int"/>
+          <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="SendSMSRequest" type="tns:SendSMSRequest"/>
+      <xs:element name="SendSMSResult" type="tns:SendSMSResponse"/>
+      <xs:complexType name="SendSMSResponse">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="MessageID" type="xs:int"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="SMSStatus" type="tns:SendSMSStatus"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="EOV1" nillable="true" type="xs:int"/>
+          <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GetBalanceRequest" type="tns:GetBalanceRequest"/>
+      <xs:complexType name="GetBalanceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="MessageID" type="xs:int"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="AuthenticationToken" type="tns:AuthenticationToken"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GetBalanceResult" type="tns:GetBalanceResponse"/>
+      <xs:complexType name="GetBalanceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="MessageID" type="xs:int"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="Balance" type="xs:decimal"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="EOV1" nillable="true" type="xs:int"/>
+          <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GetProductListRequest" type="tns:GetProductListRequest"/>
+      <xs:complexType name="GetProductListRequest">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="MessageID" type="xs:int"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="AuthenticationToken" type="tns:AuthenticationToken"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="Filter" type="tns:FilterBase"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="FilterBase" abstract="true"/>
+      <xs:complexType name="FilterByOperatorAndCountry">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:FilterBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="OperatorCode" type="xs:string"/>
+              <xs:element minOccurs="0" maxOccurs="1" name="CountryIso" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="FilterByTransferType">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:FilterBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="TransferType" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="FilterByCountryIso">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:FilterBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="CountryIso" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="FilterByPhoneNumber">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:FilterBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="GetProductListResult" type="tns:GetProductListResponse"/>
+      <xs:complexType name="GetProductListResponse">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="MessageID" type="xs:int"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="Products" type="tns:ArrayOfProduct"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="EOV1" nillable="true" type="xs:int"/>
+          <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfProduct">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Product" nillable="true" type="tns:Product"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Product">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="CountryID" type="xs:int"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="CountryISO" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="CountryCode" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="CountryName" type="xs:string"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="OperatorID" type="xs:int"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="OperatorCode" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="OperatorName" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="LogoUrl" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="CommercialCode" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="CustomerCareNumber" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="PhoneNumberMask" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="Denominations" type="tns:Denomination"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="MinMaxValueRange" type="tns:MinMaxValueRange"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="ReceiveCurrencyIso" type="xs:string"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="EOV1" nillable="true" type="xs:int"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="AccountMask" type="xs:string"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="EOV2" nillable="true" type="xs:int"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="TaxName" type="xs:string"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="TaxAmount" type="xs:decimal"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="EOV3" nillable="true" type="xs:int"/>
+          <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="AuthenticationToken" type="tns:AuthenticationToken"/>
+      <xs:element name="request" type="tns:GetTopUpTransactionStatusRequest"/>
+      <xs:complexType name="GetTopUpTransactionStatusRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="AuthenticationToken" type="tns:AuthenticationToken"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="MessageID" type="xs:int"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GetTopUpTransactionStatusResult" type="tns:GetTopUpTransactionStatusResponse"/>
+      <xs:complexType name="GetTopUpTransactionStatusResponse">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="Status" type="xs:int"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="StatusDescription" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="TopUpPhoneAccountResult" type="tns:TopUpPhoneAccountResponse"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="TopUpTimestamp" nillable="true" type="xs:dateTime"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="EOV1" nillable="true" type="xs:int"/>
+          <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GetProductDescriptionsRequest" type="tns:GetProductDescriptionsRequest"/>
+      <xs:complexType name="GetProductDescriptionsRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="AuthenticationToken" type="tns:AuthenticationToken"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GetProductDescriptionsResult" type="tns:GetProductDescriptionsResponse"/>
+      <xs:complexType name="GetProductDescriptionsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="Descriptions" type="tns:ArrayOfProductDescription"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="EOV4" nillable="true" type="xs:int"/>
+          <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfProductDescription">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductDescription" nillable="true" type="tns:ProductDescription"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ProductDescription">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="LocalizationKey" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="Localizations" type="tns:ArrayOfLocalizedProductDescription"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="EOV4" nillable="true" type="xs:int"/>
+          <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfLocalizedProductDescription">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="LocalizedProductDescription" nillable="true" type="tns:LocalizedProductDescription"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LocalizedProductDescription">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="LanguageCode" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="DisplayText" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="ReadMoreMarkdown" type="xs:string"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="EOV4" nillable="true" type="xs:int"/>
+          <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://edts.api.v2/IsCountrySupportedByEzeOperator" elementFormDefault="qualified" targetNamespace="http://edts.api.v2/IsCountrySupportedByEzeOperator">
+      <xs:import namespace="http://edts.api.v2/"/>
+      <xs:element name="request" type="tns:IsCountrySupportedByEzeOperatorRequest"/>
+      <xs:complexType name="IsCountrySupportedByEzeOperatorRequest">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="MessageId" type="xs:int"/>
+          <xs:element xmlns:q1="http://edts.api.v2/" minOccurs="0" maxOccurs="1" ref="q1:AuthenticationToken"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="CountryIso" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="IsCountrySupportedByEzeOperatorResult" type="tns:IsCountrySupportedByEzeOperatorResponse"/>
+      <xs:complexType name="IsCountrySupportedByEzeOperatorResponse">
+        <xs:sequence>
+          <xs:element minOccurs="1" maxOccurs="1" name="MessageId" type="xs:int"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="CountryIsSupported" type="xs:boolean"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="StatusId" type="xs:int"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="StatusDescription" type="xs:string"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="EOV1" nillable="true" type="xs:int"/>
+          <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##any" processContents="skip"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="TopUpPhoneAccountRequest1">
+    <wsdl:part name="TopUpPhoneAccountRequest" element="tns:TopUpPhoneAccountRequest"/>
+  </wsdl:message>
+  <wsdl:message name="TopUpPhoneAccountResponse1">
+    <wsdl:part name="TopUpPhoneAccountResult" element="tns:TopUpPhoneAccountResult"/>
+  </wsdl:message>
+  <wsdl:message name="GetTargetTopUpAmountRequest1">
+    <wsdl:part name="GetTargetTopUpAmountRequest" element="tns:GetTargetTopUpAmountRequest"/>
+  </wsdl:message>
+  <wsdl:message name="GetTargetTopUpAmountResponse1">
+    <wsdl:part name="GetTargetTopUpAmountResult" element="tns:GetTargetTopUpAmountResult"/>
+  </wsdl:message>
+  <wsdl:message name="ValidatePhoneAccountRequest1">
+    <wsdl:part name="ValidatePhoneAccountRequest" element="tns:ValidatePhoneAccountRequest"/>
+  </wsdl:message>
+  <wsdl:message name="ValidatePhoneAccountResponse1">
+    <wsdl:part name="ValidatePhoneAccountResult" element="tns:ValidatePhoneAccountResult"/>
+  </wsdl:message>
+  <wsdl:message name="SendSMSRequest1">
+    <wsdl:part name="SendSMSRequest" element="tns:SendSMSRequest"/>
+  </wsdl:message>
+  <wsdl:message name="SendSMSResponse1">
+    <wsdl:part name="SendSMSResult" element="tns:SendSMSResult"/>
+  </wsdl:message>
+  <wsdl:message name="GetBalanceRequest1">
+    <wsdl:part name="GetBalanceRequest" element="tns:GetBalanceRequest"/>
+  </wsdl:message>
+  <wsdl:message name="GetBalanceResponse1">
+    <wsdl:part name="GetBalanceResult" element="tns:GetBalanceResult"/>
+  </wsdl:message>
+  <wsdl:message name="GetProductListRequest1">
+    <wsdl:part name="GetProductListRequest" element="tns:GetProductListRequest"/>
+  </wsdl:message>
+  <wsdl:message name="GetProductListResponse1">
+    <wsdl:part name="GetProductListResult" element="tns:GetProductListResult"/>
+  </wsdl:message>
+  <wsdl:message name="IsCountrySupportedByEzeOperatorRequest1">
+    <wsdl:part xmlns:q1="http://edts.api.v2/IsCountrySupportedByEzeOperator" name="request" element="q1:request"/>
+  </wsdl:message>
+  <wsdl:message name="IsCountrySupportedByEzeOperatorResponse1">
+    <wsdl:part xmlns:q2="http://edts.api.v2/IsCountrySupportedByEzeOperator" name="IsCountrySupportedByEzeOperatorResult" element="q2:IsCountrySupportedByEzeOperatorResult"/>
+  </wsdl:message>
+  <wsdl:message name="GetTopUpTransactionStatusRequest1">
+    <wsdl:part name="request" element="tns:request"/>
+  </wsdl:message>
+  <wsdl:message name="GetTopUpTransactionStatusResponse1">
+    <wsdl:part name="GetTopUpTransactionStatusResult" element="tns:GetTopUpTransactionStatusResult"/>
+  </wsdl:message>
+  <wsdl:message name="GetProductDescriptionsRequest1">
+    <wsdl:part name="GetProductDescriptionsRequest" element="tns:GetProductDescriptionsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="GetProductDescriptionsResponse1">
+    <wsdl:part name="GetProductDescriptionsResult" element="tns:GetProductDescriptionsResult"/>
+  </wsdl:message>
+  <wsdl:portType name="EDTSManager">
+    <wsdl:operation name="TopUpPhoneAccount">
+      <wsdl:input wsaw:Action="http://edts.api.v2/EDTSManager/TopUpPhoneAccount" name="TopUpPhoneAccountRequest1" message="tns:TopUpPhoneAccountRequest1"/>
+      <wsdl:output wsaw:Action="http://edts.api.v2/EDTSManager/TopUpPhoneAccountResponse" name="TopUpPhoneAccountResponse1" message="tns:TopUpPhoneAccountResponse1"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetTargetTopUpAmount">
+      <wsdl:input wsaw:Action="http://edts.api.v2/EDTSManager/GetTargetTopUpAmount" name="GetTargetTopUpAmountRequest1" message="tns:GetTargetTopUpAmountRequest1"/>
+      <wsdl:output wsaw:Action="http://edts.api.v2/EDTSManager/GetTargetTopUpAmountResponse" name="GetTargetTopUpAmountResponse1" message="tns:GetTargetTopUpAmountResponse1"/>
+    </wsdl:operation>
+    <wsdl:operation name="ValidatePhoneAccount">
+      <wsdl:input wsaw:Action="http://edts.api.v2/EDTSManager/ValidatePhoneAccount" name="ValidatePhoneAccountRequest1" message="tns:ValidatePhoneAccountRequest1"/>
+      <wsdl:output wsaw:Action="http://edts.api.v2/EDTSManager/ValidatePhoneAccountResponse" name="ValidatePhoneAccountResponse1" message="tns:ValidatePhoneAccountResponse1"/>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <wsdl:input wsaw:Action="http://edts.api.v2/EDTSManager/SendSMS" name="SendSMSRequest1" message="tns:SendSMSRequest1"/>
+      <wsdl:output wsaw:Action="http://edts.api.v2/EDTSManager/SendSMSResponse" name="SendSMSResponse1" message="tns:SendSMSResponse1"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalance">
+      <wsdl:input wsaw:Action="http://edts.api.v2/EDTSManager/GetBalance" name="GetBalanceRequest1" message="tns:GetBalanceRequest1"/>
+      <wsdl:output wsaw:Action="http://edts.api.v2/EDTSManager/GetBalanceResponse" name="GetBalanceResponse1" message="tns:GetBalanceResponse1"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductList">
+      <wsdl:input wsaw:Action="http://edts.api.v2/EDTSManager/GetProductList" name="GetProductListRequest1" message="tns:GetProductListRequest1"/>
+      <wsdl:output wsaw:Action="http://edts.api.v2/EDTSManager/GetProductListResponse" name="GetProductListResponse1" message="tns:GetProductListResponse1"/>
+    </wsdl:operation>
+    <wsdl:operation name="IsCountrySupportedByEzeOperator">
+      <wsdl:input wsaw:Action="http://edts.api.v2/EDTSManager/IsCountrySupportedByEzeOperator" name="IsCountrySupportedByEzeOperatorRequest1" message="tns:IsCountrySupportedByEzeOperatorRequest1"/>
+      <wsdl:output wsaw:Action="http://edts.api.v2/EDTSManager/IsCountrySupportedByEzeOperatorResponse" name="IsCountrySupportedByEzeOperatorResponse1" message="tns:IsCountrySupportedByEzeOperatorResponse1"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetTopUpTransactionStatus">
+      <wsdl:input wsaw:Action="http://edts.api.v2/EDTSManager/GetTopUpTransactionStatus" name="GetTopUpTransactionStatusRequest1" message="tns:GetTopUpTransactionStatusRequest1"/>
+      <wsdl:output wsaw:Action="http://edts.api.v2/EDTSManager/GetTopUpTransactionStatusResponse" name="GetTopUpTransactionStatusResponse1" message="tns:GetTopUpTransactionStatusResponse1"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductDescriptions">
+      <wsdl:input wsaw:Action="http://edts.api.v2/EDTSManager/GetProductDescriptions" name="GetProductDescriptionsRequest1" message="tns:GetProductDescriptionsRequest1"/>
+      <wsdl:output wsaw:Action="http://edts.api.v2/EDTSManager/GetProductDescriptionsResponse" name="GetProductDescriptionsResponse1" message="tns:GetProductDescriptionsResponse1"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_EDTSManager" type="tns:EDTSManager">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="TopUpPhoneAccount">
+      <soap:operation soapAction="http://edts.api.v2/EDTSManager/TopUpPhoneAccount" style="document"/>
+      <wsdl:input name="TopUpPhoneAccountRequest1">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="TopUpPhoneAccountResponse1">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTargetTopUpAmount">
+      <soap:operation soapAction="http://edts.api.v2/EDTSManager/GetTargetTopUpAmount" style="document"/>
+      <wsdl:input name="GetTargetTopUpAmountRequest1">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetTargetTopUpAmountResponse1">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidatePhoneAccount">
+      <soap:operation soapAction="http://edts.api.v2/EDTSManager/ValidatePhoneAccount" style="document"/>
+      <wsdl:input name="ValidatePhoneAccountRequest1">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="ValidatePhoneAccountResponse1">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <soap:operation soapAction="http://edts.api.v2/EDTSManager/SendSMS" style="document"/>
+      <wsdl:input name="SendSMSRequest1">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SendSMSResponse1">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBalance">
+      <soap:operation soapAction="http://edts.api.v2/EDTSManager/GetBalance" style="document"/>
+      <wsdl:input name="GetBalanceRequest1">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetBalanceResponse1">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductList">
+      <soap:operation soapAction="http://edts.api.v2/EDTSManager/GetProductList" style="document"/>
+      <wsdl:input name="GetProductListRequest1">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetProductListResponse1">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsCountrySupportedByEzeOperator">
+      <soap:operation soapAction="http://edts.api.v2/EDTSManager/IsCountrySupportedByEzeOperator" style="document"/>
+      <wsdl:input name="IsCountrySupportedByEzeOperatorRequest1">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="IsCountrySupportedByEzeOperatorResponse1">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTopUpTransactionStatus">
+      <soap:operation soapAction="http://edts.api.v2/EDTSManager/GetTopUpTransactionStatus" style="document"/>
+      <wsdl:input name="GetTopUpTransactionStatusRequest1">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetTopUpTransactionStatusResponse1">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductDescriptions">
+      <soap:operation soapAction="http://edts.api.v2/EDTSManager/GetProductDescriptions" style="document"/>
+      <wsdl:input name="GetProductDescriptionsRequest1">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetProductDescriptionsResponse1">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EDTSManager">
+    <wsdl:port name="BasicHttpBinding_EDTSManager" binding="tns:BasicHttpBinding_EDTSManager">
+      <soap:address location="https://edts.ezedistributor.com/EdtsManager.svc"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

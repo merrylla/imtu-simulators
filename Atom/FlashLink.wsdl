@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="https://reseller.flashtopup.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="https://reseller.flashtopup.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="https://reseller.flashtopup.com/">
+      <s:element name="GetAvailableCountries">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ResellerUsername" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAvailableCountriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAvailableCountriesResult" type="tns:AvailableCountriesResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AvailableCountriesResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResellerResult">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="AvailableCountries" type="tns:ArrayOfAvailableCountry" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ResellerResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExtraDetail" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAvailableCountry">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AvailableCountry" nillable="true" type="tns:AvailableCountry" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AvailableCountry">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CountryId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MobileFormat" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAvailableCountriesRanking">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ResellerUsername" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAvailableCountriesRankingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAvailableCountriesRankingResult" type="tns:AvailableCountriesResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAvailableOperatorsByCountry">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ResellerUsername" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CountryCodeId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAvailableOperatorsByCountryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAvailableOperatorsByCountryResult" type="tns:AvailableOperatorsByCountryResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AvailableOperatorsByCountryResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResellerResult">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CountryCodeId" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="AvailableOperators" type="tns:ArrayOfAvailableOperatorsByCountry" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfAvailableOperatorsByCountry">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AvailableOperatorsByCountry" nillable="true" type="tns:AvailableOperatorsByCountry" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AvailableOperatorsByCountry">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="OperatorId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAvailableAmountsByCountryOperator">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ResellerUsername" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CountryCodeId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OperatorId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAvailableAmountsByCountryOperatorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAvailableAmountsByCountryOperatorResult" type="tns:AvailableAmountsByCountryOperatorResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AvailableAmountsByCountryOperatorResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResellerResult">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CountryCodeId" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="OperatorId" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="CurrencyCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AvailableAmounts" type="tns:ArrayOfAvailableAmount" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfAvailableAmount">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AvailableAmount" nillable="true" type="tns:AvailableAmount" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AvailableAmount">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="FixedPrice" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="TargetAmount" nillable="true" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="TargetCurrencyCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsLive" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ValidateMobileNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ResellerUsername" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MobileNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TargetCountryId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="TargetOperatorId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="TransactionAmount" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="ResellerUniqueTransactionId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateMobileNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidateMobileNumberResult" type="tns:ValidateMobileNumberResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ValidateMobileNumberResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResellerResult">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="IsValid" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="ProcessTransaction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ResellerUsername" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TerminalKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MobileNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TargetCountryCodeId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="TargetOperatorId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="TransactionAmount" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="ResellerUniqueTransactionId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessTransactionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcessTransactionResult" type="tns:ProcessTransactionResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ProcessTransactionResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResellerResult">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="TransactionAccepted" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="AtomUniqueTransactionId" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="MobileTopupCurrencyCode" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="MobileTopupAmount" nillable="true" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="IsMobileTopupAmountActual" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="AccountEnquiry">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ResellerUsername" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AccountEnquiryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccountEnquiryResult" type="tns:AccountEnquiryResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AccountEnquiryResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResellerResult">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="RequestAccepted" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="AccountBalance" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="CurrencyCode" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetAvailableCountriesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAvailableCountries" />
+  </wsdl:message>
+  <wsdl:message name="GetAvailableCountriesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAvailableCountriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAvailableCountriesRankingSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAvailableCountriesRanking" />
+  </wsdl:message>
+  <wsdl:message name="GetAvailableCountriesRankingSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAvailableCountriesRankingResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAvailableOperatorsByCountrySoapIn">
+    <wsdl:part name="parameters" element="tns:GetAvailableOperatorsByCountry" />
+  </wsdl:message>
+  <wsdl:message name="GetAvailableOperatorsByCountrySoapOut">
+    <wsdl:part name="parameters" element="tns:GetAvailableOperatorsByCountryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAvailableAmountsByCountryOperatorSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAvailableAmountsByCountryOperator" />
+  </wsdl:message>
+  <wsdl:message name="GetAvailableAmountsByCountryOperatorSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAvailableAmountsByCountryOperatorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateMobileNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateMobileNumber" />
+  </wsdl:message>
+  <wsdl:message name="ValidateMobileNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateMobileNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessTransactionSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessTransaction" />
+  </wsdl:message>
+  <wsdl:message name="ProcessTransactionSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="AccountEnquirySoapIn">
+    <wsdl:part name="parameters" element="tns:AccountEnquiry" />
+  </wsdl:message>
+  <wsdl:message name="AccountEnquirySoapOut">
+    <wsdl:part name="parameters" element="tns:AccountEnquiryResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ResellerServiceSoap">
+    <wsdl:operation name="GetAvailableCountries">
+      <wsdl:input message="tns:GetAvailableCountriesSoapIn" />
+      <wsdl:output message="tns:GetAvailableCountriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableCountriesRanking">
+      <wsdl:input message="tns:GetAvailableCountriesRankingSoapIn" />
+      <wsdl:output message="tns:GetAvailableCountriesRankingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableOperatorsByCountry">
+      <wsdl:input message="tns:GetAvailableOperatorsByCountrySoapIn" />
+      <wsdl:output message="tns:GetAvailableOperatorsByCountrySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableAmountsByCountryOperator">
+      <wsdl:input message="tns:GetAvailableAmountsByCountryOperatorSoapIn" />
+      <wsdl:output message="tns:GetAvailableAmountsByCountryOperatorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateMobileNumber">
+      <wsdl:input message="tns:ValidateMobileNumberSoapIn" />
+      <wsdl:output message="tns:ValidateMobileNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessTransaction">
+      <wsdl:input message="tns:ProcessTransactionSoapIn" />
+      <wsdl:output message="tns:ProcessTransactionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AccountEnquiry">
+      <wsdl:input message="tns:AccountEnquirySoapIn" />
+      <wsdl:output message="tns:AccountEnquirySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ResellerServiceSoap" type="tns:ResellerServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAvailableCountries">
+      <soap:operation soapAction="https://reseller.flashtopup.com/GetAvailableCountries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableCountriesRanking">
+      <soap:operation soapAction="https://reseller.flashtopup.com/GetAvailableCountriesRanking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableOperatorsByCountry">
+      <soap:operation soapAction="https://reseller.flashtopup.com/GetAvailableOperatorsByCountry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableAmountsByCountryOperator">
+      <soap:operation soapAction="https://reseller.flashtopup.com/GetAvailableAmountsByCountryOperator" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateMobileNumber">
+      <soap:operation soapAction="https://reseller.flashtopup.com/ValidateMobileNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessTransaction">
+      <soap:operation soapAction="https://reseller.flashtopup.com/ProcessTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AccountEnquiry">
+      <soap:operation soapAction="https://reseller.flashtopup.com/AccountEnquiry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ResellerServiceSoap12" type="tns:ResellerServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAvailableCountries">
+      <soap12:operation soapAction="https://reseller.flashtopup.com/GetAvailableCountries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableCountriesRanking">
+      <soap12:operation soapAction="https://reseller.flashtopup.com/GetAvailableCountriesRanking" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableOperatorsByCountry">
+      <soap12:operation soapAction="https://reseller.flashtopup.com/GetAvailableOperatorsByCountry" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableAmountsByCountryOperator">
+      <soap12:operation soapAction="https://reseller.flashtopup.com/GetAvailableAmountsByCountryOperator" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateMobileNumber">
+      <soap12:operation soapAction="https://reseller.flashtopup.com/ValidateMobileNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessTransaction">
+      <soap12:operation soapAction="https://reseller.flashtopup.com/ProcessTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AccountEnquiry">
+      <soap12:operation soapAction="https://reseller.flashtopup.com/AccountEnquiry" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ResellerService">
+    <wsdl:port name="ResellerServiceSoap" binding="tns:ResellerServiceSoap">
+      <soap:address location="https://reseller.flashtopup.com/ws/ResellerService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ResellerServiceSoap12" binding="tns:ResellerServiceSoap12">
+      <soap12:address location="https://reseller.flashtopup.com/ws/ResellerService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

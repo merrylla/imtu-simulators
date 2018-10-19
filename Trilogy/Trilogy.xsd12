@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.TopUpTwoStep" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.TopUpTwoStep">
+<xs:import schemaLocation="http://www.voilacomcel.com/VoilaWS/VoilaComcelWS.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.TopUp"/>
+<xs:import schemaLocation="http://www.voilacomcel.com/VoilaWS/VoilaComcelWS.svc?xsd=xsd11" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+<xs:complexType name="TopUpTwoStepRequest">
+<xs:complexContent mixed="false">
+<xs:extension base="q1:TopUpRequest" xmlns:q1="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.TopUp">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:element name="TopUpTwoStepRequest" nillable="true" type="tns:TopUpTwoStepRequest"/>
+<xs:complexType name="TopUpTwoStepResponse">
+<xs:complexContent mixed="false">
+<xs:extension base="q2:TopUpResponse" xmlns:q2="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.TopUp">
+<xs:sequence>
+<xs:element minOccurs="0" name="Timings" nillable="true" type="q3:ArrayOfstring" xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+<xs:element minOccurs="0" name="Urls" nillable="true" type="q4:ArrayOfstring" xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:element name="TopUpTwoStepResponse" nillable="true" type="tns:TopUpTwoStepResponse"/>
+</xs:schema>

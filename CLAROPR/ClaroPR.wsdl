@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="PostPayment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clienteID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accountNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="paymentAmount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="paymentSubMethod" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numRef" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cardDigit" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tipoVenta" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="param1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="param2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="param3" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PostPaymentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PostPaymentResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerifyAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clienteID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accountNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="param1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="param2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="param3" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerifyAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VerifyAccountResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EncryptUserAndPass">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EncryptUserAndPassResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EncryptUserAndPassResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DecryptHash">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Hash" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DecryptHashResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DecryptHashResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVentas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ClientID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SaleDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVentasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetVentasResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="PostPaymentSoapIn">
+    <wsdl:part name="parameters" element="tns:PostPayment" />
+  </wsdl:message>
+  <wsdl:message name="PostPaymentSoapOut">
+    <wsdl:part name="parameters" element="tns:PostPaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerifyAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:VerifyAccount" />
+  </wsdl:message>
+  <wsdl:message name="VerifyAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:VerifyAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="EncryptUserAndPassSoapIn">
+    <wsdl:part name="parameters" element="tns:EncryptUserAndPass" />
+  </wsdl:message>
+  <wsdl:message name="EncryptUserAndPassSoapOut">
+    <wsdl:part name="parameters" element="tns:EncryptUserAndPassResponse" />
+  </wsdl:message>
+  <wsdl:message name="DecryptHashSoapIn">
+    <wsdl:part name="parameters" element="tns:DecryptHash" />
+  </wsdl:message>
+  <wsdl:message name="DecryptHashSoapOut">
+    <wsdl:part name="parameters" element="tns:DecryptHashResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetVentasSoapIn">
+    <wsdl:part name="parameters" element="tns:GetVentas" />
+  </wsdl:message>
+  <wsdl:message name="GetVentasSoapOut">
+    <wsdl:part name="parameters" element="tns:GetVentasResponse" />
+  </wsdl:message>
+  <wsdl:message name="PostPaymentHttpGetIn">
+    <wsdl:part name="clienteID" type="s:string" />
+    <wsdl:part name="accountNumber" type="s:string" />
+    <wsdl:part name="paymentAmount" type="s:string" />
+    <wsdl:part name="paymentSubMethod" type="s:string" />
+    <wsdl:part name="numRef" type="s:string" />
+    <wsdl:part name="cardDigit" type="s:string" />
+    <wsdl:part name="tipoVenta" type="s:string" />
+    <wsdl:part name="param1" type="s:string" />
+    <wsdl:part name="param2" type="s:string" />
+    <wsdl:part name="param3" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PostPaymentHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="VerifyAccountHttpGetIn">
+    <wsdl:part name="clienteID" type="s:string" />
+    <wsdl:part name="accountNumber" type="s:string" />
+    <wsdl:part name="param1" type="s:string" />
+    <wsdl:part name="param2" type="s:string" />
+    <wsdl:part name="param3" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="VerifyAccountHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="EncryptUserAndPassHttpGetIn">
+    <wsdl:part name="UserID" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EncryptUserAndPassHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DecryptHashHttpGetIn">
+    <wsdl:part name="Hash" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DecryptHashHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetVentasHttpGetIn">
+    <wsdl:part name="ClientID" type="s:string" />
+    <wsdl:part name="SaleDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetVentasHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="PostPaymentHttpPostIn">
+    <wsdl:part name="clienteID" type="s:string" />
+    <wsdl:part name="accountNumber" type="s:string" />
+    <wsdl:part name="paymentAmount" type="s:string" />
+    <wsdl:part name="paymentSubMethod" type="s:string" />
+    <wsdl:part name="numRef" type="s:string" />
+    <wsdl:part name="cardDigit" type="s:string" />
+    <wsdl:part name="tipoVenta" type="s:string" />
+    <wsdl:part name="param1" type="s:string" />
+    <wsdl:part name="param2" type="s:string" />
+    <wsdl:part name="param3" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PostPaymentHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="VerifyAccountHttpPostIn">
+    <wsdl:part name="clienteID" type="s:string" />
+    <wsdl:part name="accountNumber" type="s:string" />
+    <wsdl:part name="param1" type="s:string" />
+    <wsdl:part name="param2" type="s:string" />
+    <wsdl:part name="param3" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="VerifyAccountHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="EncryptUserAndPassHttpPostIn">
+    <wsdl:part name="UserID" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EncryptUserAndPassHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DecryptHashHttpPostIn">
+    <wsdl:part name="Hash" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DecryptHashHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetVentasHttpPostIn">
+    <wsdl:part name="ClientID" type="s:string" />
+    <wsdl:part name="SaleDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetVentasHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="PrepaidServicesSoap">
+    <wsdl:operation name="PostPayment">
+      <wsdl:input message="tns:PostPaymentSoapIn" />
+      <wsdl:output message="tns:PostPaymentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifyAccount">
+      <wsdl:input message="tns:VerifyAccountSoapIn" />
+      <wsdl:output message="tns:VerifyAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EncryptUserAndPass">
+      <wsdl:input message="tns:EncryptUserAndPassSoapIn" />
+      <wsdl:output message="tns:EncryptUserAndPassSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DecryptHash">
+      <wsdl:input message="tns:DecryptHashSoapIn" />
+      <wsdl:output message="tns:DecryptHashSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVentas">
+      <wsdl:input message="tns:GetVentasSoapIn" />
+      <wsdl:output message="tns:GetVentasSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="PrepaidServicesHttpGet">
+    <wsdl:operation name="PostPayment">
+      <wsdl:input message="tns:PostPaymentHttpGetIn" />
+      <wsdl:output message="tns:PostPaymentHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifyAccount">
+      <wsdl:input message="tns:VerifyAccountHttpGetIn" />
+      <wsdl:output message="tns:VerifyAccountHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EncryptUserAndPass">
+      <wsdl:input message="tns:EncryptUserAndPassHttpGetIn" />
+      <wsdl:output message="tns:EncryptUserAndPassHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DecryptHash">
+      <wsdl:input message="tns:DecryptHashHttpGetIn" />
+      <wsdl:output message="tns:DecryptHashHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVentas">
+      <wsdl:input message="tns:GetVentasHttpGetIn" />
+      <wsdl:output message="tns:GetVentasHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="PrepaidServicesHttpPost">
+    <wsdl:operation name="PostPayment">
+      <wsdl:input message="tns:PostPaymentHttpPostIn" />
+      <wsdl:output message="tns:PostPaymentHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifyAccount">
+      <wsdl:input message="tns:VerifyAccountHttpPostIn" />
+      <wsdl:output message="tns:VerifyAccountHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EncryptUserAndPass">
+      <wsdl:input message="tns:EncryptUserAndPassHttpPostIn" />
+      <wsdl:output message="tns:EncryptUserAndPassHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DecryptHash">
+      <wsdl:input message="tns:DecryptHashHttpPostIn" />
+      <wsdl:output message="tns:DecryptHashHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVentas">
+      <wsdl:input message="tns:GetVentasHttpPostIn" />
+      <wsdl:output message="tns:GetVentasHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PrepaidServicesSoap" type="tns:PrepaidServicesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="PostPayment">
+      <soap:operation soapAction="http://tempuri.org/PostPayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifyAccount">
+      <soap:operation soapAction="http://tempuri.org/VerifyAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EncryptUserAndPass">
+      <soap:operation soapAction="http://tempuri.org/EncryptUserAndPass" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DecryptHash">
+      <soap:operation soapAction="http://tempuri.org/DecryptHash" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVentas">
+      <soap:operation soapAction="http://tempuri.org/GetVentas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PrepaidServicesSoap12" type="tns:PrepaidServicesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="PostPayment">
+      <soap12:operation soapAction="http://tempuri.org/PostPayment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifyAccount">
+      <soap12:operation soapAction="http://tempuri.org/VerifyAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EncryptUserAndPass">
+      <soap12:operation soapAction="http://tempuri.org/EncryptUserAndPass" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DecryptHash">
+      <soap12:operation soapAction="http://tempuri.org/DecryptHash" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVentas">
+      <soap12:operation soapAction="http://tempuri.org/GetVentas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PrepaidServicesHttpGet" type="tns:PrepaidServicesHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="PostPayment">
+      <http:operation location="/PostPayment" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifyAccount">
+      <http:operation location="/VerifyAccount" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EncryptUserAndPass">
+      <http:operation location="/EncryptUserAndPass" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DecryptHash">
+      <http:operation location="/DecryptHash" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVentas">
+      <http:operation location="/GetVentas" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PrepaidServicesHttpPost" type="tns:PrepaidServicesHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="PostPayment">
+      <http:operation location="/PostPayment" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifyAccount">
+      <http:operation location="/VerifyAccount" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EncryptUserAndPass">
+      <http:operation location="/EncryptUserAndPass" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DecryptHash">
+      <http:operation location="/DecryptHash" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVentas">
+      <http:operation location="/GetVentas" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PrepaidServices">
+    <wsdl:port name="PrepaidServicesSoap" binding="tns:PrepaidServicesSoap">
+      <soap:address location="http://196.28.57.29:8880/PrepaidPostPayment/PrepaidServices.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PrepaidServicesSoap12" binding="tns:PrepaidServicesSoap12">
+      <soap12:address location="http://196.28.57.29:8880/PrepaidPostPayment/PrepaidServices.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PrepaidServicesHttpGet" binding="tns:PrepaidServicesHttpGet">
+      <http:address location="http://196.28.57.29:8880/PrepaidPostPayment/PrepaidServices.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PrepaidServicesHttpPost" binding="tns:PrepaidServicesHttpPost">
+      <http:address location="http://196.28.57.29:8880/PrepaidPostPayment/PrepaidServices.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

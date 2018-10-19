@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.6 in JDK 6. -->
+<xs:schema xmlns:tns="http://vas.nuevatel.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://vas.nuevatel.com/">
+
+<xs:element name="addBalance" type="tns:addBalance"/>
+
+<xs:element name="addBalanceResponse" type="tns:addBalanceResponse"/>
+
+<xs:element name="balanceResult" type="tns:balanceResult"/>
+
+<xs:element name="dataItem" type="tns:dataItem"/>
+
+<xs:element name="dataList" type="tns:dataList"/>
+
+<xs:element name="execute" type="tns:execute"/>
+
+<xs:element name="executeResponse" type="tns:executeResponse"/>
+
+<xs:element name="getBalance" type="tns:getBalance"/>
+
+<xs:element name="getBalanceResponse" type="tns:getBalanceResponse"/>
+
+<xs:element name="getVASComponentState" type="tns:getVASComponentState"/>
+
+<xs:element name="getVASComponentStateList" type="tns:getVASComponentStateList"/>
+
+<xs:element name="getVASComponentStateListResponse" type="tns:getVASComponentStateListResponse"/>
+
+<xs:element name="getVASComponentStateResponse" type="tns:getVASComponentStateResponse"/>
+
+<xs:element name="getWSAddress" type="tns:getWSAddress"/>
+
+<xs:element name="getWSAddressResponse" type="tns:getWSAddressResponse"/>
+
+<xs:element name="metaData" type="tns:metaData"/>
+
+<xs:element name="providerBalance" type="tns:providerBalance"/>
+
+<xs:element name="providerBalanceResponse" type="tns:providerBalanceResponse"/>
+
+<xs:element name="recordData" type="tns:recordData"/>
+
+<xs:element name="result" type="tns:result"/>
+
+<xs:element name="resultSSPATransactions" type="tns:resultSSPATransactions"/>
+
+<xs:element name="retrieveUnreconciledTransactions" type="tns:retrieveUnreconciledTransactions"/>
+
+<xs:element name="retrieveUnreconciledTransactionsResponse" type="tns:retrieveUnreconciledTransactionsResponse"/>
+
+<xs:element name="start" type="tns:start"/>
+
+<xs:element name="startResponse" type="tns:startResponse"/>
+
+<xs:element name="stop" type="tns:stop"/>
+
+<xs:element name="stopResponse" type="tns:stopResponse"/>
+
+<xs:element name="topUp" type="tns:topUp"/>
+
+<xs:element name="topUpCheck" type="tns:topUpCheck"/>
+
+<xs:element name="topUpCheckResponse" type="tns:topUpCheckResponse"/>
+
+<xs:element name="topUpResponse" type="tns:topUpResponse"/>
+
+<xs:element name="topUpReverse" type="tns:topUpReverse"/>
+
+<xs:element name="topUpReverseResponse" type="tns:topUpReverseResponse"/>
+
+<xs:element name="transactionConcilationTraffic" type="tns:transactionConcilationTraffic"/>
+
+<xs:element name="transactionConcilationTrafficResponse" type="tns:transactionConcilationTrafficResponse"/>
+
+<xs:element name="unreconciledTransactions" type="tns:unreconciledTransactions"/>
+
+<xs:element name="unreconciledTransactionsResponse" type="tns:unreconciledTransactionsResponse"/>
+
+<xs:complexType name="addBalance">
+<xs:sequence>
+<xs:element name="transId" type="xs:string" minOccurs="0"/>
+<xs:element name="bankId" type="xs:string" minOccurs="0"/>
+<xs:element name="agentId" type="xs:string" minOccurs="0"/>
+<xs:element name="amount" type="xs:string" minOccurs="0"/>
+<xs:element name="currency" type="xs:string" minOccurs="0"/>
+<xs:element name="billNumber" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addBalanceResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:result" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="result">
+<xs:sequence>
+<xs:element name="transId" type="xs:string" minOccurs="0"/>
+<xs:element name="returnCode" type="xs:int" minOccurs="0"/>
+<xs:element name="returnMsg" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="providerBalance">
+<xs:sequence>
+<xs:element name="transId" type="xs:string" minOccurs="0"/>
+<xs:element name="bankId" type="xs:string" minOccurs="0"/>
+<xs:element name="agentId" type="xs:string" minOccurs="0"/>
+<xs:element name="currency" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="providerBalanceResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:balanceResult" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="balanceResult">
+<xs:sequence>
+<xs:element name="transId" type="xs:string" minOccurs="0"/>
+<xs:element name="returnCode" type="xs:int" minOccurs="0"/>
+<xs:element name="returnMsg" type="xs:string" minOccurs="0"/>
+<xs:element name="balance" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="execute">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int" minOccurs="0"/>
+<xs:element name="arg1" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="executeResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="stop">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="stopResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getBalance">
+<xs:sequence>
+<xs:element name="transId" type="xs:string" minOccurs="0"/>
+<xs:element name="subscripterId" type="xs:string" minOccurs="0"/>
+<xs:element name="bankId" type="xs:string" minOccurs="0"/>
+<xs:element name="agentId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getBalanceResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:balanceResult" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="transactionConcilationTraffic">
+<xs:sequence>
+<xs:element name="transId" type="xs:string" minOccurs="0"/>
+<xs:element name="username" type="xs:string" minOccurs="0"/>
+<xs:element name="startDate" type="xs:string" minOccurs="0"/>
+<xs:element name="endDate" type="xs:string" minOccurs="0"/>
+<xs:element name="dateformat" type="xs:string" minOccurs="0"/>
+<xs:element name="orderby" type="xs:string" minOccurs="0"/>
+<xs:element name="decimalPlaces" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="transactionConcilationTrafficResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:resultSSPATransactions" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="resultSSPATransactions">
+<xs:sequence>
+<xs:element name="transId" type="xs:string" minOccurs="0"/>
+<xs:element name="returnCode" type="xs:int" minOccurs="0"/>
+<xs:element name="returnMsg" type="xs:string" minOccurs="0"/>
+<xs:element name="recordData" type="tns:recordData" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="recordData">
+<xs:sequence>
+<xs:element name="metadata" type="tns:metaData" minOccurs="0"/>
+<xs:element name="dataListSize" type="xs:string" minOccurs="0"/>
+<xs:element name="dataList" type="tns:dataList" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="metaData">
+<xs:sequence>
+<xs:element name="size" type="xs:string" minOccurs="0"/>
+<xs:element name="data" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="dataList">
+<xs:sequence>
+<xs:element name="dataItem" type="tns:dataItem" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="dataItem">
+<xs:sequence>
+<xs:element name="data" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getVASComponentStateList">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getVASComponentStateListResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="topUp">
+<xs:sequence>
+<xs:element name="transId" type="xs:string" minOccurs="0"/>
+<xs:element name="subscripterId" type="xs:string" minOccurs="0"/>
+<xs:element name="bankId" type="xs:string" minOccurs="0"/>
+<xs:element name="agentId" type="xs:string" minOccurs="0"/>
+<xs:element name="amount" type="xs:string" minOccurs="0"/>
+<xs:element name="purchaser" type="xs:string" minOccurs="0"/>
+<xs:element name="currency" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="topUpResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:balanceResult" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="start">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="startResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getWSAddress">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getWSAddressResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="retrieveUnreconciledTransactions">
+<xs:sequence>
+<xs:element name="transId" type="xs:string" minOccurs="0"/>
+<xs:element name="username" type="xs:string" minOccurs="0"/>
+<xs:element name="startDate" type="xs:string" minOccurs="0"/>
+<xs:element name="endDate" type="xs:string" minOccurs="0"/>
+<xs:element name="dateformat" type="xs:string" minOccurs="0"/>
+<xs:element name="orderby" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="retrieveUnreconciledTransactionsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:resultSSPATransactions" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="topUpCheck">
+<xs:sequence>
+<xs:element name="transId" type="xs:string" minOccurs="0"/>
+<xs:element name="transactionId" type="xs:string" minOccurs="0"/>
+<xs:element name="bankId" type="xs:string" minOccurs="0"/>
+<xs:element name="agentId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="topUpCheckResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:balanceResult" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="unreconciledTransactions">
+<xs:sequence>
+<xs:element name="transId" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+<xs:element name="action" type="xs:string" minOccurs="0"/>
+<xs:element name="username" type="xs:string" minOccurs="0"/>
+<xs:element name="subscriber_id" type="xs:string" minOccurs="0"/>
+<xs:element name="command" type="xs:string" minOccurs="0"/>
+<xs:element name="result" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="unreconciledTransactionsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:result" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getVASComponentState">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getVASComponentStateResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="topUpReverse">
+<xs:sequence>
+<xs:element name="transId" type="xs:string" minOccurs="0"/>
+<xs:element name="transactionId" type="xs:string" minOccurs="0"/>
+<xs:element name="bankId" type="xs:string" minOccurs="0"/>
+<xs:element name="agentId" type="xs:string" minOccurs="0"/>
+<xs:element name="comment" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="topUpReverseResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:result" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

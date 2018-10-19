@@ -1,0 +1,11 @@
+RewriteLogLevel 0
+RewriteLog "/u/debit/logs/rewrite.log"
+
+<Directory /u/debit/apps/htdocs/CashStar>
+RewriteEngine On
+Options FollowSymLinks
+#RewriteRule transaction(.*) CashStar.php?tid=$1 
+RewriteRule ^(\w+)$ CashStar.php?cmd=$1&value= [L]
+RewriteRule ^(\w+)/([\w-]+)$ CashStar.php?cmd=$1&tid=$2 [L]
+RewriteRule ^(\w+)/([\w-]+)/(\w*)$ CashStar.php?cmd=$1&tid=$2&subcmd=$3 [L]
+</Directory>

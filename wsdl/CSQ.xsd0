@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/">
+<xs:import schemaLocation="https://spb.csqworld.com:7571/ws28t/Services/TranslateWS/TranslateWS.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CSQ.SPB.WebServices.Entities.TranslateWSBase"/>
+<xs:element name="serviceversion">
+<xs:complexType>
+<xs:sequence/>
+</xs:complexType>
+</xs:element>
+<xs:element name="serviceversionResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="serviceversionResult" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Credit">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="user" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="password" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="terminal" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="hash" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="localRef" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="date" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="time" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="CreditResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="CreditResult" nillable="true" type="q1:TranslateWSBalanceResponse" xmlns:q1="http://schemas.datacontract.org/2004/07/CSQ.SPB.WebServices.Entities.TranslateWSBase"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Topup">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="user" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="password" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="terminal" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="hash" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="localRef" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="date" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="time" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="MSISDNDestination" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="operatorId" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="amount" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="getTicket" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="TopupResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="TopupResult" nillable="true" type="q2:TranslateWSTopupResponse" xmlns:q2="http://schemas.datacontract.org/2004/07/CSQ.SPB.WebServices.Entities.TranslateWSBase"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetPIN">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="user" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="password" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="terminal" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="hash" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="localRef" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="date" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="time" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="operatorId" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="amount" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="smsreceipt" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="getTicket" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetPINResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="GetPINResult" nillable="true" type="q3:TranslateWSGetPINResponse" xmlns:q3="http://schemas.datacontract.org/2004/07/CSQ.SPB.WebServices.Entities.TranslateWSBase"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Revert">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="user" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="password" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="terminal" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="hash" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="localRef" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="date" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="time" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="MSISDNDestination" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="originalOpReference" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="originalOpDate" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="getTicket" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="RevertResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="RevertResult" nillable="true" type="q4:TranslateWSRevertResponse" xmlns:q4="http://schemas.datacontract.org/2004/07/CSQ.SPB.WebServices.Entities.TranslateWSBase"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="Query">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="user" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="password" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="terminal" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="hash" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="localRef" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="date" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="time" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="MSISDNDestination" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="originalOpReference" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="originalOpDate" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="getTicket" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="QueryResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="QueryResult" nillable="true" type="q5:TranslateWSQueryResponse" xmlns:q5="http://schemas.datacontract.org/2004/07/CSQ.SPB.WebServices.Entities.TranslateWSBase"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="OperatorPortfolio">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="user" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="password" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="terminal" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="hash" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="localRef" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="OperatorPortfolioResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="OperatorPortfolioResult" nillable="true" type="q6:TranslateWSOperatorPortfolioResponse" xmlns:q6="http://schemas.datacontract.org/2004/07/CSQ.SPB.WebServices.Entities.TranslateWSBase"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetMSISDNOperator">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="user" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="password" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="terminal" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="hash" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="localRef" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="msisdn" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetMSISDNOperatorResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="GetMSISDNOperatorResult" nillable="true" type="q7:TranslateWSGetMSISDNOperator" xmlns:q7="http://schemas.datacontract.org/2004/07/CSQ.SPB.WebServices.Entities.TranslateWSBase"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="TransactionList">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="user" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="password" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="terminal" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="hash" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="localRef" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="initialdate" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="finaldate" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="initialrow" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="finalrow" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="TransactionListResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="TransactionListResult" nillable="true" type="q8:TranslateWSTransactionListResponse" xmlns:q8="http://schemas.datacontract.org/2004/07/CSQ.SPB.WebServices.Entities.TranslateWSBase"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:schema>

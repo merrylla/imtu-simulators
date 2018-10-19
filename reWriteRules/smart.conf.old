@@ -1,0 +1,13 @@
+RewriteLogLevel 10
+RewriteLog "/u/debit/logs/rewrite.log"
+
+<Directory /u/debit/apps/htdocs/SmartLoad>
+RewriteEngine On
+Options FollowSymLinks
+#RewriteRule transaction(.*) SmartLoadSvrNew.php/tid=$1 
+#RewriteRule ^(\w+)$ SmartLoadSvrNew.php/gtg=$1&value= [L]
+#RewriteRule ^(\w+)/GTG/api/([\w-]+)$ SmartLoadSvrNew.php?gtg=$1&pubkey=$2 [L]
+#RewriteRule ^(\w+)/GTG/api/([\w-]+)/(\w*)$ SmartLoadSvrNew.php?GTGcmd=$1&subcmd=$2 [L]
+#RewriteRule ^(\w+)/GTG/api/([\w-]+)/(\w*)$ SmartLoadSvrNew.php?cmd=$1&subcmd=$3 [L]
+RewriteRule ^(\w+)/GTG/api/([\w-]+)/([\w-]+)/([\w-]+)/([\w-]+)/(\w*)$ SmartLoadSvrNew.php?gtg=$1&pubkey=$3&reqid=$4&prdcode=$5&tgtnum=$6&hash=$7 [L]
+</Directory>

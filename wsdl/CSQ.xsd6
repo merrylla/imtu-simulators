@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CSQ.SPB.WebServices.DataSets" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/CSQ.SPB.WebServices.DataSets">
+<xs:element name="TransmitNetDataset.spServices_GetOperatorCustomerConfigurationDataTable" nillable="true">
+<xs:complexType>
+<xs:annotation>
+<xs:appinfo>
+<ActualType Name="TransmitNetDataset.spServices_GetOperatorCustomerConfigurationDataTable" Namespace="http://schemas.datacontract.org/2004/07/CSQ.SPB.WebServices.DataSets" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+</xs:appinfo>
+</xs:annotation>
+<xs:sequence>
+<xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax"/>
+<xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax"/>
+</xs:sequence>
+<xs:attribute fixed="http://tempuri.org/TransmitNetDataset.xsd" name="namespace"/>
+<xs:attribute fixed="spServices_GetOperatorCustomerConfigurationDataTable" name="tableTypeName"/>
+</xs:complexType>
+</xs:element>
+<xs:element name="TransmitNetDataset.spServices_GetProfitTransactionsDataTable" nillable="true">
+<xs:complexType>
+<xs:annotation>
+<xs:appinfo>
+<ActualType Name="TransmitNetDataset.spServices_GetProfitTransactionsDataTable" Namespace="http://schemas.datacontract.org/2004/07/CSQ.SPB.WebServices.DataSets" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+</xs:appinfo>
+</xs:annotation>
+<xs:sequence>
+<xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax"/>
+<xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax"/>
+</xs:sequence>
+<xs:attribute fixed="http://tempuri.org/TransmitNetDataset.xsd" name="namespace"/>
+<xs:attribute fixed="spServices_GetProfitTransactionsDataTable" name="tableTypeName"/>
+</xs:complexType>
+</xs:element>
+</xs:schema>

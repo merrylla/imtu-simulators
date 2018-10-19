@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://190.8.37.97/soap/VivaRechargeWsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://190.8.37.97/soap/VivaRechargeWsdl">
+<types>
+<xsd:schema targetNamespace="http://190.8.37.97/soap/VivaRechargeWsdl"
+>
+ <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+ <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+ <xsd:complexType name="ResponseStatusObject">
+  <xsd:sequence>
+   <xsd:element name="requestId" type="xsd:int"/>
+   <xsd:element name="balance" type="xsd:int"/>
+   <xsd:element name="status" type="xsd:string"/>
+   <xsd:element name="code" type="xsd:string"/>
+   <xsd:element name="message" type="xsd:string"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="ResponseRechargeStatusObject">
+  <xsd:sequence>
+   <xsd:element name="transactionId" type="xsd:int"/>
+   <xsd:element name="rechargeId" type="xsd:int"/>
+   <xsd:element name="status" type="xsd:string"/>
+   <xsd:element name="code" type="xsd:string"/>
+   <xsd:element name="message" type="xsd:string"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="ResponseRechargeObject">
+  <xsd:sequence>
+   <xsd:element name="transactionId" type="xsd:string"/>
+   <xsd:element name="rechargeId" type="xsd:int"/>
+   <xsd:element name="code" type="xsd:string"/>
+   <xsd:element name="message" type="xsd:string"/>
+  </xsd:sequence>
+ </xsd:complexType>
+</xsd:schema>
+</types>
+<message name="viva_topup_RechargeRequest">
+  <part name="phoneNumber" type="xsd:string" />
+  <part name="entity" type="xsd:int" />
+  <part name="subentity" type="xsd:int" />
+  <part name="amount" type="xsd:float" />
+  <part name="currencyCode" type="xsd:string" />
+  <part name="transactionId" type="xsd:string" /></message>
+<message name="viva_topup_RechargeResponse">
+  <part name="return" type="tns:ResponseRechargeObject" /></message>
+<message name="viva_topup_SubscriberStatusRequest">
+  <part name="entity" type="xsd:int" />
+  <part name="phoneNumber" type="xsd:string" /></message>
+<message name="viva_topup_SubscriberStatusResponse">
+  <part name="return" type="tns:ResponseStatusObject" /></message>
+<message name="viva_topup_RechargeStatusRequest">
+  <part name="entity" type="xsd:int" />
+  <part name="transactionId" type="xsd:string" />
+  <part name="rechargeId" type="xsd:int" /></message>
+<message name="viva_topup_RechargeStatusResponse">
+  <part name="return" type="tns:ResponseRechargeStatusObject" /></message>
+<portType name="VivaRechargeWsdlPortType">
+  <operation name="viva_topup_Recharge">
+    <documentation>Electronic Recharge VIVA</documentation>
+    <input message="tns:viva_topup_RechargeRequest"/>
+    <output message="tns:viva_topup_RechargeResponse"/>
+  </operation>
+  <operation name="viva_topup_SubscriberStatus">
+    <documentation>Request Subscriber Status</documentation>
+    <input message="tns:viva_topup_SubscriberStatusRequest"/>
+    <output message="tns:viva_topup_SubscriberStatusResponse"/>
+  </operation>
+  <operation name="viva_topup_RechargeStatus">
+    <documentation>Request Recharge Status</documentation>
+    <input message="tns:viva_topup_RechargeStatusRequest"/>
+    <output message="tns:viva_topup_RechargeStatusResponse"/>
+  </operation>
+</portType>
+<binding name="VivaRechargeWsdlBinding" type="tns:VivaRechargeWsdlPortType">
+  <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="viva_topup_Recharge">
+    <soap:operation soapAction="#Recharge" style="rpc"/>
+    <input><soap:body use="encoded" namespace="http://190.8.37.97/soap/VivaRechargeWsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="urn:" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="viva_topup_SubscriberStatus">
+    <soap:operation soapAction="#SubscriberStatus" style="rpc"/>
+    <input><soap:body use="encoded" namespace="http://190.8.37.97/soap/VivaRechargeWsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="http://190.8.37.97/soap/VivaRechargeWsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="viva_topup_RechargeStatus">
+    <soap:operation soapAction="#RechargeStatus" style="rpc"/>
+    <input><soap:body use="encoded" namespace="http://190.8.37.97/soap/VivaRechargeWsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="http://190.8.37.97/soap/VivaRechargeWsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+</binding>
+<service name="VivaRechargeWsdl">
+  <port name="VivaRechargeWsdlPort" binding="tns:VivaRechargeWsdlBinding">
+    <soap:address location="http://190.8.37.97/ws/recharge/ws_recharges.php"/>
+  </port>
+</service>
+</definitions>

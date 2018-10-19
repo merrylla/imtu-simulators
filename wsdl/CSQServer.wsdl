@@ -1,0 +1,220 @@
+<wsdl:definitions name="TranslateWS" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
+   <wsp:Policy wsu:Id="BasicHttpBinding_ITranslateWS_policy">
+      <wsp:ExactlyOne>
+         <wsp:All>
+            <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+               <wsp:Policy>
+                  <sp:TransportToken>
+                     <wsp:Policy>
+                        <sp:HttpsToken RequireClientCertificate="false"/>
+                     </wsp:Policy>
+                  </sp:TransportToken>
+                  <sp:AlgorithmSuite>
+                     <wsp:Policy>
+                        <sp:Basic256/>
+                     </wsp:Policy>
+                  </sp:AlgorithmSuite>
+                  <sp:Layout>
+                     <wsp:Policy>
+                        <sp:Strict/>
+                     </wsp:Policy>
+                  </sp:Layout>
+               </wsp:Policy>
+            </sp:TransportBinding>
+         </wsp:All>
+      </wsp:ExactlyOne>
+   </wsp:Policy>
+   <wsdl:types>
+      <xsd:schema targetNamespace="http://tempuri.org/Imports">
+         <xsd:import schemaLocation="https://spb.csqworld.com:7571/ws28t/Services/TranslateWS/TranslateWS.svc?xsd=xsd0" namespace="http://tempuri.org/"/>
+         <xsd:import schemaLocation="https://spb.csqworld.com:7571/ws28t/Services/TranslateWS/TranslateWS.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+         <xsd:import schemaLocation="https://spb.csqworld.com:7571/ws28t/Services/TranslateWS/TranslateWS.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CSQ.SPB.WebServices.Entities.TranslateWSBase"/>
+         <xsd:import schemaLocation="https://spb.csqworld.com:7571/ws28t/Services/TranslateWS/TranslateWS.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CSQ.SPB.WebServices.Entities.ToCustomerAPIBase"/>
+         <xsd:import schemaLocation="https://spb.csqworld.com:7571/ws28t/Services/TranslateWS/TranslateWS.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/CSQ.SPB.WebServices.Entities.Base"/>
+         <xsd:import schemaLocation="https://spb.csqworld.com:7571/ws28t/Services/TranslateWS/TranslateWS.svc?xsd=xsd5" namespace="http://tempuri.org/TransmitNetDataset.xsd"/>
+         <xsd:import schemaLocation="https://spb.csqworld.com:7571/ws28t/Services/TranslateWS/TranslateWS.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/CSQ.SPB.WebServices.DataSets"/>
+      </xsd:schema>
+   </wsdl:types>
+   <wsdl:message name="ITranslateWS_serviceversion_InputMessage">
+      <wsdl:part name="parameters" element="tns:serviceversion"/>
+   </wsdl:message>
+   <wsdl:message name="ITranslateWS_serviceversion_OutputMessage">
+      <wsdl:part name="parameters" element="tns:serviceversionResponse"/>
+   </wsdl:message>
+   <wsdl:message name="ITranslateWS_Credit_InputMessage">
+      <wsdl:part name="parameters" element="tns:Credit"/>
+   </wsdl:message>
+   <wsdl:message name="ITranslateWS_Credit_OutputMessage">
+      <wsdl:part name="parameters" element="tns:CreditResponse"/>
+   </wsdl:message>
+   <wsdl:message name="ITranslateWS_Topup_InputMessage">
+      <wsdl:part name="parameters" element="tns:Topup"/>
+   </wsdl:message>
+   <wsdl:message name="ITranslateWS_Topup_OutputMessage">
+      <wsdl:part name="parameters" element="tns:TopupResponse"/>
+   </wsdl:message>
+   <wsdl:message name="ITranslateWS_GetPIN_InputMessage">
+      <wsdl:part name="parameters" element="tns:GetPIN"/>
+   </wsdl:message>
+   <wsdl:message name="ITranslateWS_GetPIN_OutputMessage">
+      <wsdl:part name="parameters" element="tns:GetPINResponse"/>
+   </wsdl:message>
+   <wsdl:message name="ITranslateWS_Revert_InputMessage">
+      <wsdl:part name="parameters" element="tns:Revert"/>
+   </wsdl:message>
+   <wsdl:message name="ITranslateWS_Revert_OutputMessage">
+      <wsdl:part name="parameters" element="tns:RevertResponse"/>
+   </wsdl:message>
+   <wsdl:message name="ITranslateWS_Query_InputMessage">
+      <wsdl:part name="parameters" element="tns:Query"/>
+   </wsdl:message>
+   <wsdl:message name="ITranslateWS_Query_OutputMessage">
+      <wsdl:part name="parameters" element="tns:QueryResponse"/>
+   </wsdl:message>
+   <wsdl:message name="ITranslateWS_OperatorPortfolio_InputMessage">
+      <wsdl:part name="parameters" element="tns:OperatorPortfolio"/>
+   </wsdl:message>
+   <wsdl:message name="ITranslateWS_OperatorPortfolio_OutputMessage">
+      <wsdl:part name="parameters" element="tns:OperatorPortfolioResponse"/>
+   </wsdl:message>
+   <wsdl:message name="ITranslateWS_GetMSISDNOperator_InputMessage">
+      <wsdl:part name="parameters" element="tns:GetMSISDNOperator"/>
+   </wsdl:message>
+   <wsdl:message name="ITranslateWS_GetMSISDNOperator_OutputMessage">
+      <wsdl:part name="parameters" element="tns:GetMSISDNOperatorResponse"/>
+   </wsdl:message>
+   <wsdl:message name="ITranslateWS_TransactionList_InputMessage">
+      <wsdl:part name="parameters" element="tns:TransactionList"/>
+   </wsdl:message>
+   <wsdl:message name="ITranslateWS_TransactionList_OutputMessage">
+      <wsdl:part name="parameters" element="tns:TransactionListResponse"/>
+   </wsdl:message>
+   <wsdl:portType name="ITranslateWS">
+      <wsdl:operation name="serviceversion">
+         <wsdl:input wsaw:Action="http://tempuri.org/ITranslateWS/serviceversion" message="tns:ITranslateWS_serviceversion_InputMessage"/>
+         <wsdl:output wsaw:Action="http://tempuri.org/ITranslateWS/serviceversionResponse" message="tns:ITranslateWS_serviceversion_OutputMessage"/>
+      </wsdl:operation>
+      <wsdl:operation name="Credit">
+         <wsdl:input wsaw:Action="http://tempuri.org/ITranslateWS/Credit" message="tns:ITranslateWS_Credit_InputMessage"/>
+         <wsdl:output wsaw:Action="http://tempuri.org/ITranslateWS/CreditResponse" message="tns:ITranslateWS_Credit_OutputMessage"/>
+      </wsdl:operation>
+      <wsdl:operation name="Topup">
+         <wsdl:input wsaw:Action="http://tempuri.org/ITranslateWS/Topup" message="tns:ITranslateWS_Topup_InputMessage"/>
+         <wsdl:output wsaw:Action="http://tempuri.org/ITranslateWS/TopupResponse" message="tns:ITranslateWS_Topup_OutputMessage"/>
+      </wsdl:operation>
+      <wsdl:operation name="GetPIN">
+         <wsdl:input wsaw:Action="http://tempuri.org/ITranslateWS/GetPIN" message="tns:ITranslateWS_GetPIN_InputMessage"/>
+         <wsdl:output wsaw:Action="http://tempuri.org/ITranslateWS/GetPINResponse" message="tns:ITranslateWS_GetPIN_OutputMessage"/>
+      </wsdl:operation>
+      <wsdl:operation name="Revert">
+         <wsdl:input wsaw:Action="http://tempuri.org/ITranslateWS/Revert" message="tns:ITranslateWS_Revert_InputMessage"/>
+         <wsdl:output wsaw:Action="http://tempuri.org/ITranslateWS/RevertResponse" message="tns:ITranslateWS_Revert_OutputMessage"/>
+      </wsdl:operation>
+      <wsdl:operation name="Query">
+         <wsdl:input wsaw:Action="http://tempuri.org/ITranslateWS/Query" message="tns:ITranslateWS_Query_InputMessage"/>
+         <wsdl:output wsaw:Action="http://tempuri.org/ITranslateWS/QueryResponse" message="tns:ITranslateWS_Query_OutputMessage"/>
+      </wsdl:operation>
+      <wsdl:operation name="OperatorPortfolio">
+         <wsdl:input wsaw:Action="http://tempuri.org/ITranslateWS/OperatorPortfolio" message="tns:ITranslateWS_OperatorPortfolio_InputMessage"/>
+         <wsdl:output wsaw:Action="http://tempuri.org/ITranslateWS/OperatorPortfolioResponse" message="tns:ITranslateWS_OperatorPortfolio_OutputMessage"/>
+      </wsdl:operation>
+      <wsdl:operation name="GetMSISDNOperator">
+         <wsdl:input wsaw:Action="http://tempuri.org/ITranslateWS/GetMSISDNOperator" message="tns:ITranslateWS_GetMSISDNOperator_InputMessage"/>
+         <wsdl:output wsaw:Action="http://tempuri.org/ITranslateWS/GetMSISDNOperatorResponse" message="tns:ITranslateWS_GetMSISDNOperator_OutputMessage"/>
+      </wsdl:operation>
+      <wsdl:operation name="TransactionList">
+         <wsdl:input wsaw:Action="http://tempuri.org/ITranslateWS/TransactionList" message="tns:ITranslateWS_TransactionList_InputMessage"/>
+         <wsdl:output wsaw:Action="http://tempuri.org/ITranslateWS/TransactionListResponse" message="tns:ITranslateWS_TransactionList_OutputMessage"/>
+      </wsdl:operation>
+   </wsdl:portType>
+   <wsdl:binding name="BasicHttpBinding_ITranslateWS" type="tns:ITranslateWS">
+      <wsp:PolicyReference URI="#BasicHttpBinding_ITranslateWS_policy"/>
+      <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+      <wsdl:operation name="serviceversion">
+         <soap:operation soapAction="http://tempuri.org/ITranslateWS/serviceversion" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="Credit">
+         <soap:operation soapAction="http://tempuri.org/ITranslateWS/Credit" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="Topup">
+         <soap:operation soapAction="http://tempuri.org/ITranslateWS/Topup" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="GetPIN">
+         <soap:operation soapAction="http://tempuri.org/ITranslateWS/GetPIN" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="Revert">
+         <soap:operation soapAction="http://tempuri.org/ITranslateWS/Revert" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="Query">
+         <soap:operation soapAction="http://tempuri.org/ITranslateWS/Query" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="OperatorPortfolio">
+         <soap:operation soapAction="http://tempuri.org/ITranslateWS/OperatorPortfolio" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="GetMSISDNOperator">
+         <soap:operation soapAction="http://tempuri.org/ITranslateWS/GetMSISDNOperator" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="TransactionList">
+         <soap:operation soapAction="http://tempuri.org/ITranslateWS/TransactionList" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+   </wsdl:binding>
+   <wsdl:service name="TranslateWS">
+      <wsdl:port name="BasicHttpBinding_ITranslateWS" binding="tns:BasicHttpBinding_ITranslateWS">
+         <soap:address location="https://spb.csqworld.com:7571/ws28t/Services/TranslateWS/TranslateWS.svc"/>
+      </wsdl:port>
+   </wsdl:service>
+</wsdl:definitions>

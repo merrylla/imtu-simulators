@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/">
+<xs:import schemaLocation="http://www.voilacomcel.com/VoilaWS/VoilaComcelWS.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.AccountInquiry"/>
+<xs:import schemaLocation="http://www.voilacomcel.com/VoilaWS/VoilaComcelWS.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.Phone"/>
+<xs:import schemaLocation="http://www.voilacomcel.com/VoilaWS/VoilaComcelWS.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.PhoneVoucher"/>
+<xs:import schemaLocation="http://www.voilacomcel.com/VoilaWS/VoilaComcelWS.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.PhoneVoucherRedemption"/>
+<xs:import schemaLocation="http://www.voilacomcel.com/VoilaWS/VoilaComcelWS.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.PhoneConfirmation"/>
+<xs:import schemaLocation="http://www.voilacomcel.com/VoilaWS/VoilaComcelWS.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.TopUp"/>
+<xs:import schemaLocation="http://www.voilacomcel.com/VoilaWS/VoilaComcelWS.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.TopUpConfirmation"/>
+<xs:import schemaLocation="http://www.voilacomcel.com/VoilaWS/VoilaComcelWS.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.TopUpTwoStep"/>
+<xs:element name="RunAccountInquiry">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="request" nillable="true" type="q1:AccountInquiryRequest" xmlns:q1="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.AccountInquiry"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="RunAccountInquiryResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="RunAccountInquiryResult" nillable="true" type="q2:AccountInquiryResponse" xmlns:q2="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.AccountInquiry"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="RunPhone">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="request" nillable="true" type="q3:PhoneRequest" xmlns:q3="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.Phone"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="RunPhoneResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="RunPhoneResult" nillable="true" type="q4:PhoneResponse" xmlns:q4="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.Phone"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="RunPhoneVoucher">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="request" nillable="true" type="q5:PhoneVoucherRequest" xmlns:q5="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.PhoneVoucher"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="RunPhoneVoucherResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="RunPhoneVoucherResult" nillable="true" type="q6:PhoneVoucherResponse" xmlns:q6="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.PhoneVoucher"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="RunPhoneVoucherList">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="request" nillable="true" type="q7:PhoneVoucherListRequest" xmlns:q7="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.PhoneVoucher"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="RunPhoneVoucherListResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="RunPhoneVoucherListResult" nillable="true" type="q8:PhoneVoucherListResponse" xmlns:q8="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.PhoneVoucher"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="RunPhoneVoucherRedemption">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="request" nillable="true" type="q9:PhoneVoucherRedemptionRequest" xmlns:q9="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.PhoneVoucherRedemption"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="RunPhoneVoucherRedemptionResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="RunPhoneVoucherRedemptionResult" nillable="true" type="q10:PhoneVoucherRedemptionResponse" xmlns:q10="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.PhoneVoucherRedemption"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="RunPhoneConfirmation">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="request" nillable="true" type="q11:PhoneConfirmationRequest" xmlns:q11="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.PhoneConfirmation"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="RunPhoneConfirmationResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="RunPhoneConfirmationResult" nillable="true" type="q12:PhoneConfirmationResponse" xmlns:q12="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.PhoneConfirmation"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="RunPhoneTwoStep">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="request" nillable="true" type="q13:PhoneRequest" xmlns:q13="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.Phone"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="RunPhoneTwoStepResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="RunPhoneTwoStepResult" nillable="true" type="q14:PhoneResponse" xmlns:q14="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.Phone"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="RunTopUp">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="request" nillable="true" type="q15:TopUpRequest" xmlns:q15="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.TopUp"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="RunTopUpResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="RunTopUpResult" nillable="true" type="q16:TopUpResponse" xmlns:q16="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.TopUp"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="ConfirmTopUp">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="request" nillable="true" type="q17:TopUpConfirmationRequest" xmlns:q17="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.TopUpConfirmation"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="ConfirmTopUpResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="ConfirmTopUpResult" nillable="true" type="q18:TopUpConfirmationResponse" xmlns:q18="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.TopUpConfirmation"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="RunTopUpTwoStep">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="request" nillable="true" type="q19:TopUpTwoStepRequest" xmlns:q19="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.TopUpTwoStep"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="RunTopUpTwoStepResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="RunTopUpTwoStepResult" nillable="true" type="q20:TopUpTwoStepResponse" xmlns:q20="http://schemas.datacontract.org/2004/07/Voila.VoilaWS.TopUpTwoStep"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:schema>

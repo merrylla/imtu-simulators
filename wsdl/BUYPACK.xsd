@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.2.0-1 (tags/2.2.0u1-7139; 2012-06-02T10:55:19+0000) JAXWS-RI/2.2.6-2 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://www.claro.com.hn/esb/ws/packages/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://www.claro.com.hn/esb/ws/packages/">
+
+<xs:element name="buyPack" type="tns:buyPack"/>
+
+<xs:element name="buyPackResponse" type="tns:buyPackResponse"/>
+
+<xs:element name="getListPacks" type="tns:getListPacks"/>
+
+<xs:element name="getListPacksResponse" type="tns:getListPacksResponse"/>
+
+<xs:element name="validateOperation" type="tns:validateOperation"/>
+
+<xs:element name="validateOperationResponse" type="tns:validateOperationResponse"/>
+
+<xs:complexType name="validateOperation">
+<xs:sequence>
+<xs:element name="distId" type="xs:string" minOccurs="0"/>
+<xs:element name="distPass" type="xs:string" minOccurs="0"/>
+<xs:element name="msisdn" type="xs:string" minOccurs="0"/>
+<xs:element name="idPack" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="validateOperationResponse">
+<xs:sequence>
+<xs:element name="result" type="tns:responseValidateOperation" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="responseValidateOperation">
+<xs:sequence>
+<xs:element name="idPack" type="xs:int"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="responseCode" type="xs:int"/>
+<xs:element name="statusSubscriber" type="xs:string" minOccurs="0"/>
+<xs:element name="typeService" type="xs:string" minOccurs="0"/>
+<xs:element name="value" type="xs:decimal" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getListPacks">
+<xs:sequence>
+<xs:element name="distId" type="xs:string" minOccurs="0"/>
+<xs:element name="distPass" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getListPacksResponse">
+<xs:sequence>
+<xs:element name="Pack" type="tns:packResult" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="packResult">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="typeService" type="xs:string" minOccurs="0"/>
+<xs:element name="value" type="xs:decimal" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buyPack">
+<xs:sequence>
+<xs:element name="distId" type="xs:string" minOccurs="0"/>
+<xs:element name="distPass" type="xs:string" minOccurs="0"/>
+<xs:element name="msisdn" type="xs:string" minOccurs="0"/>
+<xs:element name="idPack" type="xs:int"/>
+<xs:element name="transId" type="xs:string" minOccurs="0"/>
+<xs:element name="distCategory" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="buyPackResponse">
+<xs:sequence>
+<xs:element name="result" type="tns:responseBuyPack" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="responseBuyPack">
+<xs:sequence>
+<xs:element name="idTrans" type="xs:string" minOccurs="0"/>
+<xs:element name="newBalance" type="xs:decimal" minOccurs="0"/>
+<xs:element name="oldBalance" type="xs:decimal" minOccurs="0"/>
+<xs:element name="responseCode" type="xs:int"/>
+<xs:element name="value" type="xs:decimal" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

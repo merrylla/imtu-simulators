@@ -1,0 +1,21 @@
+    <GetTopupProductsResponse xmlns="https://dollarphone.com/PMAPI/PinManager">
+      <GetTopupProductsResult>
+        <responseCode>1</responseCode>
+        <TransId>0</TransId>
+        <Products>
+          <Product>
+            <Country>USA</Country>
+            <CountryCode>1</CountryCode>
+            <ProviderId>7</ProviderId>
+            <Carrier>MetroPCS</Carrier>
+            <OfferingID>79</OfferingID>
+            <ProductName>MetroPCS_US USD 8000 - 8000 (55414)</ProductName>
+            <ProductType>PIN</ProductType>
+            <Discount>14</Discount>
+            <Denominations>
+              <float>30</float>
+            </Denominations>
+          </Product>
+        </Products>
+      </GetTopupProductsResult>
+    </GetTopupProductsResponse>

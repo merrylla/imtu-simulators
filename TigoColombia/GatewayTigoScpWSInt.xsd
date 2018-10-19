@@ -1,0 +1,1195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.3-07/10/2008 08:41 PM(bt). -->
+<xs:schema xmlns:tns="http://ws.webscp.gatewaytigo.tigo.com.co/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws.webscp.gatewaytigo.tigo.com.co/">
+
+<xs:element name="BusinessException" type="tns:BusinessException"/>
+
+<xs:element name="GatewayPrepayWSException" type="tns:GatewayPrepayWSException"/>
+
+<xs:element name="adjustment" type="tns:adjustment"/>
+
+<xs:element name="adjustmentResponse" type="tns:adjustmentResponse"/>
+
+<xs:element name="adviceOfCharge" type="tns:adviceOfCharge"/>
+
+<xs:element name="adviceOfChargeResponse" type="tns:adviceOfChargeResponse"/>
+
+<xs:element name="applicationEvent" type="tns:applicationEvent"/>
+
+<xs:element name="applicationEventResponse" type="tns:applicationEventResponse"/>
+
+<xs:element name="balance" type="tns:balance"/>
+
+<xs:element name="balanceResponse" type="tns:balanceResponse"/>
+
+<xs:element name="balanceToResource" type="tns:balanceToResource"/>
+
+<xs:element name="balanceToResourceResponse" type="tns:balanceToResourceResponse"/>
+
+<xs:element name="consultBonus" type="tns:consultBonus"/>
+
+<xs:element name="consultBonusResponse" type="tns:consultBonusResponse"/>
+
+<xs:element name="consultEUsersPromotions" type="tns:consultEUsersPromotions"/>
+
+<xs:element name="consultEUsersPromotionsResponse" type="tns:consultEUsersPromotionsResponse"/>
+
+<xs:element name="consultResources" type="tns:consultResources"/>
+
+<xs:element name="consultResourcesResponse" type="tns:consultResourcesResponse"/>
+
+<xs:element name="consultUsers" type="tns:consultUsers"/>
+
+<xs:element name="consultUsersResponse" type="tns:consultUsersResponse"/>
+
+<xs:element name="credit" type="tns:credit"/>
+
+<xs:element name="creditResponse" type="tns:creditResponse"/>
+
+<xs:element name="debit" type="tns:debit"/>
+
+<xs:element name="debitResponse" type="tns:debitResponse"/>
+
+<xs:element name="eBalance" type="tns:eBalance"/>
+
+<xs:element name="eBalanceResponse" type="tns:eBalanceResponse"/>
+
+<xs:element name="eRecharge" type="tns:eRecharge"/>
+
+<xs:element name="eRechargeResponse" type="tns:eRechargeResponse"/>
+
+<xs:element name="eRechargeReversal" type="tns:eRechargeReversal"/>
+
+<xs:element name="eRechargeReversalResponse" type="tns:eRechargeReversalResponse"/>
+
+<xs:element name="eTransfer" type="tns:eTransfer"/>
+
+<xs:element name="eTransferResponse" type="tns:eTransferResponse"/>
+
+<xs:element name="eventAuthorization" type="tns:eventAuthorization"/>
+
+<xs:element name="eventAuthorizationResponse" type="tns:eventAuthorizationResponse"/>
+
+<xs:element name="provideBonus" type="tns:provideBonus"/>
+
+<xs:element name="provideBonusResponse" type="tns:provideBonusResponse"/>
+
+<xs:element name="provideProperties" type="tns:provideProperties"/>
+
+<xs:element name="providePropertiesResponse" type="tns:providePropertiesResponse"/>
+
+<xs:element name="provideResources" type="tns:provideResources"/>
+
+<xs:element name="provideResourcesResponse" type="tns:provideResourcesResponse"/>
+
+<xs:element name="provideUsers" type="tns:provideUsers"/>
+
+<xs:element name="provideUsersResponse" type="tns:provideUsersResponse"/>
+
+<xs:element name="recharge" type="tns:recharge"/>
+
+<xs:element name="rechargeResponse" type="tns:rechargeResponse"/>
+
+<xs:element name="rechargeReversal" type="tns:rechargeReversal"/>
+
+<xs:element name="rechargeReversalResponse" type="tns:rechargeReversalResponse"/>
+
+<xs:element name="reservation" type="tns:reservation"/>
+
+<xs:element name="reservationCancel" type="tns:reservationCancel"/>
+
+<xs:element name="reservationCancelResponse" type="tns:reservationCancelResponse"/>
+
+<xs:element name="reservationModify" type="tns:reservationModify"/>
+
+<xs:element name="reservationModifyResponse" type="tns:reservationModifyResponse"/>
+
+<xs:element name="reservationQuery" type="tns:reservationQuery"/>
+
+<xs:element name="reservationQueryResponse" type="tns:reservationQueryResponse"/>
+
+<xs:element name="reservationResponse" type="tns:reservationResponse"/>
+
+<xs:element name="reservationUse" type="tns:reservationUse"/>
+
+<xs:element name="reservationUseResponse" type="tns:reservationUseResponse"/>
+
+<xs:element name="transfer" type="tns:transfer"/>
+
+<xs:element name="transferResponse" type="tns:transferResponse"/>
+
+<xs:element name="voucherRecharge" type="tns:voucherRecharge"/>
+
+<xs:element name="voucherRechargeResponse" type="tns:voucherRechargeResponse"/>
+
+<xs:complexType name="recharge">
+<xs:sequence>
+<xs:element name="arg0" type="tns:rechargeRequestDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="rechargeRequestDTO">
+<xs:sequence>
+<xs:element name="bonusCredit" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="information" type="xs:string" minOccurs="0"/>
+<xs:element name="mobileNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="realCredit" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="transactionId" type="xs:string" minOccurs="0"/>
+<xs:element name="transactionType" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="moneyDTO">
+<xs:sequence>
+<xs:element name="amount" type="xs:decimal" minOccurs="0"/>
+<xs:element name="currencyId" type="xs:int" minOccurs="0"/>
+<xs:element name="currencyName" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="rechargeResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:rechargeResponseDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="rechargeResponseDTO">
+<xs:sequence>
+<xs:element name="authorizationNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="bonusBalance" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="bonusCredited" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="mobileNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="realBalance" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="realCredited" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="transactionId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="GatewayPrepayWSException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="BusinessException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="rechargeReversal">
+<xs:sequence>
+<xs:element name="arg0" type="tns:rechargeRevRequestDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="rechargeRevRequestDTO">
+<xs:sequence>
+<xs:element name="information" type="xs:string" minOccurs="0"/>
+<xs:element name="mobileNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="realCredit" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="transactionId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="rechargeReversalResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:rechargeRevResponseDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="rechargeRevResponseDTO">
+<xs:sequence>
+<xs:element name="authorizationNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="bonusBalance" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="bonusMoney" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="mobileNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="realBalance" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="realMoney" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="sequenceNumber" type="xs:int" minOccurs="0"/>
+<xs:element name="transactionId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="provideProperties">
+<xs:sequence>
+<xs:element name="arg0" type="tns:propertyDTO" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="propertyDTO">
+<xs:sequence>
+<xs:element name="propertyFile" type="xs:string" minOccurs="0"/>
+<xs:element name="propertyName" type="xs:string" minOccurs="0"/>
+<xs:element name="propertyValue" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="providePropertiesResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:propertyDTO" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eBalance">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eBalanceResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:balanceResponseDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="balanceResponseDTO">
+<xs:sequence>
+<xs:element name="bonusBalance" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="bonusReserved" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="controlledAccount" type="tns:controlledAccountBalanceDTO" minOccurs="0"/>
+<xs:element name="dedicatedMoneyBalance" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="dedicatedMoneyReserved" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="expirationDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="msisdn" type="xs:string" minOccurs="0"/>
+<xs:element name="product" type="tns:idDTO" minOccurs="0"/>
+<xs:element name="realBalance" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="realReserved" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="resourceBalance" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="resourceReserved" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="serviceProvider" type="tns:idDTO" minOccurs="0"/>
+<xs:element name="state" type="tns:idDTO" minOccurs="0"/>
+<xs:element name="transactionId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="controlledAccountBalanceDTO">
+<xs:sequence>
+<xs:element name="bonusBalance" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="bonusBalanceExpiryDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="realBalance" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="realBalanceExpiryDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="resourceCollection" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="idDTO">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="reservation">
+<xs:sequence>
+<xs:element name="arg0" type="tns:reservationRequestDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="reservationRequestDTO">
+<xs:sequence>
+<xs:element name="overrideOption" type="xs:boolean"/>
+<xs:element name="reservationGeneralInfo" type="tns:reservationGeneralRequestDTO" minOccurs="0"/>
+<xs:element name="validUntil" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="reservationGeneralRequestDTO">
+<xs:sequence>
+<xs:element name="bonusMoney" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="dedicatedMoney" type="tns:dedicatedMoneyDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="eventTime" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="information" type="xs:string" minOccurs="0"/>
+<xs:element name="msisdn" type="xs:string" minOccurs="0"/>
+<xs:element name="numberOfEvents" type="xs:int"/>
+<xs:element name="originatingSource" type="xs:string" minOccurs="0"/>
+<xs:element name="realMoney" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="resource" type="tns:resourceDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="retailerName" type="xs:string" minOccurs="0"/>
+<xs:element name="transactionId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="dedicatedMoneyDTO">
+<xs:sequence>
+<xs:element name="activationDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="amount" type="xs:decimal" minOccurs="0"/>
+<xs:element name="expirationDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="partitionId" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="resourceDTO">
+<xs:sequence>
+<xs:element name="activationDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="expirationDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="offPeak" type="xs:string" minOccurs="0"/>
+<xs:element name="partitionId" type="xs:int" minOccurs="0"/>
+<xs:element name="partitionName" type="xs:string" minOccurs="0"/>
+<xs:element name="partitionUnit" type="xs:int" minOccurs="0"/>
+<xs:element name="peak" type="xs:string" minOccurs="0"/>
+<xs:element name="promotional" type="xs:string" minOccurs="0"/>
+<xs:element name="promotionalExpireDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="serviceRate" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="reservationResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:reservationResponseDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="reservationResponseDTO">
+<xs:sequence>
+<xs:element name="bonusReserved" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="dedicatedMoneyBalanceReserved" type="tns:dedicatedMoneyDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="realReserved" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="reservationGeneralInfo" type="tns:reservationGeneralResponseDTO" minOccurs="0"/>
+<xs:element name="resourceReserved" type="tns:resourceDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="reservationGeneralResponseDTO">
+<xs:sequence>
+<xs:element name="bonusBalance" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="controlledAccountBalance" type="tns:controlledAccountBalanceDTO" minOccurs="0"/>
+<xs:element name="dedicatedMoneyBalance" type="tns:dedicatedMoneyDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="msisdn" type="xs:string" minOccurs="0"/>
+<xs:element name="realBalance" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="reservationId" type="xs:string" minOccurs="0"/>
+<xs:element name="resourceBalance" type="tns:resourceDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="returnCode" type="tns:returnCodeDTO" minOccurs="0"/>
+<xs:element name="transactionId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="returnCodeDTO">
+<xs:sequence>
+<xs:element name="subVal" type="xs:int" minOccurs="0"/>
+<xs:element name="text" type="xs:string" minOccurs="0"/>
+<xs:element name="val" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="reservationModify">
+<xs:sequence>
+<xs:element name="arg0" type="tns:reservationModifyRequestDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="reservationModifyRequestDTO">
+<xs:sequence>
+<xs:element name="reservationGeneralInfo" type="tns:reservationGeneralRequestDTO" minOccurs="0"/>
+<xs:element name="reservationId" type="xs:string" minOccurs="0"/>
+<xs:element name="validUntil" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="reservationModifyResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:reservationModifyResponseDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="reservationModifyResponseDTO">
+<xs:sequence>
+<xs:element name="bonusChange" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="bonusReserved" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="dedicatedMoneyChange" type="tns:dedicatedMoneyDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="dedicatedMoneyReserved" type="tns:dedicatedMoneyDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="numberOfEvents" type="xs:int"/>
+<xs:element name="realChange" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="realReserved" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="reservationGeneralInfo" type="tns:reservationGeneralResponseDTO" minOccurs="0"/>
+<xs:element name="resourceChange" type="tns:resourceDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="resourceReserved" type="tns:resourceDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="validUntil" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eRecharge">
+<xs:sequence>
+<xs:element name="arg0" type="tns:eRechargeRequestDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eRechargeRequestDTO">
+<xs:sequence>
+<xs:element name="amount" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="information" type="xs:string" minOccurs="0"/>
+<xs:element name="target" type="xs:string" minOccurs="0"/>
+<xs:element name="terminalId" type="xs:string" minOccurs="0"/>
+<xs:element name="transactionId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eRechargeResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:eRechargeResponseDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eRechargeResponseDTO">
+<xs:sequence>
+<xs:element name="bonusStatus" type="tns:idDTO" minOccurs="0"/>
+<xs:element name="debitResponse" type="tns:debitResponseDTO" minOccurs="0"/>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+<xs:element name="rechargeResponse" type="tns:rechargeResponseDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="debitResponseDTO">
+<xs:sequence>
+<xs:element name="authorizationNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="bonusBalance" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="bonusDebited" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="dedicatedMoneyBalance" type="tns:dedicatedMoneyDTO" minOccurs="0"/>
+<xs:element name="dedicatedMoneyDebited" type="tns:dedicatedMoneyDTO" minOccurs="0"/>
+<xs:element name="expirationDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="mobileNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="product" type="tns:idDTO" minOccurs="0"/>
+<xs:element name="realBalance" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="realDebited" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="resourceBalance" type="tns:resourceDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="resourceDebited" type="tns:resourceDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="serviceProvider" type="tns:idDTO" minOccurs="0"/>
+<xs:element name="state" type="tns:idDTO" minOccurs="0"/>
+<xs:element name="transactionId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="reservationUse">
+<xs:sequence>
+<xs:element name="arg0" type="tns:reservationUseRequestDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="reservationUseRequestDTO">
+<xs:sequence>
+<xs:element name="reservationGeneralInfo" type="tns:reservationGeneralRequestDTO" minOccurs="0"/>
+<xs:element name="reservationId" type="xs:string" minOccurs="0"/>
+<xs:element name="usageType" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="reservationUseResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:reservationUseResponseDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="reservationUseResponseDTO">
+<xs:sequence>
+<xs:element name="bonusReserved" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="bonusReturned" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="bonusUsed" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="dedicatedMoneyReserved" type="tns:dedicatedMoneyDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="dedicatedMoneyReturned" type="tns:dedicatedMoneyDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="dedicatedMoneyUsed" type="tns:dedicatedMoneyDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="numberOfEvents" type="xs:int"/>
+<xs:element name="realReserved" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="realReturned" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="realUsed" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="reservationGeneralInfo" type="tns:reservationGeneralResponseDTO" minOccurs="0"/>
+<xs:element name="resourceReserved" type="tns:resourceDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="resourceReturned" type="tns:resourceDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="resourceUsed" type="tns:resourceDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="usageType" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="transfer">
+<xs:sequence>
+<xs:element name="arg0" type="tns:transferRequestDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="transferRequestDTO">
+<xs:sequence>
+<xs:element name="activeTimeExpiryDateTime" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="bonusTransfer" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="dedicatedMoneyTransfer" type="tns:dedicatedMoneyDTO" minOccurs="0"/>
+<xs:element name="destAddress" type="xs:string" minOccurs="0"/>
+<xs:element name="eventTime" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="information" type="xs:string" minOccurs="0"/>
+<xs:element name="mobileNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="partitionExpiryDatetime" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="realTransfer" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="resourceTransfer" type="tns:resourceDTO" minOccurs="0"/>
+<xs:element name="transactioType" type="xs:string" minOccurs="0"/>
+<xs:element name="transactionId" type="xs:string" minOccurs="0"/>
+<xs:element name="transferType" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="transferResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:transferResponseDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="transferResponseDTO">
+<xs:sequence>
+<xs:element name="bonusBalance" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="bonusMoney" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="bonusTransferred" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="controlledAccountBalance" type="tns:controlledAccountBalanceDTO" minOccurs="0"/>
+<xs:element name="dedicatedMoneyBalance" type="tns:dedicatedMoneyDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="dedicatedMoneyTransferred" type="tns:dedicatedMoneyDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="destAddress" type="xs:string" minOccurs="0"/>
+<xs:element name="expirationDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="mobileNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="product" type="tns:idDTO" minOccurs="0"/>
+<xs:element name="realBalance" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="realMoney" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="realTransferred" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="resourceBalance" type="tns:resourceDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="resourceTransferred" type="tns:resourceDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="sequenceNumber" type="xs:int" minOccurs="0"/>
+<xs:element name="serviceProvider" type="tns:idDTO" minOccurs="0"/>
+<xs:element name="state" type="tns:idDTO" minOccurs="0"/>
+<xs:element name="transactionId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="reservationCancel">
+<xs:sequence>
+<xs:element name="arg0" type="tns:reservationCancelRequestDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="reservationCancelRequestDTO">
+<xs:sequence>
+<xs:element name="eventTime" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="information" type="xs:string" minOccurs="0"/>
+<xs:element name="msisdn" type="xs:string" minOccurs="0"/>
+<xs:element name="originatingSource" type="xs:string" minOccurs="0"/>
+<xs:element name="reason" type="xs:string" minOccurs="0"/>
+<xs:element name="reservationId" type="xs:string" minOccurs="0"/>
+<xs:element name="retailerName" type="xs:string" minOccurs="0"/>
+<xs:element name="transactionId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="reservationCancelResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:reservationCancelResponseDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="reservationCancelResponseDTO">
+<xs:sequence>
+<xs:element name="bonusReturned" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="dedicatedMoneyReturned" type="tns:dedicatedMoneyDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="realReturned" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="reservationGeneralInfo" type="tns:reservationGeneralResponseDTO" minOccurs="0"/>
+<xs:element name="resourceReturned" type="tns:resourceDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="applicationEvent">
+<xs:sequence>
+<xs:element name="arg0" type="tns:eventRequestDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eventRequestDTO">
+<xs:sequence>
+<xs:element name="addressType" type="xs:string" minOccurs="0"/>
+<xs:element name="cellId" type="xs:string" minOccurs="0"/>
+<xs:element name="destType" type="xs:string" minOccurs="0"/>
+<xs:element name="destination" type="xs:string" minOccurs="0"/>
+<xs:element name="direction" type="xs:string" minOccurs="0"/>
+<xs:element name="duration" type="xs:int" minOccurs="0"/>
+<xs:element name="eventTime" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="eventType" type="xs:string" minOccurs="0"/>
+<xs:element name="information" type="xs:string" minOccurs="0"/>
+<xs:element name="location" type="tns:locationDTO" minOccurs="0"/>
+<xs:element name="mobileNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="networkBearerId" type="tns:networkBearerIDDTO" minOccurs="0"/>
+<xs:element name="numberOfEvents" type="xs:int" minOccurs="0"/>
+<xs:element name="origination" type="xs:string" minOccurs="0"/>
+<xs:element name="transactionId" type="xs:string" minOccurs="0"/>
+<xs:element name="transactionType" type="xs:string" minOccurs="0"/>
+<xs:element name="volume" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="locationDTO">
+<xs:sequence>
+<xs:element name="location" type="xs:string" minOccurs="0"/>
+<xs:element name="type" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="networkBearerIDDTO">
+<xs:sequence>
+<xs:element name="type" type="xs:int" minOccurs="0"/>
+<xs:element name="value" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="applicationEventResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:eventResponseDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eventResponseDTO">
+<xs:sequence>
+<xs:element name="bonusBalance" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="bonusCost" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="chargeUnits" type="xs:int" minOccurs="0"/>
+<xs:element name="mobileNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="numberOfEvents" type="xs:int" minOccurs="0"/>
+<xs:element name="realBalance" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="realCost" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="resourceCostColl" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="resourceDTOColl" type="xs:anyType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="totalChargeUnits" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eRechargeReversal">
+<xs:sequence>
+<xs:element name="arg0" type="tns:eRechargeRevRequestDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eRechargeRevRequestDTO">
+<xs:sequence>
+<xs:element name="amount" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="information" type="xs:string" minOccurs="0"/>
+<xs:element name="source" type="xs:string" minOccurs="0"/>
+<xs:element name="transactionId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eRechargeReversalResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:eRechargeRevResponseDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eRechargeRevResponseDTO">
+<xs:sequence>
+<xs:element name="bonusStatus" type="tns:idDTO" minOccurs="0"/>
+<xs:element name="creditResponse" type="tns:creditResponseDTO" minOccurs="0"/>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+<xs:element name="rechargeRevResponse" type="tns:rechargeRevResponseDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="creditResponseDTO">
+<xs:sequence>
+<xs:element name="authorizationNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="bonusBalance" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="bonusCredit" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="dedicatedMoney" type="tns:dedicatedMoneyDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="dedicatedMoneyBalance" type="tns:dedicatedMoneyDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="mobileNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="realBalance" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="realCredit" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="resourceBalance" type="tns:resourceDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="resourceCredit" type="tns:resourceDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="transactionId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="consultResources">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="consultResourcesResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:provisioningResourcesResponseDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="provisioningResourcesResponseDTO">
+<xs:sequence>
+<xs:element name="sellersColl" type="tns:sellerDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sellerDTO">
+<xs:sequence>
+<xs:element name="resourceSellerColl" type="tns:resourceSellerDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="sellerId" type="tns:idDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="resourceSellerDTO">
+<xs:sequence>
+<xs:element name="amountBuyer" type="xs:decimal" minOccurs="0"/>
+<xs:element name="expirationColl" type="tns:expirationDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="expirationDaysSeller" type="xs:long" minOccurs="0"/>
+<xs:element name="partitionId" type="xs:int" minOccurs="0"/>
+<xs:element name="partitionIdBuyer" type="xs:int" minOccurs="0"/>
+<xs:element name="price" type="xs:decimal" minOccurs="0"/>
+<xs:element name="resourceId" type="tns:idDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="expirationDTO">
+<xs:sequence>
+<xs:element name="expirationDays" type="xs:long" minOccurs="0"/>
+<xs:element name="maxResources" type="xs:long" minOccurs="0"/>
+<xs:element name="minResources" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eventAuthorization">
+<xs:sequence>
+<xs:element name="arg0" type="tns:eventRequestDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eventAuthorizationResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:eventResponseDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="provideBonus">
+<xs:sequence>
+<xs:element name="arg0" type="tns:provisioningBonusRequestDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="provisioningBonusRequestDTO">
+<xs:sequence>
+<xs:element name="promotionCollection" type="tns:promotionDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="promotionDTO">
+<xs:sequence>
+<xs:element name="bonusCollection" type="tns:bonusDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="description" type="xs:string" minOccurs="0"/>
+<xs:element name="finalDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="initialDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="partition" type="xs:string" minOccurs="0"/>
+<xs:element name="typePartition" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="bonusDTO">
+<xs:sequence>
+<xs:element name="bonusValue" type="xs:decimal" minOccurs="0"/>
+<xs:element name="highValue" type="xs:decimal" minOccurs="0"/>
+<xs:element name="lowValue" type="xs:decimal" minOccurs="0"/>
+<xs:element name="vigency" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="provideBonusResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:provisioningBonusResponseDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="provisioningBonusResponseDTO">
+<xs:sequence>
+<xs:element name="promotionCollection" type="tns:promotionDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="balance">
+<xs:sequence>
+<xs:element name="arg0" type="tns:balanceRequestDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="balanceRequestDTO">
+<xs:sequence>
+<xs:element name="msisdn" type="xs:string" minOccurs="0"/>
+<xs:element name="transactionId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="balanceResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:balanceResponseDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eTransfer">
+<xs:sequence>
+<xs:element name="arg0" type="tns:eTransferRequestDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eTransferRequestDTO">
+<xs:sequence>
+<xs:element name="amountResource" type="xs:long" minOccurs="0"/>
+<xs:element name="destinationMobile" type="xs:string" minOccurs="0"/>
+<xs:element name="information" type="xs:string" minOccurs="0"/>
+<xs:element name="resourceType" type="tns:idDTO" minOccurs="0"/>
+<xs:element name="transactionId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eTransferResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:eTransferResponseDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eTransferResponseDTO">
+<xs:sequence>
+<xs:element name="authorizationNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="balanceClient" type="tns:balanceResponseDTO" minOccurs="0"/>
+<xs:element name="bonusBalance" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="dedicatedMoneyBalance" type="tns:dedicatedMoneyDTO" minOccurs="0"/>
+<xs:element name="realBalance" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="resourceBalance" type="tns:resourceDTO" minOccurs="0"/>
+<xs:element name="transactionId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="adjustment">
+<xs:sequence>
+<xs:element name="arg0" type="tns:adjustmentRequestDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="adjustmentRequestDTO">
+<xs:sequence>
+<xs:element name="information" type="xs:string" minOccurs="0"/>
+<xs:element name="mobileNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="realAdjustment" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="resourceAdjustment" type="tns:resourceDTO" minOccurs="0"/>
+<xs:element name="transactionId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="adjustmentResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:adjustmentResponseDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="adjustmentResponseDTO">
+<xs:sequence>
+<xs:element name="balanceResponse" type="tns:balanceResponseDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="debit">
+<xs:sequence>
+<xs:element name="arg0" type="tns:debitRequestDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="debitRequestDTO">
+<xs:sequence>
+<xs:element name="debitType" type="xs:string" minOccurs="0"/>
+<xs:element name="dedicatedMoneyDebit" type="tns:dedicatedMoneyDTO" minOccurs="0"/>
+<xs:element name="information" type="xs:string" minOccurs="0"/>
+<xs:element name="mobileNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="moneyDebit" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="resourceDebit" type="tns:resourceDTO" minOccurs="0"/>
+<xs:element name="transactionId" type="xs:string" minOccurs="0"/>
+<xs:element name="transactionType" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="debitResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:debitResponseDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="reservationQuery">
+<xs:sequence>
+<xs:element name="arg0" type="tns:reservationQueryRequestDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="reservationQueryRequestDTO">
+<xs:sequence>
+<xs:element name="maxEventTime" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="maxValidUntil" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="minEventTime" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="minValidUntil" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="nextReservationId" type="xs:string" minOccurs="0"/>
+<xs:element name="originatingSource" type="xs:string" minOccurs="0"/>
+<xs:element name="reservationId" type="xs:string" minOccurs="0"/>
+<xs:element name="reservationMSISDN" type="xs:string" minOccurs="0"/>
+<xs:element name="reservationTransactionId" type="xs:string" minOccurs="0"/>
+<xs:element name="transactionId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="reservationQueryResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:reservationQueryResponseDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="reservationQueryResponseDTO">
+<xs:sequence>
+<xs:element name="nextReservationId" type="xs:string" minOccurs="0"/>
+<xs:element name="responseItem" type="tns:reservationQueryResponseItemDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="returnCode" type="tns:returnCodeDTO" minOccurs="0"/>
+<xs:element name="transactionId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="reservationQueryResponseItemDTO">
+<xs:sequence>
+<xs:element name="bonusBalance" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="controlledAccountBalance" type="tns:controlledAccountBalanceDTO" minOccurs="0"/>
+<xs:element name="dedicatedMoneyBalance" type="tns:dedicatedMoneyDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="eventTime" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="realBalance" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="reservationId" type="xs:string" minOccurs="0"/>
+<xs:element name="reservationTransactionId" type="xs:string" minOccurs="0"/>
+<xs:element name="resourceBalance" type="tns:resourceDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="validUntil" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="consultBonus">
+<xs:sequence>
+<xs:element name="arg0" type="tns:provisioningBonusRequestDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="consultBonusResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:provisioningBonusResponseDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="provideUsers">
+<xs:sequence>
+<xs:element name="arg0" type="tns:provisioningUsersRequestDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="provisioningUsersRequestDTO">
+<xs:sequence>
+<xs:element name="usersPromotionCollection" type="tns:userPromotionDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="userPromotionDTO">
+<xs:sequence>
+<xs:element name="idUser" type="xs:string" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="posMap" type="tns:pointOfSaleDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="pointOfSaleDTO">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="provideUsersResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:provisioningUsersResponseDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="provisioningUsersResponseDTO">
+<xs:sequence>
+<xs:element name="usersPromotionCollection" type="tns:userPromotionDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="credit">
+<xs:sequence>
+<xs:element name="arg0" type="tns:creditRequestDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="creditRequestDTO">
+<xs:sequence>
+<xs:element name="bonusCredit" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="dedicatedMoneyDTO" type="tns:dedicatedMoneyDTO" minOccurs="0"/>
+<xs:element name="information" type="xs:string" minOccurs="0"/>
+<xs:element name="mobileNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="realCredit" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="resourceCredit" type="tns:resourceDTO" minOccurs="0"/>
+<xs:element name="transactionId" type="xs:string" minOccurs="0"/>
+<xs:element name="transactionType" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="creditResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:creditResponseDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="provideResources">
+<xs:sequence>
+<xs:element name="arg0" type="tns:provisioningResourcesRequestDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="provisioningResourcesRequestDTO">
+<xs:sequence>
+<xs:element name="sellersColl" type="tns:sellerDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="provideResourcesResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:provisioningResourcesResponseDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="balanceToResource">
+<xs:sequence>
+<xs:element name="arg0" type="tns:balanceToResourceRequestDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="balanceToResourceRequestDTO">
+<xs:sequence>
+<xs:element name="amountResources" type="xs:long" minOccurs="0"/>
+<xs:element name="information" type="xs:string" minOccurs="0"/>
+<xs:element name="resourceId" type="tns:idDTO" minOccurs="0"/>
+<xs:element name="transactionId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="balanceToResourceResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:balanceToResourceResponseDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="balanceToResourceResponseDTO">
+<xs:sequence>
+<xs:element name="creditResponseDTO" type="tns:creditResponseDTO" minOccurs="0"/>
+<xs:element name="debitResponseDTO" type="tns:debitResponseDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="adviceOfCharge">
+<xs:sequence>
+<xs:element name="arg0" type="tns:adviceOfChargeRequestDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="adviceOfChargeRequestDTO">
+<xs:sequence>
+<xs:element name="addressType" type="xs:int"/>
+<xs:element name="allowAdditionalStates" type="xs:boolean"/>
+<xs:element name="cellId" type="xs:string" minOccurs="0"/>
+<xs:element name="destAddress" type="xs:string" minOccurs="0"/>
+<xs:element name="destType" type="xs:int"/>
+<xs:element name="direction" type="xs:int"/>
+<xs:element name="duration" type="xs:int"/>
+<xs:element name="eventSubType" type="xs:int"/>
+<xs:element name="eventTime" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="eventType" type="xs:int"/>
+<xs:element name="location" type="tns:locationDTO" minOccurs="0"/>
+<xs:element name="locationAreaId" type="xs:string" minOccurs="0"/>
+<xs:element name="msisdn" type="xs:string" minOccurs="0"/>
+<xs:element name="networkBearerId" type="tns:networkBearerIDDTO" minOccurs="0"/>
+<xs:element name="numberOfEvents" type="xs:int"/>
+<xs:element name="origAddress" type="xs:string" minOccurs="0"/>
+<xs:element name="origType" type="xs:int"/>
+<xs:element name="preAnswerDuration" type="xs:int"/>
+<xs:element name="predeterminedCommunity" type="xs:string" minOccurs="0"/>
+<xs:element name="queryType" type="xs:int"/>
+<xs:element name="transactionId" type="xs:string" minOccurs="0"/>
+<xs:element name="volume" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="adviceOfChargeResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:adviceOfChargeResponseDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="adviceOfChargeResponseDTO">
+<xs:sequence>
+<xs:element name="bonusBalance" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="bonusCost" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="controlledAccountBalance" type="tns:controlledAccountBalanceDTO" minOccurs="0"/>
+<xs:element name="dedicatedMoneyBalance" type="tns:dedicatedMoneyDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="dedicatedMoneyCost" type="tns:dedicatedMoneyDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="msisdn" type="xs:string" minOccurs="0"/>
+<xs:element name="numberOfEvents" type="xs:int"/>
+<xs:element name="realBalance" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="realCost" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="resourceBalance" type="tns:resourceDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="resourceCost" type="tns:resourceDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="returncode" type="tns:returnCodeDTO" minOccurs="0"/>
+<xs:element name="transactionId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="consultEUsersPromotions">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="consultEUsersPromotionsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:provisioningUsersResponseDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="voucherRecharge">
+<xs:sequence>
+<xs:element name="arg0" type="tns:voucherRechargeRequestDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="voucherRechargeRequestDTO">
+<xs:sequence>
+<xs:element name="eventTime" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="information" type="xs:string" minOccurs="0"/>
+<xs:element name="msisdn" type="xs:string" minOccurs="0"/>
+<xs:element name="originatingSource" type="xs:string" minOccurs="0"/>
+<xs:element name="retailerName" type="xs:string" minOccurs="0"/>
+<xs:element name="transactionId" type="xs:string" minOccurs="0"/>
+<xs:element name="voucherId" type="xs:string" minOccurs="0"/>
+<xs:element name="voucherNumber" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="voucherRechargeResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:voucherRechargeResponseDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="voucherRechargeResponseDTO">
+<xs:sequence>
+<xs:element name="bonusBalance" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="bonusCredited" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="dedicatedMoneyBalance" type="tns:dedicatedMoneyDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="dedicatedMoneyCredited" type="tns:dedicatedMoneyDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="msisdn" type="xs:string" minOccurs="0"/>
+<xs:element name="realBalance" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="realCredited" type="tns:moneyDTO" minOccurs="0"/>
+<xs:element name="resourceBalance" type="tns:resourceDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="resourceCredited" type="tns:resourceDTO" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="returnCode" type="tns:returnCodeDTO" minOccurs="0"/>
+<xs:element name="transactionId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="consultUsers">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="consultUsersResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:provisioningUsersResponseDTO" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

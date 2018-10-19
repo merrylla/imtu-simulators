@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Voila.Exceptions" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/Voila.Exceptions">
+<xs:complexType name="ConfigFault">
+<xs:complexContent mixed="false">
+<xs:extension base="tns:BaseFault">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:element name="ConfigFault" nillable="true" type="tns:ConfigFault"/>
+<xs:complexType name="BaseFault">
+<xs:sequence/>
+</xs:complexType>
+<xs:element name="BaseFault" nillable="true" type="tns:BaseFault"/>
+<xs:complexType name="ResponseFault">
+<xs:complexContent mixed="false">
+<xs:extension base="tns:BaseFault">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:element name="ResponseFault" nillable="true" type="tns:ResponseFault"/>
+<xs:complexType name="DatabaseFault">
+<xs:complexContent mixed="false">
+<xs:extension base="tns:BaseFault">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:element name="DatabaseFault" nillable="true" type="tns:DatabaseFault"/>
+<xs:complexType name="InputFault">
+<xs:complexContent mixed="false">
+<xs:extension base="tns:BaseFault">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:element name="InputFault" nillable="true" type="tns:InputFault"/>
+</xs:schema>

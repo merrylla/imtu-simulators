@@ -1,0 +1,13 @@
+RewriteLogLevel 10
+RewriteLog "/u/debit/logs/rewrite.log"
+
+<Directory /u/debit/apps/htdocs/MoneyAccess>
+RewriteEngine On
+Options FollowSymLinks
+#RewriteRule transaction(.*) QuippiSvr.php?tid=$1 
+RewriteRule ^(\w+)$ MoneyAccessSvr.php?cmd=$1&value= [L]
+RewriteRule ^(\w+)/([\w-]+)$ MoneyAccessSvr.php?cmd=$1&subcmd=$2 [L]
+#RewriteRule ^(\w+)/([\w-]+)/(\w*)$ QuippiSvr.php?cmd=$1&subcmd=$2 [L]
+#RewriteRule ^(\w+)/([\w-]+)/(\w*)$ MoneyAccessSvr.php?cmd=$1&subcmd=$3 [L]
+RewriteRule ^([\w-]+)/([\w-]+)/(\w*)$ MoneyAccessSvr.php?cmd=$3&subcmd=$3 [L]
+</Directory>

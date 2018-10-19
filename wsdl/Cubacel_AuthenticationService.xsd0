@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" targetNamespace="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:Cubacel.ExternalServices.VirtualPayment.ServiceContracts">
+<xs:import schemaLocation="Cubacel_AuthenticationService.xsd2" namespace="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+<xs:element name="GetSessionTicketRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="AccountId" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="Password" nillable="true" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetSessionTicketResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="Result" nillable="true" type="q1:OperationResult" xmlns:q1="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+<xs:element minOccurs="0" name="SessionTicket" nillable="true" type="q2:SessionTicket" xmlns:q2="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="ChangeAccountPasswordRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="NewPassword" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="OldPassword" nillable="true" type="xs:string"/>
+<xs:element minOccurs="0" name="SessionTicket" nillable="true" type="q3:SessionTicket" xmlns:q3="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="ChangeAccountPasswordResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="Result" nillable="true" type="q4:OperationResult" xmlns:q4="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetPrivilegesInfoRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="SessionTicket" nillable="true" type="q5:SessionTicket" xmlns:q5="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetPrivilegesInfoResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="Privileges" nillable="true" type="q6:Privileges" xmlns:q6="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+<xs:element minOccurs="0" name="Result" nillable="true" type="q7:OperationResult" xmlns:q7="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetDistributorInfoRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="SessionTicket" nillable="true" type="q8:SessionTicket" xmlns:q8="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="GetDistributorInfoResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element minOccurs="0" name="DistributorInfo" nillable="true" type="q9:DistributorData" xmlns:q9="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+<xs:element minOccurs="0" name="Result" nillable="true" type="q10:OperationResult" xmlns:q10="urn:Cubacel.ExternalServices.VirtualPayment.DataContracts"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:schema>

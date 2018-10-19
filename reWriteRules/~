@@ -1,0 +1,14 @@
+RewriteLogLevel 10
+RewriteLog "/u/debit/logs/rewrite.log"
+
+<Directory /u/debit/apps/htdocs/MoneyAccess>
+RewriteEngine On
+Options FollowSymLinks
+#RewriteRule ^(\w+)/maii-egift-cards/(\w+)$ QuippiSvr.php?cmd=$2 [L]
+#RewriteRule ^(\w+)/([\w-]+)$ MoneyAccessSvr.php?cmd=$1&subcmd=$2 [L]
+#RewriteRule ^egift(\w+)$ QuippiSvr.php?cmd=$1&subcmd=createPin [L]
+#RewriteRule ^egift-cards/(\w+)$ QuippiSvr.php?cmd=product&subcmd=createPin [L]
+#RewriteRule ^/egift-cards/maii-egift-cards/(\w*)$ QuippiSvr.php?cmd=$1&subcmd=$1 [L]
+#RewriteRule ^(\w+)$ MoneyAccessSvr.php?cmd=$1 [QSA,L]
+#RewriteRule ^/egift-cards/maii-egift-cards/\d+(.+) MoneyAccessSvr.php?cmd=$1 [L]
+</Directory>

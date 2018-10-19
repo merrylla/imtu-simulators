@@ -1,0 +1,8 @@
+RewriteLogLevel 0
+RewriteLog "/u/debit/logs/rewrite.log"
+
+<Directory /u/debit/apps/htdocs/F1soft>
+RewriteEngine On
+Options FollowSymLinks
+RewriteRule ^(\w+)$ F1softSvr.php?cmd=$1 [L]
+</Directory>

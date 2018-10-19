@@ -1,0 +1,379 @@
+<?xml version="1.0"?><definitions name="Reseller_iTopUp_wsdl" targetNamespace="urn:Reseller_iTopUp_wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="urn:Reseller_iTopUp_wsdl" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns5="http://soapinterop.org/xsd">
+<types xmlns="http://schemas.xmlsoap.org/wsdl/">
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://soapinterop.org/xsd">
+<complexType name="EchoCheck_Request">
+<all>
+<element name="LoginId" type="xsd:string" />
+<element name="Message" type="xsd:string" />
+<element name="Checksum" type="xsd:string" />
+</all>
+</complexType>
+<complexType name="EchoCheck_Response">
+<all>
+<element name="ResponseCode" type="xsd:string" />
+<element name="ResponseDescription" type="xsd:string" />
+<element name="Message" type="xsd:string" />
+</all>
+</complexType>
+<complexType name="ResellerBalance_Request">
+<all>
+<element name="LoginId" type="xsd:string" />
+<element name="TillDate" type="xsd:string" />
+<element name="Checksum" type="xsd:string" />
+</all>
+</complexType>
+<complexType name="ResellerBalance_Response">
+<all>
+<element name="ResponseCode" type="xsd:string" />
+<element name="ResponseDescription" type="xsd:string" />
+<element name="TillDateBalance" type="xsd:string" />
+<element name="CurrentBalance" type="xsd:string" />
+</all>
+</complexType>
+<complexType name="FlexiTransactionDetail_Request">
+<all>
+<element name="LoginId" type="xsd:string" />
+<element name="RequestId" type="xsd:string" />
+<element name="Checksum" type="xsd:string" />
+</all>
+</complexType>
+<complexType name="FlexiTransactionDetail_Response">
+<all>
+<element name="ResponseCode" type="xsd:string" />
+<element name="ResponseDescription" type="xsd:string" />
+<element name="TransactionResponseCode" type="xsd:string" />
+<element name="TransactionResponseDescription" type="xsd:string" />
+<element name="ConfirmationCode" type="xsd:string" />
+<element name="AuditNo" type="xsd:string" />
+<element name="TopUpAmount" type="xsd:string" />
+</all>
+</complexType>
+<complexType name="FixTransactionDetail_Request">
+<all>
+<element name="LoginId" type="xsd:string" />
+<element name="RequestId" type="xsd:string" />
+<element name="Checksum" type="xsd:string" />
+</all>
+</complexType>
+<complexType name="FixTransactionDetail_Response">
+<all>
+<element name="ResponseCode" type="xsd:string" />
+<element name="ResponseDescription" type="xsd:string" />
+<element name="TransactionResponseCode" type="xsd:string" />
+<element name="TransactionResponseDescription" type="xsd:string" />
+<element name="ConfirmationCode" type="xsd:string" />
+<element name="AuditNo" type="xsd:string" />
+<element name="TopUpAmount" type="xsd:string" />
+</all>
+</complexType>
+<complexType name="FlexiRecharge_Request">
+<all>
+<element name="LoginId" type="xsd:string" />
+<element name="RequestId" type="xsd:string" />
+<element name="BatchId" type="xsd:string" />
+<element name="SystemServiceID" type="xsd:string" />
+<element name="MobileNumber" type="xsd:string" />
+<element name="Amount" type="xsd:string" />
+<element name="Checksum" type="xsd:string" />
+</all>
+</complexType>
+<complexType name="FlexiRecharge_Response">
+<all>
+<element name="ResponseCode" type="xsd:string" />
+<element name="ResponseDescription" type="xsd:string" />
+<element name="ConfirmationCode" type="xsd:string" />
+<element name="AuditNo" type="xsd:string" />
+<element name="TopUpAmount" type="xsd:string" />
+</all>
+</complexType>
+<complexType name="FixRecharge_Request">
+<all>
+<element name="LoginId" type="xsd:string" />
+<element name="RequestId" type="xsd:string" />
+<element name="BatchId" type="xsd:string" />
+<element name="SystemServiceID" type="xsd:string" />
+<element name="MobileNumber" type="xsd:string" />
+<element name="Checksum" type="xsd:string" />
+</all>
+</complexType>
+<complexType name="FixRecharge_Response">
+<all>
+<element name="ResponseCode" type="xsd:string" />
+<element name="ResponseDescription" type="xsd:string" />
+<element name="ConfirmationCode" type="xsd:string" />
+<element name="AuditNo" type="xsd:string" />
+<element name="TopUpAmount" type="xsd:string" />
+</all>
+</complexType>
+<complexType name="FlexiVoid_Request">
+<all>
+<element name="LoginId" type="xsd:string" />
+<element name="RequestId" type="xsd:string" />
+<element name="Checksum" type="xsd:string" />
+</all>
+</complexType>
+<complexType name="FlexiVoid_Response">
+<all>
+<element name="ResponseCode" type="xsd:string" />
+<element name="ResponseDescription" type="xsd:string" />
+<element name="ConfirmationCode" type="xsd:string" />
+<element name="AuditNo" type="xsd:string" />
+<element name="TopUpAmount" type="xsd:string" />
+</all>
+</complexType>
+<complexType name="FixVoid_Request">
+<all>
+<element name="LoginId" type="xsd:string" />
+<element name="RequestId" type="xsd:string" />
+<element name="Checksum" type="xsd:string" />
+</all>
+</complexType>
+<complexType name="FixVoid_Response">
+<all>
+<element name="ResponseCode" type="xsd:string" />
+<element name="ResponseDescription" type="xsd:string" />
+<element name="ConfirmationCode" type="xsd:string" />
+<element name="AuditNo" type="xsd:string" />
+<element name="TopUpAmount" type="xsd:string" />
+</all>
+</complexType>
+<complexType name="OpenRecharge_Request">
+<all>
+<element name="LoginId" type="xsd:string" />
+<element name="RequestId" type="xsd:string" />
+<element name="BatchId" type="xsd:string" />
+<element name="OperatorCode" type="xsd:string" />
+<element name="MobileNumber" type="xsd:string" />
+<element name="Amount" type="xsd:string" />
+<element name="Checksum" type="xsd:string" />
+</all>
+</complexType>
+<complexType name="OpenRecharge_Response">
+<all>
+<element name="ResponseCode" type="xsd:string" />
+<element name="ResponseDescription" type="xsd:string" />
+<element name="ConfirmationCode" type="xsd:string" />
+<element name="AuditNo" type="xsd:string" />
+<element name="TopUpAmount" type="xsd:string" />
+</all>
+</complexType>
+<complexType name="ActivationDeactivation_Request">
+<all>
+<element name="LoginId" type="xsd:string" />
+<element name="ActivationDeactivationType" type="xsd:string" />
+<element name="StartRange" type="xsd:string" />
+<element name="EndRange" type="xsd:string" />
+<element name="Discount" type="xsd:string" />
+<element name="Checksum" type="xsd:string" />
+</all>
+</complexType>
+<complexType name="ActivationDeactivation_Response">
+<all>
+<element name="ResponseCode" type="xsd:string" />
+<element name="ResponseDescription" type="xsd:string" />
+</all>
+</complexType>
+</schema>
+</types>
+<message name="EchoCheckRequest">
+<part name="EchoCheck_Request" type="ns5:EchoCheck_Request" />
+</message>
+<message name="EchoCheckResponse">
+<part name="EchoCheck_Response" type="ns5:EchoCheck_Response" />
+</message>
+<message name="ResellerBalanceRequest">
+<part name="ResellerBalance_Request" type="ns5:ResellerBalance_Request" />
+</message>
+<message name="ResellerBalanceResponse">
+<part name="ResellerBalance_Response" type="ns5:ResellerBalance_Response" />
+</message>
+<message name="FlexiTransactionDetailRequest">
+<part name="FlexiTransactionDetail_Request" type="ns5:FlexiTransactionDetail_Request" />
+</message>
+<message name="FlexiTransactionDetailResponse">
+<part name="FlexiTransactionDetail_Response" type="ns5:FlexiTransactionDetail_Response" />
+</message>
+<message name="FixTransactionDetailRequest">
+<part name="FixTransactionDetail_Request" type="ns5:FixTransactionDetail_Request" />
+</message>
+<message name="FixTransactionDetailResponse">
+<part name="FixTransactionDetail_Response" type="ns5:FixTransactionDetail_Response" />
+</message>
+<message name="FlexiRechargeRequest">
+<part name="FlexiRecharge_Request" type="ns5:FlexiRecharge_Request" />
+</message>
+<message name="FlexiRechargeResponse">
+<part name="FlexiRecharge_Response" type="ns5:FlexiRecharge_Response" />
+</message>
+<message name="FixRechargeRequest">
+<part name="FixRecharge_Request" type="ns5:FixRecharge_Request" />
+</message>
+<message name="FixRechargeResponse">
+<part name="FixRecharge_Response" type="ns5:FixRecharge_Response" />
+</message>
+<message name="FlexiVoidRequest">
+<part name="FlexiVoid_Request" type="ns5:FlexiVoid_Request" />
+</message>
+<message name="FlexiVoidResponse">
+<part name="FlexiVoid_Response" type="ns5:FlexiVoid_Response" />
+</message>
+<message name="FixVoidRequest">
+<part name="FixVoid_Request" type="ns5:FixVoid_Request" />
+</message>
+<message name="FixVoidResponse">
+<part name="FixVoid_Response" type="ns5:FixVoid_Response" />
+</message>
+<message name="OpenRechargeRequest">
+<part name="OpenRecharge_Request" type="ns5:OpenRecharge_Request" />
+</message>
+<message name="OpenRechargeResponse">
+<part name="OpenRecharge_Response" type="ns5:OpenRecharge_Response" />
+</message>
+<message name="ActivationDeactivationRequest">
+<part name="ActivationDeactivation_Request" type="ns5:ActivationDeactivation_Request" />
+</message>
+<message name="ActivationDeactivationResponse">
+<part name="ActivationDeactivation_Response" type="ns5:ActivationDeactivation_Response" />
+</message>
+<portType name="Reseller_iTopUp_wsdlPort">
+<operation name="EchoCheck">
+<input message="tns:EchoCheckRequest" />
+<output message="tns:EchoCheckResponse" />
+</operation>
+<operation name="ResellerBalance">
+<input message="tns:ResellerBalanceRequest" />
+<output message="tns:ResellerBalanceResponse" />
+</operation>
+<operation name="FlexiTransactionDetail">
+<input message="tns:FlexiTransactionDetailRequest" />
+<output message="tns:FlexiTransactionDetailResponse" />
+</operation>
+<operation name="FixTransactionDetail">
+<input message="tns:FixTransactionDetailRequest" />
+<output message="tns:FixTransactionDetailResponse" />
+</operation>
+<operation name="FlexiRecharge">
+<input message="tns:FlexiRechargeRequest" />
+<output message="tns:FlexiRechargeResponse" />
+</operation>
+<operation name="FixRecharge">
+<input message="tns:FixRechargeRequest" />
+<output message="tns:FixRechargeResponse" />
+</operation>
+<operation name="FlexiVoid">
+<input message="tns:FlexiVoidRequest" />
+<output message="tns:FlexiVoidResponse" />
+</operation>
+<operation name="FixVoid">
+<input message="tns:FixVoidRequest" />
+<output message="tns:FixVoidResponse" />
+</operation>
+<operation name="OpenRecharge">
+<input message="tns:OpenRechargeRequest" />
+<output message="tns:OpenRechargeResponse" />
+</operation>
+<operation name="ActivationDeactivation">
+<input message="tns:ActivationDeactivationRequest" />
+<output message="tns:ActivationDeactivationResponse" />
+</operation>
+</portType>
+<binding name="Reseller_iTopUp_wsdlBinding" type="tns:Reseller_iTopUp_wsdlPort">
+<soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+<operation name="EchoCheck">
+<soap:operation soapAction="http://192.168.80.14:8001/WebService/reseller_iTopUp/reseller_iTopUp.wsdl.php#Reseller_iTopUp_wsdl#EchoCheck" />
+<input>
+<soap:body use="encoded" namespace="http://192.168.80.14:8001/WebService/reseller_iTopUp/reseller_iTopUp.wsdl.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+</input>
+<output>
+<soap:body use="encoded" namespace="http://192.168.80.14:8001/WebService/reseller_iTopUp/reseller_iTopUp.wsdl.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+</output>
+</operation>
+<operation name="ResellerBalance">
+<soap:operation soapAction="http://192.168.80.14:8001/WebService/reseller_iTopUp/reseller_iTopUp.wsdl.php#Reseller_iTopUp_wsdl#ResellerBalance" />
+<input>
+<soap:body use="encoded" namespace="http://192.168.80.14:8001/WebService/reseller_iTopUp/reseller_iTopUp.wsdl.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+</input>
+<output>
+<soap:body use="encoded" namespace="http://192.168.80.14:8001/WebService/reseller_iTopUp/reseller_iTopUp.wsdl.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+</output>
+</operation>
+<operation name="FlexiTransactionDetail">
+<soap:operation soapAction="http://192.168.80.14:8001/WebService/reseller_iTopUp/reseller_iTopUp.wsdl.php#Reseller_iTopUp_wsdl#FlexiTransactionDetail" />
+<input>
+<soap:body use="encoded" namespace="http://192.168.80.14:8001/WebService/reseller_iTopUp/reseller_iTopUp.wsdl.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+</input>
+<output>
+<soap:body use="encoded" namespace="http://192.168.80.14:8001/WebService/reseller_iTopUp/reseller_iTopUp.wsdl.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+</output>
+</operation>
+<operation name="FixTransactionDetail">
+<soap:operation soapAction="http://192.168.80.14:8001/WebService/reseller_iTopUp/reseller_iTopUp.wsdl.php#Reseller_iTopUp_wsdl#FixTransactionDetail" />
+<input>
+<soap:body use="encoded" namespace="http://192.168.80.14:8001/WebService/reseller_iTopUp/reseller_iTopUp.wsdl.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+</input>
+<output>
+<soap:body use="encoded" namespace="http://192.168.80.14:8001/WebService/reseller_iTopUp/reseller_iTopUp.wsdl.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+</output>
+</operation>
+<operation name="FlexiRecharge">
+<soap:operation soapAction="http://192.168.80.14:8001/WebService/reseller_iTopUp/reseller_iTopUp.wsdl.php#Reseller_iTopUp_wsdl#FlexiRecharge" />
+<input>
+<soap:body use="encoded" namespace="http://192.168.80.14:8001/WebService/reseller_iTopUp/reseller_iTopUp.wsdl.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+</input>
+<output>
+<soap:body use="encoded" namespace="http://192.168.80.14:8001/WebService/reseller_iTopUp/reseller_iTopUp.wsdl.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+</output>
+</operation>
+<operation name="FixRecharge">
+<soap:operation soapAction="http://192.168.80.14:8001/WebService/reseller_iTopUp/reseller_iTopUp.wsdl.php#Reseller_iTopUp_wsdl#FixRecharge" />
+<input>
+<soap:body use="encoded" namespace="http://192.168.80.14:8001/WebService/reseller_iTopUp/reseller_iTopUp.wsdl.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+</input>
+<output>
+<soap:body use="encoded" namespace="http://192.168.80.14:8001/WebService/reseller_iTopUp/reseller_iTopUp.wsdl.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+</output>
+</operation>
+<operation name="FlexiVoid">
+<soap:operation soapAction="http://192.168.80.14:8001/WebService/reseller_iTopUp/reseller_iTopUp.wsdl.php#Reseller_iTopUp_wsdl#FlexiVoid" />
+<input>
+<soap:body use="encoded" namespace="http://192.168.80.14:8001/WebService/reseller_iTopUp/reseller_iTopUp.wsdl.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+</input>
+<output>
+<soap:body use="encoded" namespace="http://192.168.80.14:8001/WebService/reseller_iTopUp/reseller_iTopUp.wsdl.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+</output>
+</operation>
+<operation name="FixVoid">
+<soap:operation soapAction="http://192.168.80.14:8001/WebService/reseller_iTopUp/reseller_iTopUp.wsdl.php#Reseller_iTopUp_wsdl#FixVoid" />
+<input>
+<soap:body use="encoded" namespace="http://192.168.80.14:8001/WebService/reseller_iTopUp/reseller_iTopUp.wsdl.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+</input>
+<output>
+<soap:body use="encoded" namespace="http://192.168.80.14:8001/WebService/reseller_iTopUp/reseller_iTopUp.wsdl.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+</output>
+</operation>
+<operation name="OpenRecharge">
+<soap:operation soapAction="http://192.168.80.14:8001/WebService/reseller_iTopUp/reseller_iTopUp.wsdl.php#Reseller_iTopUp_wsdl#OpenRecharge" />
+<input>
+<soap:body use="encoded" namespace="http://192.168.80.14:8001/WebService/reseller_iTopUp/reseller_iTopUp.wsdl.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+</input>
+<output>
+<soap:body use="encoded" namespace="http://192.168.80.14:8001/WebService/reseller_iTopUp/reseller_iTopUp.wsdl.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+</output>
+</operation>
+<operation name="ActivationDeactivation">
+<soap:operation soapAction="http://192.168.80.14:8001/WebService/reseller_iTopUp/reseller_iTopUp.wsdl.php#Reseller_iTopUp_wsdl#ActivationDeactivation" />
+<input>
+<soap:body use="encoded" namespace="http://192.168.80.14:8001/WebService/reseller_iTopUp/reseller_iTopUp.wsdl.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+</input>
+<output>
+<soap:body use="encoded" namespace="http://192.168.80.14:8001/WebService/reseller_iTopUp/reseller_iTopUp.wsdl.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+</output>
+</operation>
+</binding>
+<service name="Reseller_iTopUp_wsdlService">
+<documentation />
+<port name="Reseller_iTopUp_wsdlPort" binding="tns:Reseller_iTopUp_wsdlBinding">
+<soap:address location="http://192.168.80.14:8001/WebService/iTopUp/reseller_itopup.server.php" />
+</port>
+</service>
+</definitions>

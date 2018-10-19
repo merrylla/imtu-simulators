@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><soap:Body><Request_ReloadAmountResponse xmlns="http://tempuri.org/">
+<Request_ReloadAmountResult><string xmlns="http://tempuri.org/">
+<RefID>88863</RefID>
+<Status>968</Status>
+<WalletCurrency></WalletCurrency><ProductPrice></ProductPrice><AmountCurrency></AmountCurrency><AmountAfterTax></AmountAfterTax><SerialNo></SerialNo>
+</string>
+</Request_ReloadAmountResult>
+</Request_ReloadAmountResponse>
+</soap:Body></soap:Envelope>

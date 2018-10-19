@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<custRechargeRQ>
+    <POS>
+        <Source AgentDutyCode="idt0818">
+            <RequestorID ID="idts4380">
+                <CompanyName Code="Code0" CodeContext="CodeContext0"/>
+            </RequestorID>
+        </Source>
+    </POS>
+    <Customer>
+        <PhoneUS>9730000001</PhoneUS>
+    </Customer>
+    <transaction>
+        <cbPhone amount="10.00" phoneNumber="22222222" /> 
+    </transaction>
+</custRechargeRQ>

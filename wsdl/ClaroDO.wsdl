@@ -1,0 +1,2083 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetIP">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetIPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetIPResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RestaHoras">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="hora" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RestaHorasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RestaHorasResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="REX_CONSULTA_TIPO_RECLAMACION">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="opcion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codigo_tipo_reclamacion" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="REX_CONSULTA_TIPO_RECLAMACIONResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="REX_CONSULTA_TIPO_RECLAMACIONResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="REX_CONSULTA_RECLAMACION">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codigo_reclamacion" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="REX_CONSULTA_RECLAMACIONResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="REX_CONSULTA_RECLAMACIONResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="REX_CONSULTA_CLIENTE_PREPAGO">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="no_telefono" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Codigo_Moneda" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="REX_CONSULTA_CLIENTE_PREPAGOResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="REX_CONSULTA_CLIENTE_PREPAGOResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="REX_CONSULTA_CLIENTE_POSTPAGO">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="estatus" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="no_telefono" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codigo_moneda" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="REX_CONSULTA_CLIENTE_POSTPAGOResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="REX_CONSULTA_CLIENTE_POSTPAGOResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="REX_CONSULTA_CLIENTE_POSTPAGO_BAN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="estatus" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BAN" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codigo_moneda" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="REX_CONSULTA_CLIENTE_POSTPAGO_BANResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="REX_CONSULTA_CLIENTE_POSTPAGO_BANResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="REX_CONSULTA_TASA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="opcion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codigo_moneda" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="REX_CONSULTA_TASAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="REX_CONSULTA_TASAResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="REX_CONSULTA_LIMITE_DISPONIBLE">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codigo_distribuidor" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="REX_CONSULTA_LIMITE_DISPONIBLEResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="REX_CONSULTA_LIMITE_DISPONIBLEResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="REX_APERTURA_RECLAMACION">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codigo_banco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codigo_tipo_reclamacion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="telefono_o_serial" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="REX_APERTURA_RECLAMACIONResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="REX_APERTURA_RECLAMACIONResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Enviar_SMS_SMPP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strFrom" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strRecipient" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Enviar_SMS_SMPPResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Enviar_SMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strFrom" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strRecipient" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Enviar_SMSResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="REX_PROCESA_PAGO_FACTURA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Codigo_Distribuidor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Codigo_Canal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Telefono" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MSD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="No_Transaccion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Codigo_Moneda" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Monto_Transaccion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Codigo_Pago" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="REX_PROCESA_PAGO_FACTURAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="REX_PROCESA_PAGO_FACTURAResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="REX_PROCESA_PAGO_FACTURA_BAN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Codigo_Distribuidor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Codigo_Canal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BAN" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="No_Transaccion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Codigo_Moneda" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Monto_Transaccion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Codigo_Pago" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="REX_PROCESA_PAGO_FACTURA_BANResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="REX_PROCESA_PAGO_FACTURA_BANResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="REX_PROCESA_RECARGA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Codigo_Distribuidor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Codigo_Canal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Telefono" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MSD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="No_Transaccion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Codigo_Moneda" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Monto_Transaccion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Codigo_Pago" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Sigla_Estatus" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="REX_PROCESA_RECARGAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="REX_PROCESA_RECARGAResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="REX_PROCESA_RECARGA_BONO">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Codigo_Distribuidor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Codigo_Canal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Telefono" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MSD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="No_Transaccion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Codigo_Moneda" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Monto_Transaccion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Codigo_Pago" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Sigla_Estatus" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="REX_PROCESA_RECARGA_BONOResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="REX_PROCESA_RECARGA_BONOResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="REX_REVERSO_PAGO_FACTURA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Codigo_Distribuidor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Codigo_Canal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Telefono" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MSD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="No_Transaccion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Codigo_Moneda" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Monto_Transaccion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Codigo_Pago" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="REX_REVERSO_PAGO_FACTURAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="REX_REVERSO_PAGO_FACTURAResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="REX_REVERSO_PAGO_FACTURA_BAN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Codigo_Distribuidor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Codigo_Canal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BAN" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="No_Transaccion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Codigo_Moneda" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Monto_Transaccion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Codigo_Pago" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="REX_REVERSO_PAGO_FACTURA_BANResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="REX_REVERSO_PAGO_FACTURA_BANResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="REX_REVERSO_RECARGA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Codigo_Distribuidor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Codigo_Canal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Telefono" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MSD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="No_Transaccion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Codigo_Moneda" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Monto_Transaccion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Codigo_Pago" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="REX_REVERSO_RECARGAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="REX_REVERSO_RECARGAResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="REX_CONFIRMA_PAGO_FACTURA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Codigo_Distribuidor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Telefono" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MSD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="No_Transaccion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="No_Autorizacion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Codigo_Moneda" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Monto_Transaccion" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="REX_CONFIRMA_PAGO_FACTURAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="REX_CONFIRMA_PAGO_FACTURAResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="REX_CONFIRMA_RECARGA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Codigo_Distribuidor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Telefono" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="No_Transaccion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="No_Autorizacion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Codigo_Moneda" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Monto_Transaccion" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="REX_CONFIRMA_RECARGAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="REX_CONFIRMA_RECARGAResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="int" type="s:int" />
+      <s:element name="DataSet" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:element ref="s:schema" />
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetIPSoapIn">
+    <wsdl:part name="parameters" element="tns:GetIP" />
+  </wsdl:message>
+  <wsdl:message name="GetIPSoapOut">
+    <wsdl:part name="parameters" element="tns:GetIPResponse" />
+  </wsdl:message>
+  <wsdl:message name="RestaHorasSoapIn">
+    <wsdl:part name="parameters" element="tns:RestaHoras" />
+  </wsdl:message>
+  <wsdl:message name="RestaHorasSoapOut">
+    <wsdl:part name="parameters" element="tns:RestaHorasResponse" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_TIPO_RECLAMACIONSoapIn">
+    <wsdl:part name="parameters" element="tns:REX_CONSULTA_TIPO_RECLAMACION" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_TIPO_RECLAMACIONSoapOut">
+    <wsdl:part name="parameters" element="tns:REX_CONSULTA_TIPO_RECLAMACIONResponse" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_RECLAMACIONSoapIn">
+    <wsdl:part name="parameters" element="tns:REX_CONSULTA_RECLAMACION" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_RECLAMACIONSoapOut">
+    <wsdl:part name="parameters" element="tns:REX_CONSULTA_RECLAMACIONResponse" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_CLIENTE_PREPAGOSoapIn">
+    <wsdl:part name="parameters" element="tns:REX_CONSULTA_CLIENTE_PREPAGO" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_CLIENTE_PREPAGOSoapOut">
+    <wsdl:part name="parameters" element="tns:REX_CONSULTA_CLIENTE_PREPAGOResponse" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_CLIENTE_POSTPAGOSoapIn">
+    <wsdl:part name="parameters" element="tns:REX_CONSULTA_CLIENTE_POSTPAGO" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_CLIENTE_POSTPAGOSoapOut">
+    <wsdl:part name="parameters" element="tns:REX_CONSULTA_CLIENTE_POSTPAGOResponse" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_CLIENTE_POSTPAGO_BANSoapIn">
+    <wsdl:part name="parameters" element="tns:REX_CONSULTA_CLIENTE_POSTPAGO_BAN" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_CLIENTE_POSTPAGO_BANSoapOut">
+    <wsdl:part name="parameters" element="tns:REX_CONSULTA_CLIENTE_POSTPAGO_BANResponse" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_TASASoapIn">
+    <wsdl:part name="parameters" element="tns:REX_CONSULTA_TASA" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_TASASoapOut">
+    <wsdl:part name="parameters" element="tns:REX_CONSULTA_TASAResponse" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_LIMITE_DISPONIBLESoapIn">
+    <wsdl:part name="parameters" element="tns:REX_CONSULTA_LIMITE_DISPONIBLE" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_LIMITE_DISPONIBLESoapOut">
+    <wsdl:part name="parameters" element="tns:REX_CONSULTA_LIMITE_DISPONIBLEResponse" />
+  </wsdl:message>
+  <wsdl:message name="REX_APERTURA_RECLAMACIONSoapIn">
+    <wsdl:part name="parameters" element="tns:REX_APERTURA_RECLAMACION" />
+  </wsdl:message>
+  <wsdl:message name="REX_APERTURA_RECLAMACIONSoapOut">
+    <wsdl:part name="parameters" element="tns:REX_APERTURA_RECLAMACIONResponse" />
+  </wsdl:message>
+  <wsdl:message name="Enviar_SMS_SMPPSoapIn">
+    <wsdl:part name="parameters" element="tns:Enviar_SMS_SMPP" />
+  </wsdl:message>
+  <wsdl:message name="Enviar_SMS_SMPPSoapOut">
+    <wsdl:part name="parameters" element="tns:Enviar_SMS_SMPPResponse" />
+  </wsdl:message>
+  <wsdl:message name="Enviar_SMSSoapIn">
+    <wsdl:part name="parameters" element="tns:Enviar_SMS" />
+  </wsdl:message>
+  <wsdl:message name="Enviar_SMSSoapOut">
+    <wsdl:part name="parameters" element="tns:Enviar_SMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="REX_PROCESA_PAGO_FACTURASoapIn">
+    <wsdl:part name="parameters" element="tns:REX_PROCESA_PAGO_FACTURA" />
+  </wsdl:message>
+  <wsdl:message name="REX_PROCESA_PAGO_FACTURASoapOut">
+    <wsdl:part name="parameters" element="tns:REX_PROCESA_PAGO_FACTURAResponse" />
+  </wsdl:message>
+  <wsdl:message name="REX_PROCESA_PAGO_FACTURA_BANSoapIn">
+    <wsdl:part name="parameters" element="tns:REX_PROCESA_PAGO_FACTURA_BAN" />
+  </wsdl:message>
+  <wsdl:message name="REX_PROCESA_PAGO_FACTURA_BANSoapOut">
+    <wsdl:part name="parameters" element="tns:REX_PROCESA_PAGO_FACTURA_BANResponse" />
+  </wsdl:message>
+  <wsdl:message name="REX_PROCESA_RECARGASoapIn">
+    <wsdl:part name="parameters" element="tns:REX_PROCESA_RECARGA" />
+  </wsdl:message>
+  <wsdl:message name="REX_PROCESA_RECARGASoapOut">
+    <wsdl:part name="parameters" element="tns:REX_PROCESA_RECARGAResponse" />
+  </wsdl:message>
+  <wsdl:message name="REX_PROCESA_RECARGA_BONOSoapIn">
+    <wsdl:part name="parameters" element="tns:REX_PROCESA_RECARGA_BONO" />
+  </wsdl:message>
+  <wsdl:message name="REX_PROCESA_RECARGA_BONOSoapOut">
+    <wsdl:part name="parameters" element="tns:REX_PROCESA_RECARGA_BONOResponse" />
+  </wsdl:message>
+  <wsdl:message name="REX_REVERSO_PAGO_FACTURASoapIn">
+    <wsdl:part name="parameters" element="tns:REX_REVERSO_PAGO_FACTURA" />
+  </wsdl:message>
+  <wsdl:message name="REX_REVERSO_PAGO_FACTURASoapOut">
+    <wsdl:part name="parameters" element="tns:REX_REVERSO_PAGO_FACTURAResponse" />
+  </wsdl:message>
+  <wsdl:message name="REX_REVERSO_PAGO_FACTURA_BANSoapIn">
+    <wsdl:part name="parameters" element="tns:REX_REVERSO_PAGO_FACTURA_BAN" />
+  </wsdl:message>
+  <wsdl:message name="REX_REVERSO_PAGO_FACTURA_BANSoapOut">
+    <wsdl:part name="parameters" element="tns:REX_REVERSO_PAGO_FACTURA_BANResponse" />
+  </wsdl:message>
+  <wsdl:message name="REX_REVERSO_RECARGASoapIn">
+    <wsdl:part name="parameters" element="tns:REX_REVERSO_RECARGA" />
+  </wsdl:message>
+  <wsdl:message name="REX_REVERSO_RECARGASoapOut">
+    <wsdl:part name="parameters" element="tns:REX_REVERSO_RECARGAResponse" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONFIRMA_PAGO_FACTURASoapIn">
+    <wsdl:part name="parameters" element="tns:REX_CONFIRMA_PAGO_FACTURA" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONFIRMA_PAGO_FACTURASoapOut">
+    <wsdl:part name="parameters" element="tns:REX_CONFIRMA_PAGO_FACTURAResponse" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONFIRMA_RECARGASoapIn">
+    <wsdl:part name="parameters" element="tns:REX_CONFIRMA_RECARGA" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONFIRMA_RECARGASoapOut">
+    <wsdl:part name="parameters" element="tns:REX_CONFIRMA_RECARGAResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetIPHttpGetIn" />
+  <wsdl:message name="GetIPHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="RestaHorasHttpGetIn">
+    <wsdl:part name="hora" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RestaHorasHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_TIPO_RECLAMACIONHttpGetIn">
+    <wsdl:part name="opcion" type="s:string" />
+    <wsdl:part name="codigo_tipo_reclamacion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_TIPO_RECLAMACIONHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_RECLAMACIONHttpGetIn">
+    <wsdl:part name="codigo_reclamacion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_RECLAMACIONHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_CLIENTE_PREPAGOHttpGetIn">
+    <wsdl:part name="no_telefono" type="s:string" />
+    <wsdl:part name="Codigo_Moneda" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_CLIENTE_PREPAGOHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_CLIENTE_POSTPAGOHttpGetIn">
+    <wsdl:part name="estatus" type="s:string" />
+    <wsdl:part name="no_telefono" type="s:string" />
+    <wsdl:part name="codigo_moneda" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_CLIENTE_POSTPAGOHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_CLIENTE_POSTPAGO_BANHttpGetIn">
+    <wsdl:part name="estatus" type="s:string" />
+    <wsdl:part name="BAN" type="s:string" />
+    <wsdl:part name="codigo_moneda" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_CLIENTE_POSTPAGO_BANHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_TASAHttpGetIn">
+    <wsdl:part name="opcion" type="s:string" />
+    <wsdl:part name="codigo_moneda" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_TASAHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_LIMITE_DISPONIBLEHttpGetIn">
+    <wsdl:part name="codigo_distribuidor" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_LIMITE_DISPONIBLEHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="REX_APERTURA_RECLAMACIONHttpGetIn">
+    <wsdl:part name="codigo_banco" type="s:string" />
+    <wsdl:part name="codigo_tipo_reclamacion" type="s:string" />
+    <wsdl:part name="telefono_o_serial" type="s:string" />
+    <wsdl:part name="descripcion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="REX_APERTURA_RECLAMACIONHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Enviar_SMS_SMPPHttpGetIn">
+    <wsdl:part name="strFrom" type="s:string" />
+    <wsdl:part name="strRecipient" type="s:string" />
+    <wsdl:part name="strMessage" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Enviar_SMS_SMPPHttpGetOut" />
+  <wsdl:message name="Enviar_SMSHttpGetIn">
+    <wsdl:part name="strFrom" type="s:string" />
+    <wsdl:part name="strRecipient" type="s:string" />
+    <wsdl:part name="strMessage" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Enviar_SMSHttpGetOut" />
+  <wsdl:message name="REX_PROCESA_PAGO_FACTURAHttpGetIn">
+    <wsdl:part name="Codigo_Distribuidor" type="s:string" />
+    <wsdl:part name="Codigo_Canal" type="s:string" />
+    <wsdl:part name="Telefono" type="s:string" />
+    <wsdl:part name="MSD" type="s:string" />
+    <wsdl:part name="No_Transaccion" type="s:string" />
+    <wsdl:part name="Codigo_Moneda" type="s:string" />
+    <wsdl:part name="Monto_Transaccion" type="s:string" />
+    <wsdl:part name="Codigo_Pago" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="REX_PROCESA_PAGO_FACTURAHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="REX_PROCESA_PAGO_FACTURA_BANHttpGetIn">
+    <wsdl:part name="Codigo_Distribuidor" type="s:string" />
+    <wsdl:part name="Codigo_Canal" type="s:string" />
+    <wsdl:part name="BAN" type="s:string" />
+    <wsdl:part name="No_Transaccion" type="s:string" />
+    <wsdl:part name="Codigo_Moneda" type="s:string" />
+    <wsdl:part name="Monto_Transaccion" type="s:string" />
+    <wsdl:part name="Codigo_Pago" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="REX_PROCESA_PAGO_FACTURA_BANHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="REX_PROCESA_RECARGAHttpGetIn">
+    <wsdl:part name="Codigo_Distribuidor" type="s:string" />
+    <wsdl:part name="Codigo_Canal" type="s:string" />
+    <wsdl:part name="Telefono" type="s:string" />
+    <wsdl:part name="MSD" type="s:string" />
+    <wsdl:part name="No_Transaccion" type="s:string" />
+    <wsdl:part name="Codigo_Moneda" type="s:string" />
+    <wsdl:part name="Monto_Transaccion" type="s:string" />
+    <wsdl:part name="Codigo_Pago" type="s:string" />
+    <wsdl:part name="Sigla_Estatus" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="REX_PROCESA_RECARGAHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="REX_PROCESA_RECARGA_BONOHttpGetIn">
+    <wsdl:part name="Codigo_Distribuidor" type="s:string" />
+    <wsdl:part name="Codigo_Canal" type="s:string" />
+    <wsdl:part name="Telefono" type="s:string" />
+    <wsdl:part name="MSD" type="s:string" />
+    <wsdl:part name="No_Transaccion" type="s:string" />
+    <wsdl:part name="Codigo_Moneda" type="s:string" />
+    <wsdl:part name="Monto_Transaccion" type="s:string" />
+    <wsdl:part name="Codigo_Pago" type="s:string" />
+    <wsdl:part name="Sigla_Estatus" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="REX_PROCESA_RECARGA_BONOHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="REX_REVERSO_PAGO_FACTURAHttpGetIn">
+    <wsdl:part name="Codigo_Distribuidor" type="s:string" />
+    <wsdl:part name="Codigo_Canal" type="s:string" />
+    <wsdl:part name="Telefono" type="s:string" />
+    <wsdl:part name="MSD" type="s:string" />
+    <wsdl:part name="No_Transaccion" type="s:string" />
+    <wsdl:part name="Codigo_Moneda" type="s:string" />
+    <wsdl:part name="Monto_Transaccion" type="s:string" />
+    <wsdl:part name="Codigo_Pago" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="REX_REVERSO_PAGO_FACTURAHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="REX_REVERSO_PAGO_FACTURA_BANHttpGetIn">
+    <wsdl:part name="Codigo_Distribuidor" type="s:string" />
+    <wsdl:part name="Codigo_Canal" type="s:string" />
+    <wsdl:part name="BAN" type="s:string" />
+    <wsdl:part name="No_Transaccion" type="s:string" />
+    <wsdl:part name="Codigo_Moneda" type="s:string" />
+    <wsdl:part name="Monto_Transaccion" type="s:string" />
+    <wsdl:part name="Codigo_Pago" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="REX_REVERSO_PAGO_FACTURA_BANHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="REX_REVERSO_RECARGAHttpGetIn">
+    <wsdl:part name="Codigo_Distribuidor" type="s:string" />
+    <wsdl:part name="Codigo_Canal" type="s:string" />
+    <wsdl:part name="Telefono" type="s:string" />
+    <wsdl:part name="MSD" type="s:string" />
+    <wsdl:part name="No_Transaccion" type="s:string" />
+    <wsdl:part name="Codigo_Moneda" type="s:string" />
+    <wsdl:part name="Monto_Transaccion" type="s:string" />
+    <wsdl:part name="Codigo_Pago" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="REX_REVERSO_RECARGAHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONFIRMA_PAGO_FACTURAHttpGetIn">
+    <wsdl:part name="Codigo_Distribuidor" type="s:string" />
+    <wsdl:part name="Telefono" type="s:string" />
+    <wsdl:part name="MSD" type="s:string" />
+    <wsdl:part name="No_Transaccion" type="s:string" />
+    <wsdl:part name="No_Autorizacion" type="s:string" />
+    <wsdl:part name="Codigo_Moneda" type="s:string" />
+    <wsdl:part name="Monto_Transaccion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONFIRMA_PAGO_FACTURAHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONFIRMA_RECARGAHttpGetIn">
+    <wsdl:part name="Codigo_Distribuidor" type="s:string" />
+    <wsdl:part name="Telefono" type="s:string" />
+    <wsdl:part name="No_Transaccion" type="s:string" />
+    <wsdl:part name="No_Autorizacion" type="s:string" />
+    <wsdl:part name="Codigo_Moneda" type="s:string" />
+    <wsdl:part name="Monto_Transaccion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONFIRMA_RECARGAHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetIPHttpPostIn" />
+  <wsdl:message name="GetIPHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="RestaHorasHttpPostIn">
+    <wsdl:part name="hora" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RestaHorasHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_TIPO_RECLAMACIONHttpPostIn">
+    <wsdl:part name="opcion" type="s:string" />
+    <wsdl:part name="codigo_tipo_reclamacion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_TIPO_RECLAMACIONHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_RECLAMACIONHttpPostIn">
+    <wsdl:part name="codigo_reclamacion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_RECLAMACIONHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_CLIENTE_PREPAGOHttpPostIn">
+    <wsdl:part name="no_telefono" type="s:string" />
+    <wsdl:part name="Codigo_Moneda" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_CLIENTE_PREPAGOHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_CLIENTE_POSTPAGOHttpPostIn">
+    <wsdl:part name="estatus" type="s:string" />
+    <wsdl:part name="no_telefono" type="s:string" />
+    <wsdl:part name="codigo_moneda" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_CLIENTE_POSTPAGOHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_CLIENTE_POSTPAGO_BANHttpPostIn">
+    <wsdl:part name="estatus" type="s:string" />
+    <wsdl:part name="BAN" type="s:string" />
+    <wsdl:part name="codigo_moneda" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_CLIENTE_POSTPAGO_BANHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_TASAHttpPostIn">
+    <wsdl:part name="opcion" type="s:string" />
+    <wsdl:part name="codigo_moneda" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_TASAHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_LIMITE_DISPONIBLEHttpPostIn">
+    <wsdl:part name="codigo_distribuidor" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONSULTA_LIMITE_DISPONIBLEHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="REX_APERTURA_RECLAMACIONHttpPostIn">
+    <wsdl:part name="codigo_banco" type="s:string" />
+    <wsdl:part name="codigo_tipo_reclamacion" type="s:string" />
+    <wsdl:part name="telefono_o_serial" type="s:string" />
+    <wsdl:part name="descripcion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="REX_APERTURA_RECLAMACIONHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="Enviar_SMS_SMPPHttpPostIn">
+    <wsdl:part name="strFrom" type="s:string" />
+    <wsdl:part name="strRecipient" type="s:string" />
+    <wsdl:part name="strMessage" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Enviar_SMS_SMPPHttpPostOut" />
+  <wsdl:message name="Enviar_SMSHttpPostIn">
+    <wsdl:part name="strFrom" type="s:string" />
+    <wsdl:part name="strRecipient" type="s:string" />
+    <wsdl:part name="strMessage" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Enviar_SMSHttpPostOut" />
+  <wsdl:message name="REX_PROCESA_PAGO_FACTURAHttpPostIn">
+    <wsdl:part name="Codigo_Distribuidor" type="s:string" />
+    <wsdl:part name="Codigo_Canal" type="s:string" />
+    <wsdl:part name="Telefono" type="s:string" />
+    <wsdl:part name="MSD" type="s:string" />
+    <wsdl:part name="No_Transaccion" type="s:string" />
+    <wsdl:part name="Codigo_Moneda" type="s:string" />
+    <wsdl:part name="Monto_Transaccion" type="s:string" />
+    <wsdl:part name="Codigo_Pago" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="REX_PROCESA_PAGO_FACTURAHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="REX_PROCESA_PAGO_FACTURA_BANHttpPostIn">
+    <wsdl:part name="Codigo_Distribuidor" type="s:string" />
+    <wsdl:part name="Codigo_Canal" type="s:string" />
+    <wsdl:part name="BAN" type="s:string" />
+    <wsdl:part name="No_Transaccion" type="s:string" />
+    <wsdl:part name="Codigo_Moneda" type="s:string" />
+    <wsdl:part name="Monto_Transaccion" type="s:string" />
+    <wsdl:part name="Codigo_Pago" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="REX_PROCESA_PAGO_FACTURA_BANHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="REX_PROCESA_RECARGAHttpPostIn">
+    <wsdl:part name="Codigo_Distribuidor" type="s:string" />
+    <wsdl:part name="Codigo_Canal" type="s:string" />
+    <wsdl:part name="Telefono" type="s:string" />
+    <wsdl:part name="MSD" type="s:string" />
+    <wsdl:part name="No_Transaccion" type="s:string" />
+    <wsdl:part name="Codigo_Moneda" type="s:string" />
+    <wsdl:part name="Monto_Transaccion" type="s:string" />
+    <wsdl:part name="Codigo_Pago" type="s:string" />
+    <wsdl:part name="Sigla_Estatus" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="REX_PROCESA_RECARGAHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="REX_PROCESA_RECARGA_BONOHttpPostIn">
+    <wsdl:part name="Codigo_Distribuidor" type="s:string" />
+    <wsdl:part name="Codigo_Canal" type="s:string" />
+    <wsdl:part name="Telefono" type="s:string" />
+    <wsdl:part name="MSD" type="s:string" />
+    <wsdl:part name="No_Transaccion" type="s:string" />
+    <wsdl:part name="Codigo_Moneda" type="s:string" />
+    <wsdl:part name="Monto_Transaccion" type="s:string" />
+    <wsdl:part name="Codigo_Pago" type="s:string" />
+    <wsdl:part name="Sigla_Estatus" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="REX_PROCESA_RECARGA_BONOHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="REX_REVERSO_PAGO_FACTURAHttpPostIn">
+    <wsdl:part name="Codigo_Distribuidor" type="s:string" />
+    <wsdl:part name="Codigo_Canal" type="s:string" />
+    <wsdl:part name="Telefono" type="s:string" />
+    <wsdl:part name="MSD" type="s:string" />
+    <wsdl:part name="No_Transaccion" type="s:string" />
+    <wsdl:part name="Codigo_Moneda" type="s:string" />
+    <wsdl:part name="Monto_Transaccion" type="s:string" />
+    <wsdl:part name="Codigo_Pago" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="REX_REVERSO_PAGO_FACTURAHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="REX_REVERSO_PAGO_FACTURA_BANHttpPostIn">
+    <wsdl:part name="Codigo_Distribuidor" type="s:string" />
+    <wsdl:part name="Codigo_Canal" type="s:string" />
+    <wsdl:part name="BAN" type="s:string" />
+    <wsdl:part name="No_Transaccion" type="s:string" />
+    <wsdl:part name="Codigo_Moneda" type="s:string" />
+    <wsdl:part name="Monto_Transaccion" type="s:string" />
+    <wsdl:part name="Codigo_Pago" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="REX_REVERSO_PAGO_FACTURA_BANHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="REX_REVERSO_RECARGAHttpPostIn">
+    <wsdl:part name="Codigo_Distribuidor" type="s:string" />
+    <wsdl:part name="Codigo_Canal" type="s:string" />
+    <wsdl:part name="Telefono" type="s:string" />
+    <wsdl:part name="MSD" type="s:string" />
+    <wsdl:part name="No_Transaccion" type="s:string" />
+    <wsdl:part name="Codigo_Moneda" type="s:string" />
+    <wsdl:part name="Monto_Transaccion" type="s:string" />
+    <wsdl:part name="Codigo_Pago" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="REX_REVERSO_RECARGAHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONFIRMA_PAGO_FACTURAHttpPostIn">
+    <wsdl:part name="Codigo_Distribuidor" type="s:string" />
+    <wsdl:part name="Telefono" type="s:string" />
+    <wsdl:part name="MSD" type="s:string" />
+    <wsdl:part name="No_Transaccion" type="s:string" />
+    <wsdl:part name="No_Autorizacion" type="s:string" />
+    <wsdl:part name="Codigo_Moneda" type="s:string" />
+    <wsdl:part name="Monto_Transaccion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONFIRMA_PAGO_FACTURAHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONFIRMA_RECARGAHttpPostIn">
+    <wsdl:part name="Codigo_Distribuidor" type="s:string" />
+    <wsdl:part name="Telefono" type="s:string" />
+    <wsdl:part name="No_Transaccion" type="s:string" />
+    <wsdl:part name="No_Autorizacion" type="s:string" />
+    <wsdl:part name="Codigo_Moneda" type="s:string" />
+    <wsdl:part name="Monto_Transaccion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="REX_CONFIRMA_RECARGAHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="GetIP">
+      <wsdl:input message="tns:GetIPSoapIn" />
+      <wsdl:output message="tns:GetIPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RestaHoras">
+      <wsdl:input message="tns:RestaHorasSoapIn" />
+      <wsdl:output message="tns:RestaHorasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_TIPO_RECLAMACION">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta Tipo Reclamacion</wsdl:documentation>
+      <wsdl:input message="tns:REX_CONSULTA_TIPO_RECLAMACIONSoapIn" />
+      <wsdl:output message="tns:REX_CONSULTA_TIPO_RECLAMACIONSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_RECLAMACION">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta de reclamaciones</wsdl:documentation>
+      <wsdl:input message="tns:REX_CONSULTA_RECLAMACIONSoapIn" />
+      <wsdl:output message="tns:REX_CONSULTA_RECLAMACIONSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_CLIENTE_PREPAGO">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta de numeros prepago</wsdl:documentation>
+      <wsdl:input message="tns:REX_CONSULTA_CLIENTE_PREPAGOSoapIn" />
+      <wsdl:output message="tns:REX_CONSULTA_CLIENTE_PREPAGOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_CLIENTE_POSTPAGO">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta de numeros postpago . estatus = CE permite consultar por cedula</wsdl:documentation>
+      <wsdl:input message="tns:REX_CONSULTA_CLIENTE_POSTPAGOSoapIn" />
+      <wsdl:output message="tns:REX_CONSULTA_CLIENTE_POSTPAGOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_CLIENTE_POSTPAGO_BAN">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta de numeros postpago a traves del BAN</wsdl:documentation>
+      <wsdl:input message="tns:REX_CONSULTA_CLIENTE_POSTPAGO_BANSoapIn" />
+      <wsdl:output message="tns:REX_CONSULTA_CLIENTE_POSTPAGO_BANSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_TASA">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta de Tasa de Cambio</wsdl:documentation>
+      <wsdl:input message="tns:REX_CONSULTA_TASASoapIn" />
+      <wsdl:output message="tns:REX_CONSULTA_TASASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_LIMITE_DISPONIBLE">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta de Limite Disponible</wsdl:documentation>
+      <wsdl:input message="tns:REX_CONSULTA_LIMITE_DISPONIBLESoapIn" />
+      <wsdl:output message="tns:REX_CONSULTA_LIMITE_DISPONIBLESoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_APERTURA_RECLAMACION">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Apertura reclamaciones</wsdl:documentation>
+      <wsdl:input message="tns:REX_APERTURA_RECLAMACIONSoapIn" />
+      <wsdl:output message="tns:REX_APERTURA_RECLAMACIONSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Enviar_SMS_SMPP">
+      <wsdl:input message="tns:Enviar_SMS_SMPPSoapIn" />
+      <wsdl:output message="tns:Enviar_SMS_SMPPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Enviar_SMS">
+      <wsdl:input message="tns:Enviar_SMSSoapIn" />
+      <wsdl:output message="tns:Enviar_SMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_PROCESA_PAGO_FACTURA">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método utilizado para pagos de factura. Codigo Pago: 001 = Cuenta Corriente o Cheque, 002 = Efectivo, 003 = Tarjeta de Credito</wsdl:documentation>
+      <wsdl:input message="tns:REX_PROCESA_PAGO_FACTURASoapIn" />
+      <wsdl:output message="tns:REX_PROCESA_PAGO_FACTURASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_PROCESA_PAGO_FACTURA_BAN">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método utilizado para pagos de factura. Codigo Pago: 001 = Cuenta Corriente o Cheque, 002 = Efectivo, 003 = Tarjeta de Credito</wsdl:documentation>
+      <wsdl:input message="tns:REX_PROCESA_PAGO_FACTURA_BANSoapIn" />
+      <wsdl:output message="tns:REX_PROCESA_PAGO_FACTURA_BANSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_PROCESA_RECARGA">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Recarga Electronica a celulares</wsdl:documentation>
+      <wsdl:input message="tns:REX_PROCESA_RECARGASoapIn" />
+      <wsdl:output message="tns:REX_PROCESA_RECARGASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_PROCESA_RECARGA_BONO">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Recarga Electronica a celulares que despliega el detalle del bono otorgado</wsdl:documentation>
+      <wsdl:input message="tns:REX_PROCESA_RECARGA_BONOSoapIn" />
+      <wsdl:output message="tns:REX_PROCESA_RECARGA_BONOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_REVERSO_PAGO_FACTURA">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método utilizado para reversos de pagos de factura. Codigo Pago: 001 = Cuenta Corriente o Cheque, 002 = Efectivo, 003 = Tarjeta de Credito</wsdl:documentation>
+      <wsdl:input message="tns:REX_REVERSO_PAGO_FACTURASoapIn" />
+      <wsdl:output message="tns:REX_REVERSO_PAGO_FACTURASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_REVERSO_PAGO_FACTURA_BAN">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método utilizado para reversos de pagos de factura. Codigo Pago: 001 = Cuenta Corriente o Cheque, 002 = Efectivo, 003 = Tarjeta de Credito</wsdl:documentation>
+      <wsdl:input message="tns:REX_REVERSO_PAGO_FACTURA_BANSoapIn" />
+      <wsdl:output message="tns:REX_REVERSO_PAGO_FACTURA_BANSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_REVERSO_RECARGA">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método utilizado para reverso de recargas electronicas. Codigo Pago: 001 = Cuenta Corriente o Cheque, 002 = Efectivo, 003 = Tarjeta de Credito</wsdl:documentation>
+      <wsdl:input message="tns:REX_REVERSO_RECARGASoapIn" />
+      <wsdl:output message="tns:REX_REVERSO_RECARGASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONFIRMA_PAGO_FACTURA">
+      <wsdl:input message="tns:REX_CONFIRMA_PAGO_FACTURASoapIn" />
+      <wsdl:output message="tns:REX_CONFIRMA_PAGO_FACTURASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONFIRMA_RECARGA">
+      <wsdl:input message="tns:REX_CONFIRMA_RECARGASoapIn" />
+      <wsdl:output message="tns:REX_CONFIRMA_RECARGASoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ServiceHttpGet">
+    <wsdl:operation name="GetIP">
+      <wsdl:input message="tns:GetIPHttpGetIn" />
+      <wsdl:output message="tns:GetIPHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RestaHoras">
+      <wsdl:input message="tns:RestaHorasHttpGetIn" />
+      <wsdl:output message="tns:RestaHorasHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_TIPO_RECLAMACION">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta Tipo Reclamacion</wsdl:documentation>
+      <wsdl:input message="tns:REX_CONSULTA_TIPO_RECLAMACIONHttpGetIn" />
+      <wsdl:output message="tns:REX_CONSULTA_TIPO_RECLAMACIONHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_RECLAMACION">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta de reclamaciones</wsdl:documentation>
+      <wsdl:input message="tns:REX_CONSULTA_RECLAMACIONHttpGetIn" />
+      <wsdl:output message="tns:REX_CONSULTA_RECLAMACIONHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_CLIENTE_PREPAGO">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta de numeros prepago</wsdl:documentation>
+      <wsdl:input message="tns:REX_CONSULTA_CLIENTE_PREPAGOHttpGetIn" />
+      <wsdl:output message="tns:REX_CONSULTA_CLIENTE_PREPAGOHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_CLIENTE_POSTPAGO">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta de numeros postpago . estatus = CE permite consultar por cedula</wsdl:documentation>
+      <wsdl:input message="tns:REX_CONSULTA_CLIENTE_POSTPAGOHttpGetIn" />
+      <wsdl:output message="tns:REX_CONSULTA_CLIENTE_POSTPAGOHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_CLIENTE_POSTPAGO_BAN">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta de numeros postpago a traves del BAN</wsdl:documentation>
+      <wsdl:input message="tns:REX_CONSULTA_CLIENTE_POSTPAGO_BANHttpGetIn" />
+      <wsdl:output message="tns:REX_CONSULTA_CLIENTE_POSTPAGO_BANHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_TASA">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta de Tasa de Cambio</wsdl:documentation>
+      <wsdl:input message="tns:REX_CONSULTA_TASAHttpGetIn" />
+      <wsdl:output message="tns:REX_CONSULTA_TASAHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_LIMITE_DISPONIBLE">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta de Limite Disponible</wsdl:documentation>
+      <wsdl:input message="tns:REX_CONSULTA_LIMITE_DISPONIBLEHttpGetIn" />
+      <wsdl:output message="tns:REX_CONSULTA_LIMITE_DISPONIBLEHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_APERTURA_RECLAMACION">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Apertura reclamaciones</wsdl:documentation>
+      <wsdl:input message="tns:REX_APERTURA_RECLAMACIONHttpGetIn" />
+      <wsdl:output message="tns:REX_APERTURA_RECLAMACIONHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Enviar_SMS_SMPP">
+      <wsdl:input message="tns:Enviar_SMS_SMPPHttpGetIn" />
+      <wsdl:output message="tns:Enviar_SMS_SMPPHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Enviar_SMS">
+      <wsdl:input message="tns:Enviar_SMSHttpGetIn" />
+      <wsdl:output message="tns:Enviar_SMSHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_PROCESA_PAGO_FACTURA">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método utilizado para pagos de factura. Codigo Pago: 001 = Cuenta Corriente o Cheque, 002 = Efectivo, 003 = Tarjeta de Credito</wsdl:documentation>
+      <wsdl:input message="tns:REX_PROCESA_PAGO_FACTURAHttpGetIn" />
+      <wsdl:output message="tns:REX_PROCESA_PAGO_FACTURAHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_PROCESA_PAGO_FACTURA_BAN">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método utilizado para pagos de factura. Codigo Pago: 001 = Cuenta Corriente o Cheque, 002 = Efectivo, 003 = Tarjeta de Credito</wsdl:documentation>
+      <wsdl:input message="tns:REX_PROCESA_PAGO_FACTURA_BANHttpGetIn" />
+      <wsdl:output message="tns:REX_PROCESA_PAGO_FACTURA_BANHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_PROCESA_RECARGA">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Recarga Electronica a celulares</wsdl:documentation>
+      <wsdl:input message="tns:REX_PROCESA_RECARGAHttpGetIn" />
+      <wsdl:output message="tns:REX_PROCESA_RECARGAHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_PROCESA_RECARGA_BONO">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Recarga Electronica a celulares que despliega el detalle del bono otorgado</wsdl:documentation>
+      <wsdl:input message="tns:REX_PROCESA_RECARGA_BONOHttpGetIn" />
+      <wsdl:output message="tns:REX_PROCESA_RECARGA_BONOHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_REVERSO_PAGO_FACTURA">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método utilizado para reversos de pagos de factura. Codigo Pago: 001 = Cuenta Corriente o Cheque, 002 = Efectivo, 003 = Tarjeta de Credito</wsdl:documentation>
+      <wsdl:input message="tns:REX_REVERSO_PAGO_FACTURAHttpGetIn" />
+      <wsdl:output message="tns:REX_REVERSO_PAGO_FACTURAHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_REVERSO_PAGO_FACTURA_BAN">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método utilizado para reversos de pagos de factura. Codigo Pago: 001 = Cuenta Corriente o Cheque, 002 = Efectivo, 003 = Tarjeta de Credito</wsdl:documentation>
+      <wsdl:input message="tns:REX_REVERSO_PAGO_FACTURA_BANHttpGetIn" />
+      <wsdl:output message="tns:REX_REVERSO_PAGO_FACTURA_BANHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_REVERSO_RECARGA">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método utilizado para reverso de recargas electronicas. Codigo Pago: 001 = Cuenta Corriente o Cheque, 002 = Efectivo, 003 = Tarjeta de Credito</wsdl:documentation>
+      <wsdl:input message="tns:REX_REVERSO_RECARGAHttpGetIn" />
+      <wsdl:output message="tns:REX_REVERSO_RECARGAHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONFIRMA_PAGO_FACTURA">
+      <wsdl:input message="tns:REX_CONFIRMA_PAGO_FACTURAHttpGetIn" />
+      <wsdl:output message="tns:REX_CONFIRMA_PAGO_FACTURAHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONFIRMA_RECARGA">
+      <wsdl:input message="tns:REX_CONFIRMA_RECARGAHttpGetIn" />
+      <wsdl:output message="tns:REX_CONFIRMA_RECARGAHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ServiceHttpPost">
+    <wsdl:operation name="GetIP">
+      <wsdl:input message="tns:GetIPHttpPostIn" />
+      <wsdl:output message="tns:GetIPHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RestaHoras">
+      <wsdl:input message="tns:RestaHorasHttpPostIn" />
+      <wsdl:output message="tns:RestaHorasHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_TIPO_RECLAMACION">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta Tipo Reclamacion</wsdl:documentation>
+      <wsdl:input message="tns:REX_CONSULTA_TIPO_RECLAMACIONHttpPostIn" />
+      <wsdl:output message="tns:REX_CONSULTA_TIPO_RECLAMACIONHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_RECLAMACION">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta de reclamaciones</wsdl:documentation>
+      <wsdl:input message="tns:REX_CONSULTA_RECLAMACIONHttpPostIn" />
+      <wsdl:output message="tns:REX_CONSULTA_RECLAMACIONHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_CLIENTE_PREPAGO">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta de numeros prepago</wsdl:documentation>
+      <wsdl:input message="tns:REX_CONSULTA_CLIENTE_PREPAGOHttpPostIn" />
+      <wsdl:output message="tns:REX_CONSULTA_CLIENTE_PREPAGOHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_CLIENTE_POSTPAGO">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta de numeros postpago . estatus = CE permite consultar por cedula</wsdl:documentation>
+      <wsdl:input message="tns:REX_CONSULTA_CLIENTE_POSTPAGOHttpPostIn" />
+      <wsdl:output message="tns:REX_CONSULTA_CLIENTE_POSTPAGOHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_CLIENTE_POSTPAGO_BAN">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta de numeros postpago a traves del BAN</wsdl:documentation>
+      <wsdl:input message="tns:REX_CONSULTA_CLIENTE_POSTPAGO_BANHttpPostIn" />
+      <wsdl:output message="tns:REX_CONSULTA_CLIENTE_POSTPAGO_BANHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_TASA">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta de Tasa de Cambio</wsdl:documentation>
+      <wsdl:input message="tns:REX_CONSULTA_TASAHttpPostIn" />
+      <wsdl:output message="tns:REX_CONSULTA_TASAHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_LIMITE_DISPONIBLE">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta de Limite Disponible</wsdl:documentation>
+      <wsdl:input message="tns:REX_CONSULTA_LIMITE_DISPONIBLEHttpPostIn" />
+      <wsdl:output message="tns:REX_CONSULTA_LIMITE_DISPONIBLEHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_APERTURA_RECLAMACION">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Apertura reclamaciones</wsdl:documentation>
+      <wsdl:input message="tns:REX_APERTURA_RECLAMACIONHttpPostIn" />
+      <wsdl:output message="tns:REX_APERTURA_RECLAMACIONHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Enviar_SMS_SMPP">
+      <wsdl:input message="tns:Enviar_SMS_SMPPHttpPostIn" />
+      <wsdl:output message="tns:Enviar_SMS_SMPPHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Enviar_SMS">
+      <wsdl:input message="tns:Enviar_SMSHttpPostIn" />
+      <wsdl:output message="tns:Enviar_SMSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_PROCESA_PAGO_FACTURA">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método utilizado para pagos de factura. Codigo Pago: 001 = Cuenta Corriente o Cheque, 002 = Efectivo, 003 = Tarjeta de Credito</wsdl:documentation>
+      <wsdl:input message="tns:REX_PROCESA_PAGO_FACTURAHttpPostIn" />
+      <wsdl:output message="tns:REX_PROCESA_PAGO_FACTURAHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_PROCESA_PAGO_FACTURA_BAN">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método utilizado para pagos de factura. Codigo Pago: 001 = Cuenta Corriente o Cheque, 002 = Efectivo, 003 = Tarjeta de Credito</wsdl:documentation>
+      <wsdl:input message="tns:REX_PROCESA_PAGO_FACTURA_BANHttpPostIn" />
+      <wsdl:output message="tns:REX_PROCESA_PAGO_FACTURA_BANHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_PROCESA_RECARGA">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Recarga Electronica a celulares</wsdl:documentation>
+      <wsdl:input message="tns:REX_PROCESA_RECARGAHttpPostIn" />
+      <wsdl:output message="tns:REX_PROCESA_RECARGAHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_PROCESA_RECARGA_BONO">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Recarga Electronica a celulares que despliega el detalle del bono otorgado</wsdl:documentation>
+      <wsdl:input message="tns:REX_PROCESA_RECARGA_BONOHttpPostIn" />
+      <wsdl:output message="tns:REX_PROCESA_RECARGA_BONOHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_REVERSO_PAGO_FACTURA">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método utilizado para reversos de pagos de factura. Codigo Pago: 001 = Cuenta Corriente o Cheque, 002 = Efectivo, 003 = Tarjeta de Credito</wsdl:documentation>
+      <wsdl:input message="tns:REX_REVERSO_PAGO_FACTURAHttpPostIn" />
+      <wsdl:output message="tns:REX_REVERSO_PAGO_FACTURAHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_REVERSO_PAGO_FACTURA_BAN">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método utilizado para reversos de pagos de factura. Codigo Pago: 001 = Cuenta Corriente o Cheque, 002 = Efectivo, 003 = Tarjeta de Credito</wsdl:documentation>
+      <wsdl:input message="tns:REX_REVERSO_PAGO_FACTURA_BANHttpPostIn" />
+      <wsdl:output message="tns:REX_REVERSO_PAGO_FACTURA_BANHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_REVERSO_RECARGA">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método utilizado para reverso de recargas electronicas. Codigo Pago: 001 = Cuenta Corriente o Cheque, 002 = Efectivo, 003 = Tarjeta de Credito</wsdl:documentation>
+      <wsdl:input message="tns:REX_REVERSO_RECARGAHttpPostIn" />
+      <wsdl:output message="tns:REX_REVERSO_RECARGAHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONFIRMA_PAGO_FACTURA">
+      <wsdl:input message="tns:REX_CONFIRMA_PAGO_FACTURAHttpPostIn" />
+      <wsdl:output message="tns:REX_CONFIRMA_PAGO_FACTURAHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONFIRMA_RECARGA">
+      <wsdl:input message="tns:REX_CONFIRMA_RECARGAHttpPostIn" />
+      <wsdl:output message="tns:REX_CONFIRMA_RECARGAHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetIP">
+      <soap:operation soapAction="http://tempuri.org/GetIP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestaHoras">
+      <soap:operation soapAction="http://tempuri.org/RestaHoras" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_TIPO_RECLAMACION">
+      <soap:operation soapAction="http://tempuri.org/REX_CONSULTA_TIPO_RECLAMACION" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_RECLAMACION">
+      <soap:operation soapAction="http://tempuri.org/REX_CONSULTA_RECLAMACION" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_CLIENTE_PREPAGO">
+      <soap:operation soapAction="http://tempuri.org/REX_CONSULTA_CLIENTE_PREPAGO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_CLIENTE_POSTPAGO">
+      <soap:operation soapAction="http://tempuri.org/REX_CONSULTA_CLIENTE_POSTPAGO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_CLIENTE_POSTPAGO_BAN">
+      <soap:operation soapAction="http://tempuri.org/REX_CONSULTA_CLIENTE_POSTPAGO_BAN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_TASA">
+      <soap:operation soapAction="http://tempuri.org/REX_CONSULTA_TASA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_LIMITE_DISPONIBLE">
+      <soap:operation soapAction="http://tempuri.org/REX_CONSULTA_LIMITE_DISPONIBLE" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_APERTURA_RECLAMACION">
+      <soap:operation soapAction="http://tempuri.org/REX_APERTURA_RECLAMACION" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Enviar_SMS_SMPP">
+      <soap:operation soapAction="http://tempuri.org/Enviar_SMS_SMPP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Enviar_SMS">
+      <soap:operation soapAction="http://tempuri.org/Enviar_SMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_PROCESA_PAGO_FACTURA">
+      <soap:operation soapAction="http://tempuri.org/REX_PROCESA_PAGO_FACTURA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_PROCESA_PAGO_FACTURA_BAN">
+      <soap:operation soapAction="http://tempuri.org/REX_PROCESA_PAGO_FACTURA_BAN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_PROCESA_RECARGA">
+      <soap:operation soapAction="http://tempuri.org/REX_PROCESA_RECARGA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_PROCESA_RECARGA_BONO">
+      <soap:operation soapAction="http://tempuri.org/REX_PROCESA_RECARGA_BONO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_REVERSO_PAGO_FACTURA">
+      <soap:operation soapAction="http://tempuri.org/REX_REVERSO_PAGO_FACTURA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_REVERSO_PAGO_FACTURA_BAN">
+      <soap:operation soapAction="http://tempuri.org/REX_REVERSO_PAGO_FACTURA_BAN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_REVERSO_RECARGA">
+      <soap:operation soapAction="http://tempuri.org/REX_REVERSO_RECARGA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONFIRMA_PAGO_FACTURA">
+      <soap:operation soapAction="http://tempuri.org/REX_CONFIRMA_PAGO_FACTURA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONFIRMA_RECARGA">
+      <soap:operation soapAction="http://tempuri.org/REX_CONFIRMA_RECARGA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetIP">
+      <soap12:operation soapAction="http://tempuri.org/GetIP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestaHoras">
+      <soap12:operation soapAction="http://tempuri.org/RestaHoras" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_TIPO_RECLAMACION">
+      <soap12:operation soapAction="http://tempuri.org/REX_CONSULTA_TIPO_RECLAMACION" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_RECLAMACION">
+      <soap12:operation soapAction="http://tempuri.org/REX_CONSULTA_RECLAMACION" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_CLIENTE_PREPAGO">
+      <soap12:operation soapAction="http://tempuri.org/REX_CONSULTA_CLIENTE_PREPAGO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_CLIENTE_POSTPAGO">
+      <soap12:operation soapAction="http://tempuri.org/REX_CONSULTA_CLIENTE_POSTPAGO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_CLIENTE_POSTPAGO_BAN">
+      <soap12:operation soapAction="http://tempuri.org/REX_CONSULTA_CLIENTE_POSTPAGO_BAN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_TASA">
+      <soap12:operation soapAction="http://tempuri.org/REX_CONSULTA_TASA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_LIMITE_DISPONIBLE">
+      <soap12:operation soapAction="http://tempuri.org/REX_CONSULTA_LIMITE_DISPONIBLE" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_APERTURA_RECLAMACION">
+      <soap12:operation soapAction="http://tempuri.org/REX_APERTURA_RECLAMACION" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Enviar_SMS_SMPP">
+      <soap12:operation soapAction="http://tempuri.org/Enviar_SMS_SMPP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Enviar_SMS">
+      <soap12:operation soapAction="http://tempuri.org/Enviar_SMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_PROCESA_PAGO_FACTURA">
+      <soap12:operation soapAction="http://tempuri.org/REX_PROCESA_PAGO_FACTURA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_PROCESA_PAGO_FACTURA_BAN">
+      <soap12:operation soapAction="http://tempuri.org/REX_PROCESA_PAGO_FACTURA_BAN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_PROCESA_RECARGA">
+      <soap12:operation soapAction="http://tempuri.org/REX_PROCESA_RECARGA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_PROCESA_RECARGA_BONO">
+      <soap12:operation soapAction="http://tempuri.org/REX_PROCESA_RECARGA_BONO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_REVERSO_PAGO_FACTURA">
+      <soap12:operation soapAction="http://tempuri.org/REX_REVERSO_PAGO_FACTURA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_REVERSO_PAGO_FACTURA_BAN">
+      <soap12:operation soapAction="http://tempuri.org/REX_REVERSO_PAGO_FACTURA_BAN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_REVERSO_RECARGA">
+      <soap12:operation soapAction="http://tempuri.org/REX_REVERSO_RECARGA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONFIRMA_PAGO_FACTURA">
+      <soap12:operation soapAction="http://tempuri.org/REX_CONFIRMA_PAGO_FACTURA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONFIRMA_RECARGA">
+      <soap12:operation soapAction="http://tempuri.org/REX_CONFIRMA_RECARGA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceHttpGet" type="tns:ServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetIP">
+      <http:operation location="/GetIP" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestaHoras">
+      <http:operation location="/RestaHoras" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_TIPO_RECLAMACION">
+      <http:operation location="/REX_CONSULTA_TIPO_RECLAMACION" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_RECLAMACION">
+      <http:operation location="/REX_CONSULTA_RECLAMACION" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_CLIENTE_PREPAGO">
+      <http:operation location="/REX_CONSULTA_CLIENTE_PREPAGO" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_CLIENTE_POSTPAGO">
+      <http:operation location="/REX_CONSULTA_CLIENTE_POSTPAGO" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_CLIENTE_POSTPAGO_BAN">
+      <http:operation location="/REX_CONSULTA_CLIENTE_POSTPAGO_BAN" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_TASA">
+      <http:operation location="/REX_CONSULTA_TASA" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_LIMITE_DISPONIBLE">
+      <http:operation location="/REX_CONSULTA_LIMITE_DISPONIBLE" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_APERTURA_RECLAMACION">
+      <http:operation location="/REX_APERTURA_RECLAMACION" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Enviar_SMS_SMPP">
+      <http:operation location="/Enviar_SMS_SMPP" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="Enviar_SMS">
+      <http:operation location="/Enviar_SMS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="REX_PROCESA_PAGO_FACTURA">
+      <http:operation location="/REX_PROCESA_PAGO_FACTURA" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_PROCESA_PAGO_FACTURA_BAN">
+      <http:operation location="/REX_PROCESA_PAGO_FACTURA_BAN" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_PROCESA_RECARGA">
+      <http:operation location="/REX_PROCESA_RECARGA" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_PROCESA_RECARGA_BONO">
+      <http:operation location="/REX_PROCESA_RECARGA_BONO" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_REVERSO_PAGO_FACTURA">
+      <http:operation location="/REX_REVERSO_PAGO_FACTURA" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_REVERSO_PAGO_FACTURA_BAN">
+      <http:operation location="/REX_REVERSO_PAGO_FACTURA_BAN" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_REVERSO_RECARGA">
+      <http:operation location="/REX_REVERSO_RECARGA" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONFIRMA_PAGO_FACTURA">
+      <http:operation location="/REX_CONFIRMA_PAGO_FACTURA" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONFIRMA_RECARGA">
+      <http:operation location="/REX_CONFIRMA_RECARGA" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceHttpPost" type="tns:ServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetIP">
+      <http:operation location="/GetIP" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestaHoras">
+      <http:operation location="/RestaHoras" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_TIPO_RECLAMACION">
+      <http:operation location="/REX_CONSULTA_TIPO_RECLAMACION" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_RECLAMACION">
+      <http:operation location="/REX_CONSULTA_RECLAMACION" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_CLIENTE_PREPAGO">
+      <http:operation location="/REX_CONSULTA_CLIENTE_PREPAGO" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_CLIENTE_POSTPAGO">
+      <http:operation location="/REX_CONSULTA_CLIENTE_POSTPAGO" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_CLIENTE_POSTPAGO_BAN">
+      <http:operation location="/REX_CONSULTA_CLIENTE_POSTPAGO_BAN" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_TASA">
+      <http:operation location="/REX_CONSULTA_TASA" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONSULTA_LIMITE_DISPONIBLE">
+      <http:operation location="/REX_CONSULTA_LIMITE_DISPONIBLE" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_APERTURA_RECLAMACION">
+      <http:operation location="/REX_APERTURA_RECLAMACION" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Enviar_SMS_SMPP">
+      <http:operation location="/Enviar_SMS_SMPP" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="Enviar_SMS">
+      <http:operation location="/Enviar_SMS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="REX_PROCESA_PAGO_FACTURA">
+      <http:operation location="/REX_PROCESA_PAGO_FACTURA" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_PROCESA_PAGO_FACTURA_BAN">
+      <http:operation location="/REX_PROCESA_PAGO_FACTURA_BAN" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_PROCESA_RECARGA">
+      <http:operation location="/REX_PROCESA_RECARGA" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_PROCESA_RECARGA_BONO">
+      <http:operation location="/REX_PROCESA_RECARGA_BONO" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_REVERSO_PAGO_FACTURA">
+      <http:operation location="/REX_REVERSO_PAGO_FACTURA" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_REVERSO_PAGO_FACTURA_BAN">
+      <http:operation location="/REX_REVERSO_PAGO_FACTURA_BAN" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_REVERSO_RECARGA">
+      <http:operation location="/REX_REVERSO_RECARGA" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONFIRMA_PAGO_FACTURA">
+      <http:operation location="/REX_CONFIRMA_PAGO_FACTURA" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="REX_CONFIRMA_RECARGA">
+      <http:operation location="/REX_CONFIRMA_RECARGA" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://nttappsweb0003/wsREX/service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://nttappsweb0003/wsREX/service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceHttpGet" binding="tns:ServiceHttpGet">
+      <http:address location="http://nttappsweb0003/wsREX/service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceHttpPost" binding="tns:ServiceHttpPost">
+      <http:address location="http://nttappsweb0003/wsREX/service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

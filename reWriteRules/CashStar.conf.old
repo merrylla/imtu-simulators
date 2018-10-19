@@ -1,0 +1,10 @@
+RewriteLogLevel 0
+RewriteLog "/u/debit/logs/rewrite.log"
+
+<Directory /u/debit/apps/htdocs/CashStar>
+RewriteEngine On
+#AllowOverride All
+Options FollowSymLinks
+RewriteRule ^(\w+)$ CashStar.php?cmd=$1 [QSA,L]
+#RewriteRule /order/(.+) /CashStar.php?cmd=$1 [QSA]
+</Directory>

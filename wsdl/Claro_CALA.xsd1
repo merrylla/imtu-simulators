@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.2.0-1 (tags/2.2.0u1-7139; 2012-06-02T10:55:19+0000) JAXWS-RI/2.2.6-2 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://www.claro.com.hn/esb/ws/topups/" xmlns:ns1="http://www.claro.com.hn/esb/ws/ops/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://www.claro.com.hn/esb/ws/topups/">
+
+<xs:import namespace="http://www.claro.com.hn/esb/ws/ops/" schemaLocation="Claro_CALA.xsd2"/>
+
+<xs:element name="balanceEnquiry" nillable="true" type="ns1:balanceEnquiry"/>
+
+<xs:element name="balanceEnquiryResponse" nillable="true" type="ns1:balanceEnquiryResponse"/>
+
+<xs:element name="echo" nillable="true" type="ns1:echo"/>
+
+<xs:element name="echoResponse" nillable="true" type="ns1:echoResponse"/>
+
+<xs:element name="getTransaction" nillable="true" type="ns1:getTransaction"/>
+
+<xs:element name="getTransactionResponse" nillable="true" type="ns1:getTransactionResponse"/>
+
+<xs:element name="topup" type="tns:topup"/>
+
+<xs:element name="topupResponse" type="tns:topupResponse"/>
+
+<xs:element name="validateSubscriber" type="tns:validateSubscriber"/>
+
+<xs:element name="validateSubscriberResponse" type="tns:validateSubscriberResponse"/>
+
+<xs:complexType name="validateSubscriber">
+<xs:sequence>
+<xs:element name="msisdn" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="validateSubscriberResponse">
+<xs:sequence>
+<xs:element name="result" type="tns:esbCoreTransResult" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="esbCoreTransResult">
+<xs:sequence>
+<xs:element name="birthDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="conversionRate" type="xs:decimal" minOccurs="0"/>
+<xs:element name="currentBalance" type="xs:decimal" minOccurs="0"/>
+<xs:element name="datetime" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="distAmount" type="xs:decimal" minOccurs="0"/>
+<xs:element name="identidad" type="xs:string" minOccurs="0"/>
+<xs:element name="msisdn" type="xs:string" minOccurs="0"/>
+<xs:element name="newBalance" type="xs:decimal" minOccurs="0"/>
+<xs:element name="operAmount" type="xs:decimal" minOccurs="0"/>
+<xs:element name="responseCode" type="xs:short"/>
+<xs:element name="transId" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="topup">
+<xs:sequence>
+<xs:element name="distId" type="xs:string" minOccurs="0"/>
+<xs:element name="distPass" type="xs:string" minOccurs="0"/>
+<xs:element name="transId" type="xs:string" minOccurs="0"/>
+<xs:element name="msisdn" type="xs:string" minOccurs="0"/>
+<xs:element name="amount" type="xs:decimal" minOccurs="0"/>
+<xs:element name="distCategory" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="topupResponse">
+<xs:sequence>
+<xs:element name="result" type="tns:esbCoreTransResult" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

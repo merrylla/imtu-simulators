@@ -1,0 +1,8 @@
+#!/bin/ksh
+
+cd /u/debit/apps/htdocs/MarchNest
+
+export SYSHOME=/u/debit
+export PERLLIB=/u/debit/lib/perl
+
+./marchNest.pl --port=3000 &
