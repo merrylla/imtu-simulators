@@ -37,10 +37,10 @@ border: 1px solid purple;
 "B2C/Bridge2Call.wsdl">http://devcall02.ixtelecom.com/B2C/Bridge2Call.wsdl</a>
 </td>
 </tr>
-<tr><td>CashStar/CashStarSvr.php</td> 
+<tr><td>CashStar</td> 
 <td>RESTful receives XML responds with JSON</td>
 <td>Full and partial</td>
-<td>Many .. Too numerous to specify here</td></tr>
+<td>Many .. Too numerous to specify here But, reWrite rules define CashStarSvr.php as the server</td></tr>
 <tr><td>CLAROPR/ClaroPRSvr.php</td>
 <td>SOAP</td>
 <td>No</td>
@@ -66,7 +66,6 @@ border: 1px solid purple;
 <td>RESTful (XML)</td>
 <td>No</td>
 </tr>
-
 <tr><td>CSQ/CSQServer.php</td>
 <td>SOAP</td>
 <td>Yes</td>
@@ -114,6 +113,10 @@ border: 1px solid purple;
 <td>No</td>
 <td>^([\w-]+)/([\w-]+)/(\w+)$ ETECSASvr.php?cmd=$3 [QSA,L]</td>
 </tr>
+<tr><td>ePhoneX/ephonexSvr.php</td>
+<td>RESTful (XML)</td>
+<td>No</td>
+</tr>
 <tr><td>Evieg/EviegSvr.php</td>
 <td>RESTful (XML)</td>
 <td>No</td>
@@ -130,16 +133,28 @@ border: 1px solid purple;
 "ezetop/ezetop.wsdl">http://devcall02.ixtelecom.com/ezetop/ezetop.wsdl</a>
 </td>
 </tr>
-<tr><td>F1soft/F1softSvr.php</td>
+<tr><td>F1soft/ncellbillpay</td>
 <td>RESTful (XML)</td>
 <td>No</td>
-<td>^(\w+)$ F1softSvr.php?cmd=$1 [QSA,L]</td>
+<td>^(\w+)$ F1softSvr.php?cmd=$1 [QSA,L] <font color="#008900">    ...Note that reWrite rule changes the URL </font color></td>
+</tr>
+<tr><td>F1soft/ncellbillstatus</td>
+<td>RESTful (XML)</td>
+<td>No</td>
+<td>^(\w+)$ F1softSvr.php?cmd=$1 [QSA,L]    <font color="#008900">   ...Note that rule changes the URL</font color></td>
 </tr>
 <tr><td>Globe/GlobeServer.php</td> 
 <td>SOAP</td>
 <td>No</td>
 <td><a href= 
 "Globe/GlobeGCash.wsdl">http://devcall02.ixtelecom.com/Globe/GlobeGCash.wsdl</a>
+</td>
+</tr>
+<tr><td>IMTU-Globe/imtuGlobe.php</td> 
+<td>SOAP</td>
+<td>No</td>
+<td><a href= 
+"wsdl/IMTU-Globe.wsdl">http://devcall02.ixtelecom.com/wsdl/IMTU-Globe.wsdl</a>
 </td>
 </tr>
 <tr><td>Inov8/Inov8Svr.php</td> 
@@ -155,17 +170,30 @@ border: 1px solid purple;
 <td><A HREF="wsdl/iSend.wsdl">http://devcall02.ixtelecom.com/wsdl/iSend.wsdl
 </A></td>
 </tr>
-<tr><td>MediaMind/MediaMindSvr.php</td> 
+<tr><td>LIME/limeSvr.php</td> 
+<td>SOAP</td>
+<td>No</td>
+<td><A HREF="LIME/LIME.wsdl">http://devcall02.ixtelecom.com/LIME/LIME.wsdl
+</A></td>
+</tr>
+<tr><td>LIME/limeSvrJM.php</td> 
+<td>SOAP</td>
+<td>No</td>
+<td><A HREF="LIME/LIME.wsdl">http://devcall02.ixtelecom.com/LIME/LIME.wsdl
+</A></td>
+</tr>
+<tr><td>MediaMind/api/Orders  ReWrite rules set URL to include MediaMindSvr.php</td> 
 <td>RESTful (JSON)</td>
 <td>yes</td>
 <td>^(\w+)/(\w+)/([\w-]+)/(\w+[\-]*\w+)$ MediaMindSvr.php?xmd=$2&id=$3&cmd=$4 [L]</td>
 </tr>
-<tr><td>MoneyAccess/MoneyAccessSvr.php</td> 
+<tr><td>MoneyAccess/egift-cards</td> 
 <td>RESTful receives XML responds with either JSON or XML</td>
 <td>yes</td>
-<td>^([\w-]+)/([\w-]+)/(\w+)$ MoneyAccessSvr.php?cmd=$3 [QSA,L]</td>
+<td>^([\w-]+)/([\w-]+)/(\w+)$ MoneyAccessSvr.php?cmd=$3 [QSA,L]    ....Note that reWrite rule changes URL</td>
 </tr>
-<tr><td>Multired/MultiredSvr.php</td> 
+<tr><td>Multired  
+<font color="#008900">   ...Rules set URL to include MultiredSvr.php</font color></td>
 <td>RESTful (JSON)</td>
 <td>yes</td>
 <td>^(\w+)/([\w-]+)/(\w*)$ MultiredSvr.php?cmd=$1&tid=$2&subcmd=$3 [L]</td>
@@ -178,6 +206,12 @@ border: 1px solid purple;
 <td>SOAP</td>
 <td>no</td>
 <td><A HREF="http://devcall02.ixtelecom.com/wsdl/Orange.wsdl">http://devcall02.ixtelecom.com/wsdl/Orange.wsdl
+</A></td>
+</tr>
+<tr><td>PaqTigo/PaquetigoSvr.php</td>
+<td>SOAP</td>
+<td>No</td>
+<td><A HREF="wsdl/PaqTigo.wsdl">http://devcall02.ixtelecom.com/wsdl/PaqTigo.wsdl
 </A></td>
 </tr>
 <tr><td>Pinserve/Pinserve.php</td>
@@ -200,11 +234,16 @@ border: 1px solid purple;
 "wsdl/Prasan.wsdl">http://devcall02.ixtelecom.com/wsdl/Prasan.wsdl</a>
 </td>
 </tr>
-<tr><td>Quippi/QuippiSvr.php</td>
+<tr><td>Quippi ReWrite rules set URL to include QuippiSvr.php</td>
 <td>RESTful (XML and JSON are both understood in the response)</td>
 <td>no</td>
 <td>^(\w+)/([\w-]+)/(\w*)$ QuippiSvr.php?cmd=$1&subcmd=$3 [L]</td>
 </tr>
+<tr><td>SIMXpress/SIMXpressSvr.php</td>
+<td>SOAP</td>
+<td>no</td>
+<td><a href= 
+"SIMXpress/SIMExpressR17.wsdl">http://devcall02.ixtelecom.com/SIMXpress/SIMExpressR17.wsdl</a>
 <tr><td>SmartLoad/SmartLoadSvr.php</td>
 <td>RESTful (JSON)</td>
 <td>no</td>
@@ -228,9 +267,51 @@ border: 1px solid purple;
 "wsdl/Tigo.wsdl">http://devcall02.ixtelecom.com/wsdl/Tigo.wsdl</a>
 </td>
 </tr>
+<tr><td>TigoColombia/TigoColombiaSvr.php</td>
+<td>SOAP</td>
+<td>no</td>
+<td><a href= 
+"TigoColombia/TigoColombia.wsdl">http://devcall02.ixtelecom.com/TigoColombia/TigoColombia.wsdl</a>
+</td>
+</tr>
 <tr><td>TransferTo/transferToSvr.php</td>
 <td>RESTful (XML) with MD5</td>
 <td>no</td>
+</tr>
+</tr>
+<tr><td>Trilogy/TrilogySvr.php</td>
+<td>SOAP</td>
+<td>no</td>
+<td><a href= 
+"Trilogy/Trilogy.wsdl">http://devcall02.ixtelecom.com/Trilogy/Trilogy.wsdl</a>
+</td>
+</tr>
+<tr><td>Tranglo/TrangloSvr.php</td>
+<td>SOAP</td>
+<td>no</td>
+<td><a href= 
+"wsdl/Tranglo_EPin_Reload.wsdl">http://devcall02.ixtelecom.com/wsdl/Tranglo_EPin_Reload.wsdl</a>
+</td>
+</tr>
+<tr><td>VivaBO/VivaBOSvr.php</td>
+<td>SOAP</td>
+<td>no</td>
+<td><a href= 
+"VivaBO/NuevaTel.wsdl">http://devcall02.ixtelecom.com/VivaBO/NuevaTel.wsdl</a>
+</td>
+</tr>
+<tr><td>VivaDO/VivaDOSvr.php</td>
+<td>SOAP</td>
+<td>no</td>
+<td><a href= 
+"VivaDO/FI_VivaRecharge.wsdl">http://devcall02.ixtelecom.com/VivaDO/FI_VivaRecharge.wsdl</a>
+</td>
+<tr><td>VNPT/vnptSvr.php</td>
+<td>SOAP</td>
+<td>no</td>
+<td><a href= 
+"VNPT/vnptTopupInterface.wsdl">http://devcall02.ixtelecom.com/VNPT/vnptTopupInterface.wsdl</a>
+</td>
 </tr>
 </table>
 </body></html>
